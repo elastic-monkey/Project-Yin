@@ -56,4 +56,36 @@ public class DialogueLoader{
 		npcDialog.Lines.Sort ();
 		return npcDialog;
 	}
+
+	public static TerminalInformation GetTerminalInfo(string terminalName){
+		var terminalInformation = new TerminalInformation ();
+		terminalInformation.logs = new List<TerminalLog> ();
+
+		var dialogueFile = OpenDialogueFile("Terminal");
+		var terminalLogs = dialogueFile.SelectSingleNode ("/Document/" + terminalName);
+
+		foreach (XmlNode log in terminalLogs) {
+			terminalInformation.logs.Add (ParseTerminalLog (log));
+		}
+
+		terminalInformation.logs.Sort ();
+		return terminalInformation;
+	}
+
+	public static TerminalLog ParseTerminalLog(XmlNode xmlLog){
+		var log = new TerminalLog();
+
+		foreach(XmlAttribute attr in xmlLog.Attributes){
+			switch(attr.Name){
+				case "id":
+					log.Id = int.Parse (attr.Value);
+					break;
+				case "title":
+					log.title = attr.Value;
+					break;
+			}
+		}
+		log.text = xmlLog.InnerText.Trim ();
+		return log;
+	}
 }

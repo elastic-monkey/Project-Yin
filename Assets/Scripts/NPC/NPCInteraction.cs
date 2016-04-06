@@ -32,17 +32,9 @@ public class NPCInteraction : MonoBehaviour {
 		_interactionText = InteractionPrompt.GetComponentInChildren<Text>();
 		Text[] textComponents = DialogueWindow.GetComponentsInChildren<Text> ();
 		_interactionText.text = "Talk with " + _npcName;
-		_dialogueText = textComponents [0];
-		_speakerName = textComponents [1];
+		_speakerName = textComponents [0];
+		_dialogueText = textComponents [1];
 		_npcDialogueList = DialogueLoader.GetNPCDialogue (transform.parent.name.ToString ());
-
-		foreach (NPCDialogue d in _npcDialogueList) {
-			print ("dialogue id: " + d.Id);
-			foreach (NPCLine l in d.Lines) {
-				print ("line id: " + l.Id);
-				print(l.text);
-			}
-		}
 
 		_currentLine = 0;
 		_currentDialogue = 0;
