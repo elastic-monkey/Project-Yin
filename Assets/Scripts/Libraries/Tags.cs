@@ -4,7 +4,9 @@ using System.Collections;
 public enum Tags
 {
     Player,
-    Enemy
+    Enemy,
+    PlayerRange,
+    EnemyRange
 }
 
 public static class TagHelper

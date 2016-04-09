@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour, IDamageable
+public class Health : MonoBehaviour
 {
     public float MaxHealth = 100f;
     public Slider HealthSlider;
@@ -33,13 +33,5 @@ public class Health : MonoBehaviour, IDamageable
     void Awake()
     {
         CurrentHealth = MaxHealth;
-    }
-
-    public void TakeDamage(float damage)
-    {
-        if (CurrentHealth > 0)
-        {
-            CurrentHealth -= damage;
-        }
     }
 }

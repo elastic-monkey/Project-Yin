@@ -5,17 +5,16 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Collider))]
 public class AttackBehavior : MonoBehaviour
 {
+    public Tags EnemyTag;
     public Attack[] Attacks;
-    [Range(0, 1)]
-    public float DamageMultiplier = 1f;
     public bool AutomaticAttack = false;
     public bool AttackIsOn = true;
     public bool Attacking = false;
 
     private float _currentDamage;
-    private int _playerHash;
+    private int _hashToAttack;
     private Stamina _stamina;
-    private List<Collider> _playersInRange;
+    private List<Collider> _collidersInRange;
 
     public bool CanAttack
     {
@@ -25,11 +24,19 @@ public class AttackBehavior : MonoBehaviour
         }
     }
 
+    public bool HasEnemiesInRange
+    {
+        get
+        {
+            return _collidersInRange.Count > 0;
+        }
+    }
+
     void Awake()
     {
         _stamina = GetComponentInParent<Stamina>();
-        _playerHash = Tags.Player.ToHash();
-        _playersInRange = new List<Collider>();
+        _hashToAttack = EnemyTag.ToHash();
+        _collidersInRange = new List<Collider>();
     }
 
     void Update()
@@ -37,7 +44,7 @@ public class AttackBehavior : MonoBehaviour
         if (!AutomaticAttack || !CanAttack)
             return;
 
-        if (_playersInRange.Count > 0)
+        if (_collidersInRange.Count > 0)
         {
             ChooseAndApplyAttack();
         }
@@ -45,19 +52,16 @@ public class AttackBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        var timer = new System.Diagnostics.Stopwatch();
-        timer.Start();
-
         var otherHash = other.tag.GetHashCode();
-        if (otherHash == _playerHash && !_playersInRange.Contains(other))
+        if (otherHash == _hashToAttack && !_collidersInRange.Contains(other))
         {
-            _playersInRange.Add(other);
+            _collidersInRange.Add(other);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        _playersInRange.Remove(other);
+        _collidersInRange.Remove(other);
     }
 
     public void ChooseAndApplyAttack()
@@ -107,23 +111,23 @@ public class AttackBehavior : MonoBehaviour
 
         _stamina.ConsumeStamina(attack.StaminaCost);
 
-        foreach (var target in _playersInRange)
+        foreach (var target in _collidersInRange)
         {
-            var damageable = target.GetComponent<IDamageable>();
+            var defense = target.GetComponent<DefenseBehavior>();
 
-            if (damageable != null)
-                damageable.TakeDamage(attack.Damage * DamageMultiplier);
+            if (defense != null)
+                defense.TakeDamage(attack.Damage);
         }
 
-        yield return new WaitForSeconds(attack.Duration - attack.HitTime);
+        yield return new WaitForSeconds(Mathf.Max(0, attack.Duration - attack.HitTime));
         Attacking = false;
     }
 
     [System.Serializable]
     public class Attack
     {
-        public float Damage;
-        public float StaminaCost;
+        public int Damage;
+        public int StaminaCost;
         public float Duration, HitTime;
     }
 }

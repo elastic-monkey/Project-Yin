@@ -6,7 +6,8 @@ public class Stamina : MonoBehaviour
     public float MaxStamina = 100f;
     public float RegenerationRate = 10f;
     public Slider StaminaSlider;
-    public bool Regenerating;
+    public bool RegenerateIsOn = true;
+    public bool Regenerating = false;
 
     private float _currentStamina;
 
@@ -28,22 +29,15 @@ public class Stamina : MonoBehaviour
     void Awake()
     {
         CurrentStamina = MaxStamina;
-        Regenerating = true;
-    }
-
-    void Start()
-    {
-
     }
 
     void Update()
     {
-        if (Regenerating)
+        if (RegenerateIsOn && Regenerating)
         {
             CurrentStamina += RegenerationRate * Time.deltaTime;
+            Regenerating = Regenerating && CurrentStamina < MaxStamina;
         }
-
-        Regenerating = Regenerating && CurrentStamina < MaxStamina;
     }
 
     public void ConsumeStamina(float stamina)
