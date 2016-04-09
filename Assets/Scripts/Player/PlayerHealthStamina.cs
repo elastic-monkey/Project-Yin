@@ -11,10 +11,16 @@ public class PlayerHealthStamina : MonoBehaviour {
 	public float StaminaRegenRate = 10f;
 	public Slider HealthSlider;
 	public Slider StaminaSlider;
+	public float DamageReduction = 50;
+
+	private Animator _animator;
+	private HashIDs _hash;
 
 	void Awake(){
 		CurrentHealth = StartingHealth;
 		CurrentStamina = StartingStamina;
+		_animator = gameObject.GetComponent<Animator> ();
+		_hash = gameObject.GetComponent<HashIDs> ();
 	}
 
 	void Update(){
@@ -25,6 +31,9 @@ public class PlayerHealthStamina : MonoBehaviour {
 
 	public void TakeDamage(float damage){
 		if (CurrentHealth > 0) {
+			if (_animator.GetBool(_hash.DefendingBool)) {
+				damage = damage * (DamageReduction / 100.0f);
+			}
 			CurrentHealth -= damage;
 			HealthSlider.value = CurrentHealth;
 		}

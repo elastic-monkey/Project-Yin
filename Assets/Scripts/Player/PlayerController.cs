@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour {
 			float h = Input.GetAxis ("Horizontal");
 			float v = Input.GetAxis ("Vertical");
 			MovementManagement (h, v);
+		} else {
+			_rigidBody.velocity = gameObject.transform.forward.normalized * 0f;
 		}
 	}
 
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 			_animator.SetFloat(_hash.SpeedFloat, SpeedThreshold, SpeedDampTime, Time.deltaTime);
 			_rigidBody.velocity = gameObject.transform.forward.normalized * MoveSpeed;
 		} else {
-			_animator.SetFloat(_hash.SpeedFloat, 0);
+			_animator.SetFloat(_hash.SpeedFloat, 0f);
 			_rigidBody.velocity = gameObject.transform.forward.normalized * 0f;
 		}
 	}

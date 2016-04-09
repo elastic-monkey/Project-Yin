@@ -7,6 +7,7 @@ public class HashIDs : MonoBehaviour
 	public int DeadBool;
 	public int SpeedFloat;
 	public int AttackingBool;
+	public int DefendingBool;
 
 	void Awake ()
 	{
@@ -14,5 +15,6 @@ public class HashIDs : MonoBehaviour
 		DeadBool = Animator.StringToHash("Dead");
 		SpeedFloat = Animator.StringToHash("Speed");
 		AttackingBool = Animator.StringToHash("Attacking");
+		DefendingBool = Animator.StringToHash ("Defending");
 	}
 }
