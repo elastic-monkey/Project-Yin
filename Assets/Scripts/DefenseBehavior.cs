@@ -7,16 +7,14 @@ public class DefenseBehavior : MonoBehaviour
 {
     public Tags EnemyTag;
     public Defense[] Defenses;
-    public bool AutomaticDefense = false;
     public bool DefenseIsOn = true;
     public bool Defending = false;
 
     private Health _health;
     private Stamina _stamina;
-    private int _hashToDefendFrom;
     private int _currentDefense;
     private bool _cancelDefense;
-    private List<Collider> _collidersInRange;
+    
 
     public int CurrentDefense
     {
@@ -39,55 +37,15 @@ public class DefenseBehavior : MonoBehaviour
         }
     }
 
-    public bool HasThreatsInRange
-    {
-        get
-        {
-            return _collidersInRange.Count > 0;
-        }
-    }
-
     void Awake()
     {
         _health = GetComponent<Health>();
         _stamina = GetComponent<Stamina>();
-        _hashToDefendFrom = EnemyTag.ToHash();
-        _collidersInRange = new List<Collider>();
     }
 
     void Start()
     {
         CurrentDefense = 0;
-    }
-
-    void Update()
-    {
-        if (!AutomaticDefense || !CanDefend)
-            return;
-
-        if (_collidersInRange.Count > 0)
-        {
-            ChooseAndApplyDefense();
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        var otherHash = other.tag.GetHashCode();
-        if (otherHash == _hashToDefendFrom && !_collidersInRange.Contains(other))
-        {
-            _collidersInRange.Add(other);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        _collidersInRange.Remove(other);
-        if (_collidersInRange.Count == 0)
-        {
-            // This will only be effective if active defense is no-duration defense
-            CancelDefense();
-        }
     }
 
     public void TakeDamage(int damage)
@@ -126,7 +84,6 @@ public class DefenseBehavior : MonoBehaviour
 
         ApplyDefense(best);
     }
-
 
     public void ApplyDefense(int index)
     {

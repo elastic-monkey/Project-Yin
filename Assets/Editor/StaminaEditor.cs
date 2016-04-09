@@ -2,7 +2,7 @@
 using UnityEditor;
 
 [CustomEditor(typeof(Stamina))]
-public class EnemyStaminaEditor : Editor
+public class StaminaEditor : Editor
 {
     private Stamina _script;
 

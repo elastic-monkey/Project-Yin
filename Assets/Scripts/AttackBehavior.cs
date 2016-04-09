@@ -2,19 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(Collider))]
 public class AttackBehavior : MonoBehaviour
 {
     public Tags EnemyTag;
     public Attack[] Attacks;
-    public bool AutomaticAttack = false;
     public bool AttackIsOn = true;
     public bool Attacking = false;
+    [HideInInspector]
+    public List<Collider> Targets;
 
     private float _currentDamage;
-    private int _hashToAttack;
     private Stamina _stamina;
-    private List<Collider> _collidersInRange;
 
     public bool CanAttack
     {
@@ -24,44 +22,9 @@ public class AttackBehavior : MonoBehaviour
         }
     }
 
-    public bool HasEnemiesInRange
-    {
-        get
-        {
-            return _collidersInRange.Count > 0;
-        }
-    }
-
     void Awake()
     {
-        _stamina = GetComponentInParent<Stamina>();
-        _hashToAttack = EnemyTag.ToHash();
-        _collidersInRange = new List<Collider>();
-    }
-
-    void Update()
-    {
-        if (!AutomaticAttack || !CanAttack)
-            return;
-
-        if (_collidersInRange.Count > 0)
-        {
-            ChooseAndApplyAttack();
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        var otherHash = other.tag.GetHashCode();
-        if (otherHash == _hashToAttack && !_collidersInRange.Contains(other))
-        {
-            _collidersInRange.Add(other);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        _collidersInRange.Remove(other);
+        _stamina = GetComponent<Stamina>();
     }
 
     public void ChooseAndApplyAttack()
@@ -111,7 +74,7 @@ public class AttackBehavior : MonoBehaviour
 
         _stamina.ConsumeStamina(attack.StaminaCost);
 
-        foreach (var target in _collidersInRange)
+        foreach (var target in Targets)
         {
             var defense = target.GetComponent<DefenseBehavior>();
 
