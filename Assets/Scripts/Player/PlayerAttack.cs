@@ -13,12 +13,12 @@ public class PlayerAttack : MonoBehaviour {
 	private List<Collider> _enemies;
 	private float _attackTimer;
 	private Animator _animator;
-	private PlayerHealthStamina _playerStats;
+	private PlayerStamina _playerStamina;
 	private HashIDs _hash;
 
 	void Awake(){
 		_enemies = new List<Collider> ();
-		_playerStats = gameObject.GetComponentInParent<PlayerHealthStamina> ();
+		_playerStamina = gameObject.GetComponentInParent<PlayerStamina> ();
 		_animator = gameObject.GetComponentInParent<Animator> ();
 		_hash = gameObject.GetComponentInParent<HashIDs> ();
 		CanAttack = true;
@@ -49,7 +49,7 @@ public class PlayerAttack : MonoBehaviour {
 				_animator.SetBool (_hash.AttackingBool, true);
 				_attackTimer = AttackCooldown;
 				StartCoroutine (AttackCoroutine ());
-				_playerStats.ConsumeStamina (20);
+				_playerStamina.ConsumeStamina (20);
 			}
 		}
 		if (_animator.GetBool(_hash.AttackingBool)) {
