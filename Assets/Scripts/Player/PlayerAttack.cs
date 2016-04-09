@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	public static bool CanAttack;
 
-	public float AttackCooldown = 1.367f;
+	public float AttackCooldown = 1.2f;
 	public float AttackInactiveTime = 0.2f;
 	public float AttackDamage = 20f;
 
@@ -26,8 +26,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider)
 	{
-		if (collider.CompareTag ("Enemy")) {
-			print ("Enemy in Range");
+		if (collider.CompareTag ("Enemy") && !_enemies.Contains(collider)) {
 			_enemies.Add (collider);
 		}
 	}
@@ -44,27 +43,17 @@ public class PlayerAttack : MonoBehaviour {
 	void AttackManagement(){
 		if (CanAttack) {
 			if (Input.GetButtonDown ("Fire2")) {
-				CanAttack = false;
-				PlayerController.CanMove = false;
-				_animator.SetBool (_hash.AttackingBool, true);
-				_attackTimer = AttackCooldown;
 				StartCoroutine (AttackCoroutine ());
-				_playerStamina.ConsumeStamina (20);
-			}
-		}
-		if (_animator.GetBool(_hash.AttackingBool)) {
-			if (_attackTimer > 0) {
-				_attackTimer -= Time.deltaTime;
-			} else {
-				_animator.SetBool (_hash.AttackingBool, false);
-				PlayerController.CanMove = true;
-				CanAttack = true;
 			}
 		}
 	}
 
 	IEnumerator AttackCoroutine(){
-		print ("routine");
+		CanAttack = false;
+		PlayerController.CanMove = false;
+		_animator.SetBool (_hash.AttackingBool, true);
+		_playerStamina.ConsumeStamina (20);
+
 		yield return new WaitForSeconds (AttackInactiveTime);
 		foreach(Collider enemy in _enemies){
 			float dot = Vector3.Dot(transform.forward, (enemy.transform.position - transform.position).normalized);
@@ -72,5 +61,10 @@ public class PlayerAttack : MonoBehaviour {
 				enemy.GetComponent<EnemyHealthStamina> ().TakeDamage (AttackDamage);
 			}
 		}
+		yield return new WaitForSeconds(Mathf.Max(0, AttackCooldown - AttackInactiveTime));
+
+		_animator.SetBool (_hash.AttackingBool, false);
+		PlayerController.CanMove = true;
+		CanAttack = true;
 	}
 }
