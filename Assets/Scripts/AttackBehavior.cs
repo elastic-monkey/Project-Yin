@@ -118,4 +118,12 @@ public class AttackBehavior : MonoBehaviour
         yield return new WaitForSeconds(attack.Duration - attack.HitTime);
         Attacking = false;
     }
+
+    [System.Serializable]
+    public class Attack
+    {
+        public float Damage;
+        public float StaminaCost;
+        public float Duration, HitTime;
+    }
 }
