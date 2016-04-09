@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public float MoveSpeed = 6f;
 	public float AngleThreshold = 80f;
 	public float SpeedThreshold = 1f;
+	public float TurningSpeed = 50f;
 
 	private Animator _animator;
 	private Rigidbody _rigidBody;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 	void MovementManagement(float hor, float vert){
 		if (hor > 0.1f || hor < -0.1f || vert > 0.1f || vert < -0.1f) {
 			Rotating (hor, vert);
+			//_animator.SetBool (_hash.SuddenShiftBool, false);
 			_animator.SetFloat(_hash.SpeedFloat, SpeedThreshold, SpeedDampTime, Time.deltaTime);
 			_rigidBody.velocity = gameObject.transform.forward.normalized * MoveSpeed;
 		} else {
@@ -51,7 +53,9 @@ public class PlayerController : MonoBehaviour {
 			Quaternion newRotation = Quaternion.Lerp (_rigidBody.rotation, targetRotation, TurnSmoothing * Time.deltaTime);
 			_rigidBody.MoveRotation (newRotation);
 		} else {
+			_animator.SetBool (_hash.SuddenShiftBool, true);
 			_rigidBody.MoveRotation (targetRotation);
+			_animator.SetBool (_hash.SuddenShiftBool, false);
 		}
 	}
 
