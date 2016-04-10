@@ -230,7 +230,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 11404022, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
+    - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
       propertyPath: Target
       value: 
       objectReference: {fileID: 1172593044}
@@ -238,7 +238,7 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1855781054}
-    - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
+    - target: {fileID: 11404022, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
       propertyPath: Target
       value: 
       objectReference: {fileID: 1172593044}
@@ -257,22 +257,6 @@ Prefab:
     - target: {fileID: 22490964, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404022, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: LineOfSight
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 19589550, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_Acceleration
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 19589550, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_Speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404022, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: AngleOfSight
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
@@ -495,7 +479,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 496986184}
   - 135: {fileID: 496986186}
-  - 114: {fileID: 496986185}
   m_Layer: 2
   m_Name: AttackRange
   m_TagString: PlayerRange
@@ -515,20 +498,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1172593044}
   m_RootOrder: 2
---- !u!114 &496986185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 496986183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce556e1ccea8a9469fef318eb05e8c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackCooldown: 1.367
-  AttackInactiveTime: 0.2
-  AttackDamage: 20
 --- !u!135 &496986186
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -948,15 +917,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1172593040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72f69e656d9116341beb34adbd99a7c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3be0c631ac32cc140a97d6104fe71945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnSmoothing: 10
-  SpeedDampTime: 0.1
-  MoveSpeed: 5
-  AngleThreshold: 80
-  SpeedThreshold: 1
-  TurningSpeed: 50
 --- !u!54 &1172593042
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -980,14 +943,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1172593040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62c543a690aa1441a3461a7823b3540, type: 3}
+  m_Script: {fileID: 11500000, guid: d3a71baa89b511f4b880c7295e28d947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TurnSmoothing: 10
+  MoveSpeed: 6
+  Acceleration: 8
+  AngleThreshold: 80
+  TurningSpeed: 50
+  InputThreshold: 0.1
+  MoveSpeedMulti: 1
+  CanMove: 1
+  Moving: 0
 --- !u!4 &1172593044 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
   m_PrefabInternal: {fileID: 1555075697}
---- !u!114 &1172593046
+--- !u!114 &1172593045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -995,16 +967,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1172593040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9318e3c6c6ff7554aabd68935175b4c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 377938be936fc384394229f9a23327aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementState: 0
-  DeadBool: 0
-  SpeedFloat: 0
-  AttackingBool: 0
-  DefendingBool: 0
-  SpeedMultiFloat: 0
-  SuddenShiftBool: 0
+  EnemyTag: 0
+  Attacks:
+  - Damage: 10
+    Radius: 1
+    Angle: 10
+    StaminaCost: 10
+    Duration: 0.5
+    HitTime: 0.25
+  CanAttack: 1
+  Attacking: 0
+  Targets: []
 --- !u!136 &1172593047
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LineOfSight: 10
-  AngleOfSight: 50
+  AngleOfSight: 140
   CheckForEnemyRate: 15
   Target: {fileID: 0}
   Asleep: 0
@@ -536,15 +536,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyTag: 0
   Attacks:
-  - Damage: 0
-    StaminaCost: 0
-    Duration: 0.75
-    HitTime: 0.35
-  - Damage: 0
-    StaminaCost: 0
-    Duration: 2
-    HitTime: 1
-  AttackIsOn: 1
+  - Damage: 10
+    Radius: 1
+    Angle: 10
+    StaminaCost: 15
+    Duration: 1
+    HitTime: 0.5
+  CanAttack: 1
   Attacking: 0
   Targets: []
 --- !u!114 &11478826
@@ -677,11 +675,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 183296}
   m_Enabled: 1
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 3
+  m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 10
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

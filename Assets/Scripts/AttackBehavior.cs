@@ -2,23 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Animator))]
 public class AttackBehavior : MonoBehaviour
 {
     public Tags EnemyTag;
     public Attack[] Attacks;
-    public bool AttackIsOn = true;
+    public bool CanAttack = true;
     public bool Attacking = false;
     [HideInInspector]
     public List<Collider> Targets;
 
-    private float _currentDamage;
     private Stamina _stamina;
 
-    public bool CanAttack
+    private bool CanPerformNewAttack
     {
         get
         {
-            return AttackIsOn && !Attacking;
+            return CanAttack && !Attacking;
         }
     }
 
@@ -55,15 +55,15 @@ public class AttackBehavior : MonoBehaviour
     // on the editor, for example, or with input controls
     public void ApplyAttack(int attackIndex)
     {
-        if (!CanAttack)
+        if (!CanPerformNewAttack)
             return;
 
         var chosenAttack = Attacks[attackIndex];
 
-        if (_stamina.CanConsume(chosenAttack.StaminaCost))
-        {
-            StartCoroutine(AttackCoroutine(chosenAttack));
-        }
+        if (!_stamina.CanConsume(chosenAttack.StaminaCost))
+            return;
+
+        StartCoroutine(AttackCoroutine(chosenAttack));
     }
 
     private IEnumerator AttackCoroutine(Attack attack)
@@ -90,7 +90,12 @@ public class AttackBehavior : MonoBehaviour
 [System.Serializable]
 public class Attack
 {
-    public int Damage;
-    public int StaminaCost;
-    public float Duration, HitTime;
+    public int Damage = 10;
+    [Range(1, 10)]
+    public float Radius = 1;
+    [Tooltip("This is the full opening angle between the object's forward direction and the enemies.")]
+    [Range(10, 360)]
+    public float Angle = 10f;
+    public int StaminaCost = 10;
+    public float Duration = 0f, HitTime = 0f;
 }

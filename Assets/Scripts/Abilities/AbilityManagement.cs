@@ -12,11 +12,9 @@ public class AbilityManagement : MonoBehaviour {
 
 	private Animator _animator;
 	private List<Ability> _abilites;
-	private HashIDs _hash;
 
 	void Awake(){
 		_animator = gameObject.GetComponent<Animator> ();
-		_hash = gameObject.GetComponent<HashIDs> ();
 		LoadAbilities ();
 	}
 
@@ -38,7 +36,7 @@ public class AbilityManagement : MonoBehaviour {
 			speedMulti = 1.0f + 0.05f * _abilites [1].Level;
 		}
 		PlayerController.MoveSpeedMulti = speedMulti;
-		_animator.SetFloat (_hash.SpeedMultiFloat, speedMulti);
+		_animator.SetFloat (AnimatorHashIDs.SpeedMultiFloat, speedMulti);
 	}
 
 	private void ActivateStrengthMode(bool active){

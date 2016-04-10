@@ -15,12 +15,10 @@ public class PlayerController : MonoBehaviour {
 
 	private Animator _animator;
 	private Rigidbody _rigidBody;
-	private HashIDs _hash;
 
 	void Awake(){
 		_animator = gameObject.GetComponent<Animator> ();
 		_rigidBody = gameObject.GetComponent<Rigidbody> ();
-		_hash = gameObject.GetComponent<HashIDs> ();
 		CanMove = true;
 	}
 
@@ -38,10 +36,10 @@ public class PlayerController : MonoBehaviour {
 		if (hor > 0.1f || hor < -0.1f || vert > 0.1f || vert < -0.1f) {
 			Rotating (hor, vert);
 			//_animator.SetBool (_hash.SuddenShiftBool, false);
-			_animator.SetFloat(_hash.SpeedFloat, SpeedThreshold, SpeedDampTime, Time.deltaTime);
+			_animator.SetFloat(AnimatorHashIDs.SpeedFloat, SpeedThreshold, SpeedDampTime, Time.deltaTime);
 			_rigidBody.velocity = gameObject.transform.forward.normalized * MoveSpeed * MoveSpeedMulti;
 		} else {
-			_animator.SetFloat(_hash.SpeedFloat, 0f);
+			_animator.SetFloat(AnimatorHashIDs.SpeedFloat, 0f);
 			_rigidBody.velocity = gameObject.transform.forward.normalized * 0f;
 		}
 	}
@@ -54,9 +52,9 @@ public class PlayerController : MonoBehaviour {
 			Quaternion newRotation = Quaternion.Lerp (_rigidBody.rotation, targetRotation, TurnSmoothing * Time.deltaTime);
 			_rigidBody.MoveRotation (newRotation);
 		} else {
-			_animator.SetBool (_hash.SuddenShiftBool, true);
+			_animator.SetBool (AnimatorHashIDs.SuddenShiftBool, true);
 			_rigidBody.MoveRotation (targetRotation);
-			_animator.SetBool (_hash.SuddenShiftBool, false);
+			_animator.SetBool (AnimatorHashIDs.SuddenShiftBool, false);
 		}
 	}
 
