@@ -1,12 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public enum Tags
+﻿public enum Tags
 {
     Player,
-    Enemy,
-    PlayerRange,
-    EnemyRange
+    Enemy
 }
 
 public static class TagHelper

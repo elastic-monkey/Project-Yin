@@ -4,7 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(Health), typeof(Stamina))]
 public class DefenseBehavior : MonoBehaviour
 {
-    public Tags EnemyTag;
     public Defense[] Defenses;
     public bool DefenseIsOn = true;
     public bool Defending = false;
@@ -106,7 +105,7 @@ public class DefenseBehavior : MonoBehaviour
     {
         Defending = true;
 
-        if (!defense.UseDuration)
+        if (!defense.OneTime)
         {
             _stamina.RegenerateIsOn = false;
             var defenseDec = defense.StaminaCost * Time.deltaTime;
@@ -134,6 +133,6 @@ public class Defense
 {
     public int Armour;
     public int StaminaCost;
-    public bool UseDuration = true;
+    public bool OneTime = true;
     public float Duration;
 }

@@ -1,26 +1,29 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(AttackBehavior), typeof(Animator), typeof(PlayerMovement))]
-public class PlayerBehavior : MonoBehaviour
+[RequireComponent(typeof(Animator), typeof(PlayerMovement))]
+public class PlayerBehavior : WarriorBehavior
 {
-    private AttackBehavior _attackBehavior;
     private PlayerMovement _playerMovement;
     private PlayerInput _input;
     private Animator _animator;
 
-    private bool _oldMoving;
-
-    void Awake()
+    protected override void Awake()
     {
-        _attackBehavior = GetComponent<AttackBehavior>();
-        _playerMovement = GetComponent<PlayerMovement>();
+        base.Awake();
+
         _animator = GetComponent<Animator>();
+        _playerMovement = GetComponent<PlayerMovement>();
         _input = new PlayerInput();
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         HandleInput();
+
+        _attackBehavior.ApplyAttack(_input);
+        _playerMovement.CanMove = !_attackBehavior.Attacking;
 
         SetAnimatorParameters();
     }
@@ -29,11 +32,12 @@ public class PlayerBehavior : MonoBehaviour
     {
         _animator.SetBool(AnimatorHashIDs.CanMoveBool, _playerMovement.CanMove);
         _animator.SetFloat(AnimatorHashIDs.SpeedFloat, _playerMovement.CurrentSpeed);
+        _animator.SetBool(AnimatorHashIDs.AttackingBool, _attackBehavior.Attacking);
     }
 
     void FixedUpdate()
     {
-        _playerMovement.Move(_input);
+        _playerMovement.ApplyMovement(_input);
     }
 
     private void HandleInput()
@@ -52,7 +56,6 @@ public class PlayerInput
     {
         HorizontalAxis = Input.GetAxis(Axis.Horizontal);
         VerticalAxis = Input.GetAxis(Axis.Vertical);
-        Fire1 = Input.GetButtonDown(Axis.Fire1);
         Fire2 = Input.GetButtonDown(Axis.Fire2);
     }
 }

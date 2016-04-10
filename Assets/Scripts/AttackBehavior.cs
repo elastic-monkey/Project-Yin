@@ -2,10 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(Stamina))]
 public class AttackBehavior : MonoBehaviour
 {
-    public Tags EnemyTag;
     public Attack[] Attacks;
     public bool CanAttack = true;
     public bool Attacking = false;
@@ -51,11 +50,26 @@ public class AttackBehavior : MonoBehaviour
         ApplyAttack(best);
     }
 
+    public void ApplyAttack(PlayerInput input)
+    {
+        var chosenAttackIndex = -1;
+
+        if (input.Fire2)
+            chosenAttackIndex = 0;
+
+        // This must later be changed to correspond to
+        //  to the several attack types available, if so.
+        ApplyAttack(chosenAttackIndex);
+    }
+
     // This class was created so that we can call it
     // on the editor, for example, or with input controls
     public void ApplyAttack(int attackIndex)
     {
         if (!CanPerformNewAttack)
+            return;
+
+        if (attackIndex < 0 || attackIndex >= Attacks.Length)
             return;
 
         var chosenAttack = Attacks[attackIndex];
@@ -76,7 +90,7 @@ public class AttackBehavior : MonoBehaviour
 
         foreach (var target in Targets)
         {
-            var defense = target.GetComponent<DefenseBehavior>();
+            var defense = target.GetComponentInParent<DefenseBehavior>();
 
             if (defense != null)
                 defense.TakeDamage(attack.Damage);

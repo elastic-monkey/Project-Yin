@@ -31,8 +31,15 @@ public class PlayerMovement : MonoBehaviour
         _rigidBody = gameObject.GetComponent<Rigidbody>();
     }
 
-    public void Move(PlayerInput playerInput)
+    public void ApplyMovement(PlayerInput playerInput)
     {
+        if (!CanMove)
+        {
+            Moving = false;
+            _rigidBody.velocity = Vector3.zero;
+            return;
+        }
+
         if (playerInput.HorizontalAxis > InputThreshold
             || playerInput.HorizontalAxis < -InputThreshold
             || playerInput.VerticalAxis > InputThreshold
