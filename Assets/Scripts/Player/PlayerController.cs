@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public static bool CanMove;
+	public static float MoveSpeedMulti = 1.0f;
 
 	public float TurnSmoothing = 10f;
 	public float SpeedDampTime = 0.1f;
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 			Rotating (hor, vert);
 			//_animator.SetBool (_hash.SuddenShiftBool, false);
 			_animator.SetFloat(_hash.SpeedFloat, SpeedThreshold, SpeedDampTime, Time.deltaTime);
-			_rigidBody.velocity = gameObject.transform.forward.normalized * MoveSpeed;
+			_rigidBody.velocity = gameObject.transform.forward.normalized * MoveSpeed * MoveSpeedMulti;
 		} else {
 			_animator.SetFloat(_hash.SpeedFloat, 0f);
 			_rigidBody.velocity = gameObject.transform.forward.normalized * 0f;
