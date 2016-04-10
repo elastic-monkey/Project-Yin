@@ -84,9 +84,10 @@ public class EnemyNavigation : MonoBehaviour
                         }
                     }
                 }
-                else
+                else if(TargetInSight)
                 {
                     TargetInSight = false;
+                    _lastKnownPosition = Target.position;
                 }
             }
 
