@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(AttackBehavior), typeof(DefenseBehavior))]
 public class EnemyBehavior : MonoBehaviour
 {
     public const int AttackDefenseSliderStep = 5;
@@ -15,6 +16,8 @@ public class EnemyBehavior : MonoBehaviour
     public float AttackDefense = 50;
     [HideInInspector]
     public float Courage = 50;
+    public float EyesightRange = 5f;
+    public Transform Target;
 
     private DefenseBehavior _defense;
     private AttackBehavior _attack;
@@ -32,7 +35,7 @@ public class EnemyBehavior : MonoBehaviour
     void Awake()
     {
         _defense = GetComponent<DefenseBehavior>();
-        _attack = GetComponentInChildren<AttackBehavior>();
+        _attack = GetComponent<AttackBehavior>();
         _attack.Targets = _enemiesInRange;
         _enemiesInRange = new List<Collider>();
         _enemyHash = EnemyTag.ToHash();
@@ -56,21 +59,21 @@ public class EnemyBehavior : MonoBehaviour
                         var inclination = Random.Range(AttackDefenseSliderMin, AttackDefenseSliderMax);
                         if (inclination >= AttackDefense)
                         {
-                            Debug.Log("Attack");
+                            //Debug.Log("Attack");
                         }
                         else
                         {
-                            Debug.Log("Defense");
+                            //Debug.Log("Defense");
                         }
                     }
                     else
                     {
-                        Debug.Log("Attack");
+                        //Debug.Log("Attack");
                     }
                 }
                 else if (AutomaticDefense)
                 {
-                    Debug.Log("Defense");
+                   //Debug.Log("Defense");
                 }
             }
 

@@ -54,3 +54,31 @@ public abstract class Utils
 		return false;
 	}
 }
+
+public static class GizmosHelper
+{
+    public static void DrawAngleOfSight(Vector3 center, Vector3 forward, int angle, int divisions, Color color = default(Color))
+    {
+        Gizmos.color = color;
+
+        var halfAngle = angle / 2;
+        var steps = 20;
+        var angleStep = angle / (float)steps;
+
+        var p1 = Quaternion.Euler(0, -halfAngle, 0) * forward;
+        if (angle < 360)
+            Gizmos.DrawLine(center, center + p1);
+
+        for (int i = 0; i < steps; i++)
+        {
+            var nextAngle = -halfAngle + (i + 1) * angleStep;
+            var p2 = Quaternion.Euler(0, nextAngle, 0) * forward;
+
+            Gizmos.DrawLine(center + p1, center + p2);
+            p1 = p2;
+        }
+
+        if (angle > 0 && angle < 360)
+            Gizmos.DrawLine(center, center + p1);
+    }
+}
