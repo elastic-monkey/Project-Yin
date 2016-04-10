@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float TurningSpeed = 50f;
     public float InputThreshold = 0.1f;
     public float MoveSpeedMulti = 1.0f;
+	public float SpeedThreshold = 1.0f;
+	public float SpeedDampTime = 0.1f;
     public bool CanMove = true;
     public bool Moving = false;
 
@@ -48,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
             Moving = true;
             Rotate(playerInput.HorizontalAxis, playerInput.VerticalAxis);
 
-            _rigidBody.velocity = Vector3.Lerp(_rigidBody.velocity, transform.forward * MoveSpeed * MoveSpeedMulti, Time.deltaTime * Acceleration);
+            //_rigidBody.velocity = Vector3.Lerp(_rigidBody.velocity, transform.forward * MoveSpeed * MoveSpeedMulti, Time.deltaTime * Acceleration);
+			_rigidBody.velocity = transform.forward * MoveSpeed * MoveSpeedMulti;
         }
         else if (Moving)
         {

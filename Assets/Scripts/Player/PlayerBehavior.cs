@@ -36,8 +36,14 @@ public class PlayerBehavior : WarriorBehavior
     private void SetAnimatorParameters()
     {
         _animator.SetBool(AnimatorHashIDs.CanMoveBool, _playerMovement.CanMove);
-        _animator.SetFloat(AnimatorHashIDs.SpeedFloat, _playerMovement.CurrentSpeed);
-        _animator.SetBool(AnimatorHashIDs.AttackingBool, _attackBehavior.Attacking);
+        //_animator.SetFloat(AnimatorHashIDs.SpeedFloat, _playerMovement.CurrentSpeed);
+		if (_playerMovement.Moving) {
+			_animator.SetFloat (AnimatorHashIDs.SpeedFloat, _playerMovement.SpeedThreshold, _playerMovement.SpeedDampTime, Time.deltaTime);
+		} else {
+			_animator.SetFloat (AnimatorHashIDs.SpeedFloat, 0f);
+		}
+		_animator.SetBool(AnimatorHashIDs.AttackingBool, _attackBehavior.Attacking);
+		_animator.SetBool (AnimatorHashIDs.DefendingBool, _defenseBehavior.Defending);
     }
 
     void FixedUpdate()

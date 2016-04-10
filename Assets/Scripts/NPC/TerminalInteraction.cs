@@ -68,7 +68,7 @@ public class TerminalInteraction : MonoBehaviour {
 	}
 
 	void BlockInput(bool block){
-		PlayerController.CanMove = !block;
-		PlayerAttack.CanAttack = !block;
+		//PlayerController.CanMove = !block;
+		//PlayerAttack.CanAttack = !block;
 	}
 }

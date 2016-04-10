@@ -11,10 +11,12 @@ public class AbilityManagement : MonoBehaviour {
 	}
 
 	private Animator _animator;
+	private PlayerMovement _playerMovement;
 	private List<Ability> _abilites;
 
 	void Awake(){
 		_animator = gameObject.GetComponent<Animator> ();
+		_playerMovement = gameObject.GetComponent<PlayerMovement> ();
 		LoadAbilities ();
 	}
 
@@ -35,7 +37,7 @@ public class AbilityManagement : MonoBehaviour {
 		if (active) {
 			speedMulti = 1.0f + 0.05f * _abilites [1].Level;
 		}
-		PlayerController.MoveSpeedMulti = speedMulti;
+		_playerMovement.MoveSpeedMulti = speedMulti;
 		_animator.SetFloat (AnimatorHashIDs.SpeedMultiFloat, speedMulti);
 	}
 
@@ -44,8 +46,8 @@ public class AbilityManagement : MonoBehaviour {
 		if (active) {
 			multi = 2f;
 		} 
-		PlayerAttack.DamageMulti = multi;
-		PlayerAttack.StaminaMulti = multi;
+		//PlayerAttack.DamageMulti = multi;
+		//PlayerAttack.StaminaMulti = multi;
 	}
 
 	private void LoadAbilities(){
