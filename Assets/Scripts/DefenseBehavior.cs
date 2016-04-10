@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 [RequireComponent(typeof(Health), typeof(Stamina))]
 public class DefenseBehavior : MonoBehaviour
@@ -128,13 +127,13 @@ public class DefenseBehavior : MonoBehaviour
 
         Defending = false;
     }
+}
 
-    [System.Serializable]
-    public class Defense
-    {
-        public int Armour;
-        public int StaminaCost;
-        public bool UseDuration = true;
-        public float Duration;
-    }
+[System.Serializable]
+public class Defense
+{
+    public int Armour;
+    public int StaminaCost;
+    public bool UseDuration = true;
+    public float Duration;
 }
