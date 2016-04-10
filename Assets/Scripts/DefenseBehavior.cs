@@ -5,14 +5,13 @@ using System.Collections;
 public class DefenseBehavior : MonoBehaviour
 {
     public Defense[] Defenses;
-    public bool DefenseIsOn = true;
+    public bool CanDefend = true;
     public bool Defending = false;
 
     private Health _health;
     private Stamina _stamina;
     private int _currentDefense;
     private bool _cancelDefense;
-    
 
     public int CurrentDefense
     {
@@ -27,11 +26,11 @@ public class DefenseBehavior : MonoBehaviour
         }
     }
 
-    public bool CanDefend
+    public bool CanPerformNewDefense
     {
         get
         {
-            return DefenseIsOn && !Defending;
+            return CanDefend && !Defending;
         }
     }
 
@@ -83,9 +82,25 @@ public class DefenseBehavior : MonoBehaviour
         ApplyDefense(best);
     }
 
+    public void ApplyDefense(PlayerInput input)
+    {
+        var chosenDefenseIndex = -1;
+
+        // Change to reflect several types of defense
+        if (input.Fire3Down)
+            chosenDefenseIndex = 0;
+        else if (input.Fire3Up)
+            CancelDefense();
+
+        ApplyDefense(chosenDefenseIndex);
+    }
+
     public void ApplyDefense(int index)
     {
-        if (!CanDefend)
+        if (!CanPerformNewDefense)
+            return;
+
+        if (index < 0 || index >= Defenses.Length)
             return;
 
         CurrentDefense = index;

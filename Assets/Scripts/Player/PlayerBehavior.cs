@@ -4,6 +4,7 @@
 public class PlayerBehavior : WarriorBehavior
 {
     private PlayerMovement _playerMovement;
+    [SerializeField]
     private PlayerInput _input;
     private Animator _animator;
 
@@ -20,10 +21,14 @@ public class PlayerBehavior : WarriorBehavior
     {
         base.Update();
 
-        HandleInput();
+        _input.Receive();
 
         _attackBehavior.ApplyAttack(_input);
-        _playerMovement.CanMove = !_attackBehavior.Attacking;
+
+        if (!_attackBehavior.Attacking)
+            _defenseBehavior.ApplyDefense(_input);
+
+        _playerMovement.CanMove = !_attackBehavior.Attacking && !_defenseBehavior.Defending;
 
         SetAnimatorParameters();
     }
@@ -39,23 +44,20 @@ public class PlayerBehavior : WarriorBehavior
     {
         _playerMovement.ApplyMovement(_input);
     }
-
-    private void HandleInput()
-    {
-        _input.Receive();
-    }
 }
 
 [System.Serializable]
 public class PlayerInput
 {
     public float HorizontalAxis = 0f, VerticalAxis = 0f;
-    public bool Fire1 = false, Fire2 = false;
+    public bool Fire1 = false, Fire2 = false, Fire3Down = false, Fire3Up = false;
 
     public void Receive()
     {
         HorizontalAxis = Input.GetAxis(Axis.Horizontal);
         VerticalAxis = Input.GetAxis(Axis.Vertical);
         Fire2 = Input.GetButtonDown(Axis.Fire2);
+        Fire3Down = Input.GetButtonDown(Axis.Fire3);
+        Fire3Up = Input.GetButtonUp(Axis.Fire3);
     }
 }
