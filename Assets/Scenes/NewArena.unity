@@ -230,14 +230,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 1172593044}
     - target: {fileID: 22362552, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1855781054}
+    - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1172593044}
     - target: {fileID: 11404022, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
       propertyPath: Target
       value: 
@@ -257,46 +257,6 @@ Prefab:
     - target: {fileID: 22490964, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 148960, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 199492, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 199492, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_Name
-      value: Mesh
-      objectReference: {fileID: 0}
-    - target: {fileID: 452002, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 404820, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 22403994, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: AutomaticAttack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: AutomaticDefense
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404022, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: RaycastMask.m_Bits
-      value: 4294967039
-      objectReference: {fileID: 0}
-    - target: {fileID: 19589550, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_StoppingDistance
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
