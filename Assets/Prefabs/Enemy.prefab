@@ -214,7 +214,7 @@ GameObject:
   - 33: {fileID: 3376454}
   - 23: {fileID: 2315220}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,13 +239,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 5}
+  m_LocalPosition: {x: 1.98, y: 1.08, z: 0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467930}
-  - {fileID: 22403994}
-  - {fileID: 404820}
   - {fileID: 452002}
+  - {fileID: 404820}
+  - {fileID: 22403994}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &452002
@@ -259,7 +259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448988}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!4 &467930
 Transform:
   m_ObjectHideFlags: 1
@@ -331,12 +331,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a08d8699d6d78b42b91b38e90ff3944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerTag: 0
+  RaycastMask:
+    serializedVersion: 2
+    m_Bits: 4294967039
   LineOfSight: 10
   AngleOfSight: 140
   CheckForEnemyRate: 15
   Target: {fileID: 0}
   Asleep: 0
   TargetInSight: 0
+  _targetCollider: {fileID: 0}
 --- !u!114 &11411214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -585,8 +590,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyTag: 0
   _enemiesInRange: []
-  AutomaticAttack: 1
-  AutomaticDefense: 1
+  AutomaticAttack: 0
+  AutomaticDefense: 0
   AttackDefense: 50
   Courage: 50
   EyesightRange: 10
@@ -706,7 +711,7 @@ NavMeshAgent:
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 10
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -753,6 +758,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -769,7 +775,7 @@ RectTransform:
   - {fileID: 22497816}
   - {fileID: 22473866}
   m_Father: {fileID: 448988}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1.546}
