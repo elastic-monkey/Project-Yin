@@ -4,6 +4,8 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyNavigation : MonoBehaviour
 {
+    public Tags PlayerTag;
+    public LayerMask RaycastMask;
     public float LineOfSight = 10f;
     [Range(0, 360)]
     public int AngleOfSight = 50;
@@ -14,13 +16,27 @@ public class EnemyNavigation : MonoBehaviour
     public bool TargetInSight;
 
     private NavMeshAgent _navAgent;
+    [SerializeField]
     private Collider _targetCollider;
     private float _sqrEyesightRange;
     private Vector3 _lastKnownPosition;
 
     void Awake()
     {
-        _targetCollider = Target.GetComponent<Collider>();
+        var playerHash = PlayerTag.ToHash();
+        var colliders = Target.GetComponentsInChildren<Collider>();
+        for (var i = 0; i < colliders.Length; i++)
+        {
+            var hash = colliders[i].tag.GetHashCode();
+            if (playerHash == hash)
+            {
+                _targetCollider = colliders[i];
+                break;
+            }
+        }
+
+        Target = _targetCollider.transform;
+
         _navAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -36,6 +52,7 @@ public class EnemyNavigation : MonoBehaviour
     {
         if (TargetInSight)
         {
+            transform.LookAt(Target);
             _navAgent.SetDestination(Target.position);
         }
         else
@@ -43,12 +60,12 @@ public class EnemyNavigation : MonoBehaviour
             _navAgent.SetDestination(_lastKnownPosition);
         }
 
-        Debug.DrawLine(transform.position, Target.position, Color.green);
+        Debug.DrawLine(transform.position, Target.position, TargetInSight ? Color.green : Color.red);
     }
 
     void OnDrawGizmos()
     {
-        GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * LineOfSight, AngleOfSight, 20, Color.red);
+        GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * LineOfSight, AngleOfSight, 20, Color.yellow);
     }
 
     IEnumerator CheckForTargetInSight()
@@ -64,16 +81,16 @@ public class EnemyNavigation : MonoBehaviour
                 if (Vector3.SqrMagnitude(delta) <= _sqrEyesightRange)
                 {
                     var direction = delta.normalized;
+                    var ray = new Ray(transform.position, direction);
                     RaycastHit hitInfo;
-
-                    var oldTargetInSight = TargetInSight;
-
-                    TargetInSight = Physics.Raycast(transform.position, direction, out hitInfo, LineOfSight)
+                    
+                    var newTargetInSight = Physics.Raycast(ray, out hitInfo, LineOfSight, RaycastMask)
                         && (hitInfo.collider == _targetCollider)
                         && (Vector3.Angle(transform.forward, direction) <= 0.5f * AngleOfSight);
 
-                    if (TargetInSight != oldTargetInSight)
+                    if (TargetInSight != newTargetInSight)
                     {
+                        TargetInSight = newTargetInSight;
                         if (TargetInSight)
                         {
                             transform.LookAt(Target);

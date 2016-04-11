@@ -290,6 +290,14 @@ Prefab:
       propertyPath: AutomaticDefense
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11404022, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
+      propertyPath: RaycastMask.m_Bits
+      value: 4294967039
+      objectReference: {fileID: 0}
+    - target: {fileID: 19589550, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
   m_IsPrefabParent: 0
