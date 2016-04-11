@@ -10,6 +10,8 @@ public class AttackBehavior : MonoBehaviour
     public bool Attacking = false;
     [HideInInspector]
     public List<Collider> Targets;
+	public float DamageMultiplier = 1.0f;
+	public float StaminaMultiplier = 1.0f;
 
     private Stamina _stamina;
 
@@ -38,7 +40,7 @@ public class AttackBehavior : MonoBehaviour
             {
                 if (attack.Damage > bestDamage)
                 {
-                    bestDamage = attack.Damage;
+					bestDamage = attack.Damage;
                     best = i;
                 }
             }
@@ -86,14 +88,14 @@ public class AttackBehavior : MonoBehaviour
 
         yield return new WaitForSeconds(attack.HitTime);
 
-        _stamina.ConsumeStamina(attack.StaminaCost);
+		_stamina.ConsumeStamina(attack.StaminaCost * StaminaMultiplier);
 
         foreach (var target in Targets)
         {
             var defense = target.GetComponentInParent<DefenseBehavior>();
 
             if (defense != null)
-                defense.TakeDamage(attack.Damage);
+				defense.TakeDamage(attack.Damage * DamageMultiplier);
         }
 
         yield return new WaitForSeconds(Mathf.Max(0, attack.Duration - attack.HitTime));

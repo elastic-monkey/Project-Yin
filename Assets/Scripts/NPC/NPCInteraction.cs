@@ -46,7 +46,6 @@ public class NPCInteraction : Interaction {
 					StartCoroutine (WriteLine (_npcDialogueList [_currentDialogue].Lines [_currentLine]));
 				}
 			}
-
 			if (_player.Input.Fire1Down && _endCurrentDialogue) {
 				_endCurrentDialogue = false;
 				DialogueWindow.gameObject.SetActive (false);

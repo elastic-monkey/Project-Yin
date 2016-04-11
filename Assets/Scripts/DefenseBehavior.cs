@@ -7,6 +7,7 @@ public class DefenseBehavior : MonoBehaviour
     public Defense[] Defenses;
     public bool CanDefend = true;
     public bool Defending = false;
+	public bool ShieldOn = false;
 
     private Health _health;
     private Stamina _stamina;
@@ -45,17 +46,18 @@ public class DefenseBehavior : MonoBehaviour
         CurrentDefense = 0;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        if (Defending)
-        {
-            var actualDamage = damage - Defenses[CurrentDefense].Armour;
-            _health.CurrentHealth -= actualDamage;
-        }
-        else
-        {
-            _health.CurrentHealth -= damage;
-        }
+		if (!ShieldOn) {
+			if (Defending) {
+				var actualDamage = damage - Defenses [CurrentDefense].Armour;
+				_health.CurrentHealth -= actualDamage;
+			} else {
+				_health.CurrentHealth -= damage;
+			}
+		} else {
+			ShieldOn = false;
+		}
     }
 
     public void ChooseAndApplyDefense()

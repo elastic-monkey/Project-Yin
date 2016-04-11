@@ -6,6 +6,7 @@ public class PlayerBehavior : WarriorBehavior
     private PlayerMovement _playerMovement;
     public PlayerInput Input;
     private Animator _animator;
+	private AbilityManagement _ability;
 
     protected override void Awake()
     {
@@ -13,6 +14,7 @@ public class PlayerBehavior : WarriorBehavior
 
         _animator = GetComponent<Animator>();
         _playerMovement = GetComponent<PlayerMovement>();
+		_ability = GetComponent<AbilityManagement> ();
         Input = new PlayerInput();
     }
 
@@ -23,6 +25,7 @@ public class PlayerBehavior : WarriorBehavior
 		Input.Receive ();
 
 		if (!Input.Blocked) {
+			_ability.ActivateAbilities (Input);
 
 			_attackBehavior.ApplyAttack (Input);
 
@@ -45,6 +48,7 @@ public class PlayerBehavior : WarriorBehavior
 		}
 		_animator.SetBool(AnimatorHashIDs.AttackingBool, _attackBehavior.Attacking);
 		_animator.SetBool (AnimatorHashIDs.DefendingBool, _defenseBehavior.Defending);
+		_animator.SetFloat (AnimatorHashIDs.SpeedMultiFloat, _playerMovement.MoveSpeedMulti);
     }
 
     void FixedUpdate()

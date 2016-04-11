@@ -3,30 +3,30 @@ using System.Collections.Generic;
 
 public class AbilityManagement : MonoBehaviour {
 
-	private enum Modes{
-		Vision = 0,
-		Speed = 1,
-		Shield = 2,
-		Strength = 3
-	}
-
-	private Animator _animator;
 	private PlayerMovement _playerMovement;
-	private List<Ability> _abilites;
+	private AttackBehavior _attack;
+	private DefenseBehavior _defense;
+	private List<Ability> _abilities; 
 
 	void Awake(){
-		_animator = gameObject.GetComponent<Animator> ();
 		_playerMovement = gameObject.GetComponent<PlayerMovement> ();
+		_attack = gameObject.GetComponent<AttackBehavior> ();
+		_defense = gameObject.GetComponent<DefenseBehavior> ();
 		LoadAbilities ();
 	}
 
-	void Update(){
-		if (Input.GetKeyDown (KeyCode.Alpha1)) {
-			print ("SPEED MODE");
+	public void ActivateAbilities(PlayerInput input){
+		if (input.VisionMode) {
+
+		} else if (input.SpeedMode) {
+			print ("SpeedMode ON");
 			ActivateSpeedMode (true);
 			ActivateStrengthMode (false);
-		} else if(Input.GetKeyDown(KeyCode.Alpha3)) {
-			print ("STRENGTH MODE");
+		} else if (input.ShieldMode) {
+			print ("ShieldMode ON");
+			ActivateShieldMode (true);
+		} else if (input.StrengthMode) {
+			print ("StrengthMode ON");
 			ActivateStrengthMode (true);
 			ActivateSpeedMode (false);
 		}
@@ -35,10 +35,9 @@ public class AbilityManagement : MonoBehaviour {
 	private void ActivateSpeedMode(bool active){
 		float speedMulti = 1.0f;
 		if (active) {
-			speedMulti = 1.0f + 0.05f * _abilites [1].Level;
+			speedMulti = 1.0f + 0.05f * _abilities [1].Level;
 		}
 		_playerMovement.MoveSpeedMulti = speedMulti;
-		_animator.SetFloat (AnimatorHashIDs.SpeedMultiFloat, speedMulti);
 	}
 
 	private void ActivateStrengthMode(bool active){
@@ -46,20 +45,38 @@ public class AbilityManagement : MonoBehaviour {
 		if (active) {
 			multi = 2f;
 		} 
-		//PlayerAttack.DamageMulti = multi;
-		//PlayerAttack.StaminaMulti = multi;
+		_attack.DamageMultiplier = multi;
+		_attack.StaminaMultiplier = multi;
+	}
+
+	private void ActivateShieldMode(bool active){
+		_defense.ShieldOn = true;
 	}
 
 	private void LoadAbilities(){
 		var numAbilities = 4;
-		_abilites = new List<Ability> ();
+		_abilities = new List<Ability> ();
 
 		for (int i = 0; i < numAbilities; i++) {
 			Ability abil = new Ability ();
 			abil.Id = i;
 			//abil.Level = AbilityReader.GetAbilityLevel (i);
 			abil.Level = 10;
-			_abilites.Add(abil);
+			_abilities.Add(abil);
 		}
 	}
+}
+
+public class Ability{
+	private const int MaxLevel = 4;
+
+	public int Id;
+	public int Level;
+
+	public bool CanUpgrade{
+		get{
+			return Level < MaxLevel;
+		}
+	}
+
 }
