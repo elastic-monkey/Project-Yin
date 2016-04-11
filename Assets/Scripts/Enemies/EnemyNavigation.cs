@@ -6,11 +6,14 @@ public class EnemyNavigation : MonoBehaviour
 {
     public Tags PlayerTag;
     public LayerMask RaycastMask;
+    [Range(5, 60)]
+    public int CheckForEnemyRate = 15;
     public float LineOfSight = 10f;
     [Range(0, 360)]
     public int AngleOfSight = 50;
-    [Range(5, 60)]
-    public int CheckForEnemyRate = 15;
+    [Range(0, 360)]
+    public int EyePatrolRotation;
+    public float PatrolSpeed;
     public Transform Target;
     public bool Asleep;
     public bool TargetInSight;
@@ -19,7 +22,7 @@ public class EnemyNavigation : MonoBehaviour
     [SerializeField]
     private Collider _targetCollider;
     private float _sqrEyesightRange;
-    private Vector3 _lastKnownPosition;
+    private Vector3 _startingPosition, _startingDirection, _lastKnownPosition, _lastKnownDirection;
 
     void Awake()
     {
@@ -44,6 +47,9 @@ public class EnemyNavigation : MonoBehaviour
     {
         _sqrEyesightRange = LineOfSight * LineOfSight;
         _lastKnownPosition = transform.position;
+        _lastKnownDirection = transform.forward + transform.position;
+        _startingPosition = _lastKnownPosition;
+        _startingDirection = _lastKnownDirection;
 
         StartCoroutine(CheckForTargetInSight());
     }
@@ -58,6 +64,11 @@ public class EnemyNavigation : MonoBehaviour
         else
         {
             _navAgent.SetDestination(_lastKnownPosition);
+            if (Vector3.Distance(transform.position, _lastKnownPosition) < 1.5f)
+            {
+                _lastKnownPosition = _startingPosition;
+                transform.LookAt(_startingDirection);
+            }
         }
 
         Debug.DrawLine(transform.position, Target.position, TargetInSight ? Color.green : Color.red);
@@ -98,6 +109,7 @@ public class EnemyNavigation : MonoBehaviour
                         else
                         {
                             _lastKnownPosition = Target.position;
+                            _lastKnownDirection = Target.position + Target.forward;
                         }
                     }
                 }
