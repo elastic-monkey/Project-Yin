@@ -3,36 +3,30 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
-public class NPCInteraction : MonoBehaviour {
+public class NPCInteraction : Interaction {
 
-	public RectTransform InteractionPrompt;
 	public RectTransform DialogueWindow;
 	public float LetterTime = 0.02f;
 	public float TurnSmoothing = 1f;
 
-	private Text _interactionText;
-	private Text _dialogueText;
-	private Text _speakerName;
 	private List<NPCDialogue> _npcDialogueList;
 	private int _currentDialogue;
 	private int _currentLine;
 	private bool _canPress;
-	private Collider _player;
 	private string _npcName;
 
 	private bool _endCurrentDialogue;
-	private bool _playerInRange;
 
-	void Awake(){
-		InteractionPrompt.gameObject.SetActive (false);
+	protected override void Awake(){
+		base.Awake ();
+
 		DialogueWindow.gameObject.SetActive (false);
 		string parentName = transform.parent.name.ToString ();
 		_npcName = parentName.Substring (4, parentName.Length-4);
 
-		_interactionText = InteractionPrompt.GetComponentInChildren<Text>();
 		Text[] textComponents = DialogueWindow.GetComponentsInChildren<Text> ();
 		_interactionText.text = "Talk with " + _npcName;
-		_speakerName = textComponents [0];
+		_title = textComponents [0];
 		_dialogueText = textComponents [1];
 		_npcDialogueList = DialogueLoader.GetNPCDialogue (transform.parent.name.ToString ());
 
@@ -41,21 +35,9 @@ public class NPCInteraction : MonoBehaviour {
 		_canPress = true;
 	}
 
-	void OnTriggerEnter(Collider collider){
-		if (collider.CompareTag ("Player")) {
-			InteractionPrompt.gameObject.SetActive (true);
-			_playerInRange = true;
-		}
-	}
-
-	void OnTriggerExit(Collider collider){
-		InteractionPrompt.gameObject.SetActive (false);
-		_playerInRange = false;
-	}
-
 	void Update(){
-		if (_playerInRange) {
-			if (Input.GetButtonDown ("Fire1") && !_endCurrentDialogue) {
+		if (_player != null) {
+			if (_player.Input.Fire1Down && !_endCurrentDialogue) {
 				InteractionPrompt.gameObject.SetActive (false);
 				BlockInput (true);
 				if (_canPress) {
@@ -65,7 +47,7 @@ public class NPCInteraction : MonoBehaviour {
 				}
 			}
 
-			if (_endCurrentDialogue && Input.GetButtonDown("Fire1")) {
+			if (_player.Input.Fire1Down && _endCurrentDialogue) {
 				_endCurrentDialogue = false;
 				DialogueWindow.gameObject.SetActive (false);
 				BlockInput (false);
@@ -76,7 +58,7 @@ public class NPCInteraction : MonoBehaviour {
 
 	IEnumerator WriteLine(NPCLine line){
 		_dialogueText.text = "";
-		_speakerName.text = line.owner;
+		_title.text = line.owner;
 
 		foreach (char letter in line.text.ToCharArray()) {
 			_dialogueText.text += letter;
@@ -96,10 +78,5 @@ public class NPCInteraction : MonoBehaviour {
 		}
 
 		_canPress = true;
-	}
-
-	void BlockInput(bool block){
-		//PlayerController.CanMove = !block;
-		//PlayerAttack.CanAttack = !block;
 	}
 }
