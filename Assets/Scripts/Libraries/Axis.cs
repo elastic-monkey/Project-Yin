@@ -1,9 +1,38 @@
 ﻿
-public static class Axis
+using System.Collections.Generic;
+
+public enum Axis
 {
-    public const string Horizontal = "Horizontal";
-    public const string Vertical = "Vertical";
-    public const string Fire1 = "Fire1";
-    public const string Fire2 = "Fire2";
-    public const string Fire3 = "Fire3";
+    Horizontal,
+    Vertical,
+    Fire1,
+    Fire2,
+    Fire3,
+    Ability1,
+    Ability2,
+    Ability3,
+    Ability4
+}
+
+public static class AxisHelper
+{
+    private static readonly Dictionary<Axis, string> AxisMap = new Dictionary<Axis, string>()
+    {
+        { Axis.Horizontal, "Horizontal" },
+        { Axis.Vertical, "Vertical" },
+        { Axis.Fire1, "Fire1" },
+        { Axis.Fire2, "Fire2" },
+        { Axis.Fire3, "Fire3" },
+        { Axis.Ability1, "Ability 1" },
+        { Axis.Ability2, "Ability 2" },
+        { Axis.Ability3, "Ability 3" },
+        { Axis.Ability4, "Ability 4" }
+    };
+
+    public static string EditorName(this Axis axis)
+    {
+        var s = string.Empty;
+        AxisMap.TryGetValue(axis, out s);
+        return s;
+    }
 }

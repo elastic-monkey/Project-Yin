@@ -1,90 +1,71 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(PlayerMovement))]
 public class PlayerBehavior : WarriorBehavior
 {
     private PlayerMovement _playerMovement;
-    public PlayerInput Input;
     private Animator _animator;
-	private AbilityManagement _ability;
+    private AbilitiesManager _abilities;
+
+    public PlayerMovement Movement
+    {
+        get
+        {
+            if (_playerMovement == null)
+                _playerMovement = GetComponent<PlayerMovement>();
+
+            return _playerMovement;
+        }
+    }
 
     protected override void Awake()
     {
         base.Awake();
 
         _animator = GetComponent<Animator>();
-        _playerMovement = GetComponent<PlayerMovement>();
-		_ability = GetComponent<AbilityManagement> ();
-        Input = new PlayerInput();
+        _abilities = GetComponent<AbilitiesManager>();
     }
 
     protected override void Update()
     {
         base.Update();
 
-		Input.Receive ();
+        if (!PlayerInput.Blocked)
+        {
+            _abilities.ApplyAbilities();
 
-		if (!Input.Blocked) {
-			_ability.ActivateAbilities (Input);
+            Attack.ApplyAttack();
 
-			_attackBehavior.ApplyAttack (Input);
+            if (!Attack.Attacking)
+                Defense.ApplyDefense();
 
-			if (!_attackBehavior.Attacking)
-				_defenseBehavior.ApplyDefense (Input);
+            Movement.CanMove = !Attack.Attacking && !Defense.Defending;
+        }
 
-			_playerMovement.CanMove = !_attackBehavior.Attacking && !_defenseBehavior.Defending;
-		}
-
-		SetAnimatorParameters ();
+        SetAnimatorParameters();
     }
 
     private void SetAnimatorParameters()
     {
-        _animator.SetBool(AnimatorHashIDs.CanMoveBool, _playerMovement.CanMove);
-		if (_playerMovement.Moving) {
-			_animator.SetFloat (AnimatorHashIDs.SpeedFloat, _playerMovement.SpeedThreshold, _playerMovement.SpeedDampTime, Time.deltaTime);
-		} else {
-			_animator.SetFloat (AnimatorHashIDs.SpeedFloat, 0f);
-		}
-		_animator.SetBool(AnimatorHashIDs.AttackingBool, _attackBehavior.Attacking);
-		_animator.SetBool (AnimatorHashIDs.DefendingBool, _defenseBehavior.Defending);
-		_animator.SetFloat (AnimatorHashIDs.SpeedMultiFloat, _playerMovement.MoveSpeedMulti);
+        _animator.SetBool(AnimatorHashIDs.CanMoveBool, Movement.CanMove);
+        if (Movement.Moving)
+        {
+            _animator.SetFloat(AnimatorHashIDs.SpeedFloat, Movement.SpeedThreshold, Movement.SpeedDampTime, Time.deltaTime);
+        }
+        else {
+            _animator.SetFloat(AnimatorHashIDs.SpeedFloat, 0f);
+        }
+        _animator.SetBool(AnimatorHashIDs.AttackingBool, Attack.Attacking);
+        _animator.SetBool(AnimatorHashIDs.DefendingBool, Defense.Defending);
+        _animator.SetFloat(AnimatorHashIDs.SpeedMultiFloat, Movement.MoveSpeedMulti);
     }
 
     void FixedUpdate()
     {
-		if (!Input.Blocked) {
-			_playerMovement.ApplyMovement (Input);
-		}
-    }
-}
-
-[System.Serializable]
-public class PlayerInput
-{
-    public float HorizontalAxis = 0f, VerticalAxis = 0f;
-    public bool Fire1 = false, Fire2 = false, Fire3Down = false, Fire3Up = false;
-	public bool Fire1Up = false, Fire1Down = false;
-	public bool VisionMode = false, SpeedMode = false, ShieldMode = false, StrengthMode = false;  
-	public bool Blocked;
-
-    public void Receive()
-    {
-        HorizontalAxis = Input.GetAxis(Axis.Horizontal);
-        VerticalAxis = Input.GetAxis(Axis.Vertical);
-
-		Fire1 = Input.GetButton(Axis.Fire1);
-		Fire1Up = Input.GetButtonUp (Axis.Fire1);
-		Fire1Down = Input.GetButtonDown (Axis.Fire1);
-
-		Fire2 = Input.GetButtonUp(Axis.Fire2);
-        
-		Fire3Down = Input.GetButtonDown(Axis.Fire3);
-        Fire3Up = Input.GetButtonUp(Axis.Fire3);
-
-		VisionMode = Input.GetKeyDown (KeyCode.Alpha1);
-		SpeedMode = Input.GetKeyDown (KeyCode.Alpha2);
-		ShieldMode = Input.GetKeyDown (KeyCode.Alpha3);
-		StrengthMode = Input.GetKeyDown (KeyCode.Alpha4);
+        if (!PlayerInput.Blocked)
+        {
+            Movement.ApplyMovement();
+        }
     }
 }

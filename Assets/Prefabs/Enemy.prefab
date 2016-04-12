@@ -239,7 +239,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.98, y: 1.08, z: 0.24}
+  m_LocalPosition: {x: 0, y: 1, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467930}
@@ -335,9 +335,11 @@ MonoBehaviour:
   RaycastMask:
     serializedVersion: 2
     m_Bits: 4294967039
+  CheckForEnemyRate: 15
   LineOfSight: 10
   AngleOfSight: 140
-  CheckForEnemyRate: 15
+  EyePatrolRotation: 0
+  PatrolSpeed: 0
   Target: {fileID: 0}
   Asleep: 0
   TargetInSight: 0
@@ -577,6 +579,8 @@ MonoBehaviour:
   CanAttack: 1
   Attacking: 0
   Targets: []
+  DamageMultiplier: 1
+  StaminaMultiplier: 1
 --- !u!114 &11478826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -658,6 +662,7 @@ MonoBehaviour:
     Duration: 3
   CanDefend: 1
   Defending: 0
+  ShieldOn: 0
 --- !u!114 &11490694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -711,7 +716,7 @@ NavMeshAgent:
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

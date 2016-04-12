@@ -52,11 +52,11 @@ public class AttackBehavior : MonoBehaviour
         ApplyAttack(best);
     }
 
-    public void ApplyAttack(PlayerInput input)
+    public void ApplyAttack()
     {
         var chosenAttackIndex = -1;
 
-        if (input.Fire2)
+        if (PlayerInput.IsButtonPressed(Axis.Fire2))
             chosenAttackIndex = 0;
 
         // This must later be changed to correspond to

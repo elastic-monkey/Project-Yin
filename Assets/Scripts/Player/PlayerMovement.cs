@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidBody = gameObject.GetComponent<Rigidbody>();
     }
 
-    public void ApplyMovement(PlayerInput playerInput)
+    public void ApplyMovement()
     {
         if (!CanMove)
         {
@@ -42,13 +42,13 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (playerInput.HorizontalAxis > InputThreshold
-            || playerInput.HorizontalAxis < -InputThreshold
-            || playerInput.VerticalAxis > InputThreshold
-            || playerInput.VerticalAxis < -InputThreshold)
+        var h = PlayerInput.GetAxis(Axis.Horizontal);
+        var v = PlayerInput.GetAxis(Axis.Vertical);
+
+        if (Mathf.Abs(h) > InputThreshold || Mathf.Abs(v) > InputThreshold)
         {
             Moving = true;
-            Rotate(playerInput.HorizontalAxis, playerInput.VerticalAxis);
+            Rotate(h, v);
 
             //_rigidBody.velocity = Vector3.Lerp(_rigidBody.velocity, transform.forward * MoveSpeed * MoveSpeedMulti, Time.deltaTime * Acceleration);
 			_rigidBody.velocity = transform.forward * MoveSpeed * MoveSpeedMulti;

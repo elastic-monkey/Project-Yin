@@ -9,8 +9,30 @@ public class WarriorBehavior : MonoBehaviour
     protected int _enemyHash;
     [SerializeField]
     protected List<Collider> _enemiesInRange;
-    protected DefenseBehavior _defenseBehavior;
-    protected AttackBehavior _attackBehavior;
+    private DefenseBehavior _defenseBehavior;
+    private AttackBehavior _attackBehavior;
+
+    public DefenseBehavior Defense
+    {
+        get
+        {
+            if (_defenseBehavior == null)
+                _defenseBehavior = GetComponent<DefenseBehavior>();
+
+            return _defenseBehavior;
+        }
+    }
+
+    public AttackBehavior Attack
+    {
+        get
+        {
+            if (_attackBehavior == null)
+                _attackBehavior = GetComponent<AttackBehavior>();
+
+            return _attackBehavior;
+        }
+    }
 
     protected virtual void Awake()
     {
