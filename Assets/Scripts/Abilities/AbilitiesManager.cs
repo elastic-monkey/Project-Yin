@@ -21,20 +21,23 @@ public class AbilitiesManager : MonoBehaviour
 
     public void ApplyAbilities()
     {
-        var found = false;
+		string abilityType = null;
         foreach(var ability in _abilities)
         {
-            if (found)
-            {
-                ability.Deactivate(_player);
-            }
-            else if (PlayerInput.IsButtonDown(ability.InputAxis))
-            {
-                Debug.Log(string.Concat("Ativating ", ability.GetAbilityType().ToString()));
-                ability.Activate(_player);
-                found = true;
-            }
+			if (PlayerInput.IsButtonDown (ability.InputAxis)) {
+				Debug.Log (string.Concat ("Activating ", ability.GetAbilityType ().ToString ()));
+				ability.Activate (_player);
+				abilityType = ability.GetAbilityType().ToString();
+			}
         }
+		if (abilityType != null) {
+			foreach(var ability in _abilities){
+				if (ability.GetAbilityType().ToString() != abilityType) {
+					Debug.Log (string.Concat ("Deactivating ", ability.GetAbilityType ().ToString ()));
+					ability.Deactivate (_player);
+				}
+			}
+		}
     }
 
     private void LoadAbilities()

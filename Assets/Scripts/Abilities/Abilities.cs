@@ -86,7 +86,8 @@ public class SpeedAbility : Ability
 
     public override void Activate(PlayerBehavior player)
     {
-        player.Movement.MoveSpeedMulti = 1f + 0.05f * CurrentLevel;
+        //player.Movement.MoveSpeedMulti = 1f + 0.05f * CurrentLevel;
+		player.Movement.MoveSpeedMulti = 1f + 0.05f * 10f;
     }
 
     public override void Deactivate(PlayerBehavior player)
@@ -107,13 +108,16 @@ public class ShieldAbility : Ability
 
     public override void Activate(PlayerBehavior player)
     {
-        player.Defense.ShieldOn = true;
+		if (!player.Defense.ShieldOn) {
+			player.Defense.ShieldOn = true;
+			player.Stamina.ConsumeStamina (90f);
+		}
     }
 
     public override void Deactivate(PlayerBehavior player)
     {
-        Debug.LogWarning("Deactivation of shield ability was called. Abilities should not be applied whilst shield is up.");
-        player.Defense.ShieldOn = false;
+        /*Debug.LogWarning("Deactivation of shield ability was called. Abilities should not be applied whilst shield is up.");
+        player.Defense.ShieldOn = false;*/
     }
 
     public override Type GetAbilityType()

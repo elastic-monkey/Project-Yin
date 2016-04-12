@@ -49,7 +49,7 @@ public class PlayerBehavior : WarriorBehavior
     private void SetAnimatorParameters()
     {
         _animator.SetBool(AnimatorHashIDs.CanMoveBool, Movement.CanMove);
-        if (Movement.Moving)
+		if (Movement.Moving && !PlayerInput.Blocked)
         {
             _animator.SetFloat(AnimatorHashIDs.SpeedFloat, Movement.SpeedThreshold, Movement.SpeedDampTime, Time.deltaTime);
         }
@@ -63,9 +63,8 @@ public class PlayerBehavior : WarriorBehavior
 
     void FixedUpdate()
     {
-        if (!PlayerInput.Blocked)
-        {
-            Movement.ApplyMovement();
-        }
+		if (!PlayerInput.Blocked) {
+			Movement.ApplyMovement ();
+		}
     }
 }
