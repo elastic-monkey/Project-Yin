@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 [RequireComponent(typeof(AttackBehavior), typeof(DefenseBehavior))]
+[RequireComponent(typeof(Health), typeof(Stamina))]
 public class WarriorBehavior : MonoBehaviour
 {
     public Tags EnemyTag;
@@ -11,6 +12,8 @@ public class WarriorBehavior : MonoBehaviour
     protected List<Collider> _enemiesInRange;
     private DefenseBehavior _defenseBehavior;
     private AttackBehavior _attackBehavior;
+    private Health _health;
+    private Stamina _stamina;
 
     public DefenseBehavior Defense
     {
@@ -34,18 +37,38 @@ public class WarriorBehavior : MonoBehaviour
         }
     }
 
+    public Health Health
+    {
+        get
+        {
+            if (_health == null)
+                _health = GetComponent<Health>();
+
+            return _health;
+        }
+    }
+
+    public Stamina Stamina
+    {
+        get
+        {
+            if (_stamina == null)
+                _stamina = GetComponent<Stamina>();
+
+            return _stamina;
+        }
+    }
+
     protected virtual void Awake()
     {
-        _defenseBehavior = GetComponent<DefenseBehavior>();
-        _attackBehavior = GetComponent<AttackBehavior>();
-        _attackBehavior.Targets = _enemiesInRange;
+        Attack.Targets = _enemiesInRange;
         _enemiesInRange = new List<Collider>();
         _enemyHash = EnemyTag.ToHash();
     }
 
     protected virtual void Update()
     {
-        _attackBehavior.Targets = _enemiesInRange;
+        Attack.Targets = _enemiesInRange;
     }
 
     void OnTriggerEnter(Collider other)
