@@ -85,10 +85,10 @@ public class WarriorBehavior : MonoBehaviour
         _enemiesInRange.Remove(other);
         if (_enemiesInRange.Count == 0)
         {
-            if (_defenseBehavior.Defending)
+            if (Defense.Defending)
             {
                 // This will only be effective if active defense is not a oneTime defense
-                _defenseBehavior.CancelDefense();
+                Defense.CancelDefense();
             }
         }
     }
