@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Animator), typeof(PlayerMovement))]
+[RequireComponent(typeof(Animator), typeof(PlayerMovement), typeof(AbilitiesManager))]
 public class PlayerBehavior : WarriorBehavior
 {
     private PlayerMovement _playerMovement;

@@ -626,6 +626,7 @@ GameObject:
   - 114: {fileID: 11499592}
   - 114: {fileID: 11421462}
   - 114: {fileID: 11490536}
+  - 114: {fileID: 11410396}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3706,7 +3707,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188294}
-  m_LocalRotation: {x: -0.093746535, y: 0.6978551, z: 0.707469, w: 0.060806725}
+  m_LocalRotation: {x: -0.09374654, y: 0.6978552, z: 0.70746905, w: 0.060806718}
   m_LocalPosition: {x: -0.05543403, y: 0.0017306843, z: 0.098653734}
   m_LocalScale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
   m_Children:
@@ -4251,7 +4252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.11, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466784}
@@ -4944,6 +4945,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyTag: 1
+  _enemiesInRange: []
+--- !u!114 &11410396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928c0d667f76ba44b9297548b6712a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11421462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4955,10 +4968,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11ed3f48a3e99e4e90b96b19df0d862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyTag: 1
   Defenses: []
-  DefenseIsOn: 1
+  CanDefend: 1
   Defending: 0
+  ShieldOn: 0
 --- !u!114 &11443228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4977,6 +4990,8 @@ MonoBehaviour:
   TurningSpeed: 50
   InputThreshold: 0.1
   MoveSpeedMulti: 1
+  SpeedThreshold: 1
+  SpeedDampTime: 0.1
   CanMove: 1
   Moving: 0
 --- !u!114 &11451588
@@ -4990,7 +5005,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377938be936fc384394229f9a23327aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyTag: 0
   Attacks:
   - Damage: 10
     Radius: 1
@@ -5001,6 +5015,8 @@ MonoBehaviour:
   CanAttack: 1
   Attacking: 0
   Targets: []
+  DamageMultiplier: 1
+  StaminaMultiplier: 1
 --- !u!114 &11490536
 MonoBehaviour:
   m_ObjectHideFlags: 1
