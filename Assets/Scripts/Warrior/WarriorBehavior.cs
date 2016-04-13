@@ -13,6 +13,7 @@ public class WarriorBehavior : MonoBehaviour
     private AttackBehavior _attackBehavior;
     private Health _health;
     private Stamina _stamina;
+    private GameManager _gameManager;
 
     public DefenseBehavior Defense
     {
@@ -64,8 +65,19 @@ public class WarriorBehavior : MonoBehaviour
         _enemiesInRange = new List<Collider>();
     }
 
+    protected virtual void Start()
+    {
+        _gameManager = GameManager.Instance;
+    }
+
     protected virtual void Update()
     {
+        if (Health.IsDead)
+        {
+            _gameManager.OnWarriorDeath(this);
+            return;
+        }
+
         Attack.Targets = _enemiesInRange;
     }
 

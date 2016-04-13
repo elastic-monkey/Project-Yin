@@ -38,12 +38,29 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Player instance is not defined");
     }
 
-    public void OnPlayerDeath(PlayerBehavior player)
+    public void OnWarriorDeath(WarriorBehavior warrior)
+    {
+        Debug.Log("On Warrior Death: " + warrior.tag);
+        Destroy(warrior.gameObject);
+
+        //switch (warrior.tag)
+        //{
+        //    case Tags.Player:
+        //        OnPlayerDeath(warrior.GetComponent<PlayerBehavior>());
+        //        break;
+
+        //    case Tags.Enemy:
+        //        OnEnemyDeath(warrior.GetComponent<EnemyBehavior>());
+        //        break;
+        //}
+    }
+
+    private void OnPlayerDeath(PlayerBehavior player)
     {
         // TODO: Restart from last save point?
     }
 
-    public void OnEnemyDeath(EnemyBehavior enemy)
+    private void OnEnemyDeath(EnemyBehavior enemy)
     {
         // TODO: Give player experience for the kill.
     }

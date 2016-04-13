@@ -11,6 +11,8 @@ public class EnemyBehavior : WarriorBehavior
     public const int CourageSliderMin = 0, CourageSliderMax = 100;
 
     public bool AutomaticAttack, AutomaticDefense;
+    [Tooltip("Experience gained by the player when this enemy is killed.")]
+    public int ExperienceValue;
     [HideInInspector]
     public float AttackDefense = 50;
     [HideInInspector]
@@ -26,8 +28,10 @@ public class EnemyBehavior : WarriorBehavior
         }
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         StartCoroutine(AttackAndDefend());
     }
 
@@ -61,7 +65,7 @@ public class EnemyBehavior : WarriorBehavior
                 }
                 else if (AutomaticDefense)
                 {
-                   //Debug.Log("Defense");
+                    //Debug.Log("Defense");
                 }
             }
 

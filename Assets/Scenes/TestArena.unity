@@ -958,6 +958,12 @@ MonoBehaviour:
   ExpSlider: {fileID: 1947037203}
   AvailableSP: {fileID: 1869199911}
   SkillPoints: 0
+--- !u!114 &854028566 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11404804, guid: 0516fc4845e3faf45a37af435f163e31,
+    type: 2}
+  m_PrefabInternal: {fileID: 1965491975}
+  m_Script: {fileID: 11500000, guid: 3be0c631ac32cc140a97d6104fe71945, type: 3}
 --- !u!1 &923255000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,6 +2363,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1957768287}
   - 114: {fileID: 1957768288}
+  - 114: {fileID: 1957768289}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2385,6 +2392,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 789a1b1bcd6c83e498329eea4b3c695d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 854028566}
+  Enemies: {fileID: 1957768289}
+--- !u!114 &1957768289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1957768286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d934a51efd2e0644083b796106aaacbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1959751801
