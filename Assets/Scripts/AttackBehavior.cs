@@ -86,9 +86,9 @@ public class AttackBehavior : MonoBehaviour
     {
         Attacking = true;
 
-        yield return new WaitForSeconds(attack.HitTime);
-
 		_stamina.ConsumeStamina(attack.StaminaCost * StaminaMultiplier);
+
+        yield return new WaitForSeconds(attack.HitTime);
 
         foreach (var target in Targets)
         {
