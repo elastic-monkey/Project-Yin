@@ -37,7 +37,6 @@ public class PlayerBehavior : WarriorBehavior
 
         _animator = GetComponent<Animator>();
         _abilities = GetComponent<AbilitiesManager>();
-		_experience = GetComponent<Experience> ();
     }
 
     protected override void Update()
