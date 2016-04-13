@@ -8,7 +8,6 @@ public class Interaction : MonoBehaviour
     public RectTransform InteractionPrompt;
     public Tags PlayerTag;
 
-    protected int _playerHash;
     protected Text _interactionText;
     protected Text _dialogueText;
     protected Text _title;
@@ -17,15 +16,13 @@ public class Interaction : MonoBehaviour
 
     protected virtual void Awake()
     {
-        _playerHash = PlayerTag.ToHash();
         InteractionPrompt.gameObject.SetActive(false);
         _interactionText = InteractionPrompt.GetComponentInChildren<Text>();
     }
 
     void OnTriggerEnter(Collider collider)
     {
-        var colliderHash = collider.tag.GetHashCode();
-        if (colliderHash == _playerHash)
+        if (collider.CompareTag(PlayerTag.ToString()))
         {
             InteractionPrompt.gameObject.SetActive(true);
             _player = collider.GetComponentInParent<PlayerBehavior>();

@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyNavigation : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public Tags PlayerTag;
     public LayerMask RaycastMask;
@@ -26,12 +26,10 @@ public class EnemyNavigation : MonoBehaviour
 
     void Awake()
     {
-        var playerHash = PlayerTag.ToHash();
         var colliders = Target.GetComponentsInChildren<Collider>();
         for (var i = 0; i < colliders.Length; i++)
         {
-            var hash = colliders[i].tag.GetHashCode();
-            if (playerHash == hash)
+            if (colliders[i].CompareTag(PlayerTag.ToString()))
             {
                 _targetCollider = colliders[i];
                 break;
@@ -94,7 +92,7 @@ public class EnemyNavigation : MonoBehaviour
                     var direction = delta.normalized;
                     var ray = new Ray(transform.position, direction);
                     RaycastHit hitInfo;
-                    
+
                     var newTargetInSight = Physics.Raycast(ray, out hitInfo, LineOfSight, RaycastMask)
                         && (hitInfo.collider == _targetCollider)
                         && (Vector3.Angle(transform.forward, direction) <= 0.5f * AngleOfSight);
@@ -113,7 +111,7 @@ public class EnemyNavigation : MonoBehaviour
                         }
                     }
                 }
-                else if(TargetInSight)
+                else if (TargetInSight)
                 {
                     TargetInSight = false;
                     _lastKnownPosition = Target.position;

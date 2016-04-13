@@ -7,7 +7,6 @@ public class WarriorBehavior : MonoBehaviour
 {
     public Tags EnemyTag;
 
-    protected int _enemyHash;
     [SerializeField]
     protected List<Collider> _enemiesInRange;
     private DefenseBehavior _defenseBehavior;
@@ -63,7 +62,6 @@ public class WarriorBehavior : MonoBehaviour
     {
         Attack.Targets = _enemiesInRange;
         _enemiesInRange = new List<Collider>();
-        _enemyHash = EnemyTag.ToHash();
     }
 
     protected virtual void Update()
@@ -73,8 +71,7 @@ public class WarriorBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        var otherHash = other.tag.GetHashCode();
-        if (otherHash == _enemyHash && !_enemiesInRange.Contains(other))
+        if (other.CompareTag(EnemyTag.ToString()) && !_enemiesInRange.Contains(other))
         {
             _enemiesInRange.Add(other);
         }
