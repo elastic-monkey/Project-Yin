@@ -3,31 +3,34 @@ using System.Collections;
 
 public class IsometricCamera : MonoBehaviour
 {
-	public GameObject target;
-	public float size = 10;
-	public float scrollSpeed = 30;
+	public GameObject Target;
+    public Transform CameraHanger;
+	public float Size = 10;
+	public float ScrollSpeed = 30;
+    public float Angle = 45;
+    public float HorizontalDist = 5;
+    public float VerticalDist = 5;
 
-	Vector3 pos;
-	private Camera cam;
+	Vector3 _cameraGoTo;
+    private Camera _cam;
 
 	void Start()
 	{
-		this.cam = (Camera)this.gameObject.GetComponent("Camera");
-		this.cam.orthographic = true;
-		this.cam.transform.rotation = Quaternion.Euler(30, 45, 0);
+        _cam = CameraHanger.GetComponentInChildren<Camera>();
+        _cam.orthographic = true;
+        CameraHanger.localRotation = Quaternion.Euler(Angle, 0, 0);
+        CameraHanger.localPosition = new Vector3(0, VerticalDist, -HorizontalDist);
 
-		pos = target.transform.position;
+        transform.position = Target.transform.position;
+
+        _cameraGoTo = Target.transform.position;
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
-		this.cam.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed * Time.deltaTime;
+        CameraHanger.localRotation = Quaternion.Euler(Angle, 0, 0);
+        CameraHanger.localPosition = new Vector3(0, VerticalDist, -HorizontalDist);
 
-		float distance = 30;
-
-		//transform.position = target.transform.position + new Vector3(-distance, distance, -distance);
-
-		transform.position = Vector3.Lerp(transform.position, target.transform.position + new Vector3(distance, distance, -distance), 0.5f * Time.deltaTime);
-		this.cam.transform.LookAt(target.transform);
-	}
+        transform.position = Vector3.Lerp(transform.position, Target.transform.position, 5f * Time.fixedDeltaTime);
+    }
 }
