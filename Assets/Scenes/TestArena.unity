@@ -2107,6 +2107,7 @@ GameObject:
   - 92: {fileID: 1855781053}
   - 124: {fileID: 1855781052}
   - 81: {fileID: 1855781051}
+  - 114: {fileID: 1855781056}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2175,12 +2176,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1855781050}
-  m_LocalRotation: {x: 0.38268346, y: 0, z: 0, w: 0.9238795}
-  m_LocalPosition: {x: 0, y: 5, z: -2}
+  m_LocalRotation: {x: 0.39931777, y: -0.39931777, z: 0.1990925, w: 0.8009075}
+  m_LocalPosition: {x: 5.75, y: 10.38, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
+--- !u!114 &1855781056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1855781050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb74e3f7f78ff8f43b87c4709db02ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 854028558}
+  size: 10
+  scrollSpeed: 30
 --- !u!1 &1869199909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,6 +2672,18 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0.060806718
       objectReference: {fileID: 0}
+    - target: {fileID: 495388, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 462208, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 466784, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
   m_IsPrefabParent: 0
@@ -2894,7 +2921,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &2110618460
 GameObject:
   m_ObjectHideFlags: 0
