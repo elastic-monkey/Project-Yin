@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         // TODO: Restart from last save point?
     }
 
-    private void OnEnemyDeath(EnemyBehavior enemy)
+    public void OnEnemyDeath(EnemyBehavior enemy)
     {
         // TODO: Give player experience for the kill.
     }

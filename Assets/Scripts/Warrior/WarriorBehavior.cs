@@ -1,104 +1,144 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
-[RequireComponent(typeof(AttackBehavior), typeof(DefenseBehavior))]
+[RequireComponent(typeof(AttackBehavior), typeof(DefenseBehavior), typeof(Movement))]
 [RequireComponent(typeof(Health), typeof(Stamina))]
 public class WarriorBehavior : MonoBehaviour
 {
-    public Tags EnemyTag;
+	public Tags EnemyTag;
 
-    [SerializeField]
-    protected List<Collider> _enemiesInRange;
-    private DefenseBehavior _defenseBehavior;
-    private AttackBehavior _attackBehavior;
-    private Health _health;
-    private Stamina _stamina;
-    private GameManager _gameManager;
+	[SerializeField]
+	protected List<Collider> _enemiesInRange;
+	private DefenseBehavior _defenseBehavior;
+	private AttackBehavior _attackBehavior;
+	private Health _health;
+	private Stamina _stamina;
+	private Animator _animator;
+	private Movement _movement;
+	protected GameManager _gameManager;
 
-    public DefenseBehavior Defense
-    {
-        get
-        {
-            if (_defenseBehavior == null)
-                _defenseBehavior = GetComponent<DefenseBehavior>();
+	public DefenseBehavior Defense
+	{
+		get
+		{
+			if (_defenseBehavior == null)
+				_defenseBehavior = GetComponent<DefenseBehavior>();
 
-            return _defenseBehavior;
-        }
-    }
+			return _defenseBehavior;
+		}
+	}
 
-    public AttackBehavior Attack
-    {
-        get
-        {
-            if (_attackBehavior == null)
-                _attackBehavior = GetComponent<AttackBehavior>();
+	public AttackBehavior Attack
+	{
+		get
+		{
+			if (_attackBehavior == null)
+				_attackBehavior = GetComponent<AttackBehavior>();
 
-            return _attackBehavior;
-        }
-    }
+			return _attackBehavior;
+		}
+	}
 
-    public Health Health
-    {
-        get
-        {
-            if (_health == null)
-                _health = GetComponent<Health>();
+	public Health Health
+	{
+		get
+		{
+			if (_health == null)
+				_health = GetComponent<Health>();
 
-            return _health;
-        }
-    }
+			return _health;
+		}
+	}
 
-    public Stamina Stamina
-    {
-        get
-        {
-            if (_stamina == null)
-                _stamina = GetComponent<Stamina>();
+	public Stamina Stamina
+	{
+		get
+		{
+			if (_stamina == null)
+				_stamina = GetComponent<Stamina>();
 
-            return _stamina;
-        }
-    }
+			return _stamina;
+		}
+	}
 
-    protected virtual void Awake()
-    {
-        Attack.Targets = _enemiesInRange;
-        _enemiesInRange = new List<Collider>();
-    }
+	public Animator Animator
+	{
+		get
+		{
+			if (_animator == null)
+				_animator = GetComponent<Animator>();
 
-    protected virtual void Start()
-    {
-        _gameManager = GameManager.Instance;
-    }
+			return _animator;
+		}
+	}
 
-    protected virtual void Update()
-    {
-        if (Health.IsDead)
-        {
-            _gameManager.OnWarriorDeath(this);
-            return;
-        }
+	public Movement Movement
+	{
+		get
+		{
+			if (_movement == null)
+				_movement = GetComponent<Movement>();
 
-        Attack.Targets = _enemiesInRange;
-    }
+			return _movement;
+		}
+	}
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(EnemyTag.ToString()) && !_enemiesInRange.Contains(other))
-        {
-            _enemiesInRange.Add(other);
-        }
-    }
+	protected virtual void Awake()
+	{
+		Attack.Targets = _enemiesInRange;
+		_enemiesInRange = new List<Collider>();
+	}
 
-    void OnTriggerExit(Collider other)
-    {
-        _enemiesInRange.Remove(other);
-        if (_enemiesInRange.Count == 0)
-        {
-            if (Defense.Defending)
-            {
-                // This will only be effective if active defense is not a oneTime defense
-                Defense.CancelDefense();
-            }
-        }
-    }
+	protected virtual void Start()
+	{
+		_gameManager = GameManager.Instance;
+	}
+
+	protected virtual void Update()
+	{
+		SetAnimatorParameters();
+
+		Attack.Targets = _enemiesInRange;
+	}
+
+	private void SetAnimatorParameters()
+	{
+		Animator.SetBool(AnimatorHashIDs.CanMoveBool, Movement.CanMove);
+		if (Movement.Moving && !PlayerInput.Blocked)
+		{
+			Animator.SetFloat(AnimatorHashIDs.SpeedFloat, Movement.SpeedThreshold, Movement.SpeedDampTime, Time.deltaTime);
+		}
+		else {
+			Animator.SetFloat(AnimatorHashIDs.SpeedFloat, 0f);
+		}
+		Animator.SetBool(AnimatorHashIDs.AttackingBool, Attack.Attacking);
+		Animator.SetBool(AnimatorHashIDs.DefendingBool, Defense.Defending);
+		Animator.SetFloat(AnimatorHashIDs.SpeedMultiFloat, Movement.SpeedMulti);
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag(EnemyTag.ToString()) && !_enemiesInRange.Contains(other))
+		{
+			_enemiesInRange.Add(other);
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		_enemiesInRange.Remove(other);
+		if (_enemiesInRange.Count == 0)
+		{
+			if (Defense.Defending)
+			{
+				// This will only be effective if active defense is not a oneTime defense
+				Defense.CancelDefense();
+			}
+		}
+	}
+
+	//protected IEnumerator Die()
+	//{
+	//}
 }

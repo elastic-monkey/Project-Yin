@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : Movement
 {
     public Tags PlayerTag;
     public LayerMask RaycastMask;
@@ -15,7 +15,6 @@ public class EnemyMovement : MonoBehaviour
     public int EyePatrolRotation;
     public float PatrolSpeed;
     public Transform Target;
-    public bool Asleep;
     public bool TargetInSight;
 
     private NavMeshAgent _navAgent;
@@ -84,7 +83,7 @@ public class EnemyMovement : MonoBehaviour
 
         while (true)
         {
-            if (!Asleep)
+            if (!CanMove)
             {
                 var delta = Target.position - transform.position;
                 if (Vector3.SqrMagnitude(delta) <= _sqrEyesightRange)

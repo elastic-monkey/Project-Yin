@@ -87,12 +87,12 @@ public class SpeedAbility : Ability
     public override void Activate(PlayerBehavior player)
     {
         //player.Movement.MoveSpeedMulti = 1f + 0.05f * CurrentLevel;
-		player.Movement.MoveSpeedMulti = 1f + 0.05f * 10f;
+		player.PlayerMovement.SpeedMulti = 1f + 0.05f * 10f;
     }
 
     public override void Deactivate(PlayerBehavior player)
     {
-        player.Movement.MoveSpeedMulti = 1f;
+        player.PlayerMovement.SpeedMulti = 1f;
     }
 
     public override Type GetAbilityType()
