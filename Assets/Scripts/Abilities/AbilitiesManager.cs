@@ -4,50 +4,64 @@ using System.Collections.Generic;
 [RequireComponent(typeof(PlayerBehavior))]
 public class AbilitiesManager : MonoBehaviour
 {
-    private PlayerBehavior _player; 
-    [SerializeField]
-    private List<Ability> _abilities;
+	private PlayerBehavior _player;
+	[SerializeField]
+	private List<Ability> _abilities;
 
-    void Awake()
-    {
-        _player = GetComponent<PlayerBehavior>();
-        _abilities = new List<Ability>();
-    }
-
-    void Start()
-    {
-        LoadAbilities();
-    }
-
-    public void ApplyAbilities()
-    {
-		string abilityType = null;
-        foreach(var ability in _abilities)
-        {
-			if (PlayerInput.IsButtonDown (ability.InputAxis)) {
-				Debug.Log (string.Concat ("Activating ", ability.GetAbilityType ().ToString ()));
-				ability.Activate (_player);
-				abilityType = ability.GetAbilityType().ToString();
+	public List<Ability> Abilities
+	{
+		get
+		{
+			if (_abilities == null)
+			{
+				_abilities = new List<Ability>();
+				LoadAbilities();
 			}
-        }
-		if (abilityType != null) {
-			foreach(var ability in _abilities){
-				if (ability.GetAbilityType().ToString() != abilityType) {
-					Debug.Log (string.Concat ("Deactivating ", ability.GetAbilityType ().ToString ()));
-					ability.Deactivate (_player);
+
+			return _abilities;
+		}
+	}
+
+	void Awake()
+	{
+		_player = GetComponent<PlayerBehavior>();
+	}
+
+	public void ApplyAbilities()
+	{
+		var selectedAbility = -1;
+		for (var i = 0; i < Abilities.Count; i++)
+		{
+			if (PlayerInput.IsButtonDown(Abilities[i].InputAxis))
+			{
+				selectedAbility = i;
+			}
+		}
+		if (selectedAbility != -1)
+		{
+			for (var i = 0; i < Abilities.Count; i++)
+			{
+				var ability = Abilities[i];
+				if (i == selectedAbility)
+				{
+					ability.Activate(_player);
+				}
+				else
+				{
+					ability.Deactivate(_player);
 				}
 			}
 		}
-    }
+	}
 
-    private void LoadAbilities()
-    {
-        // TODO: load from file
-        _abilities.Clear();
+	private void LoadAbilities()
+	{
+		// TODO: load from file
+		_abilities.Clear();
 
-        _abilities.Add(new VisionAbility(Axis.Ability1));
-        _abilities.Add(new SpeedAbility(Axis.Ability2));
-        _abilities.Add(new ShieldAbility(Axis.Ability3));
-        _abilities.Add(new StrengthAbility(Axis.Ability4));
-    }
+		_abilities.Add(new VisionAbility(Axis.Ability1));
+		_abilities.Add(new SpeedAbility(Axis.Ability2));
+		_abilities.Add(new ShieldAbility(Axis.Ability3));
+		_abilities.Add(new StrengthAbility(Axis.Ability4));
+	}
 }

@@ -23,6 +23,8 @@ public class IsometricCamera : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		Size -= Input.GetAxis(Axis.MouseScroll.EditorName()) * 10;
+
 		Camera.transform.localRotation = Quaternion.Euler(Angle, 0, 0);
 		Camera.transform.localPosition = new Vector3(0, VerticalDist, -HorizontalDist);
 
