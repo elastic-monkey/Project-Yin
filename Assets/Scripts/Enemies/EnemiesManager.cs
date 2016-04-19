@@ -17,6 +17,18 @@ public class EnemiesManager : MonoBehaviour
 		}
 	}
 
+	private void Awake()
+	{
+		_enemies = new List<EnemyBehavior>(FindObjectsOfType<EnemyBehavior>());
+
+		var player = FindObjectOfType<PlayerBehavior>();
+
+		foreach (var enemy in _enemies)
+		{
+			enemy.Target = player;
+		}
+	}
+
 	public void RemoveEnemy(EnemyBehavior enemy)
 	{
 		_enemies.Remove(enemy);
@@ -34,18 +46,6 @@ public class EnemiesManager : MonoBehaviour
 		{
 			if (!_enemies.Contains(enemy))
 				_enemies.Add(enemy);
-		}
-	}
-
-	void Awake()
-	{
-		_enemies = new List<EnemyBehavior>(FindObjectsOfType<EnemyBehavior>());
-
-		var player = FindObjectOfType<PlayerBehavior>();
-
-		foreach (var enemy in _enemies)
-		{
-			enemy.Target = player;
 		}
 	}
 }

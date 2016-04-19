@@ -62,14 +62,13 @@ public static class GizmosHelper
         Gizmos.color = color;
 
         var halfAngle = angle / 2;
-        var steps = 20;
-        var angleStep = angle / (float)steps;
+        var angleStep = angle / (float)divisions;
 
         var p1 = Quaternion.Euler(0, -halfAngle, 0) * forward;
         if (angle < 360)
             Gizmos.DrawLine(center, center + p1);
 
-        for (int i = 0; i < steps; i++)
+        for (int i = 0; i < divisions; i++)
         {
             var nextAngle = -halfAngle + (i + 1) * angleStep;
             var p2 = Quaternion.Euler(0, nextAngle, 0) * forward;
@@ -81,4 +80,25 @@ public static class GizmosHelper
         if (angle > 0 && angle < 360)
             Gizmos.DrawLine(center, center + p1);
     }
+
+	public static void DrawDangerArea(Vector3 center, float range, int divisions, Color color = default(Color))
+	{
+		Gizmos.color = color;
+
+		var size = new Vector3(0.2f, 1f, 0.2f);
+		var forward = Vector3.forward * range + new Vector3(0, 0.5f, 0);
+		var halfAngle = 360 / 2;
+		var angleStep = 360 / (float)divisions;
+
+		var p1 = Quaternion.Euler(0, -halfAngle, 0) * forward;
+		for (int i = 0; i < divisions; i++)
+		{
+			var nextAngle = -halfAngle + (i + 1) * angleStep;
+			var p2 = Quaternion.Euler(0, nextAngle, 0) * forward;
+
+			Gizmos.DrawCube(p2, size);
+			Gizmos.DrawLine(center + p1, center + p2);
+			p1 = p2;
+		}
+	}
 }
