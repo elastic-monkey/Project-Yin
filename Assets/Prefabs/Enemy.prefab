@@ -10,7 +10,7 @@ GameObject:
   - 224: {fileID: 22415758}
   - 222: {fileID: 22256042}
   - 114: {fileID: 11444144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22497816}
   - 114: {fileID: 11451242}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22484984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22461092}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - 224: {fileID: 22489234}
   - 222: {fileID: 22261366}
   - 114: {fileID: 11432192}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 452002}
   - 136: {fileID: 13646074}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - 223: {fileID: 22362552}
   - 114: {fileID: 11467642}
   - 114: {fileID: 11411214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22473866}
   - 114: {fileID: 11420762}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 467930}
   - 135: {fileID: 13549092}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Attack Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,8 @@ GameObject:
   - 114: {fileID: 11478826}
   - 195: {fileID: 19589550}
   - 114: {fileID: 11404022}
-  m_Layer: 0
+  - 95: {fileID: 9566282}
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -179,7 +180,7 @@ GameObject:
   - 224: {fileID: 22477578}
   - 222: {fileID: 22245014}
   - 114: {fileID: 11483208}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +197,7 @@ GameObject:
   - 224: {fileID: 22490964}
   - 222: {fileID: 22210936}
   - 114: {fileID: 11428218}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +214,7 @@ GameObject:
   - 4: {fileID: 404820}
   - 33: {fileID: 3376454}
   - 23: {fileID: 2315220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448988}
@@ -239,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467930}
@@ -255,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448988}
@@ -267,7 +268,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448988}
@@ -320,6 +321,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &9566282
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183296}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab46175746e049e448ddf216bb39f88c, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11404022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,19 +349,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a08d8699d6d78b42b91b38e90ff3944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTag: 0
-  RaycastMask:
-    serializedVersion: 2
-    m_Bits: 4294967039
-  CheckForEnemyRate: 15
-  LineOfSight: 10
-  AngleOfSight: 140
-  EyePatrolRotation: 0
-  PatrolSpeed: 0
-  Target: {fileID: 0}
-  Asleep: 0
-  TargetInSight: 0
-  _targetCollider: {fileID: 0}
+  CanMove: 1
+  Moving: 0
+  Speed: 6
+  SpeedMulti: 1
+  SpeedThreshold: 1
+  SpeedDampTime: 0.1
+  TurnSmoothing: 10
+  TurnAngleThreshold: 80
+  TurnSpeed: 20
+  MinInputValue: 0.1
+  _initialPos: {x: 0, y: 0, z: 0}
+  _targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &11411214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -593,14 +610,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyTag: 0
-  _enemiesInRange: []
+  DeathDuration: 2
   AutomaticAttack: 0
   AutomaticDefense: 0
   ExperienceValue: 100
   AttackDefense: 50
   Courage: 50
-  EyesightRange: 10
   Target: {fileID: 0}
+  Eye:
+    Mask:
+      serializedVersion: 2
+      m_Bits: 1536
+    Range: 10
+    Angle: 140
 --- !u!114 &11483208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -641,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   HealthSlider: {fileID: 11451242}
+  Alive: 0
 --- !u!114 &11488286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -717,12 +740,12 @@ NavMeshAgent:
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!222 &22210936
@@ -784,7 +807,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.546}
+  m_AnchoredPosition: {x: 0, y: 2.5}
   m_SizeDelta: {x: 3, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22415758

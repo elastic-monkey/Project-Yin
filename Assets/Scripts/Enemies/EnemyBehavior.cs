@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 [RequireComponent(typeof(AttackBehavior), typeof(DefenseBehavior))]
 public class EnemyBehavior : WarriorBehavior
 {
 	public const int AttackDefenseSliderStep = 5;
-	public const int AttackDefenseSliderMin = 0, AttackDefenseSliderMax = 100;
 	public const int CourageSliderStep = 5;
-	public const int CourageSliderMin = 0, CourageSliderMax = 100;
+	public const int MinAttackDefense = 0, MaxAttackDefense = 100;
+	public const int MinCourage = 0, MaxCourage = 100;
 
 	public bool AutomaticAttack, AutomaticDefense;
 	[Tooltip("Experience gained by the player when this enemy is killed.")]
@@ -17,10 +16,10 @@ public class EnemyBehavior : WarriorBehavior
 	public float AttackDefense = 50;
 	[HideInInspector]
 	public float Courage = 50;
-	public float EyesightRange = 5f;
 	public WarriorBehavior Target;
+	public Eyesight Eye;
 
-	public bool HasEnemiesToAttack
+	public bool HasEnemiesInRange
 	{
 		get
 		{
@@ -39,18 +38,38 @@ public class EnemyBehavior : WarriorBehavior
 	{
 		base.Update();
 
-		if (Health.IsDead)
+		if (!Health.Alive)
+			return;
+
+		if (Health.CurrentHealth < 0)
 		{
 			_gameManager.OnEnemyDeath(this);
+
 			Die();
+
+			return;
+		}
+
+		if (Eye.CanSee(Target.transform, transform))
+		{
+			Movement.SetTarget(Target.transform.position);
+		}
+		else
+		{
+			Movement.ResetTarget();
 		}
 	}
 
-	IEnumerator AttackAndDefend()
+	private void OnDrawGizmos()
+	{
+		GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * Eye.Range, Eye.Angle, 20, Color.yellow);
+	}
+
+	private IEnumerator AttackAndDefend()
 	{
 		while (true)
 		{
-			if (HasEnemiesToAttack)
+			if (HasEnemiesInRange)
 			{
 				if (AutomaticAttack)
 				{
@@ -59,7 +78,7 @@ public class EnemyBehavior : WarriorBehavior
 						// Of course there are other considerations:
 						//  - Are the enemies attacking me also?
 						//  - Am I sorrounded or not? (In which case, maybe running is not a bad idea)
-						var inclination = Random.Range(AttackDefenseSliderMin, AttackDefenseSliderMax);
+						var inclination = Random.Range(MinAttackDefense, MaxAttackDefense);
 						if (inclination >= AttackDefense)
 						{
 							//Debug.Log("Attack");
@@ -81,6 +100,35 @@ public class EnemyBehavior : WarriorBehavior
 			}
 
 			yield return new WaitForSeconds(1);
+		}
+	}
+}
+
+[System.Serializable]
+public class Eyesight
+{
+	public LayerMask Mask;
+	public float Range = 10f;
+	[Range(0, 360)]
+	public int Angle = 50;
+
+	public bool CanSee(Transform target, Transform from)
+	{
+		if (Vector3.Distance(target.position, from.position) > Range)
+			return false;
+
+		var direction = (target.position - from.position).normalized;
+		var ray = new Ray(from.position, direction);
+
+		if (Physics.Raycast(ray, Range, Mask) && Vector3.Angle(from.forward, direction) <= 0.5f * Angle)
+		{
+			Debug.DrawLine(from.position, target.position, Color.green);
+			return true;
+		}
+		else
+		{
+			Debug.DrawLine(from.position, target.position, Color.red);
+			return false;
 		}
 	}
 }

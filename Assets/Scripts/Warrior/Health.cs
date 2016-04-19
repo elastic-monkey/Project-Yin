@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
 {
 	public float MaxHealth = 100f;
 	public Slider HealthSlider;
+	public bool Alive;
 
 	private float _currentHealth;
 
@@ -22,22 +23,16 @@ public class Health : MonoBehaviour
 		}
 	}
 
-	public bool IsDead
-	{
-		get
-		{
-			return CurrentHealth <= 0;
-		}
-	}
-
 	private void Awake()
 	{
 		//TODO LOAD HEALTH FROM SAVEFILE
 		CurrentHealth = MaxHealth;
+		Alive = true;
 	}
 
 	public void RegenerateFull()
 	{
 		CurrentHealth = MaxHealth;
+		Alive = true;
 	}
 }

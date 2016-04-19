@@ -162,14 +162,10 @@ public class WarriorBehavior : MonoBehaviour
 
 	protected void Die()
 	{
-		if (!_dying)
-		{
-			_dying = true;
+		Health.Alive = false;
+		ToggleColliders(false);
 
-			ToggleColliders(false);
-
-			StartCoroutine(DieCoroutine());
-		}
+		StartCoroutine(DieCoroutine());
 	}
 
 	private IEnumerator DieCoroutine()

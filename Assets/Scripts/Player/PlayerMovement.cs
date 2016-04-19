@@ -47,7 +47,7 @@ public class PlayerMovement : Movement
 		}
 	}
 
-	void Rotate(float hor, float vert)
+	private void Rotate(float hor, float vert)
 	{
 		var targetDirection = new Vector3(hor, 0f, vert);
 		var targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
@@ -63,8 +63,18 @@ public class PlayerMovement : Movement
 		}
 	}
 
-	bool IsSuddenMovement(Vector3 current, Vector3 next)
+	private bool IsSuddenMovement(Vector3 current, Vector3 next)
 	{
 		return Vector3.Angle(current, next) >= TurnAngleThreshold;
+	}
+
+	public override void SetTarget(Vector3 target)
+	{
+		Debug.LogWarning("SetTarget is not implemented in player");
+	}
+
+	public override void ResetTarget()
+	{
+		Debug.LogWarning("ResetTarget is not implemented in player");
 	}
 }
