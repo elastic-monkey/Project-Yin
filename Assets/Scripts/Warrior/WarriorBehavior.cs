@@ -7,16 +7,18 @@ using System.Collections;
 public class WarriorBehavior : MonoBehaviour
 {
 	public Tags EnemyTag;
+	public float DeathDuration;
 
-	[SerializeField]
-	protected List<Collider> _enemiesInRange;
+	private Collider[] _colliders;
 	private DefenseBehavior _defenseBehavior;
 	private AttackBehavior _attackBehavior;
 	private Health _health;
 	private Stamina _stamina;
 	private Animator _animator;
 	private Movement _movement;
+	protected List<Collider> _enemiesInRange;
 	protected GameManager _gameManager;
+	protected bool _dying = false;
 
 	public DefenseBehavior Defense
 	{
@@ -84,10 +86,20 @@ public class WarriorBehavior : MonoBehaviour
 		}
 	}
 
+	public Collider[] Colliders
+	{
+		get
+		{
+			if (_colliders == null)
+				_colliders = GetComponentsInChildren<Collider>();
+
+			return _colliders;
+		}
+	}
+
 	protected virtual void Awake()
 	{
-		Attack.Targets = _enemiesInRange;
-		_enemiesInRange = new List<Collider>();
+		Live();
 	}
 
 	protected virtual void Start()
@@ -138,7 +150,44 @@ public class WarriorBehavior : MonoBehaviour
 		}
 	}
 
-	//protected IEnumerator Die()
-	//{
-	//}
+	public void Live()
+	{
+		Health.RegenerateFull();
+
+		_enemiesInRange = new List<Collider>();
+		Attack.Targets = _enemiesInRange;
+
+		ToggleColliders(true);
+	}
+
+	protected void Die()
+	{
+		if (!_dying)
+		{
+			_dying = true;
+
+			ToggleColliders(false);
+
+			StartCoroutine(DieCoroutine());
+		}
+	}
+
+	private IEnumerator DieCoroutine()
+	{
+		Debug.Log("Warrior is dying...");
+		Animator.SetBool(AnimatorHashIDs.DeadBool, true);
+
+		yield return new WaitForSeconds(DeathDuration);
+
+		Debug.Log("Warrior is dead.");
+		gameObject.SetActive(false);
+	}
+
+	private void ToggleColliders(bool value)
+	{
+		foreach (var collider in Colliders)
+		{
+			collider.enabled = value;
+		}
+	}
 }

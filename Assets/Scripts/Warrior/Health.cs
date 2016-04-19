@@ -30,9 +30,14 @@ public class Health : MonoBehaviour
 		}
 	}
 
-	void Awake()
+	private void Awake()
 	{
 		//TODO LOAD HEALTH FROM SAVEFILE
+		CurrentHealth = MaxHealth;
+	}
+
+	public void RegenerateFull()
+	{
 		CurrentHealth = MaxHealth;
 	}
 }

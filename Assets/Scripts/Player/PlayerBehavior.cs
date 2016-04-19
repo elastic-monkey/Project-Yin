@@ -30,11 +30,20 @@ public class PlayerBehavior : WarriorBehavior
 		}
 	}
 
+	public AbilitiesManager Abilities
+	{
+		get
+		{
+			if(_abilities == null)
+				_abilities = GetComponent<AbilitiesManager>();
+
+			return _abilities;
+		}
+	}
+
 	protected override void Awake()
 	{
 		base.Awake();
-
-		_abilities = GetComponent<AbilitiesManager>();
 	}
 
 	protected override void Update()
@@ -43,7 +52,7 @@ public class PlayerBehavior : WarriorBehavior
 
 		if (!PlayerInput.Blocked)
 		{
-			_abilities.ApplyAbilities();
+			Abilities.ApplyAbilities();
 
 			Attack.ApplyAttack();
 

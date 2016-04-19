@@ -1,129 +1,100 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent), typeof(EnemyBehavior))]
 public class EnemyMovement : Movement
 {
-    public Tags PlayerTag;
-    public LayerMask RaycastMask;
-    [Range(5, 60)]
-    public int CheckForEnemyRate = 15;
-    public float LineOfSight = 10f;
-    [Range(0, 360)]
-    public int AngleOfSight = 50;
-    [Range(0, 360)]
-    public int EyePatrolRotation;
-    public float PatrolSpeed;
-    public Transform Target;
-    public bool TargetInSight;
+	public Tags PlayerTag;
+	public LayerMask RaycastMask;
+	[Range(5, 60)]
+	public int CheckForEnemyRate = 15;
+	public float LineOfSight = 10f;
+	[Range(0, 360)]
+	public int AngleOfSight = 50;
+	[Range(0, 360)]
+	public int EyePatrolRotation;
+	public float PatrolSpeed;
+	public bool TargetInRange, TargetInSight;
 
-    private NavMeshAgent _navAgent;
-    [SerializeField]
-    private Collider _targetCollider;
-    private float _sqrEyesightRange;
-    private Vector3 _startingPosition, _startingDirection, _lastKnownPosition, _lastKnownDirection;
+	private EnemyBehavior _behavior;
+	private NavMeshAgent _navAgent;
+	private float _sqrEyesightRange;
+	private Vector3 _startingPosition, _startingDirection, _lastKnownPosition, _lastKnownDirection;
+	private float RefreshRate;
 
-    void Awake()
-    {
-        var colliders = Target.GetComponentsInChildren<Collider>();
-        for (var i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].CompareTag(PlayerTag.ToString()))
-            {
-                _targetCollider = colliders[i];
-                break;
-            }
-        }
+	private void Awake()
+	{
+		_behavior = GetComponent<EnemyBehavior>();
+		_navAgent = GetComponent<NavMeshAgent>();
+	}
 
-        Target = _targetCollider.transform;
+	private void Start()
+	{
+		_sqrEyesightRange = LineOfSight * LineOfSight;
+		_lastKnownPosition = transform.position;
+		_lastKnownDirection = transform.forward + transform.position;
+		_startingPosition = _lastKnownPosition;
+		_startingDirection = _lastKnownDirection;
 
-        _navAgent = GetComponent<NavMeshAgent>();
-    }
+		UpdateRefreshRate();
 
-    void Start()
-    {
-        _sqrEyesightRange = LineOfSight * LineOfSight;
-        _lastKnownPosition = transform.position;
-        _lastKnownDirection = transform.forward + transform.position;
-        _startingPosition = _lastKnownPosition;
-        _startingDirection = _lastKnownDirection;
+		StartCoroutine(CheckForTargetInSight());
+	}
 
-        StartCoroutine(CheckForTargetInSight());
-    }
+	private void Update()
+	{
+		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_lastKnownDirection, Vector3.up), Time.deltaTime * TurnSpeed);
+		_navAgent.SetDestination(_lastKnownPosition);
 
-    void Update()
-    {
-        if (TargetInSight)
-        {
-            transform.LookAt(Target);
-            _navAgent.SetDestination(Target.position);
-        }
-        else
-        {
-            _navAgent.SetDestination(_lastKnownPosition);
-            if (Vector3.Distance(transform.position, _lastKnownPosition) < 1.5f)
-            {
-                _lastKnownPosition = _startingPosition;
-                transform.LookAt(_startingDirection);
-            }
-        }
+		Debug.DrawLine(transform.position, _lastKnownPosition, TargetInSight ? Color.green : Color.red);
+	}
 
-        Debug.DrawLine(transform.position, Target.position, TargetInSight ? Color.green : Color.red);
-    }
+	private void OnDrawGizmos()
+	{
+		GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * LineOfSight, AngleOfSight, 20, Color.yellow);
+	}
 
-    void OnDrawGizmos()
-    {
-        GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * LineOfSight, AngleOfSight, 20, Color.yellow);
-    }
+	private IEnumerator CheckForTargetInSight()
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(RefreshRate);
 
-    IEnumerator CheckForTargetInSight()
-    {
-        var oldCheckRate = CheckForEnemyRate;
-        var refreshSec = 1f / CheckForEnemyRate;
+			if (!CanMove || _behavior.Target == null)
+				continue;
 
-        while (true)
-        {
-            if (!CanMove)
-            {
-                var delta = Target.position - transform.position;
-                if (Vector3.SqrMagnitude(delta) <= _sqrEyesightRange)
-                {
-                    var direction = delta.normalized;
-                    var ray = new Ray(transform.position, direction);
-                    RaycastHit hitInfo;
+			var delta = (_behavior.Target.transform.position - transform.position);
+			TargetInRange = Vector3.SqrMagnitude(delta) <= _sqrEyesightRange;
 
-                    var newTargetInSight = Physics.Raycast(ray, out hitInfo, LineOfSight, RaycastMask)
-                        && (hitInfo.collider == _targetCollider)
-                        && (Vector3.Angle(transform.forward, direction) <= 0.5f * AngleOfSight);
+			if (TargetInRange)
+			{
+				var direction = delta.normalized;
+				var ray = new Ray(transform.position, direction);
+				RaycastHit hitInfo;
 
-                    if (TargetInSight != newTargetInSight)
-                    {
-                        TargetInSight = newTargetInSight;
-                        if (TargetInSight)
-                        {
-                            transform.LookAt(Target);
-                        }
-                        else
-                        {
-                            _lastKnownPosition = Target.position;
-                            _lastKnownDirection = Target.position + Target.forward;
-                        }
-                    }
-                }
-                else if (TargetInSight)
-                {
-                    TargetInSight = false;
-                    _lastKnownPosition = Target.position;
-                }
-            }
+				TargetInSight = Physics.Raycast(ray, out hitInfo, LineOfSight, RaycastMask)
+					&& (Vector3.Angle(transform.forward, direction) <= 0.5f * AngleOfSight);
 
-            if (oldCheckRate != CheckForEnemyRate)
-            {
-                oldCheckRate = CheckForEnemyRate;
-                refreshSec = 1f / CheckForEnemyRate;
-            }
+				if (TargetInSight)
+				{
+					_lastKnownPosition = hitInfo.transform.position;
+					_lastKnownDirection = _lastKnownPosition + hitInfo.transform.forward;
+				}
+			}
+			else
+			{
+				TargetInSight = false;
+			}
+		}
+	}
 
-            yield return new WaitForSeconds(refreshSec);
-        }
-    }
+	private void UpdateRefreshRate()
+	{
+		RefreshRate = 1f / CheckForEnemyRate;
+	}
+
+	private void OnValidate()
+	{
+		UpdateRefreshRate();
+	}
 }

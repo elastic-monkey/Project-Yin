@@ -4,152 +4,158 @@ using System.Collections;
 [RequireComponent(typeof(Health), typeof(Stamina))]
 public class DefenseBehavior : MonoBehaviour
 {
-    public Defense[] Defenses;
-    public bool CanDefend = true;
-    public bool Defending = false;
+	public Defense[] Defenses;
+	public bool CanDefend = true;
+	public bool Defending = false;
 	public bool ShieldOn = false;
 
-    private Health _health;
-    private Stamina _stamina;
-    private int _currentDefense;
-    private bool _cancelDefense;
+	private Health _health;
+	private Stamina _stamina;
+	private int _currentDefense;
+	private bool _cancelDefense;
 
-    public int CurrentDefense
-    {
-        get
-        {
-            return _currentDefense;
-        }
+	public int CurrentDefense
+	{
+		get
+		{
+			return _currentDefense;
+		}
 
-        set
-        {
-            _currentDefense = Mathf.Clamp(value, 0, Defenses.Length - 1);
-        }
-    }
+		set
+		{
+			_currentDefense = Mathf.Clamp(value, 0, Defenses.Length - 1);
+		}
+	}
 
-    public bool CanPerformNewDefense
-    {
-        get
-        {
-            return CanDefend && !Defending;
-        }
-    }
+	public bool CanPerformNewDefense
+	{
+		get
+		{
+			return CanDefend && !Defending;
+		}
+	}
 
-    void Awake()
-    {
-        _health = GetComponent<Health>();
-        _stamina = GetComponent<Stamina>();
-    }
+	void Awake()
+	{
+		_health = GetComponent<Health>();
+		_stamina = GetComponent<Stamina>();
+	}
 
-    void Start()
-    {
-        CurrentDefense = 0;
-    }
+	void Start()
+	{
+		CurrentDefense = 0;
+	}
 
-    public void TakeDamage(float damage)
-    {
-		if (!ShieldOn) {
-			if (Defending) {
-				var actualDamage = damage - Defenses [CurrentDefense].Armour;
+	public void TakeDamage(float damage)
+	{
+		if (!ShieldOn)
+		{
+			if (Defending)
+			{
+				var actualDamage = damage - Defenses[CurrentDefense].Armour;
 				_health.CurrentHealth -= actualDamage;
-			} else {
+			}
+			else
+			{
 				_health.CurrentHealth -= damage;
 			}
-		} else {
+		}
+		else
+		{
 			ShieldOn = false;
 		}
-    }
+	}
 
-    public void ChooseAndApplyDefense()
-    {
-        var bestArmour = float.MinValue;
-        var best = -1;
+	public void ChooseAndApplyDefense()
+	{
+		var bestArmour = float.MinValue;
+		var best = -1;
 
-        for (int i = 0; i < Defenses.Length; i++)
-        {
-            var attack = Defenses[i];
-            if (_stamina.CanConsume(attack.StaminaCost))
-            {
-                if (attack.Armour > bestArmour)
-                {
-                    bestArmour = attack.Armour;
-                    best = i;
-                }
-            }
-        }
+		for (int i = 0; i < Defenses.Length; i++)
+		{
+			var attack = Defenses[i];
+			if (_stamina.CanConsume(attack.StaminaCost))
+			{
+				if (attack.Armour > bestArmour)
+				{
+					bestArmour = attack.Armour;
+					best = i;
+				}
+			}
+		}
 
-        if (best < 0)
-            return;
+		if (best < 0)
+			return;
 
-        ApplyDefense(best);
-    }
+		ApplyDefense(best);
+	}
 
-    public void ApplyDefense()
-    {
-        var chosenDefenseIndex = -1;
+	public void ApplyDefense()
+	{
+		var chosenDefenseIndex = -1;
 
-        // Change to reflect several types of defense
-        if (PlayerInput.IsButtonDown(Axis.Fire3))
-            chosenDefenseIndex = 0;
-        else if (PlayerInput.IsButtonUp(Axis.Fire3))
-            CancelDefense();
+		// Change to reflect several types of defense
+		if (PlayerInput.IsButtonDown(Axis.Fire3))
+			chosenDefenseIndex = 0;
+		else if (PlayerInput.IsButtonUp(Axis.Fire3))
+			CancelDefense();
 
-        ApplyDefense(chosenDefenseIndex);
-    }
+		ApplyDefense(chosenDefenseIndex);
+	}
 
-    public void ApplyDefense(int index)
-    {
-        if (!CanPerformNewDefense)
-            return;
+	private void ApplyDefense(int index)
+	{
+		if (!CanPerformNewDefense)
+			return;
 
-        if (index < 0 || index >= Defenses.Length)
-            return;
+		if (index < 0 || index >= Defenses.Length)
+			return;
 
-        CurrentDefense = index;
-        _cancelDefense = false;
+		CurrentDefense = index;
+		_cancelDefense = false;
 
-        var defense = Defenses[CurrentDefense];
+		var defense = Defenses[CurrentDefense];
 
-        StartCoroutine(DefenseCoroutine(defense));
-    }
+		StartCoroutine(DefenseCoroutine(defense));
+	}
 
-    public void CancelDefense()
-    {
-        _cancelDefense = true;
-    }
+	public void CancelDefense()
+	{
+		_cancelDefense = true;
+	}
 
-    private IEnumerator DefenseCoroutine(Defense defense)
-    {
-        Defending = true;
+	private IEnumerator DefenseCoroutine(Defense defense)
+	{
+		Defending = true;
 
-        if (!defense.OneTime)
-        {
-            _stamina.RegenerateIsOn = false;
-            var defenseDec = defense.StaminaCost * Time.deltaTime;
-            while (_stamina.CanConsume(defenseDec) && !_cancelDefense)
-            {
-                _stamina.ConsumeStamina(defenseDec);
-                defenseDec = defense.StaminaCost * Time.deltaTime;
-                yield return null;
-            }
-            _stamina.RegenerateIsOn = true;
-        }
-        else
-        {
-            _stamina.ConsumeStamina(defense.StaminaCost);
+		if (!defense.OneTime)
+		{
+			_stamina.RegenerateIsOn = false;
+			var defenseDec = defense.StaminaCost * Time.deltaTime;
+			while (_stamina.CanConsume(defenseDec) && !_cancelDefense)
+			{
+				_stamina.ConsumeStamina(defenseDec);
+				defenseDec = defense.StaminaCost * Time.deltaTime;
+				yield return null;
+			}
+			_stamina.RegenerateIsOn = true;
+		}
+		else
+		{
+			_stamina.ConsumeStamina(defense.StaminaCost);
 
-            yield return new WaitForSeconds(defense.Duration);
-        }
+			yield return new WaitForSeconds(defense.Duration);
+		}
 
-        Defending = false;
-    }
+		Defending = false;
+	}
 }
 
 [System.Serializable]
 public class Defense
 {
-    public int Armour;
-    public int StaminaCost;
-    public bool OneTime = true;
-    public float Duration;
+	public int Armour;
+	public int StaminaCost;
+	public bool OneTime = true;
+	public float Duration;
 }

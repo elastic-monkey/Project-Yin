@@ -18,7 +18,7 @@ public class EnemyBehavior : WarriorBehavior
 	[HideInInspector]
 	public float Courage = 50;
 	public float EyesightRange = 5f;
-	public Transform Target;
+	public WarriorBehavior Target;
 
 	public bool HasEnemiesToAttack
 	{
@@ -42,7 +42,7 @@ public class EnemyBehavior : WarriorBehavior
 		if (Health.IsDead)
 		{
 			_gameManager.OnEnemyDeath(this);
-			//StartCoroutine(Die());
+			Die();
 		}
 	}
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class EnemiesManager : MonoBehaviour
 {
+	[SerializeField]
 	private List<EnemyBehavior> _enemies;
 
 	public int EnemyCount
@@ -38,6 +39,13 @@ public class EnemiesManager : MonoBehaviour
 
 	void Awake()
 	{
-		_enemies = new List<EnemyBehavior>();
+		_enemies = new List<EnemyBehavior>(FindObjectsOfType<EnemyBehavior>());
+
+		var player = FindObjectOfType<PlayerBehavior>();
+
+		foreach (var enemy in _enemies)
+		{
+			enemy.Target = player;
+		}
 	}
 }
