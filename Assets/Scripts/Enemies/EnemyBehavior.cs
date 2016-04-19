@@ -18,6 +18,7 @@ public class EnemyBehavior : WarriorBehavior
 	public float Courage = 50;
 	public WarriorBehavior Target;
 	public Eyesight Eye;
+	public DangerArea DangerArea;
 
 	public bool HasEnemiesInRange
 	{
@@ -50,7 +51,7 @@ public class EnemyBehavior : WarriorBehavior
 			return;
 		}
 
-		if (Eye.CanSee(Target.transform, transform))
+		if (Target.InsideDangerArea(DangerArea) && Eye.CanSee(Target.transform, transform))
 		{
 			Movement.SetTarget(Target.transform.position);
 		}

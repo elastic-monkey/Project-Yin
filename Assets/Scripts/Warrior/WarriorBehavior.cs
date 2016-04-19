@@ -187,3 +187,11 @@ public class WarriorBehavior : MonoBehaviour
 		}
 	}
 }
+
+public static class WarriorBehaviorHelper
+{
+	public static bool InsideDangerArea(this WarriorBehavior warrior, DangerArea area)
+	{
+		return area.IsInside(warrior.transform);
+	}
+}
