@@ -40,8 +40,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5904651cb27552c4e850d45dbf5b4692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaColor: {r: 1, g: 0, b: 0, a: 1}
-  Range: 10
+  DangerColor: {r: 1, g: 0, b: 0, a: 1}
+  WarningColor: {r: 1, g: 0.6470047, b: 0.015686274, a: 1}
+  DangerRadius: 10
+  WarningRadius: 15
 --- !u!135 &13566724
 SphereCollider:
   m_ObjectHideFlags: 1

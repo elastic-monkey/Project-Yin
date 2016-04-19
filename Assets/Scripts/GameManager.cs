@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerBehavior Player;
     public EnemiesManager Enemies;
-	public SkirmishManager Skirmishes;
-    
+
     public static GameManager Instance
     {
         get

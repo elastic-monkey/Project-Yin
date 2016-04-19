@@ -124,42 +124,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 22477578, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22477578, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22490964, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22490964, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5463818, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404022, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: TurnSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: DesignatedArea
-      value: 
-      objectReference: {fileID: 1426459093}
-    - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
-      propertyPath: Area
-      value: 
-      objectReference: {fileID: 1426459093}
     - target: {fileID: 11478826, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
       propertyPath: DangerArea
       value: 
       objectReference: {fileID: 1426459093}
+    - target: {fileID: 22477578, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22477578, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0efecaf30d59d4d46b46d4d8e1931bcc, type: 2}
   m_IsPrefabParent: 0
@@ -2387,6 +2363,10 @@ Prefab:
       propertyPath: m_Name
       value: Danger Area 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11471166, guid: c2f00afdeac680149bf8dea0ebb2a3fe, type: 2}
+      propertyPath: WarningRadius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2f00afdeac680149bf8dea0ebb2a3fe, type: 2}
   m_IsPrefabParent: 0
@@ -2555,7 +2535,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1957768287}
   - 114: {fileID: 1957768288}
-  - 114: {fileID: 1957768289}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2588,19 +2567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 854028566}
   Enemies: {fileID: 1124692892}
-  Skirmishes: {fileID: 1957768289}
---- !u!114 &1957768289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1957768286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e056e2d8a4a2f43b4bbeba68191b80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkirmishPrefab: {fileID: 0}
 --- !u!1 &1959751801
 GameObject:
   m_ObjectHideFlags: 0

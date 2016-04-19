@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(SphereCollider))]
 public class DangerArea : MonoBehaviour
 {
-	public Color AreaColor = Color.red;
-	public float Radius = 10f;
+	public Color DangerColor = Color.red, WarningColor = Color.yellow;
+	public float DangerRadius = 10f;
+	public float WarningRadius = 15f;
 
 	private Vector3 _center;
 	private SphereCollider _collider;
@@ -28,16 +30,22 @@ public class DangerArea : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-		GizmosHelper.DrawArena(transform.position, Radius, 20, AreaColor);
+		GizmosHelper.DrawArena(transform.position, DangerRadius, 36, DangerColor);
+		GizmosHelper.DrawArena(transform.position, WarningRadius, 36, WarningColor);
 	}
 
-	public bool IsInside(Transform obj)
+	public float DistanceToCenter(Transform obj)
 	{
-		return Vector3.Distance(obj.position, _center) <= Radius;
+		return Vector3.Distance(obj.position, _center);
 	}
 
 	private void OnValidate()
 	{
-		BoundsCollider.radius = Radius;
+		BoundsCollider.radius = DangerRadius;
+	}
+
+	public Vector3 GetBorderPosition(Transform transform)
+	{
+		return Vector3.ClampMagnitude((transform.position - _center), DangerRadius);
 	}
 }

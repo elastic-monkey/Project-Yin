@@ -192,6 +192,11 @@ public static class WarriorBehaviorHelper
 {
 	public static bool InsideDangerArea(this WarriorBehavior warrior, DangerArea area)
 	{
-		return area.IsInside(warrior.transform);
+		return area.DistanceToCenter(warrior.transform) <= area.DangerRadius;
+	}
+
+	public static bool InsideWarningArea(this WarriorBehavior warrior, DangerArea area)
+	{
+		return area.DistanceToCenter(warrior.transform) <= area.WarningRadius;
 	}
 }

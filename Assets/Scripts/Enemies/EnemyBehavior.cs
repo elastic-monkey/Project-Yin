@@ -51,9 +51,20 @@ public class EnemyBehavior : WarriorBehavior
 			return;
 		}
 
-		if (Target.InsideDangerArea(DangerArea) && Eye.CanSee(Target.transform, transform))
+		if (Eye.CanSee(Target.transform, transform))
 		{
-			Movement.SetTarget(Target.transform.position);
+			if (Target.InsideDangerArea(DangerArea))
+			{
+				Movement.SetTarget(Target.transform.position);
+			}
+			else if (Target.InsideWarningArea(DangerArea))
+			{
+				Movement.SetTarget(DangerArea.GetBorderPosition(Target.transform));
+			}
+			else
+			{
+				Movement.ResetTarget();
+			}
 		}
 		else
 		{
