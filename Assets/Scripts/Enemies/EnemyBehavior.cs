@@ -59,7 +59,7 @@ public class EnemyBehavior : WarriorBehavior
 			}
 			else if (Target.InsideWarningArea(DangerArea))
 			{
-				Movement.SetTarget(DangerArea.GetBorderPosition(Target.transform));
+				Movement.SetTarget(DangerArea.GetBorderPosition(transform, Target.transform));
 			}
 			else
 			{
@@ -134,12 +134,12 @@ public class Eyesight
 
 		if (Physics.Raycast(ray, Range, Mask) && Vector3.Angle(from.forward, direction) <= 0.5f * Angle)
 		{
-			Debug.DrawLine(from.position, target.position, Color.green);
+			//Debug.DrawLine(from.position, target.position, Color.green);
 			return true;
 		}
 		else
 		{
-			Debug.DrawLine(from.position, target.position, Color.red);
+			//Debug.DrawLine(from.position, target.position, Color.red);
 			return false;
 		}
 	}
