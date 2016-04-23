@@ -7,6 +7,7 @@ public class PlayerBehavior : WarriorBehavior
 	private PlayerMovement _playerMovement;
 	private AbilitiesManager _abilities;
 	private Experience _experience;
+    private PlayerInventory _playerInventory;
 
 	public Experience Experience
 	{
@@ -40,6 +41,19 @@ public class PlayerBehavior : WarriorBehavior
 			return _abilities;
 		}
 	}
+
+    public PlayerInventory PlayerInventory
+    {
+        get
+        {
+            if (_playerInventory == null)
+            {
+                _playerInventory = GetComponent<PlayerInventory>();
+            }
+
+            return _playerInventory;
+        }
+    }
 
 	protected override void Awake()
 	{

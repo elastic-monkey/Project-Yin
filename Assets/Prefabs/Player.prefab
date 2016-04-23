@@ -627,6 +627,7 @@ GameObject:
   - 114: {fileID: 11421462}
   - 114: {fileID: 11490536}
   - 114: {fileID: 11410396}
+  - 114: {fileID: 11494910}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -3707,7 +3708,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188294}
-  m_LocalRotation: {x: -0.09374654, y: 0.6978552, z: 0.70746905, w: 0.06080671}
+  m_LocalRotation: {x: -0.09374654, y: 0.6978552, z: 0.70746905, w: 0.060806707}
   m_LocalPosition: {x: -0.05543403, y: 0.0017306843, z: 0.098653734}
   m_LocalScale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
   m_Children:
@@ -4252,7 +4253,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.087, z: 0}
+  m_LocalPosition: {x: 0, y: 0.087, z: 11.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466784}
@@ -5030,6 +5031,17 @@ MonoBehaviour:
   MaxHealth: 100
   HealthSlider: {fileID: 0}
   Alive: 0
+--- !u!114 &11494910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744ac0e20720e42499182796fc026bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11499592
 MonoBehaviour:
   m_ObjectHideFlags: 1
