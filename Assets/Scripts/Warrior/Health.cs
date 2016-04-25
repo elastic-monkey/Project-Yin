@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 	public Slider HealthSlider;
 	public bool Alive;
 
+	[SerializeField]
 	private float _currentHealth;
 
 	public float CurrentHealth

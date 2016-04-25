@@ -628,6 +628,7 @@ GameObject:
   - 114: {fileID: 11490536}
   - 114: {fileID: 11410396}
   - 114: {fileID: 11494910}
+  - 114: {fileID: 11487488}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -5017,6 +5018,21 @@ MonoBehaviour:
   Targets: []
   DamageMultiplier: 1
   StaminaMultiplier: 1
+--- !u!114 &11487488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbf4c7130539fb428854831a9bef242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxExperience: 100
+  ExpSlider: {fileID: 0}
+  AvailableSP: {fileID: 0}
+  SkillPoints: 0
 --- !u!114 &11490536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5031,6 +5047,7 @@ MonoBehaviour:
   MaxHealth: 100
   HealthSlider: {fileID: 0}
   Alive: 0
+  _currentHealth: 0
 --- !u!114 &11494910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5042,6 +5059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 744ac0e20720e42499182796fc026bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Items: []
 --- !u!114 &11499592
 MonoBehaviour:
   m_ObjectHideFlags: 1
