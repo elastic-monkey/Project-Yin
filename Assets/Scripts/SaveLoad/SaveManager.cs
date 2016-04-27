@@ -3,27 +3,29 @@ using System.Collections;
 using System.IO;
 
 public class SaveManager : MonoBehaviour {
-	private int _saveSlot = 0;
 	private GameState _checkpoint;
 
 	void Start(){
 		if (File.Exists ("SSS.txt")) {
-			using (TextReader reader = File.OpenText ("SSS.txt")) {
-				_saveSlot = int.Parse (reader.ReadLine ());
-			}
-			GameState state = SaveLoad.Load (_saveSlot);
-			LoadPlayerState (state.PlayerState);
-			LoadCameraState (state.CameraState);
+			GameState state = SaveLoad.Load ();
+			LoadAllStates (state);
 		}
 	}
 
 	void Update(){
 		if (Input.GetKeyDown (KeyCode.F5)) {
-			SaveLoad.Save (_saveSlot);
+			SaveLoad.Save ();
 		} else if (Input.GetKeyDown (KeyCode.F6)) {
 			_checkpoint = new GameState ();
-			Debug.Log ("CHECKPOINT SAVED");
+		} else if (Input.GetKeyDown (KeyCode.F8)) {
+			LoadAllStates (_checkpoint);
 		}
+	}
+
+
+	private void LoadAllStates(GameState state){
+		LoadPlayerState (state.PlayerState);
+		LoadCameraState (state.CameraState);
 	}
 
 	private void LoadPlayerState(PlayerState state){

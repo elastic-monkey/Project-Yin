@@ -8,7 +8,8 @@ public static class SaveLoad {
 
 	private static string _savePath = "Savegame";
 
-	public static void Save(int saveSlot){
+	public static void Save(){
+		int saveSlot = GetCurrentSaveSlot ();
 		GameState savedGame = new GameState();
 		FileStream file;
 		BinaryFormatter bf = new BinaryFormatter ();
@@ -23,16 +24,15 @@ public static class SaveLoad {
 		}
 	}
 
-	public static GameState Load (int saveSlot){
+	public static GameState Load (){
+		int saveSlot = GetCurrentSaveSlot ();
 		if (File.Exists (_savePath + saveSlot.ToString())) {
-			Debug.Log ("FOUND SAVES");
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (_savePath + saveSlot.ToString(), FileMode.Open);
 			GameState state = (GameState)bf.Deserialize (file);
 			file.Close ();
 			return state; 
 		} else {
-			Debug.Log ("DID NOT FIND SAVE GAME");
 			return null;
 		}
 	}
@@ -49,5 +49,14 @@ public static class SaveLoad {
 			}
 		}
 		return saves;
+	}
+
+	private static int GetCurrentSaveSlot(){
+		if (File.Exists ("SSS.txt")) {
+			using (TextReader reader = File.OpenText ("SSS.txt")) {
+				return int.Parse (reader.ReadLine ());
+			}
+		}
+		return 0;
 	}
 }
