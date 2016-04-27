@@ -4,6 +4,7 @@ using System.IO;
 
 public class SaveManager : MonoBehaviour {
 	private int _saveSlot = 0;
+	private GameState _checkpoint;
 
 	void Start(){
 		if (File.Exists ("SSS.txt")) {
@@ -19,6 +20,9 @@ public class SaveManager : MonoBehaviour {
 	void Update(){
 		if (Input.GetKeyDown (KeyCode.F5)) {
 			SaveLoad.Save (_saveSlot);
+		} else if (Input.GetKeyDown (KeyCode.F6)) {
+			_checkpoint = new GameState ();
+			Debug.Log ("CHECKPOINT SAVED");
 		}
 	}
 

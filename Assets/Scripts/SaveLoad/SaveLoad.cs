@@ -36,4 +36,18 @@ public static class SaveLoad {
 			return null;
 		}
 	}
+
+	public static List<GameState> GetAllSaves(){
+		List<GameState> saves = new List<GameState> ();
+		for (int i = 0; i < 4; i++) {
+			if (File.Exists (_savePath + i.ToString ())) {
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream file = File.Open (_savePath + i.ToString(), FileMode.Open);
+				GameState state = (GameState)bf.Deserialize (file);
+				file.Close ();
+				saves.Add (state);
+			}
+		}
+		return saves;
+	}
 }
