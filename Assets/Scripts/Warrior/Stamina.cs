@@ -22,13 +22,20 @@ public class Stamina : MonoBehaviour
         set
         {
             _currentStamina = Mathf.Clamp(value, 0, MaxStamina);
-            StaminaSlider.value = _currentStamina;
+            if (StaminaSlider.Exists())
+            {
+                StaminaSlider.value = _currentStamina;
+            }
         }
     }
 
     void Awake()
     {
         CurrentStamina = MaxStamina;
+        if (StaminaSlider.IsNull())
+        {
+            Debug.LogWarning("StaminaSlider is null. No exception will be thrown, but this must be repaired.");
+        }
     }
 
     void Update()

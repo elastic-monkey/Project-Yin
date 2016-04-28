@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Utils
+public static class Utils
 {
 	public enum WindowPositions
 	{
@@ -53,6 +53,16 @@ public abstract class Utils
 
 		return false;
 	}
+
+    public static bool Exists(this object obj)
+    {
+        return obj != null;
+    }
+
+    public static bool IsNull(this object obj)
+    {
+        return obj == null;
+    }
 }
 
 public static class GizmosHelper
