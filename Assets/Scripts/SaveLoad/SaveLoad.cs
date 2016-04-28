@@ -8,27 +8,37 @@ public static class SaveLoad {
 
 	private static string _savePath = "Savegame";
 
-	public static void Save(){
-		int saveSlot = GetCurrentSaveSlot ();
+	public static void Save(bool isCheckpoint){
+		string saveName = GetSaveName (isCheckpoint);
 		GameState savedGame = new GameState();
 		FileStream file;
 		BinaryFormatter bf = new BinaryFormatter ();
-		if (!File.Exists (_savePath + saveSlot.ToString())) {
-			file = File.Create (_savePath + saveSlot.ToString());
-			bf.Serialize (file, savedGame);
-			file.Close ();
+		if (!File.Exists (saveName)) {
+			file = File.Create (saveName);
 		} else {
-			file = File.Open (_savePath + saveSlot.ToString(), FileMode.Open, FileAccess.Write);
-			bf.Serialize (file, savedGame);
+			file = File.Open (saveName, FileMode.Open, FileAccess.Write);
+		}
+		bf.Serialize (file, savedGame);
+		file.Close ();
+	}
+
+	public static GameState Load (bool isCheckpoint){
+		string saveName = GetSaveName (isCheckpoint);
+		if (File.Exists (saveName)) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (saveName, FileMode.Open);
+			GameState state = (GameState)bf.Deserialize (file);
 			file.Close ();
+			return state; 
+		} else {
+			return null;
 		}
 	}
 
-	public static GameState Load (){
-		int saveSlot = GetCurrentSaveSlot ();
-		if (File.Exists (_savePath + saveSlot.ToString())) {
+	public static GameState LoadCheckpoint(){
+		if (File.Exists ("Checkpoint")) {
 			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open (_savePath + saveSlot.ToString(), FileMode.Open);
+			FileStream file = File.Open ("Checkpoint", FileMode.Open);
 			GameState state = (GameState)bf.Deserialize (file);
 			file.Close ();
 			return state; 
@@ -58,5 +68,15 @@ public static class SaveLoad {
 			}
 		}
 		return 0;
+	}
+
+	private static string GetSaveName(bool check){
+		string saveName;
+		if (check) {
+			saveName = "Checkpoint";
+		} else {
+			saveName = _savePath + GetCurrentSaveSlot ().ToString ();
+		}
+		return saveName;
 	}
 }

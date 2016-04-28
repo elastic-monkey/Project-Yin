@@ -22,7 +22,7 @@ public class SaveTerminalInteraction : Interaction {
 	}
 
 	public void SaveGame(){
-		SaveLoad.Save ();
+		SaveLoad.Save (false);
 		CancelGameSave ();
 	}
 

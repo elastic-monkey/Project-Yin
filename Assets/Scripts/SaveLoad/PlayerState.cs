@@ -17,7 +17,8 @@ public class PlayerState {
 		position = player.transform.position;
 		rotation = player.transform.rotation;
 		Health = player.GetComponent<Health> ().CurrentHealth;
-		Experience = player.GetComponent<Experience> ().CurrentExp;
-		SkillPoints = player.GetComponent<Experience> ().SkillPoints;
+		Experience playerExp = player.GetComponent<Experience> ();
+		Experience = playerExp.CurrentExp;
+		SkillPoints = playerExp.SkillPoints;
 	}
 }

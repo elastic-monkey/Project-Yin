@@ -30,7 +30,6 @@ public class Experience : MonoBehaviour {
 	}
 
 	void Awake(){
-		// TODO LOAD EXP AND SKILL POINTS FROM SAVE FILE
 		CurrentExp = 0f;
 	}
 
