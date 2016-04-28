@@ -8,6 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 478196}
+  - 65: {fileID: 6537856}
+  - 114: {fileID: 11496536}
   m_Layer: 12
   m_Name: Shop
   m_TagString: Untagged
@@ -24,7 +26,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 417344}
   - 33: {fileID: 3357320}
-  - 65: {fileID: 6596830}
   - 23: {fileID: 2387444}
   m_Layer: 12
   m_Name: Cube
@@ -68,7 +69,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 614d85f63e1e74d478f9467178072be5, type: 2}
+  - {fileID: 2100000, guid: df7086ccbf0bd7346bcc23aa2958071c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -91,18 +92,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160636}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6596830
+--- !u!65 &6537856
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160636}
+  m_GameObject: {fileID: 111914}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.5, y: 0.5, z: 0.5}
+--- !u!114 &11496536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018b60b094235b94ebcfeb4a26fa7102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 10
+  HiddenY: -10
+  Hidden: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
