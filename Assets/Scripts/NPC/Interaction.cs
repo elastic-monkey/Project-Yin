@@ -42,6 +42,6 @@ public class Interaction : MonoBehaviour
 
     protected void BlockInput(bool block)
     {
-        PlayerInput.Blocked = block;
+        PlayerInput.GameplayBlocked = block;
     }
 }

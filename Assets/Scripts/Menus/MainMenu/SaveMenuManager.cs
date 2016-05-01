@@ -6,7 +6,7 @@ public class SaveMenuManager : MonoBehaviour {
 	public static List<GameState> saves;
 
 	void Awake () {
-		saves = SaveLoad.GetAllSaves ();
+		saves = SaveLoad.GetAllSavedGames ();
 		Debug.Log ("GOT " + saves.Count);
 	}
 }

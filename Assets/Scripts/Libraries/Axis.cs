@@ -14,7 +14,8 @@ public enum Axis
     Ability3,
     Ability4,
 	MouseScroll,
-	Escape
+	Escape,
+    Submit
 }
 
 public static class AxisHelper
@@ -32,7 +33,8 @@ public static class AxisHelper
         { Axis.Ability3, "Ability 3" },
         { Axis.Ability4, "Ability 4" },
 		{ Axis.MouseScroll, "Mouse ScrollWheel" },
-		{ Axis.Escape, "Cancel"}
+		{ Axis.Escape, "Cancel"},
+        { Axis.Submit, "Submit"}
 	};
 
     public static string EditorName(this Axis axis)

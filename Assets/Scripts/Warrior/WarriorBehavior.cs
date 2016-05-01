@@ -117,7 +117,7 @@ public class WarriorBehavior : MonoBehaviour
 	private void SetAnimatorParameters()
 	{
 		Animator.SetBool(AnimatorHashIDs.CanMoveBool, Movement.CanMove);
-		if (Movement.Moving && !PlayerInput.Blocked)
+		if (Movement.Moving && !PlayerInput.GameplayBlocked)
 		{
 			Animator.SetFloat(AnimatorHashIDs.SpeedFloat, Movement.SpeedThreshold, Movement.SpeedDampTime, Time.deltaTime);
 		}

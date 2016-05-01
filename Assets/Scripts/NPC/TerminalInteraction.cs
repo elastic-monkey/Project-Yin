@@ -37,14 +37,14 @@ public class TerminalInteraction : Interaction
                 {
                     BlockInput(true);
                     InteractionPrompt.gameObject.SetActive(false);
-                    DialogueWindow.Visible = true;
+                    DialogueWindow.SetVisible(true);
                     _title.text = _information.logs[0].title;
                     _dialogueText.text = _information.logs[0].text;
                     _dialogueOpen = true;
                 }
                 else if (_dialogueOpen)
                 {
-                    DialogueWindow.Visible = false;
+                    DialogueWindow.SetVisible(false);
                     InteractionPrompt.gameObject.SetActive(true);
                     BlockInput(false);
                     _dialogueOpen = false;

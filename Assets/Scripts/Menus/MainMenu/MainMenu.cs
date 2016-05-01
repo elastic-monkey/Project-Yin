@@ -1,56 +1,116 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : NavMenu
 {
-	public ShowHidePanel Main, LoadMenu, QuitGame;
-    ShowHidePanel _currentPanel;
-
-    void Start()
+    public enum Options
     {
-        ChangeCurrentPanelTo(Main);
+        NewGame,
+        LoadGame,
+        Settings,
+        Quit
     }
 
-    void Update()
+    public MainMenuItems[] Items;
+
+    [SerializeField]
+    private int _currentOption;
+    private MainMenuManager _mainMenuManager;
+
+    protected override void Awake()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-            OnBackPressed();
+        base.Awake();
+
+        _mainMenuManager = GetComponentInParent<MainMenuManager>();
+
+        SelectOption((Options)0);
     }
 
-    public void OnBackPressed()
+    public override void HandleInput()
     {
-        if (_currentPanel == Main)
-            OnQuitPressed();
+        if (!_active)
+            return;
+
+        if (PlayerInput.IsButtonDown(Axis.Vertical))
+        {
+            var v = -PlayerInput.GetAxis(Axis.Vertical);
+
+            if (v > 0)
+            {
+                SelectNext();
+            }
+            else if (v < 0)
+            {
+                SelectPrevious();
+            }
+        }
+        else if (PlayerInput.IsButtonUp(Axis.Fire1) || PlayerInput.IsButtonUp(Axis.Submit))
+        {
+            switch (Items[_currentOption].Option)
+            {
+                case Options.LoadGame:
+                    _mainMenuManager.SelectMenu(MainMenuManager.Options.LoadMenu);
+                    break;
+            }
+        }
+    }
+
+    private void SelectOption(Options newOption)
+    {
+        for (var i = 0; i < Items.Length; i++)
+        {
+            if (Items[i].Option == newOption)
+            {
+                _currentOption = i;
+                Items[i].Item.Select(true);
+            }
+            else
+            {
+                Items[i].Item.Select(false);
+            }
+        }
+    }
+
+    private void SelectNext()
+    {
+        if (_currentOption < Items.Length - 1)
+        {
+            SelectOption((Options)(_currentOption + 1));
+        }
         else
-            ChangeCurrentPanelTo(Main);
+        {
+            if (Cyclic)
+            {
+                SelectOption((Options)0);
+            } 
+        }
     }
 
-    public void OnQuitPressed()
+    private void SelectPrevious()
     {
-        ChangeCurrentPanelTo(QuitGame);
+        if (_currentOption > 0)
+        {
+            SelectOption((Options)(_currentOption - 1));
+        }
+        else
+        {
+            if (Cyclic)
+            {
+                SelectOption((Options)(Items.Length - 1));
+            } 
+        } 
     }
 
-    public void OnQuitCancelled()
+    [System.Serializable]
+    public class MainMenuItems
     {
-        ChangeCurrentPanelTo(Main);
+        public Options Option;
+        public NavItem Item;
     }
 
-    public void OnQuitConfirmed()
+    protected override void OnSetActive(bool value)
     {
-        Application.Quit();
-    }
-		
-    public void OnLoadMenuPressed()
-    {
-		ChangeCurrentPanelTo(LoadMenu);
-    }
-
-    private void ChangeCurrentPanelTo(ShowHidePanel newPanel)
-    {
-        Main.Visible = (newPanel == Main);
-		LoadMenu.Visible = (newPanel == LoadMenu);
-		QuitGame.Visible = (newPanel == QuitGame);
-
-        _currentPanel = newPanel;
+        SelectOption(Options.NewGame);
     }
 }
