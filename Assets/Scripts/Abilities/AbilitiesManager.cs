@@ -20,6 +20,10 @@ public class AbilitiesManager : MonoBehaviour
 
 			return _abilities;
 		}
+		set
+		{
+			_abilities = value;
+		}
 	}
 
 	void Awake()

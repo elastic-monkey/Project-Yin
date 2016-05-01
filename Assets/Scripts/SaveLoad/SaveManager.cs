@@ -37,10 +37,15 @@ public class SaveManager : MonoBehaviour
 
     private void LoadPlayerState(PlayerState state)
     {
-        var player = GameObject.Find("Player").GetComponent<PlayerBehavior>();
+		var player = GameObject.Find ("Player");
+		var playerBehavior = player.GetComponent<PlayerBehavior>();
         player.transform.position = state.position;
         player.transform.rotation = state.rotation;
-        player.Health.CurrentHealth = state.Health;
+		playerBehavior.Health.CurrentHealth = state.Health;
+		playerBehavior.Experience.CurrentExperience = state.Experience;
+		playerBehavior.Experience.SkillPoints = state.SkillPoints;
+		var playerAbilities = player.GetComponent<AbilitiesManager> ();
+		playerAbilities.Abilities = state.Abilities;
     }
 
     private void LoadCameraState(CameraState state)

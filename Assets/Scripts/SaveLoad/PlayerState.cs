@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class PlayerState {
@@ -10,15 +10,16 @@ public class PlayerState {
 	public int SkillPoints;
 	public float Credits;
 	//Something something inventory
-	//Something something abilities
+	public List<Ability> Abilities;
 
 	public PlayerState(){
-		GameObject player = GameObject.Find ("Player");
+		var player = GameObject.Find ("Player");
+		var playerBehaviour = player.GetComponent<PlayerBehavior>();
 		position = player.transform.position;
 		rotation = player.transform.rotation;
-		Health = player.GetComponent<Health> ().CurrentHealth;
-		Experience playerExp = player.GetComponent<Experience> ();
-		Experience = playerExp.CurrentExperience;
-		SkillPoints = playerExp.SkillPoints;
+		Health = playerBehaviour.Health.CurrentHealth;
+		Experience = playerBehaviour.Experience.CurrentExperience;
+		SkillPoints = playerBehaviour.Experience.SkillPoints;
+		Abilities = player.GetComponent<AbilitiesManager> ().Abilities;
 	}
 }

@@ -88,6 +88,7 @@ public class SpeedAbility : Ability
     {
         //player.Movement.MoveSpeedMulti = 1f + 0.05f * CurrentLevel;
 		player.PlayerMovement.SpeedMulti = 1f + 0.05f * 10f;
+		Debug.Log ("SPEED LEVEL: " + CurrentLevel);
     }
 
     public override void Deactivate(PlayerBehavior player)
@@ -112,6 +113,7 @@ public class ShieldAbility : Ability
 			player.Defense.ShieldOn = true;
 			player.Stamina.ConsumeStamina (90f);
 		}
+		Debug.Log ("SHIELD LEVEL: " + CurrentLevel);
     }
 
     public override void Deactivate(PlayerBehavior player)
@@ -135,6 +137,7 @@ public class StrengthAbility : Ability
     {
         player.Attack.DamageMultiplier = 2f;
         player.Attack.StaminaMultiplier = 2f;
+		Debug.Log ("STRENGHT LEVEL: " + CurrentLevel);
     }
 
     public override void Deactivate(PlayerBehavior player)
