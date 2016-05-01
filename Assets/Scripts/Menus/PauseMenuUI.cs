@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -6,7 +7,7 @@ using System.Collections;
 public class PauseMenuUI : MonoBehaviour
 {
 	public RectTransform Container;
-	public Button Resume, LoadLastCheckpoint;
+	public Button Resume, LoadLastCheckpoint, ReturnToMainMenu;
 	public float AnimSpeed;
 	public Utils.WindowPositions HidePosition, ShowPosition;
 
@@ -29,6 +30,8 @@ public class PauseMenuUI : MonoBehaviour
 	{
 		if (PlayerInput.IsButtonDown(Axis.Escape))
 		{
+			PlayerInput.Blocked = true;
+			Time.timeScale = 0f;
 			SetVisible (true);
 			Resume.interactable = true;
 			LoadLastCheckpoint.interactable = true;
@@ -78,10 +81,17 @@ public class PauseMenuUI : MonoBehaviour
 	public void OnResumePressed()
 	{
 		SetVisible(false);
+		PlayerInput.Blocked = false;
+		Time.timeScale = 1f;
 	}
 
 	public void OnLoadLastCheckpointPressed()
 	{
-		SetVisible(false);
+		SaveManager.LoadCheckpoint = true;
+		OnResumePressed ();
+	}
+
+	public void OnReturnToMainMenuPressed(){
+		SceneManager.LoadScene ("MainMenu");
 	}
 }

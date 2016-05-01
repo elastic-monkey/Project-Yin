@@ -71,12 +71,7 @@ public static class SaveLoad {
 	}
 
 	private static string GetSaveName(bool check){
-		string saveName;
-		if (check) {
-			saveName = "Checkpoint";
-		} else {
-			saveName = _savePath + GetCurrentSaveSlot ().ToString ();
-		}
-		return saveName;
+		if (check) return "Checkpoint";
+		else return _savePath + GetCurrentSaveSlot ().ToString ();
 	}
 }

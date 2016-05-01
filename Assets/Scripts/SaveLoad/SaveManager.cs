@@ -4,7 +4,7 @@ using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
-    //private GameState _checkpoint;
+	public static bool LoadCheckpoint;
 
     void Start()
     {
@@ -17,18 +17,16 @@ public class SaveManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            SaveLoad.Save(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.F6))
-        {
-            SaveLoad.Save(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.F8))
-        {
-            LoadAllStates(SaveLoad.Load(true));
-        }
+		if (Input.GetKeyDown (KeyCode.F5)) {
+			SaveLoad.Save (false);
+		} else if (Input.GetKeyDown (KeyCode.F6)) {
+			SaveLoad.Save (true);
+		} else if (Input.GetKeyDown (KeyCode.F8)) {
+			LoadAllStates (SaveLoad.Load (true));
+		} else if (LoadCheckpoint) {
+			LoadCheckpoint = false;
+			LoadAllStates (SaveLoad.Load (true));
+		}
     }
 
     private void LoadAllStates(GameState state)

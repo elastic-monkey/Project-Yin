@@ -13,7 +13,7 @@ public class SaveTerminalInteraction : Interaction {
 
 	void Update(){
 		if (_player != null) {
-			if (PlayerInput.IsButtonDown (Axis.Fire1)) {
+			if (PlayerInput.IsButtonDown (Axis.Fire1) && !PlayerInput.Blocked) {
 				BlockInput (true);
 				InteractionPrompt.gameObject.SetActive (false);
 				DialogueWindow.gameObject.SetActive (true);
