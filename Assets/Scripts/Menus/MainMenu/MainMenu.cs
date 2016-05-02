@@ -23,7 +23,10 @@ public class MainMenu : NavMenu
         base.Awake();
 
         _mainMenuManager = GetComponentInParent<MainMenuManager>();
+    }
 
+    protected void Start()
+    {
         SelectOption((Options)0);
     }
 
@@ -32,9 +35,9 @@ public class MainMenu : NavMenu
         if (!_active)
             return;
 
-        if (PlayerInput.IsButtonDown(Axis.Vertical))
+        if (PlayerInput.IsButtonDown(Axis.Nav_Vertical))
         {
-            var v = -PlayerInput.GetAxis(Axis.Vertical);
+            var v = -PlayerInput.GetAxis(Axis.Nav_Vertical);
 
             if (v > 0)
             {

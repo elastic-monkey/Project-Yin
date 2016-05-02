@@ -7,19 +7,41 @@ public class ButtonNavItem : NavItem
 {
     public Color SelectedColor;
 
-    private Color _targetGraphicInitialColor;
+    private Color _initialColor;
     private Button _btn;
     private Text _btnText;
 
-    private void Awake()
+    public Button Button
     {
-        _btn = GetComponent<Button>();
-        _btnText = GetComponentInChildren<Text>();
-        _targetGraphicInitialColor = _btn.targetGraphic.color;
+        get
+        {
+            if (_btn == null)
+            {
+                _btn = GetComponent<Button>();
+            }
+
+            return _btn;
+        }
+    }
+
+    public Text Text
+    {
+        get
+        {
+            if (_btnText == null)
+                _btnText = GetComponentInChildren<Text>();
+
+            return _btnText;
+        }
+    }
+
+    protected void Awake()
+    {
+        _initialColor = Text.color;
     }
         
     protected override void OnSelect(bool value)
     {
-        _btn.targetGraphic.color = value ? SelectedColor : _targetGraphicInitialColor;
+        Text.color = value ? SelectedColor : _initialColor;
     }
 }
