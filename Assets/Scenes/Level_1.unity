@@ -2733,6 +2733,7 @@ MonoBehaviour:
   Container: {fileID: 1894141584}
   Resume: {fileID: 1165242416}
   LoadLastCheckpoint: {fileID: 1511993575}
+  ReturnToMainMenu: {fileID: 0}
   AnimSpeed: 10
   HidePosition: 2
   ShowPosition: 0
@@ -5306,7 +5307,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1891294846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.38268346, z: 0, w: 0.9238795}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5624,7 +5625,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 123740, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
