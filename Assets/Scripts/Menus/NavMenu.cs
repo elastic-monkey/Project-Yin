@@ -38,9 +38,10 @@ public class NavMenu : MonoBehaviour
 
         if (!_active)
             return;
-
+		
         if (PlayerInput.IsButtonDown(Axis.Nav_Vertical))
         {
+			Debug.Log ("asdasdasd");
             var v = -PlayerInput.GetAxis(Axis.Nav_Vertical);
 
             if (v > 0)
@@ -54,6 +55,7 @@ public class NavMenu : MonoBehaviour
         }
         else if (PlayerInput.IsButtonDown(Axis.Fire1) || PlayerInput.IsButtonDown(Axis.Submit))
         {
+			Debug.Log ("asdasdas");
             OnItemSelected(_currentItem);
         }
     }
