@@ -605,6 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyTag: 0
+  MainCollider: {fileID: 13646074}
   DeathDuration: 2
   AutomaticAttack: 0
   AutomaticDefense: 0
@@ -660,6 +661,7 @@ MonoBehaviour:
   MaxHealth: 100
   HealthSlider: {fileID: 11451242}
   Alive: 0
+  _currentHealth: 0
 --- !u!114 &11488286
 MonoBehaviour:
   m_ObjectHideFlags: 1

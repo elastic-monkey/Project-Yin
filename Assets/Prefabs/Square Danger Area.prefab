@@ -1,61 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &123412
+--- !u!1 &181306
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 467214}
-  - 135: {fileID: 13566724}
-  - 114: {fileID: 11471166}
-  m_Layer: 0
-  m_Name: Danger Area
+  - 4: {fileID: 414262}
+  - 65: {fileID: 6550124}
+  - 114: {fileID: 11404598}
+  m_Layer: 14
+  m_Name: Square Danger Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &467214
+--- !u!4 &414262
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123412}
+  m_GameObject: {fileID: 181306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.5, y: 0.1, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11471166
-MonoBehaviour:
+--- !u!65 &6550124
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5904651cb27552c4e850d45dbf5b4692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DangerColor: {r: 1, g: 0, b: 0, a: 1}
-  WarningColor: {r: 1, g: 0.6470047, b: 0.015686274, a: 1}
-  DangerRadius: 10
-  WarningRadius: 15
---- !u!135 &13566724
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123412}
+  m_GameObject: {fileID: 181306}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Size: {x: 20, y: 20, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11404598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760e88c2b91ef394f89adab1a7f97c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DangerColor: {r: 1, g: 0, b: 0, a: 1}
+  WarningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  DangerWidth: 15
+  DangerDepth: 10
+  WarningWidth: 20
+  WarningDepth: 15
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -65,5 +67,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 123412}
+  m_RootGameObject: {fileID: 181306}
   m_IsPrefabParent: 1

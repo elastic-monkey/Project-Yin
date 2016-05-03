@@ -32,6 +32,8 @@ public class EnemyBehavior : WarriorBehavior
 	{
 		base.Start();
 
+//        DangerArea.AddEnemy(this);
+
 		StartCoroutine(AttackAndDefend());
 	}
 
@@ -51,22 +53,22 @@ public class EnemyBehavior : WarriorBehavior
 			return;
 		}
 
-		if (Eye.CanSee(Target.transform, transform))
+        if (Target.Exists() && Eye.CanSee(Target.transform, transform))
 		{
-			if (Target.InsideDangerArea(DangerArea))
+            if (DangerArea.ContainsInDangerRadius(Target.transform))
 			{
 				Movement.SetTarget(Target.transform.position);
 			}
-			else if (Target.InsideWarningArea(DangerArea))
+            else if (DangerArea.ContainsInWarningRadius(Target.transform))
 			{
-				Movement.SetTarget(DangerArea.GetBorderPosition(transform, Target.transform));
+                Movement.SetTarget(DangerArea.GetBorder(transform, Target.transform));
 			}
 			else
 			{
 				Movement.ResetTarget();
 			}
 		}
-		else
+        else
 		{
 			Movement.ResetTarget();
 		}
