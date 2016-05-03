@@ -8,7 +8,7 @@ public abstract class ButtonNavItem : NavItem
 
     private Color _initialColor;
     private Button _btn;
-    private Text _btnText;
+    protected Text _btnText;
 
     public Button Button
     {
