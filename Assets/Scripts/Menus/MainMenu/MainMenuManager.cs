@@ -4,91 +4,66 @@ using System.Collections.Generic;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public enum Options
-    {
-        MainMenu,
-        LoadMenu,
-        QuitMenu
-    }
-
     public MainMenuItems[] Items;
-    public bool Active;
 
     [SerializeField]
-    private int _currentItem;
-
-    public Options CurrentMenuOption
-    {
-        get
-        {
-            return Items[_currentItem].Option;
-        }
-    }
+    private int _currentMenu;
 
     private void Start()
     {
-        Active = true;
-        SelectMenu(Options.MainMenu);
+        SelectMenu(0);
     }
 
     private void Update()
     {
-        if (!Active)
-            return;
-
-        PlayerInput.GameplayBlocked = true;
-
         if (PlayerInput.IsButtonUp(Axis.Escape))
         {
             OnBackPressed();
         }
-
-        Items[_currentItem].Menu.HandleInput();
     }
 
-    public void SelectMenu(Options option)
+    private void SelectMenu(int index)
+    {
+        index = Mathf.Clamp(index, 0, Items.Length - 1);
+
+        for (var i = 0; i < Items.Length; i++)
+        {
+            Items[i].Menu.SetActive(i == index);
+        }
+
+        _currentMenu = index;
+    }
+
+    public void SelectMenu(NavMenu menu)
     {
         for (var i = 0; i < Items.Length; i++)
         {
-            if (Items[i].Option == option)
+            if (Items[i].Menu == menu)
             {
-                _currentItem = i;
-                Items[i].Menu.SetActive(true);
-            }
-            else
-            {
-                Items[i].Menu.SetActive(false);
+                SelectMenu(i);
+                break;
             }
         }
     }
 
     public void OnBackPressed()
     {
-        if (CurrentMenuOption == Options.MainMenu)
-            OnQuitPressed();
+        var previous = Items[_currentMenu].Previous;
+
+        if (previous.IsNull())
+        {
+            Debug.LogWarning("Back: there is no previous to go to.");
+        }
         else
-            SelectMenu(Options.MainMenu);
-    }
-
-    public void OnQuitPressed()
-    {
-        SelectMenu(Options.QuitMenu);
-    }
-
-    public void OnQuitCancelled()
-    {
-        SelectMenu(Options.MainMenu);
-    }
-
-    public void OnQuitConfirmed()
-    {
-        Application.Quit();
+        {
+            SelectMenu(previous);
+        }
     }
 
     [System.Serializable]
     public class MainMenuItems
     {
-        public Options Option;
+        public NavMenu Previous;
         public NavMenu Menu;
     }
 }

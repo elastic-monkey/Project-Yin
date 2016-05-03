@@ -6,11 +6,13 @@ public abstract class NavItem : MonoBehaviour
     [SerializeField]
     protected bool _selected;
 
-    public void Select(bool value)
+    public void Focus(bool value)
     {
         _selected = value;
-        OnSelect(value);
+        OnFocus(value);
     }
 
-    protected abstract void OnSelect(bool value);
+    protected abstract void OnFocus(bool value);
+
+    public abstract void OnSelect(MainMenuManager manager);
 }

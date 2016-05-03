@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 [RequireComponent(typeof(Button))]
-public class ButtonNavItem : NavItem
+public abstract class ButtonNavItem : NavItem
 {
     public Color SelectedColor;
 
@@ -39,8 +38,8 @@ public class ButtonNavItem : NavItem
     {
         _initialColor = Text.color;
     }
-        
-    protected override void OnSelect(bool value)
+
+    protected override void OnFocus(bool value)
     {
         Text.color = value ? SelectedColor : _initialColor;
     }

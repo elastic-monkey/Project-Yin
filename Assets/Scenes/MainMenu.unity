@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -255,8 +255,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 185576509}
-  - {fileID: 442703572}
   - {fileID: 1089455372}
+  - {fileID: 442703572}
   m_Father: {fileID: 993818358}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -276,15 +276,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -550,12 +550,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
-  - Option: 0
+  - Previous: {fileID: 1040210208}
     Menu: {fileID: 216691606}
-  - Option: 1
+  - Previous: {fileID: 216691606}
     Menu: {fileID: 993818359}
-  Active: 0
-  _currentItem: 0
+  - Previous: {fileID: 216691606}
+    Menu: {fileID: 1040210208}
+  _currentMenu: 0
 --- !u!1 &216691604
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,21 +600,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 216691604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 751ca7a4562142d4486fafdefb187121, type: 3}
+  m_Script: {fileID: 11500000, guid: a0da55103ed12af45a3fba12a0fa457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cyclic: 0
-  _active: 0
+  Reset: 0
   Items:
-  - Option: 0
-    Item: {fileID: 568050013}
-  - Option: 1
-    Item: {fileID: 248317754}
-  - Option: 2
-    Item: {fileID: 1287268658}
-  - Option: 3
-    Item: {fileID: 833587370}
-  _currentOption: 0
+  - {fileID: 568050013}
+  - {fileID: 248317754}
+  - {fileID: 1287268658}
+  - {fileID: 833587370}
+  _active: 0
+  _currentItem: 0
 --- !u!114 &216691608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,11 +747,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 248317749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21ef73f4f163504b93da8b990463ab5, type: 3}
+  m_Script: {fileID: 11500000, guid: a6a3bb603c8109345be1e9de5560e4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  Target: {fileID: 993818359}
 --- !u!1 &331580603
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +837,7 @@ GameObject:
   - 222: {fileID: 442703574}
   - 114: {fileID: 442703573}
   - 114: {fileID: 442703575}
+  - 114: {fileID: 442703576}
   m_Layer: 0
   m_Name: Back Button
   m_TagString: Untagged
@@ -857,7 +857,7 @@ RectTransform:
   m_Children:
   - {fileID: 1565226334}
   m_Father: {fileID: 88423628}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.15}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -934,20 +934,23 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 442703573}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 194990345}
-        m_MethodName: OnBackPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &442703576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442703571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a3bb603c8109345be1e9de5560e4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selected: 0
+  SelectedColor: {r: 1, g: 0, b: 0, a: 1}
+  Target: {fileID: 216691606}
 --- !u!1 &462170650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,11 +1195,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 568050008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21ef73f4f163504b93da8b990463ab5, type: 3}
+  m_Script: {fileID: 11500000, guid: a6a3bb603c8109345be1e9de5560e4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _selected: 0
-  SelectedColor: {r: 0, g: 0.5034485, b: 1, a: 1}
+  SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  Target: {fileID: 0}
 --- !u!1 &599727674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,11 +1454,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 833587365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21ef73f4f163504b93da8b990463ab5, type: 3}
+  m_Script: {fileID: 11500000, guid: a6a3bb603c8109345be1e9de5560e4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  Target: {fileID: 1040210208}
 --- !u!1 &912891022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,6 +1468,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 912891023}
+  - 114: {fileID: 912891025}
   - 114: {fileID: 912891024}
   m_Layer: 0
   m_Name: Slot (3)
@@ -1495,15 +1501,55 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 912891022}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a183bf9174c39c1459ec647851445090, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ffa99f789dacb46a83d9299bfad492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotNumber: 3
-  ChapterName: {fileID: 331580605}
-  TextColor: {r: 0, g: 0, b: 0, a: 0}
-  _img: {fileID: 0}
+  _selected: 0
+  SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  TargetSlot: 3
+--- !u!114 &912891025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 912891022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &993818357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,13 +1593,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 993818357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722650ce2e8185e4fbc6460b96de8ee3, type: 3}
+  m_Script: {fileID: 11500000, guid: a0da55103ed12af45a3fba12a0fa457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cyclic: 0
+  Reset: 1
+  Items:
+  - {fileID: 2091801941}
+  - {fileID: 1273413638}
+  - {fileID: 1934497749}
+  - {fileID: 912891024}
+  - {fileID: 442703576}
   _active: 0
-  SavedGames: []
-  CurrentOption: 0
+  _currentItem: 0
 --- !u!114 &993818361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,6 +1631,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1040210207}
   - 114: {fileID: 1040210210}
+  - 114: {fileID: 1040210208}
   m_Layer: 0
   m_Name: QuitMenu
   m_TagString: Untagged
@@ -1604,6 +1657,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1040210208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1040210206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0da55103ed12af45a3fba12a0fa457f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cyclic: 0
+  Reset: 1
+  Items: []
+  _active: 0
+  _currentItem: 0
 --- !u!114 &1040210210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,7 +1720,7 @@ RectTransform:
   - {fileID: 1934497748}
   - {fileID: 912891023}
   m_Father: {fileID: 88423628}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0.15}
   m_AnchorMax: {x: 1, y: 0.75}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1831,6 +1900,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1273413637}
+  - 114: {fileID: 1273413639}
   - 114: {fileID: 1273413638}
   m_Layer: 0
   m_Name: Slot (1)
@@ -1863,15 +1933,55 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1273413636}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a183bf9174c39c1459ec647851445090, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ffa99f789dacb46a83d9299bfad492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotNumber: 1
-  ChapterName: {fileID: 163150042}
-  TextColor: {r: 0, g: 0, b: 0, a: 0}
-  _img: {fileID: 0}
+  _selected: 0
+  SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  TargetSlot: 1
+--- !u!114 &1273413639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1273413636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1287268653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,11 +2101,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1287268653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21ef73f4f163504b93da8b990463ab5, type: 3}
+  m_Script: {fileID: 11500000, guid: a6a3bb603c8109345be1e9de5560e4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  Target: {fileID: 0}
 --- !u!1 &1301420551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,15 +2385,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2341,7 +2452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9411765, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2449,6 +2560,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1934497748}
+  - 114: {fileID: 1934497750}
   - 114: {fileID: 1934497749}
   m_Layer: 0
   m_Name: Slot (2)
@@ -2481,15 +2593,55 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1934497747}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a183bf9174c39c1459ec647851445090, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ffa99f789dacb46a83d9299bfad492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotNumber: 2
-  ChapterName: {fileID: 599727676}
-  TextColor: {r: 0, g: 0, b: 0, a: 0}
-  _img: {fileID: 0}
+  _selected: 0
+  SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  TargetSlot: 2
+--- !u!114 &1934497750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1934497747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2091801939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,8 +2650,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 2091801940}
-  - 114: {fileID: 2091801941}
   - 114: {fileID: 2091801942}
+  - 114: {fileID: 2091801941}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -2531,15 +2683,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2091801939}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a183bf9174c39c1459ec647851445090, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ffa99f789dacb46a83d9299bfad492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotNumber: 0
-  ChapterName: {fileID: 1442247439}
-  TextColor: {r: 0, g: 0, b: 0, a: 0}
-  _img: {fileID: 0}
+  _selected: 0
+  SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
+  TargetSlot: 0
 --- !u!114 &2091801942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2579,7 +2730,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2091801941}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadSaveFile
         m_Mode: 1
         m_Arguments:
