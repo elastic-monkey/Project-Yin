@@ -5,6 +5,7 @@ using System.Collections;
 public class NavMenu : MonoBehaviour
 {
     public bool Cyclic, Reset;
+    public MenuManager MenuManager;
     public NavItem[] Items;
 
     [SerializeField]
@@ -14,12 +15,10 @@ public class NavMenu : MonoBehaviour
     private int _currentItem;
 
     private IAnimatedPanel _animatedPanel;
-    private MainMenuManager _mainMenuManager;
 
     private void Awake()
     {
         _animatedPanel = GetComponent<IAnimatedPanel>();
-        _mainMenuManager = GetComponentInParent<MainMenuManager>();
     }
 
     private void Start()
@@ -41,7 +40,6 @@ public class NavMenu : MonoBehaviour
 		
         if (PlayerInput.IsButtonDown(Axis.Nav_Vertical))
         {
-			Debug.Log ("asdasdasd");
             var v = -PlayerInput.GetAxis(Axis.Nav_Vertical);
 
             if (v > 0)
@@ -55,7 +53,6 @@ public class NavMenu : MonoBehaviour
         }
         else if (PlayerInput.IsButtonDown(Axis.Fire1) || PlayerInput.IsButtonDown(Axis.Submit))
         {
-			Debug.Log ("asdasdas");
             OnItemSelected(_currentItem);
         }
     }
@@ -121,6 +118,6 @@ public class NavMenu : MonoBehaviour
             return;
         }
 
-        Items[index].OnSelect(_mainMenuManager);
+        Items[index].OnSelect(MenuManager);
     }
 }

@@ -4,8 +4,8 @@ public class MenuNavItem : ButtonNavItem
 {
     public NavMenu Target;
 
-    public override void OnSelect(MainMenuManager manager)
+    public override void OnSelect(MenuManager manager)
     {
-        manager.SelectMenu(Target);
+        manager.OnAction(MainMenuManager.Actions.SelectMenu, Target);
     }
 }

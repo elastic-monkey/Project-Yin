@@ -2,8 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class MainMenuManager : MonoBehaviour
+public class MainMenuManager : MenuManager
 {
+    public enum Actions
+    {
+        NewGame,
+        SelectMenu,
+        LoadGame
+    }
+
     public MainMenuItems[] Items;
 
     [SerializeField]
@@ -65,5 +72,25 @@ public class MainMenuManager : MonoBehaviour
     {
         public NavMenu Previous;
         public NavMenu Menu;
+    }
+
+    public override void OnAction(object action, object data)
+    {
+        var actionEnum = (Actions)action;
+    
+        switch (actionEnum)
+        {
+            case Actions.NewGame:
+                Debug.Log("On new game.");
+                break;
+
+            case Actions.LoadGame:
+                break;
+
+            case Actions.SelectMenu:
+                var target = (NavMenu)data;
+                SelectMenu(target);
+                break;
+        }
     }
 }

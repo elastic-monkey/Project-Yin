@@ -869,6 +869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cyclic: 0
   Reset: 0
+  MenuManager: {fileID: 194990345}
   Items:
   - {fileID: 568050013}
   - {fileID: 248317754}
@@ -1459,12 +1460,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 568050008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a3bb603c8109345be1e9de5560e4a5, type: 3}
+  m_Script: {fileID: 11500000, guid: c8dec40e4cef3bf4b82ef3e7068a62a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
-  Target: {fileID: 0}
+  Action: 0
 --- !u!1 &599727674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,6 +1864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cyclic: 0
   Reset: 1
+  MenuManager: {fileID: 194990345}
   Items:
   - {fileID: 2091801941}
   - {fileID: 1273413638}
@@ -1947,6 +1949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cyclic: 0
   Reset: 1
+  MenuManager: {fileID: 194990345}
   Items:
   - {fileID: 61299159}
   - {fileID: 142699192}

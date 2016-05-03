@@ -14,5 +14,5 @@ public abstract class NavItem : MonoBehaviour
 
     protected abstract void OnFocus(bool value);
 
-    public abstract void OnSelect(MainMenuManager manager);
+    public abstract void OnSelect(MenuManager manager);
 }
