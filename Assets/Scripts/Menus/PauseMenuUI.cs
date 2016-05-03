@@ -30,7 +30,7 @@ public class PauseMenuUI : MonoBehaviour
 	{
 		if (PlayerInput.IsButtonDown(Axis.Escape))
 		{
-			PlayerInput.Blocked = true;
+            PlayerInput.GameplayBlocked = true;
 			Time.timeScale = 0f;
 			SetVisible (true);
 			Resume.interactable = true;
@@ -81,7 +81,7 @@ public class PauseMenuUI : MonoBehaviour
 	public void OnResumePressed()
 	{
 		SetVisible(false);
-		PlayerInput.Blocked = false;
+        PlayerInput.GameplayBlocked = false;
 		Time.timeScale = 1f;
 	}
 

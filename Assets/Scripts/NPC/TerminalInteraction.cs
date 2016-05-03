@@ -31,7 +31,7 @@ public class TerminalInteraction : Interaction
     {
         if (_player != null)
         {
-			if (PlayerInput.IsButtonDown(Axis.Fire1)  && !PlayerInput.Blocked)
+            if (PlayerInput.IsButtonDown(Axis.Fire1)  && !PlayerInput.GameplayBlocked)
             {
                 if (!_dialogueOpen)
                 {
