@@ -64,7 +64,7 @@ public class PlayerBehavior : WarriorBehavior
 	{
 		base.Update();
 
-		if (!PlayerInput.Blocked)
+		if (!PlayerInput.GameplayBlocked)
 		{
 			Abilities.ApplyAbilities();
 
@@ -79,7 +79,7 @@ public class PlayerBehavior : WarriorBehavior
 
 	void FixedUpdate()
 	{
-		if (!PlayerInput.Blocked)
+		if (!PlayerInput.GameplayBlocked)
 		{
 			PlayerMovement.ApplyMovement();
 		}

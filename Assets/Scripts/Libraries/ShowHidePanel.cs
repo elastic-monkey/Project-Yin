@@ -1,52 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShowHidePanel : MonoBehaviour
+public class ShowHidePanel : MonoBehaviour, IAnimatedPanel
 {
 	public Utils.WindowPositions HidePosition, ShowPosition;
 	public RectTransform Container;
 	public float AnimationSpeed;
-	[Range(1, 60)]
-	public int VisibleRefreshRate;
-	public bool Visible;
 
-	void Start()
-	{
-		StartCoroutine(ShowHide());
-	}
+    [SerializeField]
+    private bool _visible = false;
+    private Coroutine _oldAnim = null;
 
-	IEnumerator ShowHide()
-	{
-		var oldVisible = !Visible;
-		var oldRefreshRate = int.MaxValue;
-		var refreshRateSec = 1f;
-		Coroutine _oldAnim = null;
+    public void SetVisible(bool value)
+    {
+        _visible = value;
+        if (_oldAnim.Exists())
+            StopCoroutine(_oldAnim);
+        
+        _oldAnim = StartCoroutine(AnimateWindow());
+    }
 
-		while (true)
-		{
-			if (oldVisible != Visible)
-			{
-				oldVisible = Visible;
-
-				if (_oldAnim != null)
-					StopCoroutine(_oldAnim);
-				_oldAnim = StartCoroutine(AnimateWindow());
-			}
-
-			if (oldRefreshRate != VisibleRefreshRate)
-			{
-				oldRefreshRate = VisibleRefreshRate;
-				refreshRateSec = 1f / VisibleRefreshRate;
-			}
-
-			yield return new WaitForSeconds(refreshRateSec);
-		}
-	}
-
-	IEnumerator AnimateWindow()
+	private IEnumerator AnimateWindow()
 	{
 		Vector2 targetMin, targetMax;
-		if (Visible)
+
+        if (_visible)
 		{
 			Utils.GetAnchorsForWindowPosition(ShowPosition, out targetMin, out targetMax);
 			while (true)

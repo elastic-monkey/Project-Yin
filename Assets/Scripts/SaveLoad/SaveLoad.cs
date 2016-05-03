@@ -47,7 +47,7 @@ public static class SaveLoad {
 		}
 	}
 
-	public static List<GameState> GetAllSaves(){
+	public static List<GameState> GetAllSavedGames(){
 		List<GameState> saves = new List<GameState> ();
 		for (int i = 0; i < 4; i++) {
 			if (File.Exists (_savePath + i.ToString ())) {
