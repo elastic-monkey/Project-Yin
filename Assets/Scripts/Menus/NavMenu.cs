@@ -40,7 +40,7 @@ public class NavMenu : MonoBehaviour
 		
         if (PlayerInput.IsButtonDown(Axis.Nav_Vertical))
         {
-            var v = -PlayerInput.GetAxis(Axis.Nav_Vertical);
+            var v = -PlayerInput.GetAxisRaw(Axis.Nav_Vertical);
 
             if (v > 0)
             {
