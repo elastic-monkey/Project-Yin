@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MenuManager
 {
@@ -81,7 +80,7 @@ public class MainMenuManager : MenuManager
         switch (actionEnum)
         {
             case Actions.NewGame:
-                Debug.Log("On new game.");
+                SceneManager.LoadScene("Level_1");
                 break;
 
             case Actions.LoadGame:
