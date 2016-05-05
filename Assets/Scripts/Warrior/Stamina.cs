@@ -3,14 +3,24 @@ using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
+	public static int MaxLevel = 4;
+
     public float MaxStamina = 100f;
     public float RegenerationRate = 10f;
-    public Slider StaminaSlider;
+	public int CurrentLevel;
+	public Slider StaminaSlider;
     public bool RegenerateIsOn = true;
     public bool Regenerating = false;
 
     private float _currentStamina;
 
+	public bool CanBeUpgraded
+	{
+		get
+		{
+			return CurrentLevel < MaxLevel;
+		}
+	}
 
     public float CurrentStamina
     {
@@ -57,4 +67,13 @@ public class Stamina : MonoBehaviour
     {
         return CurrentStamina >= value;
     }
+
+	public void Upgrade(){
+		if (CanBeUpgraded) {
+			CurrentLevel++;
+			MaxStamina += 20;
+		} else {
+			Debug.Log ("Stamina Cannot be Upgraded any further");
+		}
+	}
 }

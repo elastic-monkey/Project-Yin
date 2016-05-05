@@ -56,6 +56,15 @@ public abstract class Ability
     public abstract void Activate(PlayerBehavior player);
 
     public abstract void Deactivate(PlayerBehavior player);
+
+	public void Upgrade(){
+		if (CanBeUpgraded) {
+			CurrentLevel++;
+			Debug.Log ("Upgrading Ability to Level: " + CurrentLevel);
+		} else {
+			Debug.Log ("Ability cannot be leveled any further");
+		}
+	}
 }
 
 [System.Serializable]

@@ -68,4 +68,13 @@ public class AbilitiesManager : MonoBehaviour
 		_abilities.Add(new ShieldAbility(Axis.Ability3));
 		_abilities.Add(new StrengthAbility(Axis.Ability4));
 	}
+
+	public void UpgradeAbility(Ability.Type type){
+		for (int i = 0; i < _abilities.Count; i++) {
+			Ability ability = _abilities [i];
+			if (ability.GetAbilityType () == type) {
+				ability.Upgrade ();
+			}
+		}
+	}
 }

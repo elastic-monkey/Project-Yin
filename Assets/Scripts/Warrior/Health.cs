@@ -3,12 +3,23 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+	public static int MaxLevel = 4;
+
     public float MaxHealth = 100f;
-    public Slider HealthSlider;
+	public int CurrentLevel;
+	public Slider HealthSlider;
     public bool Alive;
 
     [SerializeField]
     private float _currentHealth;
+
+	public bool CanBeUpgraded
+	{
+		get
+		{
+			return CurrentLevel < MaxLevel;
+		}
+	}
 
     public float CurrentHealth
     {
@@ -43,4 +54,13 @@ public class Health : MonoBehaviour
         CurrentHealth = MaxHealth;
         Alive = true;
     }
+
+	public void Upgrade(){
+		if (CanBeUpgraded) {
+			CurrentLevel++;
+			MaxHealth += 20;
+		} else {
+			Debug.Log ("Health Cannot be Upgraded any further");
+		}
+	}
 }
