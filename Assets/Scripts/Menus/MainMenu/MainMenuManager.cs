@@ -40,7 +40,7 @@ public class MainMenuManager : MenuManager
         _currentMenu = index;
     }
 
-    public void SelectMenu(NavMenu menu)
+    public void SelectMenu(VerticalNavMenu menu)
     {
         for (var i = 0; i < Items.Length; i++)
         {
@@ -69,8 +69,8 @@ public class MainMenuManager : MenuManager
     [System.Serializable]
     public class MainMenuItems
     {
-        public NavMenu Previous;
-        public NavMenu Menu;
+        public VerticalNavMenu Previous;
+        public VerticalNavMenu Menu;
     }
 
     public override void OnAction(object action, object data)
@@ -87,7 +87,7 @@ public class MainMenuManager : MenuManager
                 break;
 
             case Actions.SelectMenu:
-                var target = (NavMenu)data;
+                var target = (VerticalNavMenu)data;
                 SelectMenu(target);
                 break;
         }

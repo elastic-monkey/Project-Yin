@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PauseActionNavItem : ButtonNavItem
+public class PauseActionNavItem : TextNavItem
 {
     public PauseMenuManager.Actions Action;
 

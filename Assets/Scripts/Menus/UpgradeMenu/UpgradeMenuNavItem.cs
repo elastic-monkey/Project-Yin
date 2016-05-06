@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UpgradeMenuNavItem : ButtonNavItem {
+public class UpgradeMenuNavItem : ImageNavItem {
 
 	public UpgradeMenuManager.Actions Action;
+    public int UpgradeLevel;
 
 	public override void OnSelect(MenuManager manager)
 	{
-		manager.OnAction (Action, null);
+        manager.OnAction (Action, UpgradeLevel);
 	}
 }

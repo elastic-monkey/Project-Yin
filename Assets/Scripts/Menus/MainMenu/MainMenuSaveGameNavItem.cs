@@ -3,7 +3,7 @@ using System.Collections;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-public class MainMenuSaveGameNavItem : ButtonNavItem
+public class MainMenuSaveGameNavItem : TextNavItem
 {
     public int TargetSlot;
 
@@ -12,11 +12,11 @@ public class MainMenuSaveGameNavItem : ButtonNavItem
         if (TargetSlot < SaveMenuManager.saves.Count)
         {
             GameState save = SaveMenuManager.saves[TargetSlot];
-            _btnText.text = save.CurrentScene;
+            _text.text = save.CurrentScene;
         }
         else
         {
-            _btnText.text = "Empty Save Slot";
+            _text.text = "Empty Save Slot";
         }
     }
 

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class MenuNavItem : ButtonNavItem
+public class MenuNavItem : TextNavItem
 {
-    public NavMenu Target;
+    public VerticalNavMenu Target;
 
     public override void OnSelect(MenuManager manager)
     {

@@ -15,7 +15,7 @@ public class PauseMenuManager : MenuManager
     }
 
     public bool GamePaused;
-    public NavMenu PauseMenu;
+    public VerticalNavMenu PauseMenu;
 
     private void Awake()
     {

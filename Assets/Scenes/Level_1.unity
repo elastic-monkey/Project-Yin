@@ -2906,14 +2906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed6866d9a089d6418216ade4f1b46c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Container: {fileID: 1894141584}
-  Resume: {fileID: 1165242416}
-  LoadLastCheckpoint: {fileID: 1511993575}
-  ReturnToMainMenu: {fileID: 0}
-  AnimSpeed: 10
-  HidePosition: 2
-  ShowPosition: 0
-  _visible: 0
+  GamePaused: 0
+  PauseMenu: {fileID: 0}
 --- !u!1 &1098029934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4874,7 +4868,7 @@ Transform:
   m_Children:
   - {fileID: 973527676}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1569273949
 MonoBehaviour:
   m_ObjectHideFlags: 0

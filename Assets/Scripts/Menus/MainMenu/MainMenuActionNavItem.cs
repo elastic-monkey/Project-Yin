@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenuActionNavItem : ButtonNavItem
+public class MainMenuActionNavItem : TextNavItem
 {
     public MainMenuManager.Actions Action;
 

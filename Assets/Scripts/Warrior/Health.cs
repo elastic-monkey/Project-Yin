@@ -3,24 +3,24 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-	public static int MaxLevel = 4;
+    public static int MaxLevel = 4;
 
     public float MaxHealth = 100f;
-	public int CurrentLevel;
-	public Slider HealthSlider;
+    public int CurrentLevel;
+    public Slider HealthSlider;
     public bool Alive;
 
     [SerializeField]
     private float _currentHealth;
-	private PlayerBehavior _player;
+    private PlayerBehavior _player;
 
-	public bool CanBeUpgraded
-	{
-		get
-		{
-			return CurrentLevel < MaxLevel;
-		}
-	}
+    public bool CanBeUpgraded
+    {
+        get
+        {
+            return CurrentLevel < MaxLevel;
+        }
+    }
 
     public float CurrentHealth
     {
@@ -41,7 +41,7 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-		_player = GetComponent<PlayerBehavior> ();
+        _player = GetComponent<PlayerBehavior>();
         CurrentHealth = MaxHealth;
         if (HealthSlider.IsNull())
         {
@@ -56,16 +56,18 @@ public class Health : MonoBehaviour
         Alive = true;
     }
 
-	public void Upgrade()
-	{
-		if (CanBeUpgraded && _player.Experience.SkillPoints >= 1)
-		{
-			CurrentLevel++;
-			MaxHealth += 20;
-			RegenerateFull ();
-			_player.Experience.ConsumeSkillPoints (1);
-		} else {
-			Debug.Log ("Health Cannot be Upgraded any further");
-		}
-	}
+    public void Upgrade()
+    {
+        if (CanBeUpgraded && _player.Experience.SkillPoints >= 1)
+        {
+            CurrentLevel++;
+            MaxHealth += 20;
+            RegenerateFull();
+            _player.Experience.ConsumeSkillPoints(1);
+        }
+        else
+        {
+            Debug.Log("Health Cannot be Upgraded any further");
+        }
+    }
 }
