@@ -46,9 +46,10 @@ public abstract class Ability
         }
     }
 
-	public int GetUpgradeCost(){
-		return (int)Mathf.Ceil ((CurrentLevel+1) / 2.0f);
-	}
+    public int GetUpgradeCost()
+    {
+        return (int)Mathf.Ceil((CurrentLevel + 1) / 2.0f);
+    }
 
     public static Ability ParseAbility(string[] data)
     {
@@ -61,20 +62,27 @@ public abstract class Ability
 
     public abstract void Deactivate(PlayerBehavior player);
 
-	public void Upgrade(){
-		if (CanBeUpgraded) {
-			CurrentLevel++;
-			Debug.Log ("Upgrading Ability to Level: " + CurrentLevel);
-		} else {
-			Debug.Log ("Ability cannot be leveled any further");
-		}
-	}
+    public void Upgrade()
+    {
+        if (CanBeUpgraded)
+        {
+            CurrentLevel++;
+            Debug.Log("Upgrading Ability to Level: " + CurrentLevel);
+        }
+        else
+        {
+            Debug.Log("Ability cannot be leveled any further");
+        }
+    }
 }
 
 [System.Serializable]
 public class VisionAbility : Ability
 {
-    public VisionAbility(Axis axis) : base(axis) { }
+    public VisionAbility(Axis axis)
+        : base(axis)
+    {
+    }
 
     public override void Activate(PlayerBehavior player)
     {
@@ -95,13 +103,16 @@ public class VisionAbility : Ability
 [System.Serializable]
 public class SpeedAbility : Ability
 {
-    public SpeedAbility(Axis axis) : base(axis) { }
+    public SpeedAbility(Axis axis)
+        : base(axis)
+    {
+    }
 
     public override void Activate(PlayerBehavior player)
     {
         //player.Movement.MoveSpeedMulti = 1f + 0.05f * CurrentLevel;
-		player.PlayerMovement.SpeedMulti = 1f + 0.05f * 10f;
-		Debug.Log ("SPEED LEVEL: " + CurrentLevel);
+        player.PlayerMovement.SpeedMulti = 1f + 0.05f * 10f;
+        Debug.Log("SPEED LEVEL: " + CurrentLevel);
     }
 
     public override void Deactivate(PlayerBehavior player)
@@ -118,15 +129,19 @@ public class SpeedAbility : Ability
 [System.Serializable]
 public class ShieldAbility : Ability
 {
-    public ShieldAbility(Axis axis) : base(axis) { }
+    public ShieldAbility(Axis axis)
+        : base(axis)
+    {
+    }
 
     public override void Activate(PlayerBehavior player)
     {
-		if (!player.Defense.ShieldOn) {
-			player.Defense.ShieldOn = true;
-			player.Stamina.ConsumeStamina (90f);
-		}
-		Debug.Log ("SHIELD LEVEL: " + CurrentLevel);
+        if (!player.Defense.ShieldOn)
+        {
+            player.Defense.ShieldOn = true;
+            player.Stamina.ConsumeStamina(90f);
+        }
+        Debug.Log("SHIELD LEVEL: " + CurrentLevel);
     }
 
     public override void Deactivate(PlayerBehavior player)
@@ -144,13 +159,16 @@ public class ShieldAbility : Ability
 [System.Serializable]
 public class StrengthAbility : Ability
 {
-    public StrengthAbility(Axis axis) : base(axis) { }
+    public StrengthAbility(Axis axis)
+        : base(axis)
+    {
+    }
 
     public override void Activate(PlayerBehavior player)
     {
         player.Attack.DamageMultiplier = 2f;
         player.Attack.StaminaMultiplier = 2f;
-		Debug.Log ("STRENGHT LEVEL: " + CurrentLevel);
+        Debug.Log("STRENGHT LEVEL: " + CurrentLevel);
     }
 
     public override void Deactivate(PlayerBehavior player)
