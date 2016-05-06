@@ -72,4 +72,9 @@ public class Experience : MonoBehaviour
     {
         CurrentExperience += exp;
     }
+
+	public void ConsumeSkillPoints(int sp)
+	{
+		SkillPoints -= sp;
+	}
 }

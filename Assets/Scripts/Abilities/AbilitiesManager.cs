@@ -60,7 +60,6 @@ public class AbilitiesManager : MonoBehaviour
 
 	private void LoadAbilities()
 	{
-		// TODO: load from file
 		_abilities.Clear();
 
 		_abilities.Add(new VisionAbility(Axis.Ability1));
@@ -69,11 +68,18 @@ public class AbilitiesManager : MonoBehaviour
 		_abilities.Add(new StrengthAbility(Axis.Ability4));
 	}
 
-	public void UpgradeAbility(Ability.Type type){
-		for (int i = 0; i < _abilities.Count; i++) {
+	public void UpgradeAbility(Ability.Type type)
+	{
+		for (int i = 0; i < _abilities.Count; i++)
+		{
 			Ability ability = _abilities [i];
 			if (ability.GetAbilityType () == type) {
-				ability.Upgrade ();
+				if (_player.Experience.SkillPoints >= ability.GetUpgradeCost ()) {
+					ability.Upgrade ();
+					_player.Experience.ConsumeSkillPoints (ability.GetUpgradeCost ());
+				}
+			} else {
+				Debug.Log ("Not enough SP");
 			}
 		}
 	}

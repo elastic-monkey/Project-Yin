@@ -13,6 +13,7 @@ public class Stamina : MonoBehaviour
     public bool Regenerating = false;
 
     private float _currentStamina;
+	private PlayerBehavior _player;
 
 	public bool CanBeUpgraded
 	{
@@ -41,6 +42,7 @@ public class Stamina : MonoBehaviour
 
     void Awake()
     {
+		_player = GetComponent<PlayerBehavior> ();
         CurrentStamina = MaxStamina;
         if (StaminaSlider.IsNull())
         {
@@ -68,10 +70,13 @@ public class Stamina : MonoBehaviour
         return CurrentStamina >= value;
     }
 
-	public void Upgrade(){
-		if (CanBeUpgraded) {
+	public void Upgrade()
+	{
+		if (CanBeUpgraded && _player.Experience.SkillPoints >= 1)
+		{
 			CurrentLevel++;
 			MaxStamina += 20;
+			_player.Experience.ConsumeSkillPoints (1);
 		} else {
 			Debug.Log ("Stamina Cannot be Upgraded any further");
 		}

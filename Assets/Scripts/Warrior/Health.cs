@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     private float _currentHealth;
+	private PlayerBehavior _player;
 
 	public bool CanBeUpgraded
 	{
@@ -40,7 +41,7 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        //TODO LOAD HEALTH FROM SAVEFILE
+		_player = GetComponent<PlayerBehavior> ();
         CurrentHealth = MaxHealth;
         if (HealthSlider.IsNull())
         {
@@ -55,10 +56,14 @@ public class Health : MonoBehaviour
         Alive = true;
     }
 
-	public void Upgrade(){
-		if (CanBeUpgraded) {
+	public void Upgrade()
+	{
+		if (CanBeUpgraded && _player.Experience.SkillPoints >= 1)
+		{
 			CurrentLevel++;
 			MaxHealth += 20;
+			RegenerateFull ();
+			_player.Experience.ConsumeSkillPoints (1);
 		} else {
 			Debug.Log ("Health Cannot be Upgraded any further");
 		}

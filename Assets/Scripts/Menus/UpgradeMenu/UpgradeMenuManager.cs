@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UpgradeMenuManager : MenuManager {
 
@@ -16,9 +17,11 @@ public class UpgradeMenuManager : MenuManager {
 
 	private bool _isActive;
 	private PlayerBehavior _player;
+	private Text _availableSP;
 
 	private void Start(){
 		_player = GameObject.Find ("Player").GetComponent<PlayerBehavior> ();
+		_availableSP = GameObject.Find("AvailableSP").GetComponent<Text>();
 	}
 
 	private void Update(){
@@ -34,6 +37,7 @@ public class UpgradeMenuManager : MenuManager {
 		_isActive = value;
 		PlayerInput.GameplayBlocked = value;
 		Time.timeScale = value ? 0 : 1;
+		UpdateAvailableSP ();
 		UpgradeMenu.SetActive (value);
 	}
 
@@ -66,13 +70,20 @@ public class UpgradeMenuManager : MenuManager {
 
 	private void UpgradeHealth(){
 		_player.Health.Upgrade();
+		UpdateAvailableSP ();
 	}
 
 	private void UpgradeStamina(){
 		_player.Stamina.Upgrade ();
+		UpdateAvailableSP ();
 	}
 
 	private void UpgradeAbility(Ability.Type type){
 		_player.Abilities.UpgradeAbility (type);
+		UpdateAvailableSP ();
+	}
+
+	private void UpdateAvailableSP(){
+		_availableSP.text = "Skill Points: " + _player.Experience.SkillPoints;
 	}
 }
