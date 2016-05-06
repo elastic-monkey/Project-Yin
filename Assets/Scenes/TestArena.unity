@@ -312,7 +312,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 1
-  UpgradeLevel: 2
+  UpgradeLevel: 3
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &66055429
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +752,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 0
-  UpgradeLevel: 2
+  UpgradeLevel: 3
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &198414475
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +877,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 2
-  UpgradeLevel: 1
+  UpgradeLevel: 2
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &228424921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,7 +1988,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 2
-  UpgradeLevel: 0
+  UpgradeLevel: 1
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &461768517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,7 +2194,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 4
-  UpgradeLevel: 1
+  UpgradeLevel: 2
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &563711000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,7 +2508,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 2
-  UpgradeLevel: 3
+  UpgradeLevel: 4
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &618512410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,7 +2633,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 2
-  UpgradeLevel: 2
+  UpgradeLevel: 3
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &671759688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,7 +2932,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 0
-  UpgradeLevel: 3
+  UpgradeLevel: 4
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &688702512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,7 +3130,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 0
-  UpgradeLevel: 0
+  UpgradeLevel: 1
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &746322044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,7 +3214,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 3
-  UpgradeLevel: 3
+  UpgradeLevel: 4
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &770918778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,7 +3524,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 4
-  UpgradeLevel: 3
+  UpgradeLevel: 4
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &910433448
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,7 +3608,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 3
-  UpgradeLevel: 2
+  UpgradeLevel: 3
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &919867832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3680,7 +3692,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 1
-  UpgradeLevel: 0
+  UpgradeLevel: 1
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &923255000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3830,7 +3843,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 4
-  UpgradeLevel: 0
+  UpgradeLevel: 1
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &993956302
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +3927,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 1
-  UpgradeLevel: 3
+  UpgradeLevel: 4
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &996046366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3944,10 +3959,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1220475246}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.6975, y: -42.427002}
-  m_SizeDelta: {x: 175.395, y: 84.854004}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &996046368
 MonoBehaviour:
@@ -5330,6 +5345,7 @@ MonoBehaviour:
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 5
   UpgradeLevel: 0
+  UpgradeCost: {fileID: 0}
 --- !u!1 &1144612694
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,7 +5591,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 3
-  UpgradeLevel: 0
+  UpgradeLevel: 1
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &1326361471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5871,10 +5888,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1220475246}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 260.0925, y: -42.427002}
-  m_SizeDelta: {x: 169.395, y: 84.854004}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1354265640
 MonoBehaviour:
@@ -6551,7 +6568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1520800366
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6712,10 +6729,10 @@ RectTransform:
   - {fileID: 1138746110}
   m_Father: {fileID: 129487920}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.25, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.1}
-  m_AnchoredPosition: {x: -79, y: 0}
-  m_SizeDelta: {x: 158, y: 0.0000076293945}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0.0000076293945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1586346383
 GameObject:
@@ -7108,7 +7125,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 0
-  UpgradeLevel: 1
+  UpgradeLevel: 2
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &1699879782
 GameObject:
   m_ObjectHideFlags: 0
@@ -7651,7 +7669,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 4
-  UpgradeLevel: 2
+  UpgradeLevel: 3
+  UpgradeCost: {fileID: 368878533}
 --- !u!1001 &1924790242
 Prefab:
   m_ObjectHideFlags: 0
@@ -8203,6 +8222,10 @@ Prefab:
       propertyPath: AvailableSP
       value: 
       objectReference: {fileID: 1869199911}
+    - target: {fileID: 11487488, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
+      propertyPath: SkillPoints
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
   m_IsPrefabParent: 0
@@ -8495,7 +8518,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 1
-  UpgradeLevel: 1
+  UpgradeLevel: 2
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &2041271885
 GameObject:
   m_ObjectHideFlags: 0
@@ -8708,7 +8732,8 @@ MonoBehaviour:
   _selected: 0
   SelectedColor: {r: 0, g: 0.5019608, b: 1, a: 1}
   Action: 3
-  UpgradeLevel: 1
+  UpgradeLevel: 2
+  UpgradeCost: {fileID: 368878533}
 --- !u!1 &2095084122
 GameObject:
   m_ObjectHideFlags: 0

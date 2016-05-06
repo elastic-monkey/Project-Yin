@@ -47,7 +47,7 @@ public abstract class Ability
     }
 
 	public int GetUpgradeCost(){
-		return (int)Mathf.Ceil (CurrentLevel / 2.0f);
+		return (int)Mathf.Ceil ((CurrentLevel+1) / 2.0f);
 	}
 
     public static Ability ParseAbility(string[] data)

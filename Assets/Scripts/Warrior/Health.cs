@@ -56,9 +56,9 @@ public class Health : MonoBehaviour
         Alive = true;
     }
 
-    public void Upgrade()
+	public void Upgrade(int level)
     {
-        if (CanBeUpgraded && _player.Experience.SkillPoints >= 1)
+		if (CanBeUpgraded && _player.Experience.SkillPoints >= 1 && level == CurrentLevel + 1)
         {
             CurrentLevel++;
             MaxHealth += 20;
@@ -67,7 +67,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            Debug.Log("Health Cannot be Upgraded any further");
+            Debug.Log("Health Cannot be Upgraded");
         }
     }
 }

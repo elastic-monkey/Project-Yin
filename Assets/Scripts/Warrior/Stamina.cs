@@ -70,15 +70,15 @@ public class Stamina : MonoBehaviour
         return CurrentStamina >= value;
     }
 
-	public void Upgrade()
+	public void Upgrade(int level)
 	{
-		if (CanBeUpgraded && _player.Experience.SkillPoints >= 1)
+		if (CanBeUpgraded && _player.Experience.SkillPoints >= 1 && level == CurrentLevel + 1)
 		{
 			CurrentLevel++;
 			MaxStamina += 20;
 			_player.Experience.ConsumeSkillPoints (1);
 		} else {
-			Debug.Log ("Stamina Cannot be Upgraded any further");
+			Debug.Log ("Stamina Cannot be Upgraded");
 		}
 	}
 }

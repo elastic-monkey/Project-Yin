@@ -68,18 +68,14 @@ public class AbilitiesManager : MonoBehaviour
 		_abilities.Add(new StrengthAbility(Axis.Ability4));
 	}
 
-	public void UpgradeAbility(Ability.Type type)
+	public void UpgradeAbility(Ability.Type type, int level)
 	{
 		for (int i = 0; i < _abilities.Count; i++)
 		{
 			Ability ability = _abilities [i];
-			if (ability.GetAbilityType () == type) {
-				if (_player.Experience.SkillPoints >= ability.GetUpgradeCost ()) {
-					ability.Upgrade ();
-					_player.Experience.ConsumeSkillPoints (ability.GetUpgradeCost ());
-				}
-			} else {
-				Debug.Log ("Not enough SP");
+			if (ability.GetAbilityType () == type && _player.Experience.SkillPoints >= ability.GetUpgradeCost () && level == ability.CurrentLevel + 1 && ability.CanBeUpgraded) {
+				_player.Experience.ConsumeSkillPoints (ability.GetUpgradeCost ());
+				ability.Upgrade ();
 			}
 		}
 	}

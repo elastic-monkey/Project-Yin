@@ -57,32 +57,33 @@ public class UpgradeMenuManager : MenuManager
     public override void OnAction(object action, object data)
     {
         var actionEnum = (Actions)action;
+		var level = (int)data;
 
         switch (actionEnum)
         {
             case Actions.UpgradeHealth:
-                Debug.Log("Upgrading Health");
-                UpgradeHealth();
+                Debug.Log("Upgrading Health To Level " + level);
+                UpgradeHealth(level);
                 break;
 
             case Actions.UpgradeStamina:
                 Debug.Log("Upgrading Stamina");
-                UpgradeStamina();
+                UpgradeStamina(level);
                 break;
 
             case Actions.UpgradeSpeed:
                 Debug.Log("Upgrading Speed");
-                UpgradeAbility(Ability.Type.Speed);
+                UpgradeAbility(Ability.Type.Speed, level);
                 break;
 
             case Actions.UpgradeShield:
                 Debug.Log("Upgrading Shield");
-                UpgradeAbility(Ability.Type.Shield);
+			UpgradeAbility(Ability.Type.Shield, level);
                 break;
 
             case Actions.UpgradeStrenght:
                 Debug.Log("Upgrading Strenght");
-                UpgradeAbility(Ability.Type.Strength);
+				UpgradeAbility(Ability.Type.Strength, level);
                 break;
 
             case Actions.CloseMenu:
@@ -91,26 +92,26 @@ public class UpgradeMenuManager : MenuManager
         }
     }
 
-    private void UpgradeHealth()
+	private void UpgradeHealth(int level)
     {
-        _player.Health.Upgrade();
+        _player.Health.Upgrade(level);
         UpdateAvailableSP();
     }
 
-    private void UpgradeStamina()
+	private void UpgradeStamina(int level)
     {
-        _player.Stamina.Upgrade();
+        _player.Stamina.Upgrade(level);
         UpdateAvailableSP();
     }
 
-    private void UpgradeAbility(Ability.Type type)
+	private void UpgradeAbility(Ability.Type type, int level)
     {
-        _player.Abilities.UpgradeAbility(type);
+        _player.Abilities.UpgradeAbility(type, level);
         UpdateAvailableSP();
     }
 
     private void UpdateAvailableSP()
     {
-        AvailableSP.text = "Skill Points: " + _player.Experience.SkillPoints;
+		AvailableSP.text = _player.Experience.SkillPoints.ToString();
     }
 }

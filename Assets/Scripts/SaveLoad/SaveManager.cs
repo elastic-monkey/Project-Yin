@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
     {
         if (File.Exists("SSS.txt"))
         {
+			Debug.Log ("SSS present. Loading savegame");
             GameState state = SaveLoad.Load(false);
             LoadAllStates(state);
         }
@@ -41,7 +42,13 @@ public class SaveManager : MonoBehaviour
 		var playerBehavior = player.GetComponent<PlayerBehavior>();
         player.transform.position = state.position;
         player.transform.rotation = state.rotation;
+
+		playerBehavior.Health.MaxHealth = state.MaxHealth;
 		playerBehavior.Health.CurrentHealth = state.Health;
+		playerBehavior.Health.CurrentLevel = state.HealthCurrentLevel;
+		playerBehavior.Stamina.MaxStamina = state.MaxStamina;
+		playerBehavior.Stamina.CurrentLevel = state.StaminaCurrentLevel;
+
 		playerBehavior.Experience.CurrentExperience = state.Experience;
 		playerBehavior.Experience.SkillPoints = state.SkillPoints;
 		var playerAbilities = player.GetComponent<AbilitiesManager> ();

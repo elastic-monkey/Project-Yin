@@ -35,7 +35,7 @@ public abstract class ImageNavItem : NavItem
 
     protected override void OnFocus(bool value)
     {
-        if (Image.Exists())
-            Image.color = value ? SelectedColor : _initialColor;
+		if (Image.Exists ())
+			Image.color = value ? SelectedColor : _initialColor;
     }
 }
