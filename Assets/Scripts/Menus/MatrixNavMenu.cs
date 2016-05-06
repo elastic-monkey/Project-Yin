@@ -3,8 +3,17 @@ using System.Collections;
 
 public class MatrixNavMenu : NavMenu
 {
+    public enum Organization
+    {
+        Column,
+        Line
+    }
+
     public bool Horizontal, Vertical;
     public bool Cyclic, Reset;
+    [Tooltip("Column organization means each array inside each Item is treated as either a column or a line, hence affecting navigation. " +
+        "This is used only for buttons navigation! Changes in visual organization are defined by the user.")]
+    public Organization MenuOrganization;
     public MenuManager MenuManager;
     public NavItemCollection[] Items;
 
@@ -18,30 +27,53 @@ public class MatrixNavMenu : NavMenu
 
     protected override void OnUpdate()
     {
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
         if (PlayerInput.IsButtonDown(Axis.Nav_Vertical) && Vertical)
         {
-            var v = -PlayerInput.GetAxisRaw(Axis.Nav_Vertical);
+            var v = PlayerInput.GetAxisRaw(Axis.Nav_Vertical);
 
-            if (v > 0)
+            if (v != 0)
             {
-                FocusDown();
-            }
-            else if (v < 0)
-            {
-                FocusUp();
+                if (MenuOrganization == Organization.Column)
+                {
+                    if (v > 0)
+                        FocusUp();
+                    else
+                        FocusDown();
+                }
+                else if(MenuOrganization == Organization.Line)
+                {
+                    if (v > 0)
+                        FocusLeft();
+                    else
+                        FocusRight();
+                }
             }
         }
         else if (PlayerInput.IsButtonDown(Axis.Nav_Horizontal) && Horizontal)
         {
-            var v = PlayerInput.GetAxisRaw(Axis.Nav_Horizontal);
+            var h = PlayerInput.GetAxisRaw(Axis.Nav_Horizontal);
 
-            if (v > 0)
+            if (h != 0)
             {
-                FocusRight();
-            }
-            else if (v < 0)
-            {
-                FocusLeft();
+                if (MenuOrganization == Organization.Column)
+                {
+                    if (h > 0)
+                        FocusRight();
+                    else
+                        FocusLeft();
+                }
+                else if(MenuOrganization == Organization.Line)
+                {
+                    if (h > 0)
+                        FocusDown();
+                    else
+                        FocusUp();
+                }
             }
         }
         else if (PlayerInput.IsButtonDown(Axis.Fire1) || PlayerInput.IsButtonDown(Axis.Submit))
