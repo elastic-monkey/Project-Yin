@@ -12,8 +12,15 @@ public abstract class TextNavItem : NavItem
     {
         get
         {
-            if (_text == null)
-                _text = GetComponentInChildren<Text>();
+            if (_text.IsNull())
+            {
+                _text = GetComponent<Text>();
+
+                if (_text.IsNull())
+                {
+                    _text = GetComponentInChildren<Text>();
+                }
+            }
 
             return _text;
         }
@@ -21,13 +28,11 @@ public abstract class TextNavItem : NavItem
 
     protected void Awake()
     {
-        if (Text.Exists())
-            _initialColor = Text.color;
+        _initialColor = Text.color;
     }
 
     protected override void OnFocus(bool value)
     {
-        if (Text.Exists())
-            Text.color = value ? SelectedColor : _initialColor;
+        Text.color = value ? SelectedColor : _initialColor;
     }
 }

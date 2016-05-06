@@ -11,18 +11,20 @@ public class UpgradeMenuManager : MenuManager
         UpgradeStamina,
         UpgradeSpeed,
         UpgradeShield,
-        UpgradeStrenght
+        UpgradeStrenght,
+        CloseMenu
     }
 
     public NavMenu UpgradeMenu;
-
-    private bool _isActive;
-    private PlayerBehavior _player;
     public Text AvailableSP;
+
+    private GameManager _gameManager;
+    private PlayerBehavior _player;
 
     private void Start()
     {
-        _player = GameObject.Find("Player").GetComponent<PlayerBehavior>();
+        _gameManager = GameManager.Instance;
+        _player = _gameManager.Player;
     }
 
     private void Update()
@@ -30,15 +32,24 @@ public class UpgradeMenuManager : MenuManager
         //TODO Change to proper keys
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            ActivateUpgradeMenu(!_isActive);
+            if (_gameManager.GamePaused)
+            {
+                if (UpgradeMenu.IsActive)
+                {
+                    OnUpgradeMenu(false);
+                }
+            }
+            else
+            {
+                OnUpgradeMenu(true);
+            }
         }
     }
 
-    private void ActivateUpgradeMenu(bool value)
+    private void OnUpgradeMenu(bool value)
     {
-        _isActive = value;
-        PlayerInput.GameplayBlocked = value;
-        Time.timeScale = value ? 0 : 1;
+        _gameManager.SetGamePaused(value);
+
         UpdateAvailableSP();
         UpgradeMenu.SetActive(value);
     }
@@ -53,21 +64,29 @@ public class UpgradeMenuManager : MenuManager
                 Debug.Log("Upgrading Health");
                 UpgradeHealth();
                 break;
+
             case Actions.UpgradeStamina:
                 Debug.Log("Upgrading Stamina");
                 UpgradeStamina();
                 break;
+
             case Actions.UpgradeSpeed:
                 Debug.Log("Upgrading Speed");
                 UpgradeAbility(Ability.Type.Speed);
                 break;
+
             case Actions.UpgradeShield:
                 Debug.Log("Upgrading Shield");
                 UpgradeAbility(Ability.Type.Shield);
                 break;
+
             case Actions.UpgradeStrenght:
                 Debug.Log("Upgrading Strenght");
                 UpgradeAbility(Ability.Type.Strength);
+                break;
+
+            case Actions.CloseMenu:
+                OnUpgradeMenu(false);
                 break;
         }
     }

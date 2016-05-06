@@ -14,27 +14,38 @@ public class PauseMenuManager : MenuManager
         ReturnToMainMenu
     }
 
-    public bool GamePaused;
     public VerticalNavMenu PauseMenu;
 
-    private void Awake()
+    private GameManager _gameManager;
+
+    private void Start()
     {
-        GamePaused = false;
+        _gameManager = GameManager.Instance;
     }
 
     private void Update()
     {
         if (PlayerInput.IsButtonDown(Axis.Escape))
         {
-            SetGamePaused(!GamePaused);
+            if (_gameManager.GamePaused)
+            {
+                // This verification is necessary for this menu not to open if,
+                //  for example, upgrade menu is already open.
+                if (PauseMenu.IsActive)
+                {
+                    OnPause(false);
+                }
+            }
+            else
+            {
+                OnPause(true);
+            }
         }
     }
 
-    private void SetGamePaused(bool value)
+    private void OnPause(bool value)
     {
-        GamePaused = value;
-        PlayerInput.GameplayBlocked = value;
-        Time.timeScale = value ? 0 : 1;
+        _gameManager.SetGamePaused(value);
         PauseMenu.SetActive(value);
     }
 
@@ -45,12 +56,12 @@ public class PauseMenuManager : MenuManager
         switch (actionEnum)
         {
             case Actions.Resume:
-                SetGamePaused(false);
+                OnPause(false);
                 break;
 
             case Actions.LoadLastCheckpoint:
                 SaveManager.LoadCheckpoint = true;
-                SetGamePaused(false);
+                OnPause(false);
                 break;
 
             case Actions.Settings:

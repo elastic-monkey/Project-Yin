@@ -53,7 +53,9 @@ public class MatrixNavMenu : NavMenu
     protected override void OnSetActive(bool value)
     {
         if (!value && Reset)
+        {
             FocusItem(new IndexPair(0, 0));
+        }
     }
 
     private void FocusItem(IndexPair index)
@@ -78,6 +80,8 @@ public class MatrixNavMenu : NavMenu
                 }
             }
         }
+
+        _currentIndex = index;
     }
 
     private void FocusDown()

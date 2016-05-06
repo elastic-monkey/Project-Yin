@@ -7,6 +7,24 @@ public class GameManager : MonoBehaviour
     public PlayerBehavior Player;
     public EnemiesManager Enemies;
 
+    [SerializeField]
+    private bool _gamePaused;
+
+    public bool GamePaused
+    {
+        get
+        {
+            return _gamePaused;
+        }
+
+        private set
+        {
+            _gamePaused = value;
+            PlayerInput.GameplayBlocked = value;
+            Time.timeScale = value ? 0 : 1;
+        }
+    }
+
     public static GameManager Instance
     {
         get
@@ -63,5 +81,10 @@ public class GameManager : MonoBehaviour
     public void OnEnemyDeath(EnemyBehavior enemy)
     {
         // TODO: Give player experience for the kill.
+    }
+
+    public void SetGamePaused(bool value)
+    {
+        GamePaused = value;
     }
 }

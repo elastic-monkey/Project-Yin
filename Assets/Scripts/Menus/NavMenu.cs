@@ -9,6 +9,14 @@ public abstract class NavMenu : MonoBehaviour
     private bool _activeNextFrame;
     private IAnimatedPanel _animatedPanel;
 
+    public bool IsActive
+    {
+        get
+        {
+            return _active;
+        }
+    }
+
     private void Awake()
     {
         _animatedPanel = GetComponent<IAnimatedPanel>();

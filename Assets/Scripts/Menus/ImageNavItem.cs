@@ -13,8 +13,15 @@ public abstract class ImageNavItem : NavItem
     {
         get
         {
-            if (_image == null)
+            if (_image.IsNull())
+            {
                 _image = GetComponent<Image>();
+
+                if (_image.IsNull())
+                {
+                    _image = GetComponentInChildren<Image>();
+                }
+            }
 
             return _image;
         }
