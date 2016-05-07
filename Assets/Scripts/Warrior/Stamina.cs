@@ -1,27 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Stamina : MonoBehaviour
+public class Stamina : Upgradable
 {
-	public static int MaxLevel = 4;
-
+    public float StaminaLevelIncrement = 20f;
+    public float BaseMaxStamina = 100f;
     public float MaxStamina = 100f;
     public float RegenerationRate = 10f;
-	public int CurrentLevel;
 	public Slider StaminaSlider;
     public bool RegenerateIsOn = true;
     public bool Regenerating = false;
 
     private float _currentStamina;
-	private PlayerBehavior _player;
-
-	public bool CanBeUpgraded
-	{
-		get
-		{
-			return CurrentLevel < MaxLevel;
-		}
-	}
 
     public float CurrentStamina
     {
@@ -42,12 +32,12 @@ public class Stamina : MonoBehaviour
 
     void Awake()
     {
-		_player = GetComponent<PlayerBehavior> ();
-        CurrentStamina = MaxStamina;
         if (StaminaSlider.IsNull())
         {
             Debug.LogWarning("StaminaSlider is null. No exception will be thrown, but this must be repaired.");
         }
+
+        CurrentStamina = MaxStamina;
     }
 
     void Update()
@@ -70,15 +60,13 @@ public class Stamina : MonoBehaviour
         return CurrentStamina >= value;
     }
 
-	public void Upgrade(int level)
-	{
-		if (CanBeUpgraded && _player.Experience.SkillPoints >= 1 && level == CurrentLevel + 1)
-		{
-			CurrentLevel++;
-			MaxStamina += 20;
-			_player.Experience.ConsumeSkillPoints (1);
-		} else {
-			Debug.Log ("Stamina Cannot be Upgraded");
-		}
-	}
+    protected override void OnUpgradeTo(int level)
+    {
+        MaxStamina = BaseMaxStamina + level * StaminaLevelIncrement;
+    }
+
+    protected override bool OnCanBeUpgradedTo(int level)
+    {
+        return true;
+    }
 }

@@ -7,6 +7,6 @@ public class PauseActionNavItem : TextNavItem
 
     public override void OnSelect(MenuManager manager)
     {
-        manager.OnAction(Action, null);
+        manager.OnAction(this, Action, null);
     }
 }

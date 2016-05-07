@@ -6,6 +6,6 @@ public class MenuNavItem : TextNavItem
 
     public override void OnSelect(MenuManager manager)
     {
-        manager.OnAction(MainMenuManager.Actions.SelectMenu, Target);
+        manager.OnAction(this, MainMenuManager.Actions.SelectMenu, Target);
     }
 }

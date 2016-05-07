@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-public abstract class Ability : MonoBehaviour
+public abstract class Ability : Upgradable
 {
-    public const int MaxLevel = 4;
 
     public enum AbilityType
     {
@@ -13,20 +12,8 @@ public abstract class Ability : MonoBehaviour
     }
 
     public Axis InputAxis;
-    public int CurrentLevel;
 
     public AbilityType Type { get; protected set; }
-
-    public int UpgradeCost(int level)
-    {
-        var sum = 0;
-        for (var i = CurrentLevel + 1; i < level; i++)
-        {
-            sum += (int)Mathf.Ceil(i * 0.5f);
-        }
-
-        return sum;
-    }
 
     private void Awake()
     {
@@ -36,17 +23,6 @@ public abstract class Ability : MonoBehaviour
     public abstract void SetActive(PlayerBehavior player);
 
     public abstract void Deactivate(PlayerBehavior player);
-
-    public void UpgradeTo(int level)
-    {
-        CurrentLevel = level;
-        Debug.Log("Upgrading Ability to Level: " + level);
-    }
-
-    public bool CanBeUpgradedTo(int level)
-    {
-        return (level >= 0 && level < MaxLevel);
-    }
 
     public abstract SerializableAbility Serialize();
 
@@ -81,6 +57,16 @@ public abstract class Ability : MonoBehaviour
         }
 
         return obj;
+    }
+
+    protected override void OnUpgradeTo(int level)
+    {
+        // Nothing
+    }
+
+    protected override bool OnCanBeUpgradedTo(int level)
+    {
+        return true;
     }
 }
 

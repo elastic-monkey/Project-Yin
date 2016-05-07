@@ -11,20 +11,41 @@ public class UpgradeMenuManager : MenuManager
         UpgradeStamina,
         UpgradeSpeed,
         UpgradeShield,
-        UpgradeStrenght,
+        UpgradeStrength,
         CloseMenu
     }
 
     public NavMenu UpgradeMenu;
     public Text AvailableSP;
+    public Text UpgradeCost;
+    public Text EffectText;
 
+    private UpgradeMenuNavItem[] _items;
     private GameManager _gameManager;
-    private PlayerBehavior _player;
 
-    private void Start()
+    public GameManager GameManager
     {
-        _gameManager = GameManager.Instance;
-        _player = _gameManager.Player;
+        get
+        {
+            if (_gameManager.IsNull())
+                _gameManager = GameManager.Instance;
+
+            return _gameManager;
+        }
+    }
+
+    public PlayerBehavior Player
+    {
+        get
+        {
+            return GameManager.Player;
+        }
+    }
+
+    public void Start()
+    {
+        _items = UpgradeMenu.GetComponentsInChildren<UpgradeMenuNavItem>();
+        UpdateAllItems();
     }
 
     private void Update()
@@ -46,6 +67,95 @@ public class UpgradeMenuManager : MenuManager
         }
     }
 
+    public override void OnFocus(NavItem target)
+    {
+        var upgradeItem = target as UpgradeMenuNavItem;
+        if (upgradeItem.IsNull())
+            return;
+
+        var action = upgradeItem.Action;
+        switch (action)
+        {
+            case Actions.UpgradeHealth:
+                OnItemFocused(upgradeItem, Player.Health);
+                break;
+
+            case Actions.UpgradeStamina:
+                OnItemFocused(upgradeItem, Player.Stamina);
+                break;
+
+            case Actions.UpgradeSpeed:
+                var upgradable = Player.Abilities.Find(Ability.AbilityType.Speed);
+                if (upgradable.Exists())
+                    OnItemFocused(upgradeItem, upgradable);
+                break;
+
+            case Actions.UpgradeShield:
+                upgradable = Player.Abilities.Find(Ability.AbilityType.Shield);
+                if (upgradable.Exists())
+                    OnItemFocused(upgradeItem, upgradable);
+                break;
+
+            case Actions.UpgradeStrength:
+                upgradable = Player.Abilities.Find(Ability.AbilityType.Strength);
+                if (upgradable.Exists())
+                    OnItemFocused(upgradeItem, upgradable);
+                break;
+        }
+    }
+
+    private void OnItemFocused(UpgradeMenuNavItem navItem, Upgradable upgradable)
+    {
+        UpgradeCost.text = upgradable.UpgradeCost(navItem.UpgradeLevel).ToString();
+        UpdateAvailableSP();
+    }
+
+    private void UpdateAllItems()
+    {
+        foreach (var item in _items)
+        {
+            switch (item.Action)
+            {
+                case Actions.UpgradeHealth:
+                    PurchaseOrDisable(item, Player.Health);
+                    break;
+
+                case Actions.UpgradeStamina:
+                    PurchaseOrDisable(item, Player.Stamina);
+                    break;
+
+                case Actions.UpgradeSpeed:
+                    PurchaseOrDisable(item, Player.Abilities.Find(Ability.AbilityType.Speed));
+                    break;
+
+                case Actions.UpgradeShield:
+                    PurchaseOrDisable(item, Player.Abilities.Find(Ability.AbilityType.Shield));
+                    break;
+
+                case Actions.UpgradeStrength:
+                    PurchaseOrDisable(item, Player.Abilities.Find(Ability.AbilityType.Strength));
+                    break;
+            }
+        }
+    }
+
+    private void PurchaseOrDisable(UpgradeMenuNavItem item, Upgradable upgradable)
+    {
+        var currentLevel = upgradable.CurrentLevel;
+        if (currentLevel >= item.UpgradeLevel)
+        {
+            item.SetPurchased(true);
+        }
+        else if (currentLevel == item.UpgradeLevel - 1)
+        {
+            item.SetDisabled(!upgradable.CanBeUpgradedTo(item.UpgradeLevel, Player));
+        }
+        else
+        {
+            item.SetDisabled(true);
+        }
+    }
+
     private void OnUpgradeMenu(bool value)
     {
         _gameManager.SetGamePaused(value);
@@ -54,64 +164,70 @@ public class UpgradeMenuManager : MenuManager
         UpgradeMenu.SetActive(value);
     }
 
-    public override void OnAction(object action, object data)
+    public override void OnAction(NavItem item, object action, object data)
     {
-        var actionEnum = (Actions)action;
-		var level = (int)data;
+        var upgradeItem = item as UpgradeMenuNavItem;
+        if (upgradeItem.IsNull())
+            return;
+        
+        var actionEnum = upgradeItem.Action;
+        var level = (int)data; // put in range [0-3]
 
         switch (actionEnum)
         {
             case Actions.UpgradeHealth:
-                Debug.Log("Upgrading Health To Level " + level);
-                UpgradeHealth(level);
+                if (Player.Health.UpgradeTo(level, Player))
+                {
+                    upgradeItem.SetPurchased(true);
+                    OnItemFocused(upgradeItem, Player.Health);
+                }
                 break;
 
             case Actions.UpgradeStamina:
-                Debug.Log("Upgrading Stamina");
-                UpgradeStamina(level);
+                if (Player.Stamina.UpgradeTo(level, Player))
+                {
+                    upgradeItem.SetPurchased(true);
+                    OnItemFocused(upgradeItem, Player.Stamina);
+                }
                 break;
 
             case Actions.UpgradeSpeed:
-                Debug.Log("Upgrading Speed");
-                UpgradeAbility(Ability.AbilityType.Speed, level);
+                var type = Ability.AbilityType.Speed;
+                if (Player.Abilities.UpgradeAbility(type, level))
+                {
+                    upgradeItem.SetPurchased(true);
+                    OnItemFocused(upgradeItem, Player.Abilities.Find(type));
+                }
                 break;
 
             case Actions.UpgradeShield:
-                Debug.Log("Upgrading Shield");
-                UpgradeAbility(Ability.AbilityType.Shield, level);
+                type = Ability.AbilityType.Shield;
+                if (Player.Abilities.UpgradeAbility(type, level))
+                {
+                    upgradeItem.SetPurchased(true);
+                    OnItemFocused(upgradeItem, Player.Abilities.Find(type)); 
+                }
                 break;
 
-            case Actions.UpgradeStrenght:
-                Debug.Log("Upgrading Strenght");
-                UpgradeAbility(Ability.AbilityType.Strength, level);
+            case Actions.UpgradeStrength:
+                type = Ability.AbilityType.Strength;
+                if (Player.Abilities.UpgradeAbility(type, level))
+                {
+                    upgradeItem.SetPurchased(true);
+                    OnItemFocused(upgradeItem, Player.Abilities.Find(type)); 
+                }
                 break;
 
             case Actions.CloseMenu:
                 OnUpgradeMenu(false);
                 break;
         }
-    }
 
-	private void UpgradeHealth(int level)
-    {
-        _player.Health.Upgrade(level);
-        UpdateAvailableSP();
-    }
-
-	private void UpgradeStamina(int level)
-    {
-        _player.Stamina.Upgrade(level);
-        UpdateAvailableSP();
-    }
-
-	private void UpgradeAbility(Ability.AbilityType type, int level)
-    {
-        _player.Abilities.UpgradeAbility(type, level);
-        UpdateAvailableSP();
+        UpdateAllItems();
     }
 
     private void UpdateAvailableSP()
     {
-		AvailableSP.text = _player.Experience.SkillPoints.ToString();
+        AvailableSP.text = Player.Experience.SkillPoints.ToString();
     }
 }

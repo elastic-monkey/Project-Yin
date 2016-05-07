@@ -56,21 +56,27 @@ public class AbilitiesManager : MonoBehaviour
         Abilities.Clear();
     }
 
-    public void UpgradeAbility(Ability.AbilityType type, int level)
+    public Ability Find(Ability.AbilityType type)
     {
-        for (int i = 0; i < Abilities.Count; i++)
+        foreach (var ability in Abilities)
         {
-            var ability = Abilities[i];
+            if (ability.Type.Equals(type))
+                return ability;
+        }
 
-            if (ability.Type.Equals(type) && ability.CanBeUpgradedTo(level))
+        return null;
+    }
+
+    public bool UpgradeAbility(Ability.AbilityType type, int level)
+    {
+        foreach (var ability in Abilities)
+        {
+            if (ability.Type.Equals(type))
             {
-                var cost = ability.UpgradeCost(level);
-                if (_player.Experience.SkillPoints >= cost)
-                {
-                    _player.Experience.ConsumeSkillPoints(cost);
-                    ability.UpgradeTo(level);
-                }
+                return ability.UpgradeTo(level, _player);
             }
         }
+
+        return false;
     }
 }

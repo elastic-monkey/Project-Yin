@@ -15,6 +15,7 @@ public class MatrixNavMenu : NavMenu
         "This is used only for buttons navigation! Changes in visual organization are defined by the user.")]
     public Organization MenuOrganization;
     public MenuManager MenuManager;
+    public RectTransform HoverIcon;
     public NavItemCollection[] Items;
 
     [SerializeField]
@@ -84,6 +85,7 @@ public class MatrixNavMenu : NavMenu
 
     protected override void OnSetActive(bool value)
     {
+        HoverIcon.gameObject.SetActive(value);
         if (!value && Reset)
         {
             FocusItem(new IndexPair(0, 0));
@@ -105,6 +107,8 @@ public class MatrixNavMenu : NavMenu
                 {
                     index.Second = secondIndex;
                     items[j].Focus(true);
+                    MenuManager.OnFocus(items[j]);
+                    HoverIcon.SetParent(items[j].transform, false);
                 }
                 else
                 {

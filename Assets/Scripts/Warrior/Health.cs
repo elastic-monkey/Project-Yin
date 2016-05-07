@@ -1,26 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class Health : Upgradable
 {
-    public static int MaxLevel = 4;
-
+    public float HealthLevelIncrement = 20f;
+    public float BaseMaxHealth = 100f;
     public float MaxHealth = 100f;
-    public int CurrentLevel;
     public Slider HealthSlider;
     public bool Alive;
 
     [SerializeField]
     private float _currentHealth;
-    private PlayerBehavior _player;
-
-    public bool CanBeUpgraded
-    {
-        get
-        {
-            return CurrentLevel < MaxLevel;
-        }
-    }
 
     public float CurrentHealth
     {
@@ -41,12 +31,17 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        _player = GetComponent<PlayerBehavior>();
-        CurrentHealth = MaxHealth;
         if (HealthSlider.IsNull())
         {
             Debug.LogWarning("HealthSlider is null. No exception will be thrown, but this must be repaired.");
         }
+        else
+        {
+            HealthSlider.minValue = 0;
+            HealthSlider.maxValue = MaxHealth;
+        }
+
+        CurrentHealth = MaxHealth;
         Alive = true;
     }
 
@@ -56,18 +51,14 @@ public class Health : MonoBehaviour
         Alive = true;
     }
 
-	public void Upgrade(int level)
+    protected override void OnUpgradeTo(int level)
     {
-		if (CanBeUpgraded && _player.Experience.SkillPoints >= 1 && level == CurrentLevel + 1)
-        {
-            CurrentLevel++;
-            MaxHealth += 20;
-            RegenerateFull();
-            _player.Experience.ConsumeSkillPoints(1);
-        }
-        else
-        {
-            Debug.Log("Health Cannot be Upgraded");
-        }
+        MaxHealth = BaseMaxHealth + level * HealthLevelIncrement;
+        RegenerateFull();
+    }
+
+    protected override bool OnCanBeUpgradedTo(int level)
+    {
+        return true;
     }
 }

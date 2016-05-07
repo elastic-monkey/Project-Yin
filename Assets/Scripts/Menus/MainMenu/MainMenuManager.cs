@@ -73,7 +73,12 @@ public class MainMenuManager : MenuManager
         public VerticalNavMenu Menu;
     }
 
-    public override void OnAction(object action, object data)
+    public override void OnFocus(NavItem target)
+    {
+        // Do stuff
+    }
+
+    public override void OnAction(NavItem item, object action, object data)
     {
         var actionEnum = (Actions)action;
     

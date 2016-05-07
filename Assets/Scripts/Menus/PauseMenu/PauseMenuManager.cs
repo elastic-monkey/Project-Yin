@@ -49,7 +49,12 @@ public class PauseMenuManager : MenuManager
         PauseMenu.SetActive(value);
     }
 
-    public override void OnAction(object action, object data)
+    public override void OnFocus(NavItem target)
+    {
+        // Do stuff
+    }
+
+    public override void OnAction(NavItem item, object action, object data)
     {
         var actionEnum = (Actions)action;
 

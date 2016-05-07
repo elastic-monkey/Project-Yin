@@ -6,7 +6,7 @@ public abstract class ImageNavItem : NavItem
 {
     public Color SelectedColor;
 
-    private Color _initialColor;
+    protected Color _initialColor;
     protected Image _image;
 
     public Image Image
