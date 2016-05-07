@@ -73,17 +73,17 @@ public class UpgradeMenuManager : MenuManager
 
             case Actions.UpgradeSpeed:
                 Debug.Log("Upgrading Speed");
-                UpgradeAbility(Ability.Type.Speed, level);
+                UpgradeAbility(Ability.AbilityType.Speed, level);
                 break;
 
             case Actions.UpgradeShield:
                 Debug.Log("Upgrading Shield");
-			UpgradeAbility(Ability.Type.Shield, level);
+                UpgradeAbility(Ability.AbilityType.Shield, level);
                 break;
 
             case Actions.UpgradeStrenght:
                 Debug.Log("Upgrading Strenght");
-				UpgradeAbility(Ability.Type.Strength, level);
+                UpgradeAbility(Ability.AbilityType.Strength, level);
                 break;
 
             case Actions.CloseMenu:
@@ -104,7 +104,7 @@ public class UpgradeMenuManager : MenuManager
         UpdateAvailableSP();
     }
 
-	private void UpgradeAbility(Ability.Type type, int level)
+	private void UpgradeAbility(Ability.AbilityType type, int level)
     {
         _player.Abilities.UpgradeAbility(type, level);
         UpdateAvailableSP();

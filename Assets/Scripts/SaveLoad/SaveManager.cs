@@ -58,8 +58,14 @@ public class SaveManager : MonoBehaviour
 
         playerBehavior.Experience.CurrentExperience = state.Experience;
         playerBehavior.Experience.SkillPoints = state.SkillPoints;
+
         var playerAbilities = player.GetComponent<AbilitiesManager>();
-        playerAbilities.Abilities = state.Abilities;
+        playerAbilities.RemoveAbilities();
+
+        foreach (var sAbility in state.Abilities)
+        {
+            playerAbilities.Add(Ability.DeserializeAbility(sAbility));
+        }
     }
 
     private void LoadCameraState(CameraState state)

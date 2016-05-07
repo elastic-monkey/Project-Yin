@@ -999,6 +999,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &137640
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 459376}
+  - 114: {fileID: 11419948}
+  m_Layer: 9
+  m_Name: Strength
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &138316
 GameObject:
   m_ObjectHideFlags: 1
@@ -1324,6 +1340,22 @@ GameObject:
   - 4: {fileID: 433306}
   m_Layer: 9
   m_Name: J_L_HairTail_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &156010
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 477120}
+  - 114: {fileID: 11462300}
+  m_Layer: 9
+  m_Name: Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1659,6 +1691,22 @@ GameObject:
   - 23: {fileID: 2387298}
   m_Layer: 9
   m_Name: eye_R_old
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &165166
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 444268}
+  - 114: {fileID: 11486992}
+  m_Layer: 9
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2069,6 +2117,22 @@ GameObject:
   - 137: {fileID: 13729926}
   m_Layer: 9
   m_Name: uwagi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &189062
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 429638}
+  - 114: {fileID: 11462704}
+  m_Layer: 9
+  m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2570,6 +2634,21 @@ GameObject:
   - 4: {fileID: 490286}
   m_Layer: 9
   m_Name: J_R_HairTail_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &199998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 426258}
+  m_Layer: 9
+  m_Name: Abilities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3127,6 +3206,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 465466}
   m_RootOrder: 0
+--- !u!4 &426258
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 429638}
+  - {fileID: 477120}
+  - {fileID: 444268}
+  - {fileID: 459376}
+  m_Father: {fileID: 481428}
+  m_RootOrder: 3
 --- !u!4 &426342
 Transform:
   m_ObjectHideFlags: 1
@@ -3178,6 +3273,18 @@ Transform:
   m_Children:
   - {fileID: 466986}
   m_Father: {fileID: 459498}
+  m_RootOrder: 0
+--- !u!4 &429638
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 426258}
   m_RootOrder: 0
 --- !u!4 &430416
 Transform:
@@ -3477,6 +3584,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 403610}
   m_RootOrder: 0
+--- !u!4 &444268
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 426258}
+  m_RootOrder: 2
 --- !u!4 &444920
 Transform:
   m_ObjectHideFlags: 1
@@ -3755,6 +3874,18 @@ Transform:
   - {fileID: 405574}
   m_Father: {fileID: 474054}
   m_RootOrder: 0
+--- !u!4 &459376
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 426258}
+  m_RootOrder: 3
 --- !u!4 &459400
 Transform:
   m_ObjectHideFlags: 1
@@ -4172,6 +4303,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494822}
   m_RootOrder: 9
+--- !u!4 &477120
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 426258}
+  m_RootOrder: 1
 --- !u!4 &477698
 Transform:
   m_ObjectHideFlags: 1
@@ -4254,12 +4397,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.11}
+  m_LocalPosition: {x: 0, y: 0.087, z: 11.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466784}
   - {fileID: 462208}
   - {fileID: 495388}
+  - {fileID: 426258}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &481568
@@ -4960,6 +5104,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928c0d667f76ba44b9297548b6712a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AbilitesTransform: {fileID: 426258}
+  Abilities:
+  - {fileID: 11462704}
+  - {fileID: 11462300}
+  - {fileID: 11486992}
+  - {fileID: 11419948}
+--- !u!114 &11419948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adbbcbb43fcddfe42817794adf1bc0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputAxis: 9
+  CurrentLevel: 0
+  BaseDamageMultiplier: 2
+  DamageIncrement: 0.25
+  BaseStaminaMultiplier: 2
+  StaminaIncrement: 0.25
 --- !u!114 &11421462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5019,6 +5186,48 @@ MonoBehaviour:
   Targets: []
   DamageMultiplier: 1
   StaminaMultiplier: 1
+--- !u!114 &11462300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7802dfda2d811b248b3af9485dd55dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputAxis: 7
+  CurrentLevel: 0
+  BaseMultiplier: 1.5
+  Increment: 0.25
+--- !u!114 &11462704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca0eaff0ce614144919936bdee4c8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputAxis: 6
+  CurrentLevel: 0
+--- !u!114 &11486992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d196483610f2e84c9683a8f83da265a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputAxis: 8
+  CurrentLevel: 0
+  IsActive: 0
 --- !u!114 &11487488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5033,7 +5242,7 @@ MonoBehaviour:
   MaxExperience: 100
   ExpSlider: {fileID: 0}
   AvailableSP: {fileID: 0}
-  SkillPoints: 0
+  SkillPoints: 10
 --- !u!114 &11490536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5046,6 +5255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  CurrentLevel: 0
   HealthSlider: {fileID: 0}
   Alive: 0
   _currentHealth: 0
@@ -5074,6 +5284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxStamina: 100
   RegenerationRate: 10
+  CurrentLevel: 0
   StaminaSlider: {fileID: 0}
   RegenerateIsOn: 1
   Regenerating: 0

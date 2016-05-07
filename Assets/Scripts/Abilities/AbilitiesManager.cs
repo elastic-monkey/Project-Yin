@@ -4,27 +4,10 @@ using System.Collections.Generic;
 [RequireComponent(typeof(PlayerBehavior))]
 public class AbilitiesManager : MonoBehaviour
 {
+    public Transform AbilitesTransform;
+    public List<Ability> Abilities;
+
     private PlayerBehavior _player;
-    [SerializeField]
-    private List<Ability> _abilities;
-
-    public List<Ability> Abilities
-    {
-        get
-        {
-            if (_abilities == null)
-            {
-                _abilities = new List<Ability>();
-                LoadAbilities();
-            }
-
-            return _abilities;
-        }
-        set
-        {
-            _abilities = value;
-        }
-    }
 
     void Awake()
     {
@@ -48,7 +31,7 @@ public class AbilitiesManager : MonoBehaviour
                 var ability = Abilities[i];
                 if (i == selectedAbility)
                 {
-                    ability.Activate(_player);
+                    ability.SetActive(_player);
                 }
                 else
                 {
@@ -58,27 +41,35 @@ public class AbilitiesManager : MonoBehaviour
         }
     }
 
-    private void LoadAbilities()
+    public void Add(Ability ability)
     {
-        _abilities.Clear();
-
-        _abilities.Add(new VisionAbility(Axis.Ability1));
-        _abilities.Add(new SpeedAbility(Axis.Ability2));
-        _abilities.Add(new ShieldAbility(Axis.Ability3));
-        _abilities.Add(new StrengthAbility(Axis.Ability4));
+        ability.transform.SetParent(AbilitesTransform);
+        Abilities.Add(ability);
     }
 
-    public void UpgradeAbility(Ability.Type type, int level)
+    public void RemoveAbilities()
     {
-        for (int i = 0; i < _abilities.Count; i++)
+        for (var i = 0; i < AbilitesTransform.childCount; i++)
         {
-            var ability = _abilities[i];
+            Destroy(AbilitesTransform.GetChild(i).gameObject);
+        }
+        Abilities.Clear();
+    }
 
-            if (ability.GetAbilityType() == type && _player.Experience.SkillPoints >= ability.GetUpgradeCost()
-                && level == ability.CurrentLevel + 1 && ability.CanBeUpgraded)
+    public void UpgradeAbility(Ability.AbilityType type, int level)
+    {
+        for (int i = 0; i < Abilities.Count; i++)
+        {
+            var ability = Abilities[i];
+
+            if (ability.Type.Equals(type) && ability.CanBeUpgradedTo(level))
             {
-                _player.Experience.ConsumeSkillPoints(ability.GetUpgradeCost());
-                ability.Upgrade();
+                var cost = ability.UpgradeCost(level);
+                if (_player.Experience.SkillPoints >= cost)
+                {
+                    _player.Experience.ConsumeSkillPoints(cost);
+                    ability.UpgradeTo(level);
+                }
             }
         }
     }
