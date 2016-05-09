@@ -12,7 +12,6 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItemToInventory(Item item)
     {
-        Debug.Log("Added item to inventory.");
         Items.Add(item);
     }
 
