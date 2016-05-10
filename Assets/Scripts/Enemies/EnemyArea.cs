@@ -53,7 +53,7 @@ public abstract class EnemyArea : MonoBehaviour
         _player = null;
     }
 
-    private void NotifyEnemies(WarriorBehavior target)
+    public void NotifyEnemies(WarriorBehavior target)
     {
         foreach (var enemy in _enemiesAssigned)
         {

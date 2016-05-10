@@ -4,32 +4,32 @@ using System.Collections;
 [RequireComponent(typeof(AttackBehavior), typeof(DefenseBehavior))]
 public class EnemyBehavior : WarriorBehavior
 {
-	public const int AttackDefenseSliderStep = 5;
-	public const int CourageSliderStep = 5;
-	public const int MinAttackDefense = 0, MaxAttackDefense = 100;
-	public const int MinCourage = 0, MaxCourage = 100;
+    public const int AttackDefenseSliderStep = 5;
+    public const int CourageSliderStep = 5;
+    public const int MinAttackDefense = 0, MaxAttackDefense = 100;
+    public const int MinCourage = 0, MaxCourage = 100;
 
-	public bool AutomaticAttack, AutomaticDefense;
-	[Tooltip("Experience gained by the player when this enemy is killed.")]
-	public int ExperienceValue;
-	[HideInInspector]
-	public float AttackDefense = 50;
-	[HideInInspector]
-	public float Courage = 50;
-	public Eyesight Eye;
-	public EnemyArea MyDangerArea;
+    public bool AutomaticAttack, AutomaticDefense;
+    [Tooltip("Experience gained by the player when this enemy is killed.")]
+    public int ExperienceValue;
+    [HideInInspector]
+    public float AttackDefense = 50;
+    [HideInInspector]
+    public float Courage = 50;
+    public Eyesight Eye;
+    public EnemyArea MyArea;
 
     private EnemyMovement _myMovement;
     [SerializeField]
     private WarriorBehavior _target;
 
-	public bool HasEnemiesInRange
-	{
-		get
-		{
-			return _enemiesInRange.Count > 0;
-		}
-	}
+    public bool HasEnemiesInRange
+    {
+        get
+        {
+            return _enemiesInRange.Count > 0;
+        }
+    }
 
     public WarriorBehavior Target
     {
@@ -46,21 +46,21 @@ public class EnemyBehavior : WarriorBehavior
         _myMovement = Movement as EnemyMovement;
     }
 
-	protected override void Update()
-	{
-		base.Update();
+    protected override void Update()
+    {
+        base.Update();
 
-		if (!Health.Alive)
-			return;
+        if (!Health.Alive)
+            return;
 
-		if (Health.CurrentHealth < 0)
-		{
-			_gameManager.OnEnemyDeath(this);
+        if (Health.CurrentHealth < 0)
+        {
+            _gameManager.OnEnemyDeath(this);
 
-			Die();
+            Die();
 
-			return;
-		}
+            return;
+        }
 
         if (Target == null)
         {
@@ -71,11 +71,12 @@ public class EnemyBehavior : WarriorBehavior
         }
         else
         {
-            if (MyDangerArea.PlayerInDangerZone)
+            if (MyArea.PlayerInDangerZone)
             {
                 _myMovement.ChaseTarget();
+                MyArea.NotifyEnemies(Target);
             }
-            else if (MyDangerArea.PlayerInWarningZone)
+            else if (MyArea.PlayerInWarningZone)
             {
                 _myMovement.StandGuard();
             }
@@ -119,13 +120,15 @@ public class EnemyBehavior : WarriorBehavior
                 }
             }
         }
-	}
+    }
 
     public override void OnAttacked(WarriorBehavior attacker)
     {
         base.OnAttacked(attacker);
 
         SetTarget(attacker);
+
+        MyArea.NotifyEnemies(attacker);
     }
 
     public void SetTarget(WarriorBehavior target)
@@ -141,7 +144,7 @@ public class EnemyBehavior : WarriorBehavior
         {
             var dangerArea = other.GetComponent<EnemyArea>();
             dangerArea.AddEnemy(this);
-            MyDangerArea = dangerArea;
+            MyArea = dangerArea;
         }
     }
 
@@ -151,7 +154,7 @@ public class EnemyBehavior : WarriorBehavior
 
         if (other.CompareTag(Tags.DangerArea.TagToString()))
         {
-            MyDangerArea = null;
+            MyArea = null;
         }
     }
 
@@ -164,28 +167,28 @@ public class EnemyBehavior : WarriorBehavior
 [System.Serializable]
 public class Eyesight
 {
-	public LayerMask Mask;
-	public float Range = 10f;
-	[Range(0, 360)]
-	public int Angle = 50;
+    public LayerMask Mask;
+    public float Range = 10f;
+    [Range(0, 360)]
+    public int Angle = 50;
 
     public bool CanSee(Transform from, Transform to)
-	{
+    {
         if (Vector3.Distance(to.position, from.position) > Range)
-			return false;
+            return false;
 
         var direction = (to.position - from.position).normalized;
-		var ray = new Ray(from.position, direction);
+        var ray = new Ray(from.position, direction);
 
-		if (Physics.Raycast(ray, Range, Mask) && Vector3.Angle(from.forward, direction) <= 0.5f * Angle)
-		{
-			//Debug.DrawLine(from.position, target.position, Color.green);
-			return true;
-		}
-		else
-		{
-			//Debug.DrawLine(from.position, target.position, Color.red);
-			return false;
-		}
-	}
+        if (Physics.Raycast(ray, Range, Mask) && Vector3.Angle(from.forward, direction) <= 0.5f * Angle)
+        {
+            //Debug.DrawLine(from.position, target.position, Color.green);
+            return true;
+        }
+        else
+        {
+            //Debug.DrawLine(from.position, target.position, Color.red);
+            return false;
+        }
+    }
 }
