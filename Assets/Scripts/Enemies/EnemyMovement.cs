@@ -52,18 +52,15 @@ public class EnemyMovement : Movement
                 {
                     // No movement except rotation 
                     _navAgent.Stop();
-
-                    var lookRotation = Quaternion.LookRotation(_targetTransform.position - transform.position);
-                    if (Quaternion.Angle(transform.rotation, lookRotation) > 5)
-                    {
-                        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * TurnSpeed);
-                    }
+                    LookAtTarget();
                 }
                 else if (Vector3Helper.DistanceXZ(_targetTransform.position, transform.position) <= StoppingRange)
                 {
                     // If too close, stops movement.
                     _navAgent.Stop();
                     Moving = false;
+
+                    LookAtTarget();
                 }
                 else
                 {
@@ -102,19 +99,22 @@ public class EnemyMovement : Movement
         }
     }
 
-    public void SetTarget(Transform target)
+    private void LookAtTarget()
+    {
+        var lookRotation = Quaternion.LookRotation(_targetTransform.position - transform.position);
+        if (Quaternion.Angle(transform.rotation, lookRotation) > 5)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * TurnSpeed);
+        }
+    }
+
+    private void SetTarget(Transform target)
     {
         _targetTransform = target;
     }
 
     public void ChaseTarget()
     {
-        if (_targetTransform == null)
-        {
-            Debug.LogWarning("First set the target with SetTarget(Transform), then call FollowTarget() to follow.");
-            return;
-        }
-
         if (ChasingTarget && !StandingGuard)
             return;
 

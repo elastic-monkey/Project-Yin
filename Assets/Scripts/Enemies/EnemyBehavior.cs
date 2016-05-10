@@ -46,13 +46,6 @@ public class EnemyBehavior : WarriorBehavior
         _myMovement = Movement as EnemyMovement;
     }
 
-	protected override void Start()
-	{
-		base.Start();
-
-		StartCoroutine(AttackAndDefend());
-	}
-
 	protected override void Update()
 	{
 		base.Update();
@@ -95,6 +88,36 @@ public class EnemyBehavior : WarriorBehavior
                 _myMovement.GoBack();
                 SetTarget(null);
             }
+
+            if (HasEnemiesInRange)
+            {
+                if (AutomaticAttack)
+                {
+                    if (AutomaticDefense)
+                    {
+                        // Of course there are other considerations:
+                        //  - Are the enemies attacking me also?
+                        //  - Am I sorrounded or not? (In which case, maybe running is not a bad idea)
+                        var inclination = Random.Range(MinAttackDefense, MaxAttackDefense);
+                        if (inclination >= AttackDefense)
+                        {
+                            Attack.ChooseAndApplyAttack();
+                        }
+                        else
+                        {
+                            Defense.ChooseAndApplyDefense();
+                        }
+                    }
+                    else
+                    {
+                        Attack.ChooseAndApplyAttack();
+                    }
+                }
+                else if (AutomaticDefense)
+                {
+                    Defense.ChooseAndApplyDefense();
+                }
+            }
         }
 	}
 
@@ -109,44 +132,6 @@ public class EnemyBehavior : WarriorBehavior
     {
         _target = target;
     }
-
-	private IEnumerator AttackAndDefend()
-	{
-		while (true)
-		{
-            if (HasEnemiesInRange && Eye.CanSee(_enemiesInRange[0].transform, transform))
-			{
-				if (AutomaticAttack)
-				{
-					if (AutomaticDefense)
-					{
-						// Of course there are other considerations:
-						//  - Are the enemies attacking me also?
-						//  - Am I sorrounded or not? (In which case, maybe running is not a bad idea)
-						var inclination = Random.Range(MinAttackDefense, MaxAttackDefense);
-						if (inclination >= AttackDefense)
-						{
-                            Attack.ChooseAndApplyAttack();
-						}
-						else
-						{
-                            Defense.ChooseAndApplyDefense();
-						}
-					}
-					else
-					{
-                        Attack.ChooseAndApplyAttack();
-					}
-				}
-				else if (AutomaticDefense)
-				{
-                    Defense.ChooseAndApplyDefense();
-				}
-			}
-
-			yield return new WaitForSeconds(1);
-		}
-	}
 
     protected override void OnTriggerEnter(Collider other)
     {
