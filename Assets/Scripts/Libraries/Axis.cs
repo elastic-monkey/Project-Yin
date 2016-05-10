@@ -17,7 +17,7 @@ public enum Axis
 	Escape,
     Submit,
     Nav_Horizontal,
-    Nav_Vertical
+    Nav_Vertical,
 }
 
 public static class AxisHelper

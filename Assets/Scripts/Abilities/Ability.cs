@@ -49,7 +49,7 @@ public abstract class Ability : Upgradable
                 break;
         }
 
-        if (obj.Exists())
+        if (obj != null)
         {
             obj.InputAxis = sAbility.InputAxis;
             obj.Type = sAbility.Type;
@@ -83,6 +83,6 @@ public class SerializableAbility
         InputAxis = axis;
         Type = type;
         CurrentLevel = level;
-        Data = data.IsNull() ? new string[0] : data;
+        Data = (data == null) ? new string[0] : data;
     }
 }

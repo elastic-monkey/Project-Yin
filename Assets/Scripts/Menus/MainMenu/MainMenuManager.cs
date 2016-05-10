@@ -56,7 +56,7 @@ public class MainMenuManager : MenuManager
     {
         var previous = Items[_currentMenu].Previous;
 
-        if (previous.IsNull())
+        if (previous == null)
         {
             Debug.LogWarning("Back: there is no previous to go to.");
         }

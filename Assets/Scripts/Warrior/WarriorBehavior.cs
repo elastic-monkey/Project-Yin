@@ -130,7 +130,7 @@ public class WarriorBehavior : MonoBehaviour
 		Animator.SetFloat(AnimatorHashIDs.SpeedMultiFloat, Movement.SpeedMulti);
 	}
 
-	void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag(EnemyTag.ToString()) && !_enemiesInRange.Contains(other))
 		{
@@ -138,7 +138,7 @@ public class WarriorBehavior : MonoBehaviour
 		}
 	}
 
-	void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
 	{
 		_enemiesInRange.Remove(other);
 		if (_enemiesInRange.Count == 0)
@@ -150,6 +150,11 @@ public class WarriorBehavior : MonoBehaviour
 			}
 		}
 	}
+
+    public virtual void OnAttacked(WarriorBehavior attacker)
+    {
+        OnTriggerEnter(attacker.MainCollider);
+    }
 
 	public void Live()
 	{

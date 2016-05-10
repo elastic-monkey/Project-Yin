@@ -48,7 +48,7 @@ public class HideBuidings : MonoBehaviour
                 for (int j = 0; j < hits.Count; j++)
                 {
                     var hit = hits[j].collider.GetComponent<Hideable>();
-                    if (hit.Exists() && hit == obj)
+                    if (hit != null && hit == obj)
                     {
                         hits.RemoveAt(j);
                         found = true;
@@ -70,7 +70,7 @@ public class HideBuidings : MonoBehaviour
             foreach (var hit in hits)
             {
                 var hitObj = hit.collider.GetComponent<Hideable>();
-                if (hitObj.Exists())
+                if (hitObj != null)
                 {
                     _hiddenObjects.Add(hitObj);
                 }

@@ -27,7 +27,7 @@ public class UpgradeMenuManager : MenuManager
     {
         get
         {
-            if (_gameManager.IsNull())
+            if (_gameManager == null)
                 _gameManager = GameManager.Instance;
 
             return _gameManager;
@@ -70,7 +70,7 @@ public class UpgradeMenuManager : MenuManager
     public override void OnFocus(NavItem target)
     {
         var upgradeItem = target as UpgradeMenuNavItem;
-        if (upgradeItem.IsNull())
+        if (upgradeItem == null)
             return;
 
         var action = upgradeItem.Action;
@@ -86,19 +86,19 @@ public class UpgradeMenuManager : MenuManager
 
             case Actions.UpgradeSpeed:
                 var upgradable = Player.Abilities.Find(Ability.AbilityType.Speed);
-                if (upgradable.Exists())
+                if (upgradable != null)
                     OnItemFocused(upgradeItem, upgradable);
                 break;
 
             case Actions.UpgradeShield:
                 upgradable = Player.Abilities.Find(Ability.AbilityType.Shield);
-                if (upgradable.Exists())
+                if (upgradable != null)
                     OnItemFocused(upgradeItem, upgradable);
                 break;
 
             case Actions.UpgradeStrength:
                 upgradable = Player.Abilities.Find(Ability.AbilityType.Strength);
-                if (upgradable.Exists())
+                if (upgradable != null)
                     OnItemFocused(upgradeItem, upgradable);
                 break;
         }
@@ -167,7 +167,7 @@ public class UpgradeMenuManager : MenuManager
     public override void OnAction(NavItem item, object action, object data)
     {
         var upgradeItem = item as UpgradeMenuNavItem;
-        if (upgradeItem.IsNull())
+        if (upgradeItem == null)
             return;
         
         var actionEnum = upgradeItem.Action;

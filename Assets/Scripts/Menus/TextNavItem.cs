@@ -12,11 +12,11 @@ public abstract class TextNavItem : NavItem
     {
         get
         {
-            if (_text.IsNull())
+            if (_text == null)
             {
                 _text = GetComponent<Text>();
 
-                if (_text.IsNull())
+                if (_text == null)
                 {
                     _text = GetComponentInChildren<Text>();
                 }

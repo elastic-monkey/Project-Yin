@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(SphereCollider))]
-public class CircleDangerArea : DangerArea
+public class CircleEnemyArea : EnemyArea
 {
     public float DangerRadius = 10f;
     public float WarningRadius = 15f;
@@ -42,18 +42,23 @@ public class CircleDangerArea : DangerArea
         return Vector3.ClampMagnitude((target.position - _center), DangerRadius);
     }
 
-    public override bool ContainsInDangerRadius(Transform t)
+    public override bool ContainsInDangerZone(Transform t)
     {
         return DistanceToCenter(t) <= DangerRadius;
     }
 
-    public override bool ContainsInWarningRadius(Transform t)
+    public override bool ContainsInWarningZone(Transform t)
     {
         return DistanceToCenter(t) <= WarningRadius;
     }
 
+    public override bool ContainsInZone(Transform t)
+    {
+        return ContainsInWarningZone(t);
+    }
+
     private float DistanceToCenter(Transform obj)
     {
-        return Vector3.Distance(obj.position, _center);
+        return Vector3Helper.DistanceXZ(obj.position, _center);
     }
 }

@@ -77,6 +77,28 @@ public class PlayerBehavior : WarriorBehavior
 		}
 	}
 
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+
+        if (other.CompareTag(Tags.DangerArea.TagToString()))
+        {
+            var dangerArea = other.GetComponent<EnemyArea>();
+            dangerArea.AddPlayer(this);
+        }
+    }
+
+    protected override void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerExit(other);
+
+        if (other.CompareTag(Tags.DangerArea.TagToString()))
+        {
+            var dangerArea = other.GetComponent<EnemyArea>();
+            dangerArea.RemovePlayer();
+        } 
+    }
+
 	void FixedUpdate()
 	{
 		if (!PlayerInput.GameplayBlocked)

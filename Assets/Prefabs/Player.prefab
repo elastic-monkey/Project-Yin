@@ -4397,7 +4397,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.087, z: 11.77}
+  m_LocalPosition: {x: 0, y: 0.48, z: 3.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466784}
@@ -5121,8 +5121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbbcbb43fcddfe42817794adf1bc0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputAxis: 9
   CurrentLevel: 0
+  InputAxis: 9
   BaseDamageMultiplier: 2
   DamageIncrement: 0.25
   BaseStaminaMultiplier: 2
@@ -5174,6 +5174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377938be936fc384394229f9a23327aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Range: 1.5
+  RangeCollider: {fileID: 13596576}
   Attacks:
   - Damage: 10
     Radius: 1
@@ -5197,8 +5199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7802dfda2d811b248b3af9485dd55dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputAxis: 7
   CurrentLevel: 0
+  InputAxis: 7
   BaseMultiplier: 1.5
   Increment: 0.25
 --- !u!114 &11462704
@@ -5212,8 +5214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca0eaff0ce614144919936bdee4c8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputAxis: 6
   CurrentLevel: 0
+  InputAxis: 6
 --- !u!114 &11486992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5225,8 +5227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d196483610f2e84c9683a8f83da265a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputAxis: 8
   CurrentLevel: 0
+  InputAxis: 8
   IsActive: 0
 --- !u!114 &11487488
 MonoBehaviour:
@@ -5254,8 +5256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c8fad0edfb7ce44b6ea80353fc729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
   CurrentLevel: 0
+  HealthLevelIncrement: 20
+  BaseMaxHealth: 100
+  MaxHealth: 100
   HealthSlider: {fileID: 0}
   Alive: 0
   _currentHealth: 0
@@ -5282,9 +5286,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c599bd6127982354fabd47a384295dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentLevel: 0
+  StaminaLevelIncrement: 20
+  BaseMaxStamina: 100
   MaxStamina: 100
   RegenerationRate: 10
-  CurrentLevel: 0
   StaminaSlider: {fileID: 0}
   RegenerateIsOn: 1
   Regenerating: 0

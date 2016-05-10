@@ -34,7 +34,7 @@ public class Hideable : MonoBehaviour
 
             foreach (var child in _children)
             {
-                if (child.LastCoroutine.Exists())
+                if (child.LastCoroutine != null)
                     StopCoroutine(child.LastCoroutine);
 
                 child.LastCoroutine = StartCoroutine(UpdateCoroutine(child.Transform, child.HiddenPos));
@@ -50,7 +50,7 @@ public class Hideable : MonoBehaviour
 
             foreach (var child in _children)
             {
-                if (child.LastCoroutine.Exists())
+                if (child.LastCoroutine != null)
                     StopCoroutine(child.LastCoroutine);
 
                 child.LastCoroutine = StartCoroutine(UpdateCoroutine(child.Transform, child.VisiblePos));

@@ -58,16 +58,6 @@ public static class Utils
         return false;
     }
 
-    public static bool Exists(this object obj)
-    {
-        return obj != null;
-    }
-
-    public static bool IsNull(this object obj)
-    {
-        return obj == null;
-    }
-
     public static Vector3 RotateAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
     {
         var dir = point - pivot;
@@ -77,6 +67,21 @@ public static class Utils
         point = dir + pivot;
 
         return point;
+    }
+}
+
+public static class Vector3Helper
+{
+    public static Vector3 SubractXZ(this Vector3 v, Vector3 other)
+    {
+        return new Vector3(v.x - other.x, v.y, v.z - other.z);
+    }
+
+    public static float DistanceXZ(Vector3 a, Vector3 b)
+    {
+        var delta = new Vector2(a.x - b.x, a.z - b.z);
+
+        return delta.magnitude;
     }
 }
 

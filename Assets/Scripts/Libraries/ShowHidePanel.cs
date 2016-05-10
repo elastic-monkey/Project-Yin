@@ -14,7 +14,7 @@ public class ShowHidePanel : MonoBehaviour, IAnimatedPanel
     public void SetVisible(bool value)
     {
         _visible = value;
-        if (_oldAnim.Exists())
+        if (_oldAnim != null)
             StopCoroutine(_oldAnim);
         
         _oldAnim = StartCoroutine(AnimateWindow());

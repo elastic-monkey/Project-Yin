@@ -22,7 +22,7 @@ public class Health : Upgradable
         set
         {
             _currentHealth = Mathf.Clamp(value, 0f, MaxHealth);
-            if (HealthSlider.Exists())
+            if (HealthSlider != null)
             {
                 HealthSlider.value = _currentHealth;
             }
@@ -31,7 +31,7 @@ public class Health : Upgradable
 
     private void Awake()
     {
-        if (HealthSlider.IsNull())
+        if (HealthSlider == null)
         {
             Debug.LogWarning("HealthSlider is null. No exception will be thrown, but this must be repaired.");
         }

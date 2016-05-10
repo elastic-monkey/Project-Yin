@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
     static GameManager _instance;
 
     public PlayerBehavior Player;
-    public EnemiesManager Enemies;
 
     [SerializeField]
     private bool _gamePaused;

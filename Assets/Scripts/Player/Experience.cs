@@ -24,7 +24,7 @@ public class Experience : MonoBehaviour
                 SkillPoints++;
                 _currentExp = _currentExp + value - MaxExperience;
             }
-            if (ExpSlider.Exists())
+            if (ExpSlider != null)
             {
                 ExpSlider.value = _currentExp;
             }
@@ -42,12 +42,12 @@ public class Experience : MonoBehaviour
     void Awake()
     {
         CurrentExperience = 0f;
-        if (ExpSlider.IsNull())
+        if (ExpSlider == null)
         {
             Debug.LogWarning("ExpSlider is null. No exception will be thrown, but this must be repaired.");
         }
 
-        if (AvailableSP.IsNull())
+        if (AvailableSP == null)
         {
             Debug.LogWarning("AvailableSP is null. No exception will be thrown, but this must be repaired.");
         }
@@ -55,7 +55,7 @@ public class Experience : MonoBehaviour
 
     void Update()
     {
-        if (AvailableSP.Exists())
+        if (AvailableSP != null)
         {
             if (HasSkillPoints && !AvailableSP.enabled)
             {

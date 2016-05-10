@@ -67,14 +67,4 @@ public class PlayerMovement : Movement
 	{
 		return Vector3.Angle(current, next) >= TurnAngleThreshold;
 	}
-
-	public override void SetTarget(Vector3 target)
-	{
-		Debug.LogWarning("SetTarget is not implemented in player");
-	}
-
-	public override void ResetTarget()
-	{
-		Debug.LogWarning("ResetTarget is not implemented in player");
-	}
 }

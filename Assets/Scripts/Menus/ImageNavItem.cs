@@ -13,11 +13,11 @@ public abstract class ImageNavItem : NavItem
     {
         get
         {
-            if (_image.IsNull())
+            if (_image == null)
             {
                 _image = GetComponent<Image>();
 
-                if (_image.IsNull())
+                if (_image == null)
                 {
                     _image = GetComponentInChildren<Image>();
                 }
@@ -29,13 +29,13 @@ public abstract class ImageNavItem : NavItem
 
     protected void Awake()
     {
-        if (Image.Exists())
+        if (Image != null)
             _initialColor = Image.color;
     }
 
     protected override void OnFocus(bool value)
     {
-		if (Image.Exists ())
+        if (Image != null)
 			Image.color = value ? SelectedColor : _initialColor;
     }
 }

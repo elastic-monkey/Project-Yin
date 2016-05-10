@@ -16,9 +16,12 @@ public class EnemyBehavior : WarriorBehavior
 	public float AttackDefense = 50;
 	[HideInInspector]
 	public float Courage = 50;
-	public WarriorBehavior Target;
 	public Eyesight Eye;
-	public DangerArea DangerArea;
+	public EnemyArea MyDangerArea;
+
+    private EnemyMovement _myMovement;
+    [SerializeField]
+    private WarriorBehavior _target;
 
 	public bool HasEnemiesInRange
 	{
@@ -28,11 +31,24 @@ public class EnemyBehavior : WarriorBehavior
 		}
 	}
 
+    public WarriorBehavior Target
+    {
+        get
+        {
+            return _target;
+        }
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _myMovement = Movement as EnemyMovement;
+    }
+
 	protected override void Start()
 	{
 		base.Start();
-
-//        DangerArea.AddEnemy(this);
 
 		StartCoroutine(AttackAndDefend());
 	}
@@ -53,37 +69,52 @@ public class EnemyBehavior : WarriorBehavior
 			return;
 		}
 
-        if (Target.Exists() && Eye.CanSee(Target.transform, transform))
-		{
-            if (DangerArea.ContainsInDangerRadius(Target.transform))
-			{
-				Movement.SetTarget(Target.transform.position);
-			}
-            else if (DangerArea.ContainsInWarningRadius(Target.transform))
-			{
-                Movement.SetTarget(DangerArea.GetBorder(transform, Target.transform));
-			}
-			else
-			{
-				Movement.ResetTarget();
-			}
-		}
+        if (Target == null)
+        {
+            if (Eye.CanSee(transform, _gameManager.Player.transform))
+            {
+                SetTarget(_gameManager.Player);
+            }
+        }
         else
-		{
-			Movement.ResetTarget();
-		}
+        {
+            if (MyDangerArea.PlayerInDangerZone)
+            {
+                _myMovement.ChaseTarget();
+            }
+            else if (MyDangerArea.PlayerInWarningZone)
+            {
+                _myMovement.StandGuard();
+            }
+            else if (Eye.CanSee(transform, Target.transform))
+            {
+                _myMovement.StandGuard();
+            }
+            else
+            {
+                _myMovement.GoBack();
+                SetTarget(null);
+            }
+        }
 	}
 
-	private void OnDrawGizmos()
-	{
-		GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * Eye.Range, Eye.Angle, 20, Color.yellow);
-	}
+    public override void OnAttacked(WarriorBehavior attacker)
+    {
+        base.OnAttacked(attacker);
+
+        SetTarget(attacker);
+    }
+
+    public void SetTarget(WarriorBehavior target)
+    {
+        _target = target;
+    }
 
 	private IEnumerator AttackAndDefend()
 	{
 		while (true)
 		{
-			if (HasEnemiesInRange)
+            if (HasEnemiesInRange && Eye.CanSee(_enemiesInRange[0].transform, transform))
 			{
 				if (AutomaticAttack)
 				{
@@ -95,27 +126,54 @@ public class EnemyBehavior : WarriorBehavior
 						var inclination = Random.Range(MinAttackDefense, MaxAttackDefense);
 						if (inclination >= AttackDefense)
 						{
-							//Debug.Log("Attack");
+                            Attack.ChooseAndApplyAttack();
 						}
 						else
 						{
-							//Debug.Log("Defense");
+                            Defense.ChooseAndApplyDefense();
 						}
 					}
 					else
 					{
-						//Debug.Log("Attack");
+                        Attack.ChooseAndApplyAttack();
 					}
 				}
 				else if (AutomaticDefense)
 				{
-					//Debug.Log("Defense");
+                    Defense.ChooseAndApplyDefense();
 				}
 			}
 
 			yield return new WaitForSeconds(1);
 		}
 	}
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+
+        if (other.CompareTag(Tags.DangerArea.TagToString()))
+        {
+            var dangerArea = other.GetComponent<EnemyArea>();
+            dangerArea.AddEnemy(this);
+            MyDangerArea = dangerArea;
+        }
+    }
+
+    protected override void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerExit(other);
+
+        if (other.CompareTag(Tags.DangerArea.TagToString()))
+        {
+            MyDangerArea = null;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * Eye.Range, Eye.Angle, 20, Color.yellow);
+    }
 }
 
 [System.Serializable]
@@ -126,12 +184,12 @@ public class Eyesight
 	[Range(0, 360)]
 	public int Angle = 50;
 
-	public bool CanSee(Transform target, Transform from)
+    public bool CanSee(Transform from, Transform to)
 	{
-		if (Vector3.Distance(target.position, from.position) > Range)
+        if (Vector3.Distance(to.position, from.position) > Range)
 			return false;
 
-		var direction = (target.position - from.position).normalized;
+        var direction = (to.position - from.position).normalized;
 		var ray = new Ray(from.position, direction);
 
 		if (Physics.Raycast(ray, Range, Mask) && Vector3.Angle(from.forward, direction) <= 0.5f * Angle)

@@ -16,8 +16,4 @@ public abstract class Movement : MonoBehaviour
 	public float TurnSpeed = 50f;
 
 	public float MinInputValue = 0.1f;
-
-	public abstract void SetTarget(Vector3 position);
-
-	public abstract void ResetTarget();
 }

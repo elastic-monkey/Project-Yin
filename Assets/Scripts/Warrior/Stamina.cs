@@ -23,7 +23,7 @@ public class Stamina : Upgradable
         set
         {
             _currentStamina = Mathf.Clamp(value, 0, MaxStamina);
-            if (StaminaSlider.Exists())
+            if (StaminaSlider != null)
             {
                 StaminaSlider.value = _currentStamina;
             }
@@ -32,7 +32,7 @@ public class Stamina : Upgradable
 
     void Awake()
     {
-        if (StaminaSlider.IsNull())
+        if (StaminaSlider == null)
         {
             Debug.LogWarning("StaminaSlider is null. No exception will be thrown, but this must be repaired.");
         }
