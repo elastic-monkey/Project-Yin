@@ -3,87 +3,150 @@
 [RequireComponent(typeof(NavMeshAgent), typeof(EnemyBehavior))]
 public class EnemyMovement : Movement
 {
+    public float StoppingRange;
+    public bool ChasingTarget;
+    public bool StandingGuard;
     public bool GoingBack;
     public bool OnInitialPos;
+    public float DistanceToInitial;
 
-	private NavMeshAgent _navAgent;
-	private Quaternion _initialRot;
-	[SerializeField]
-	private Vector3 _initialPos, _targetPos;
+    private EnemyBehavior _enemyBehavior;
+    private NavMeshAgent _navAgent;
+    private Quaternion _initialRotation;
+    private Vector3 _initialPosition;
+    [SerializeField]
+    private Transform _targetTransform;
 
-	public Vector3 CurrentTarget
-	{
-		get
-		{
-			return _targetPos;
-		}
+    private void Awake()
+    {
+        _enemyBehavior = GetComponent<EnemyBehavior>();
+        _navAgent = GetComponent<NavMeshAgent>();
+        _navAgent.stoppingDistance = 0;
 
-		private set
-		{
-			_targetPos = value;
-		}
-	}
+        StoppingRange = _enemyBehavior.Attack.Range;
+    }
 
-	private void Awake()
-	{
-		_navAgent = GetComponent<NavMeshAgent>();
-	}
+    private void Start()
+    {
+        _initialPosition = transform.position;
+        _initialRotation = transform.rotation;
 
-	private void Start()
-	{
-		_initialPos = transform.position;
-		_initialRot = transform.rotation;
-	}
+        ChasingTarget = false;
+        OnInitialPos = true;
+    }
 
-	private void Update()
-	{
-		// TODO: Transform movement into our own personal movement, using navMeshAgent paths.
-
-        if (Moving)
+    private void Update()
+    {
+        if (_targetTransform == null)
         {
-            if (Vector3.Distance(CurrentTarget, transform.position) < 1)
+            if (_enemyBehavior.Target != null)
             {
-                _navAgent.ResetPath();
-                Moving = false;
+                SetTarget(_enemyBehavior.Target.transform);
             }
         }
-        else if(GoingBack)
+        else
         {
-            if (Quaternion.Angle(transform.rotation, _initialRot) > 10)
+            if (ChasingTarget)
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, _initialRot, Time.deltaTime * TurnSpeed);
+                if (StandingGuard)
+                {
+                    // No movement except rotation 
+                    _navAgent.Stop();
+
+                    var lookRotation = Quaternion.LookRotation(_targetTransform.position - transform.position);
+                    if (Quaternion.Angle(transform.rotation, lookRotation) > 5)
+                    {
+                        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * TurnSpeed);
+                    }
+                }
+                else if (Vector3Helper.DistanceXZ(_targetTransform.position, transform.position) <= StoppingRange)
+                {
+                    // If too close, stops movement.
+                    _navAgent.Stop();
+                    Moving = false;
+                }
+                else
+                {
+                    // Else moves along path to catch player
+                    _navAgent.SetDestination(_targetTransform.position);
+                    _navAgent.Resume();
+                    Moving = true;
+                }
             }
-            else
+        }
+
+        if (GoingBack)
+        {
+            if (Moving)
+            {
+                DistanceToInitial = Vector3Helper.DistanceXZ(_initialPosition, transform.position);
+                if (Mathf.Approximately(DistanceToInitial, 0))
+                {
+                    _navAgent.Stop();
+                    Moving = false;
+                }
+                else
+                {
+                    _navAgent.Resume();
+                }
+            }
+            else if (Quaternion.Angle(transform.rotation, _initialRotation) > 5)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, _initialRotation, Time.deltaTime * TurnSpeed);
+            }
+            else if (!OnInitialPos)
             {
                 GoingBack = false;
                 OnInitialPos = true;
             }
         }
-	}
+    }
 
-	public override void SetTarget(Vector3 position)
-	{
-		Moving = true;
-        OnInitialPos = false;
-        GoingBack = false;
-		CurrentTarget = position;
+    public void SetTarget(Transform target)
+    {
+        _targetTransform = target;
+    }
 
-		_navAgent.SetDestination(CurrentTarget);
-	}
+    public void ChaseTarget()
+    {
+        if (_targetTransform == null)
+        {
+            Debug.LogWarning("First set the target with SetTarget(Transform), then call FollowTarget() to follow.");
+            return;
+        }
 
-	public override void ResetTarget()
-	{
-		if (GoingBack)
-			return;
-
-        if (OnInitialPos)
+        if (ChasingTarget && !StandingGuard)
             return;
 
-		Moving = true;
-        GoingBack = true;
+        Moving = true;
+        ChasingTarget = true;
+        StandingGuard = false;
+        GoingBack = false;
         OnInitialPos = false;
-		CurrentTarget = _initialPos;
+    }
 
-		_navAgent.SetDestination(CurrentTarget);
-	}
+    public void StandGuard()
+    {
+        if (StandingGuard)
+            return;
+        
+        Moving = false;
+        ChasingTarget = true;
+        StandingGuard = true;
+        GoingBack = false;
+    }
+
+    public void GoBack()
+    {
+        if (GoingBack)
+            return;
+        
+        Moving = true;
+        ChasingTarget = false;
+        StandingGuard = false;
+        GoingBack = true;
+
+        SetTarget(null);
+        _navAgent.SetDestination(_initialPosition);
+    }
 }
