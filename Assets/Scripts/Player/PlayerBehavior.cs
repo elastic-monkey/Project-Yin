@@ -64,6 +64,18 @@ public class PlayerBehavior : WarriorBehavior
 	{
 		base.Update();
 
+		if (!Health.Alive)
+			return;
+
+		if (Health.CurrentHealth <= 0)
+		{
+			_gameManager.OnPlayerDeath (this);
+
+			PlayerDeath ();
+
+			return;
+		}
+
 		if (!PlayerInput.GameplayBlocked)
 		{
 			Abilities.ApplyAbilities();

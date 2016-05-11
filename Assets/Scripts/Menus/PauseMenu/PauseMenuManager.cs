@@ -64,8 +64,8 @@ public class PauseMenuManager : MenuManager
                 OnPause(false);
                 break;
 
-            case Actions.LoadLastCheckpoint:
-                SaveManager.LoadCheckpoint = true;
+			case Actions.LoadLastCheckpoint:
+				SaveManager.LoadLastCheckpoint ();
                 OnPause(false);
                 break;
 

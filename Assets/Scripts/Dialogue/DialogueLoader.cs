@@ -4,10 +4,8 @@ using System.IO;
 
 public class DialogueLoader{
 
-	public const string Filename = "_Dialogue.xml";
-
-	public static XmlDocument OpenDialogueFile(string type){
-		string FileToOpen = "Dialogue/" + type + Filename;
+	public static XmlDocument OpenDialogueFile(string file){
+		string FileToOpen = "Dialogue/" + file + ".xml";
 		if(!File.Exists(FileToOpen)){
 			return null;
 		} else {
@@ -20,7 +18,7 @@ public class DialogueLoader{
 	public static List<NPCDialogue> GetNPCDialogue(string npcName){
 		var list = new List<NPCDialogue> ();
 
-		var dialogueFile = OpenDialogueFile ("NPC");
+		var dialogueFile = OpenDialogueFile ("NPCDialogue");
 		var npcDialogue = dialogueFile.SelectSingleNode ("/Document/" + npcName);
 
 		foreach (XmlNode xmlDialogue in npcDialogue) {
@@ -61,7 +59,7 @@ public class DialogueLoader{
 		var terminalInformation = new TerminalInformation ();
 		terminalInformation.logs = new List<TerminalLog> ();
 
-		var dialogueFile = OpenDialogueFile("Terminal");
+		var dialogueFile = OpenDialogueFile("Terminals");
 		var terminalLogs = dialogueFile.SelectSingleNode ("/Document/" + terminalName);
 
 		foreach (XmlNode log in terminalLogs) {

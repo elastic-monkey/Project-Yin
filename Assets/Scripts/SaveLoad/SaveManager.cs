@@ -37,19 +37,37 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private void LoadAllStates(GameState state)
+	public static void LoadLastCheckpoint()
+	{
+		GameState lastCheckpoint = SaveLoad.Load (true);
+		if (lastCheckpoint != null) 
+		{
+			LoadAllStates (SaveLoad.Load (true));
+		}
+		else
+		{
+			Debug.Log ("No checkpoint available");
+		}
+	}
+
+	public static void LoadAllStates(GameState state)
     {
         LoadPlayerState(state.PlayerState);
         LoadCameraState(state.CameraState);
     }
 
-    private void LoadPlayerState(PlayerState state)
+	public static void LoadPlayerState(PlayerState state)
     {
         var player = GameObject.Find("Player");
         var playerBehavior = player.GetComponent<PlayerBehavior>();
+		var playerAnimator = player.GetComponent<Animator> ();
+
+		playerAnimator.SetBool (AnimatorHashIDs.DeadBool, false);
+
         player.transform.position = state.position;
         player.transform.rotation = state.rotation;
 
+		playerBehavior.Health.Alive = true;
         playerBehavior.Health.MaxHealth = state.MaxHealth;
         playerBehavior.Health.CurrentHealth = state.Health;
         playerBehavior.Health.CurrentLevel = state.HealthCurrentLevel;
@@ -68,7 +86,7 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private void LoadCameraState(CameraState state)
+	public static void LoadCameraState(CameraState state)
     {
         GameObject camera = GameObject.Find("Camera Pivot");
         camera.transform.position = state.position;

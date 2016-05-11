@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     static GameManager _instance;
 
     public PlayerBehavior Player;
+	public GameOverMenuManager GameOverMenu;
 
     [SerializeField]
     private bool _gamePaused;
@@ -72,9 +73,10 @@ public class GameManager : MonoBehaviour
         //}
     }
 
-    private void OnPlayerDeath(PlayerBehavior player)
+    public void OnPlayerDeath(PlayerBehavior player)
     {
-        // TODO: Restart from last save point?
+        // TODO: Activate Game Over Menu
+		GameOverMenu.GameOver(true);
     }
 
     public void OnEnemyDeath(EnemyBehavior enemy)

@@ -5,7 +5,7 @@ using System.Collections;
 
 public class NPCInteraction : Interaction
 {
-
+	public string FileID;
     public RectTransform DialogueWindow;
     public float LetterTime = 0.02f;
     public float TurnSmoothing = 1f;
@@ -14,6 +14,8 @@ public class NPCInteraction : Interaction
     private int _currentDialogue;
     private int _currentLine;
     private bool _canPress;
+	private bool _skipLine;
+	private bool _linePlaying;
     private string _npcName;
 
     private bool _endCurrentDialogue;
@@ -23,24 +25,29 @@ public class NPCInteraction : Interaction
         base.Awake();
 
         DialogueWindow.gameObject.SetActive(false);
-        string parentName = transform.parent.name.ToString();
-        _npcName = parentName.Substring(4, parentName.Length - 4);
+		_npcName = FileID;
 
         Text[] textComponents = DialogueWindow.GetComponentsInChildren<Text>();
         _interactionText.text = "Talk with " + _npcName;
         _title = textComponents[0];
         _dialogueText = textComponents[1];
-        _npcDialogueList = DialogueLoader.GetNPCDialogue(transform.parent.name.ToString());
+		_npcDialogueList = DialogueLoader.GetNPCDialogue(_npcName);
 
         _currentLine = 0;
         _currentDialogue = 0;
         _canPress = true;
+		_linePlaying = false;
+		_skipLine = false;
     }
 
     void Update()
     {
         if (_player != null)
         {
+			if (PlayerInput.IsButtonDown (Axis.Fire1) && _linePlaying)
+			{
+				_skipLine = true;
+			}
             if (PlayerInput.IsButtonDown(Axis.Fire1) && !_endCurrentDialogue)
             {
                 InteractionPrompt.gameObject.SetActive(false);
@@ -52,13 +59,12 @@ public class NPCInteraction : Interaction
                     StartCoroutine(WriteLine(_npcDialogueList[_currentDialogue].Lines[_currentLine]));
                 }
             }
-            if (PlayerInput.IsButtonDown(Axis.Fire1) && _endCurrentDialogue)
-            {
-                _endCurrentDialogue = false;
-                DialogueWindow.gameObject.SetActive(false);
-                BlockInput(false);
-                InteractionPrompt.gameObject.SetActive(true);
-            }
+			if (PlayerInput.IsButtonDown (Axis.Fire1) && _endCurrentDialogue) {
+				_endCurrentDialogue = false;
+				DialogueWindow.gameObject.SetActive (false);
+				BlockInput (false);
+				InteractionPrompt.gameObject.SetActive (true);
+			}
         }
     }
 
@@ -66,9 +72,16 @@ public class NPCInteraction : Interaction
     {
         _dialogueText.text = "";
         _title.text = line.owner;
+		_linePlaying = true;
 
         foreach (char letter in line.text.ToCharArray())
         {
+			if (_skipLine)
+			{
+				_skipLine = false;
+				_dialogueText.text = line.text;
+				break;
+			}
             _dialogueText.text += letter;
             yield return new WaitForSeconds(LetterTime);
         }
@@ -90,5 +103,6 @@ public class NPCInteraction : Interaction
         }
 
         _canPress = true;
+		_linePlaying = false;
     }
 }

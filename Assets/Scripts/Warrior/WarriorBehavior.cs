@@ -171,10 +171,15 @@ public class WarriorBehavior : MonoBehaviour
 		Health.Alive = false;
 		ToggleColliders(false);
 
-		StartCoroutine(DieCoroutine());
+		StartCoroutine(DieCoroutine(false));
+	}
+		
+	protected void PlayerDeath(){
+		Health.Alive = false;
+		StartCoroutine(DieCoroutine(true));
 	}
 
-	private IEnumerator DieCoroutine()
+	private IEnumerator DieCoroutine(bool playerDeath)
 	{
 		Debug.Log("Warrior is dying...");
 		Animator.SetBool(AnimatorHashIDs.DeadBool, true);
@@ -182,7 +187,8 @@ public class WarriorBehavior : MonoBehaviour
 		yield return new WaitForSeconds(DeathDuration);
 
 		Debug.Log("Warrior is dead.");
-		gameObject.SetActive(false);
+		if(!playerDeath)
+			gameObject.SetActive(false);
 	}
 
 	private void ToggleColliders(bool value)

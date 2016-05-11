@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class Interaction : MonoBehaviour
 {
-
     public RectTransform InteractionPrompt;
     public Tags PlayerTag;
 
@@ -19,7 +18,7 @@ public class Interaction : MonoBehaviour
         _interactionText = InteractionPrompt.GetComponentInChildren<Text>();
     }
 
-    void OnTriggerEnter(Collider collider)
+    protected void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag(PlayerTag.ToString()))
         {
@@ -28,7 +27,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider collider)
+	protected void OnTriggerExit(Collider collider)
     {
         InteractionPrompt.gameObject.SetActive(false);
         if (_player != null)
@@ -40,7 +39,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    protected void BlockInput(bool block)
+	protected void BlockInput(bool block)
     {
         PlayerInput.GameplayBlocked = block;
     }

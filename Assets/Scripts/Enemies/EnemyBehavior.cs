@@ -53,7 +53,7 @@ public class EnemyBehavior : WarriorBehavior
         if (!Health.Alive)
             return;
 
-        if (Health.CurrentHealth < 0)
+        if (Health.CurrentHealth <= 0)
         {
             _gameManager.OnEnemyDeath(this);
 

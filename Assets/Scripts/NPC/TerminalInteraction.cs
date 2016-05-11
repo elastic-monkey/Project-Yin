@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class TerminalInteraction : Interaction
 {
 
+	public string TerminalName;
     public ShowHidePanel DialogueWindow;
 
     private TerminalInformation _information;
@@ -14,16 +15,13 @@ public class TerminalInteraction : Interaction
     {
         base.Awake();
 
-        string parentName = transform.parent.name.ToString();
-        string terminalName = parentName.Substring(9, parentName.Length - 9);
-
         _interactionText = InteractionPrompt.GetComponentInChildren<Text>();
         Text[] textComponents = DialogueWindow.GetComponentsInChildren<Text>();
-        _interactionText.text = "Interact with " + terminalName;
+		_interactionText.text = "Interact with " + TerminalName;
         _title = textComponents[0];
         _dialogueText = textComponents[1];
 
-        _information = DialogueLoader.GetTerminalInfo(transform.parent.name.ToString());
+		_information = DialogueLoader.GetTerminalInfo(TerminalName);
         _dialogueOpen = false;
     }
 
@@ -31,19 +29,20 @@ public class TerminalInteraction : Interaction
     {
         if (_player != null)
         {
-            if (PlayerInput.IsButtonDown(Axis.Fire1)  && !PlayerInput.GameplayBlocked)
+            if (PlayerInput.IsButtonDown(Axis.Fire1))
             {
                 if (!_dialogueOpen)
                 {
                     BlockInput(true);
                     InteractionPrompt.gameObject.SetActive(false);
-                    DialogueWindow.SetVisible(true);
-                    _title.text = _information.logs[0].title;
-                    _dialogueText.text = _information.logs[0].text;
-                    _dialogueOpen = true;
+					_title.text = _information.logs[0].title;
+					_dialogueText.text = _information.logs[0].text;
+					_dialogueOpen = true;
+					DialogueWindow.SetVisible(true);
                 }
                 else if (_dialogueOpen)
                 {
+					Debug.Log ("Closing window");
                     DialogueWindow.SetVisible(false);
                     InteractionPrompt.gameObject.SetActive(true);
                     BlockInput(false);
