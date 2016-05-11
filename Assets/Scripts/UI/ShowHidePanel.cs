@@ -7,13 +7,17 @@ public class ShowHidePanel : MonoBehaviour, IAnimatedPanel
 	public RectTransform Container;
 	public float AnimationSpeed;
 
-    [SerializeField]
-    private bool _visible = false;
+    public bool Visible;
     private Coroutine _oldAnim = null;
+
+    public void Start()
+    {
+        SetVisible(Visible);
+    }
 
     public void SetVisible(bool value)
     {
-        _visible = value;
+        Visible = value;
         if (_oldAnim != null)
             StopCoroutine(_oldAnim);
         
@@ -24,7 +28,7 @@ public class ShowHidePanel : MonoBehaviour, IAnimatedPanel
 	{
 		Vector2 targetMin, targetMax;
 
-        if (_visible)
+        if (Visible)
 		{
 			Utils.GetAnchorsForWindowPosition(ShowPosition, out targetMin, out targetMax);
 			while (true)

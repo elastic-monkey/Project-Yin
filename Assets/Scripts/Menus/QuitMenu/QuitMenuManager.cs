@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class MainMenuManager : MenuManager
+public class QuitMenuManager : MenuManager
 {
     public enum Actions
     {
-        NewGame,
-        Settings,
-        ChangeMenu,
+        ConfirmQuit,
+        GoBack
     }
 
-    public MainMenuChangeMenuNavItem OnBackPressed;
+    public QuitMenuChangeMenuNavItem OnBackPressed;
 
     private void Start()
     {
@@ -21,7 +20,7 @@ public class MainMenuManager : MenuManager
     {
         if (!NavMenu.IsActive)
             return;
-        
+
         if (PlayerInput.IsButtonUp(Axis.Escape))
         {
             OnAction(OnBackPressed, OnBackPressed.Action, OnBackPressed.Target);
@@ -30,30 +29,29 @@ public class MainMenuManager : MenuManager
 
     public override void OnFocus(NavItem target)
     {
-        // Do stuff
+        // TODO
     }
 
     public override void OnAction(NavItem item, object action, object data)
     {
         var actionEnum = (Actions)action;
-    
+
         switch (actionEnum)
         {
-            case Actions.NewGame:
-                SceneManager.LoadScene("Level_1");
+            case Actions.ConfirmQuit:
+                Debug.Log("Quiting application... [Will not work in the Editor]");
+                Application.Quit();
                 break;
 
-            case Actions.Settings:
-                break;
-
-            case Actions.ChangeMenu:
+            case Actions.GoBack:
                 var target = data as NavMenu;
-                if(target != null)
+                if (target != null)
                 {
                     target.SetActive(true);
-                    NavMenu.SetActive(false);               
+                    NavMenu.SetActive(false);    
                 }
                 break;
         }
     }
+
 }

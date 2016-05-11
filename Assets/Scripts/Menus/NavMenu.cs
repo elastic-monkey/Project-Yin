@@ -24,17 +24,20 @@ public abstract class NavMenu : MonoBehaviour
 
     private void Update()
     {
+        if (!_active)
+            return;
+
+        OnUpdate();
+    }
+
+    private void LateUpdate()
+    {
         if (_activeNextFrame)
         {
             _activeNextFrame = false;
             _active = true;
             return;
         }
-
-        if (!_active)
-            return;
-
-        OnUpdate();
     }
 
     public void SetActive(bool value)

@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class MenuNavItem : TextNavItem
+public class MainMenuChangeMenuNavItem : MainMenuActionNavItem
 {
     public VerticalNavMenu Target;
 
     public override void OnSelect(MenuManager manager)
     {
-        manager.OnAction(this, MainMenuManager.Actions.SelectMenu, Target);
+        manager.OnAction(this, Action, Target);
     }
 }
