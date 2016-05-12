@@ -4,6 +4,8 @@ using System.Collections;
 [RequireComponent(typeof(IAnimatedPanel))]
 public abstract class NavMenu : MonoBehaviour
 {
+    public MenuManager MenuManager;
+
     [SerializeField]
     private bool _active;
     private bool _activeNextFrame;

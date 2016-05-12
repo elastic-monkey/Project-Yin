@@ -2,69 +2,24 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class UpgradeMenuManager : MenuManager
+public class UpgradeMenu : GameMenuManager
 {
-
-    public enum Actions
-    {
-        UpgradeHealth,
-        UpgradeStamina,
-        UpgradeSpeed,
-        UpgradeShield,
-        UpgradeStrength,
-        CloseMenu
-    }
-
-    public NavMenu UpgradeMenu;
-    public Text AvailableSP;
-    public Text UpgradeCost;
-    public Text EffectText;
+    public Text AvailableSP, UpgradeCost, EffectText;
 
     private UpgradeMenuNavItem[] _items;
-    private GameManager _gameManager;
-
-    public GameManager GameManager
-    {
-        get
-        {
-            if (_gameManager == null)
-                _gameManager = GameManager.Instance;
-
-            return _gameManager;
-        }
-    }
 
     public PlayerBehavior Player
     {
         get
         {
-            return GameManager.Player;
+            return _gameManager.Player;
         }
     }
 
     public void Start()
     {
-        _items = UpgradeMenu.GetComponentsInChildren<UpgradeMenuNavItem>();
+        _items = NavMenu.GetComponentsInChildren<UpgradeMenuNavItem>();
         UpdateAllItems();
-    }
-
-    private void Update()
-    {
-        //TODO Change to proper keys
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            if (_gameManager.GamePaused)
-            {
-                if (UpgradeMenu.IsActive)
-                {
-                    OnUpgradeMenu(false);
-                }
-            }
-            else
-            {
-                OnUpgradeMenu(true);
-            }
-        }
     }
 
     public override void OnFocus(NavItem target)
@@ -72,8 +27,9 @@ public class UpgradeMenuManager : MenuManager
         var upgradeItem = target as UpgradeMenuNavItem;
         if (upgradeItem == null)
             return;
-
+        
         var action = upgradeItem.Action;
+
         switch (action)
         {
             case Actions.UpgradeHealth:
@@ -155,25 +111,18 @@ public class UpgradeMenuManager : MenuManager
             item.SetDisabled(true);
         }
     }
-
-    private void OnUpgradeMenu(bool value)
+        
+    private void UpdateAvailableSP()
     {
-        _gameManager.SetGamePaused(value);
-
-        UpdateAvailableSP();
-        UpgradeMenu.SetActive(value);
+        AvailableSP.text = Player.Experience.SkillPoints.ToString();
     }
 
-    public override void OnAction(NavItem item, object action, object data)
+    protected override void OnAction(Actions action, NavItem item, NavMenu target, string[] data)
     {
         var upgradeItem = item as UpgradeMenuNavItem;
-        if (upgradeItem == null)
-            return;
-        
-        var actionEnum = upgradeItem.Action;
-        var level = (int)data; // put in range [0-3]
+        var level = int.Parse(data[0]); // put in range [0-3]
 
-        switch (actionEnum)
+        switch (action)
         {
             case Actions.UpgradeHealth:
                 if (Player.Health.UpgradeTo(level, Player))
@@ -218,16 +167,12 @@ public class UpgradeMenuManager : MenuManager
                 }
                 break;
 
-            case Actions.CloseMenu:
-                OnUpgradeMenu(false);
+            case Actions.Back:
+                UpdateAvailableSP();
+                OnPause(false);
                 break;
         }
 
         UpdateAllItems();
-    }
-
-    private void UpdateAvailableSP()
-    {
-        AvailableSP.text = Player.Experience.SkillPoints.ToString();
     }
 }

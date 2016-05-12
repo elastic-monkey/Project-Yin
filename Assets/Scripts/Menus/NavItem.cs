@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public abstract class NavItem : MonoBehaviour
 {
-    [SerializeField]
-    protected bool _selected;
+    public Color SelectedColor;
+    public Graphic TargetGraphic;
 
-    public void Focus(bool value)
+    protected Color _initialColor;
+
+    protected void Awake()
     {
-        _selected = value;
-        OnFocus(value);
+        _initialColor = TargetGraphic.color;
     }
 
-    protected abstract void OnFocus(bool value);
+    public virtual void OnFocus(bool value)
+    {
+        TargetGraphic.color = value ? SelectedColor : _initialColor;
+    }
 
     public abstract void OnSelect(MenuManager manager);
 }

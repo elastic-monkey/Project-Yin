@@ -14,7 +14,6 @@ public class MatrixNavMenu : NavMenu
     [Tooltip("Column organization means each array inside each Item is treated as either a column or a line, hence affecting navigation. " +
         "This is used only for buttons navigation! Changes in visual organization are defined by the user.")]
     public Organization MenuOrganization;
-    public MenuManager MenuManager;
     public RectTransform HoverIcon;
     public NavItemCollection[] Items;
 
@@ -106,13 +105,13 @@ public class MatrixNavMenu : NavMenu
                 if (i == index.First && j == secondIndex)
                 {
                     index.Second = secondIndex;
-                    items[j].Focus(true);
+                    items[j].OnFocus(true);
                     MenuManager.OnFocus(items[j]);
                     HoverIcon.SetParent(items[j].transform, false);
                 }
                 else
                 {
-                    items[j].Focus(false);
+                    items[j].OnFocus(false);
                 }
             }
         }

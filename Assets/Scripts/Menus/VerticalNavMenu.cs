@@ -5,7 +5,6 @@ using System.Collections;
 public class VerticalNavMenu : NavMenu
 {
     public bool Cyclic, Reset;
-    public MenuManager MenuManager;
     public NavItem[] Items;
 
     [SerializeField]
@@ -49,7 +48,7 @@ public class VerticalNavMenu : NavMenu
 
         for (var i = 0; i < Items.Length; i++)
         {
-            Items[i].Focus(i == index);
+            Items[i].OnFocus(i == index);
         }
 
         _currentItem = index;

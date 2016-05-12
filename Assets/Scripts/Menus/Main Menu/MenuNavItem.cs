@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenuActionNavItem : TextNavItem
+public class MenuNavItem : NavItem
 {
     public MainMenuManager.Actions Action;
+    public string[] Data;
 
     public override void OnSelect(MenuManager manager)
     {
-        manager.OnAction(this, Action, null);
+        manager.OnNavItemSelected(this, Action, Data);
     }
 }

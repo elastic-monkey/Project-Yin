@@ -271,12 +271,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 61299157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658f76b4e041f924e82f571547a317de, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
   SelectedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
-  Action: 0
+  TargetGraphic: {fileID: 61299159}
+  Action: 3
+  Data: []
 --- !u!1 &71436409
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,13 +562,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 142699190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b66b27657b1a4594a948463791dc8021, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
   SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
-  Action: 1
-  Target: {fileID: 216691606}
+  TargetGraphic: {fileID: 142699192}
+  Action: 4
+  Data: []
 --- !u!222 &142699194
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -788,15 +789,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0da55103ed12af45a3fba12a0fa457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MenuManager: {fileID: 216691607}
   _active: 1
   Cyclic: 0
   Reset: 0
-  MenuManager: {fileID: 216691607}
   Items:
-  - {fileID: 568050013}
-  - {fileID: 248317754}
+  - {fileID: 568050011}
+  - {fileID: 248317752}
   - {fileID: 1287268656}
-  - {fileID: 833587370}
+  - {fileID: 833587368}
   _currentItem: 0
 --- !u!114 &216691607
 MonoBehaviour:
@@ -806,11 +807,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 216691604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532917c87fb2e0f4ab96fd014c655f9d, type: 3}
+  m_Script: {fileID: 11500000, guid: f4f53530f4a483c4d93dfe766b0d9969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NavMenu: {fileID: 216691606}
-  OnBackPressed: {fileID: 833587370}
+  BackKey: 11
+  OnBack: 4
+  Transitions:
+  - Name: New
+    OnAction: 0
+    TargetMenu: {fileID: 993818359}
+  - Name: Load
+    OnAction: 1
+    TargetMenu: {fileID: 993818359}
+  - Name: Quit
+    OnAction: 3
+    TargetMenu: {fileID: 1040210208}
+  - Name: Back
+    OnAction: 4
+    TargetMenu: {fileID: 1040210208}
 --- !u!114 &216691608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,7 +852,7 @@ GameObject:
   - 224: {fileID: 248317750}
   - 222: {fileID: 248317753}
   - 114: {fileID: 248317751}
-  - 114: {fileID: 248317754}
+  - 114: {fileID: 248317752}
   m_Layer: 0
   m_Name: Load
   m_TagString: Untagged
@@ -895,13 +910,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Load
---- !u!222 &248317753
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 248317749}
---- !u!114 &248317754
+--- !u!114 &248317752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -909,13 +918,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 248317749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a3bb603c8109345be1e9de5560e4a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.44705883, g: 0.7176471, b: 0.7372549, a: 1}
-  Action: 2
-  Target: {fileID: 993818359}
+  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  TargetGraphic: {fileID: 248317751}
+  Action: 1
+  Data: []
+--- !u!222 &248317753
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248317749}
 --- !u!1 &250981046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,13 +1080,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 442703571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa59b67ffb4a6e4ba5ba45d8bbcc714, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.5372549, g: 0.09411765, b: 0.03137255, a: 1}
-  Action: 2
-  Target: {fileID: 216691606}
+  SelectedColor: {r: 0.5254902, g: 0.09411765, b: 0, a: 1}
+  TargetGraphic: {fileID: 442703573}
+  Action: 4
+  Data: []
 --- !u!1 &452434742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1309,7 @@ GameObject:
   - 224: {fileID: 568050009}
   - 222: {fileID: 568050012}
   - 114: {fileID: 568050010}
-  - 114: {fileID: 568050013}
+  - 114: {fileID: 568050011}
   m_Layer: 0
   m_Name: New
   m_TagString: Untagged
@@ -1352,13 +1367,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New
---- !u!222 &568050012
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 568050008}
---- !u!114 &568050013
+--- !u!114 &568050011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1366,12 +1375,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 568050008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dec40e4cef3bf4b82ef3e7068a62a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.44705883, g: 0.7176471, b: 0.7372549, a: 1}
+  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  TargetGraphic: {fileID: 568050010}
   Action: 0
+  Data: []
+--- !u!222 &568050012
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 568050008}
 --- !u!1 &578937536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,7 +1593,7 @@ GameObject:
   - 224: {fileID: 833587366}
   - 222: {fileID: 833587369}
   - 114: {fileID: 833587367}
-  - 114: {fileID: 833587370}
+  - 114: {fileID: 833587368}
   m_Layer: 0
   m_Name: Quit
   m_TagString: Untagged
@@ -1635,13 +1651,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Quit
---- !u!222 &833587369
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 833587365}
---- !u!114 &833587370
+--- !u!114 &833587368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1649,13 +1659,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 833587365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a3bb603c8109345be1e9de5560e4a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.44705883, g: 0.7176471, b: 0.7372549, a: 1}
-  Action: 2
-  Target: {fileID: 1040210208}
+  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  TargetGraphic: {fileID: 833587367}
+  Action: 3
+  Data: []
+--- !u!222 &833587369
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 833587365}
 --- !u!1 &912891022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,7 +1684,7 @@ GameObject:
   - 114: {fileID: 912891025}
   - 114: {fileID: 912891024}
   m_Layer: 0
-  m_Name: Slot 4
+  m_Name: Slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1699,13 +1715,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 912891022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af78b678f3ea9a4f9140ab39d25b6f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 53670467b7921ac4caac346ecad6a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.44705883, g: 0.7176471, b: 0.7372549, a: 1}
-  Action: 0
-  TargetSlot: 3
+  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  TargetGraphic: {fileID: 912891025}
+  Action: 1
+  Data: []
+  Slot: 3
 --- !u!114 &912891025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,10 +1809,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0da55103ed12af45a3fba12a0fa457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MenuManager: {fileID: 993818360}
   _active: 0
   Cyclic: 0
   Reset: 1
-  MenuManager: {fileID: 993818360}
   Items:
   - {fileID: 2091801941}
   - {fileID: 1273413638}
@@ -1811,11 +1828,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 993818357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dae80608f9bbd0429819854f52718f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ff25ba8e6458cd408835b5ffe40a0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NavMenu: {fileID: 993818359}
-  OnBackPressed: {fileID: 442703575}
+  BackKey: 11
+  OnBack: 4
+  Transitions:
+  - Name: Back
+    OnAction: 4
+    TargetMenu: {fileID: 216691606}
+  - Name: Quit
+    OnAction: 3
+    TargetMenu: {fileID: 216691606}
 --- !u!114 &993818361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,10 +1904,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0da55103ed12af45a3fba12a0fa457f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MenuManager: {fileID: 1040210209}
   _active: 0
   Cyclic: 0
   Reset: 1
-  MenuManager: {fileID: 1040210209}
   Items:
   - {fileID: 142699193}
   - {fileID: 61299161}
@@ -1895,11 +1920,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1040210206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 048fa2cfe18fa204c81b285c7ec83f6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a3179980a0ff894e8a2aecc36206586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NavMenu: {fileID: 1040210208}
-  OnBackPressed: {fileID: 142699193}
+  BackKey: 11
+  OnBack: 4
+  Transitions:
+  - Name: Back
+    OnAction: 4
+    TargetMenu: {fileID: 216691606}
+  - Name: Quit
+    OnAction: 3
+    TargetMenu: {fileID: 216691606}
 --- !u!114 &1040210210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,7 +2085,7 @@ GameObject:
   - 114: {fileID: 1273413639}
   - 114: {fileID: 1273413638}
   m_Layer: 0
-  m_Name: Slot 2
+  m_Name: Slot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2083,13 +2116,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1273413636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af78b678f3ea9a4f9140ab39d25b6f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 53670467b7921ac4caac346ecad6a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.44705883, g: 0.7176471, b: 0.7372549, a: 1}
-  Action: 0
-  TargetSlot: 1
+  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  TargetGraphic: {fileID: 1273413639}
+  Action: 1
+  Data: []
+  Slot: 1
 --- !u!114 &1273413639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2206,12 +2240,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1287268653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dec40e4cef3bf4b82ef3e7068a62a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.44705883, g: 0.7176471, b: 0.7372549, a: 1}
-  Action: 1
+  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  TargetGraphic: {fileID: 1287268655}
+  Action: 2
+  Data: []
 --- !u!222 &1287268657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3007,7 +3042,7 @@ GameObject:
   - 114: {fileID: 1934497750}
   - 114: {fileID: 1934497749}
   m_Layer: 0
-  m_Name: Slot 3
+  m_Name: Slot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3038,13 +3073,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1934497747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af78b678f3ea9a4f9140ab39d25b6f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 53670467b7921ac4caac346ecad6a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.44705883, g: 0.7176471, b: 0.7372549, a: 1}
-  Action: 0
-  TargetSlot: 2
+  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  TargetGraphic: {fileID: 1934497750}
+  Action: 1
+  Data: []
+  Slot: 2
 --- !u!114 &1934497750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3163,7 +3199,7 @@ GameObject:
   - 114: {fileID: 2091801942}
   - 114: {fileID: 2091801941}
   m_Layer: 0
-  m_Name: Slot 1
+  m_Name: Slot 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3194,13 +3230,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2091801939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af78b678f3ea9a4f9140ab39d25b6f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 53670467b7921ac4caac346ecad6a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selected: 0
-  SelectedColor: {r: 0.44705883, g: 0.7176471, b: 0.7372549, a: 1}
-  Action: 0
-  TargetSlot: 0
+  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  TargetGraphic: {fileID: 2091801942}
+  Action: 1
+  Data: []
+  Slot: 0
 --- !u!114 &2091801942
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     static GameManager _instance;
 
     public PlayerBehavior Player;
-	public GameOverMenuManager GameOverMenu;
+	public GameOver GameOverMenu;
 
     [SerializeField]
     private bool _gamePaused;
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     public void OnPlayerDeath(PlayerBehavior player)
     {
         // TODO: Activate Game Over Menu
-		GameOverMenu.GameOver(true);
+		GameOverMenu.OnGameOver(true);
     }
 
     public void OnEnemyDeath(EnemyBehavior enemy)
