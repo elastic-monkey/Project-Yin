@@ -385,7 +385,7 @@ MonoBehaviour:
   SendHorizontalInput: 1
   Items:
   - {fileID: 1566553773}
-  _currentItem: 0
+  _currentIndex: 0
 --- !u!114 &76119839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,7 +863,7 @@ MonoBehaviour:
   - {fileID: 248317752}
   - {fileID: 1287268656}
   - {fileID: 833587368}
-  _currentItem: 0
+  _currentIndex: 0
 --- !u!114 &216691607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.5254902, g: 0.09411765, b: 0, a: 1}
+  SelectedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
   TargetGraphic: {fileID: 442703573}
   Action: 4
   Data: []
@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  SelectedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
   TargetGraphic: {fileID: 833587367}
   Action: 3
   Data: []
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   - {fileID: 1934497749}
   - {fileID: 912891024}
   - {fileID: 442703575}
-  _currentItem: 0
+  _currentIndex: 0
 --- !u!114 &993818360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,7 +2056,7 @@ MonoBehaviour:
   Items:
   - {fileID: 142699193}
   - {fileID: 61299161}
-  _currentItem: 0
+  _currentIndex: 0
 --- !u!114 &1040210209
 MonoBehaviour:
   m_ObjectHideFlags: 0
