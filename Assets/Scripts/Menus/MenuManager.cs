@@ -10,11 +10,8 @@ public abstract class MenuManager : MonoBehaviour
         NavMenu.SetActive(NavMenu.IsActive);
     }
 
-    private void Update()
+    public virtual void HandleInput()
     {
-        if (!NavMenu.IsActive)
-            return;
-
         if (PlayerInput.IsButtonUp(BackKey))
         {
             OnBackPressed();

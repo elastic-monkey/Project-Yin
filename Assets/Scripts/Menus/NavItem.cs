@@ -20,4 +20,14 @@ public abstract class NavItem : MonoBehaviour
     }
 
     public abstract void OnSelect(MenuManager manager);
+
+    public virtual void OnHorizontalInput(float value)
+    {
+        // Not implemented here
+    }
+
+    public virtual void OnVerticalInput(float value)
+    {
+        // Not implemented here
+    }
 }

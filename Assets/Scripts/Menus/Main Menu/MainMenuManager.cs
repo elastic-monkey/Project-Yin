@@ -8,7 +8,8 @@ public abstract class MainMenuManager : MenuManager
         Load,
         Settings,
         Quit,
-        Back
+        Back,
+        Audio
     }
 
     public Actions OnBack;
@@ -51,7 +52,7 @@ public static class MainMenuTransitionHelper
             }
         }
 
-        Debug.Log("Not found");
+        //Debug.Log("Not found");
 
         return null;
     }

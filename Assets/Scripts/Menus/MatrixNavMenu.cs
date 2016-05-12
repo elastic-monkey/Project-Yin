@@ -167,6 +167,22 @@ public class MatrixNavMenu : NavMenu
         }
     }
 
+    public override void UnfocusAll()
+    {
+        foreach (var collection in Items)
+        {
+            foreach(var item in collection.Items)
+            {
+                item.OnFocus(false);
+            }
+        }
+    }
+
+    public override void FocusCurrent()
+    {
+        FocusItem(_currentIndex);
+    }
+
     private void OnItemSelected(IndexPair index)
     {
         if (index.First < 0 || index.First >= Items.Length || index.Second < 0 || index.Second >= Items[index.First].Items.Length)

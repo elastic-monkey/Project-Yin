@@ -1,19 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(IAnimatedPanel))]
 public class VerticalNavMenu : NavMenu
 {
     public bool Cyclic, Reset;
+    public bool SendHorizontalInput;
     public NavItem[] Items;
 
     [SerializeField]
-    private int _currentItem;
-
-    private void Start()
-    {
-        FocusItem(0);
-    }
+    private int _currentIndex;
 
     protected override void OnUpdate()
     {
@@ -30,16 +25,41 @@ public class VerticalNavMenu : NavMenu
                 FocusPrevious();
             }
         }
+        else if (PlayerInput.IsButtonDown(Axis.Nav_Horizontal) && SendHorizontalInput)
+        {
+            OnHorizontalInput(_currentIndex, PlayerInput.GetAxisRaw(Axis.Nav_Horizontal));
+        }
         else if (PlayerInput.IsButtonDown(Axis.Fire1) || PlayerInput.IsButtonDown(Axis.Submit))
         {
-            OnItemSelected(_currentItem);
+            OnItemSelected(_currentIndex);
         }
     }
 
     protected override void OnSetActive(bool value)
     {
-        if (!value && Reset)
-            FocusItem(0);
+        if (value)
+        {
+            if (Reset)
+            {
+                FocusItem(0);
+            }
+            else
+            {
+                FocusItem(_currentIndex);
+            }
+        }
+        else
+        {
+            UnfocusAll();
+        }
+    }
+
+    private void OnHorizontalInput(int index, float value)
+    {
+        var item = GetItem(index);
+
+        if (item != null)
+            item.OnHorizontalInput(value);
     }
 
     private void FocusItem(int index)
@@ -51,14 +71,14 @@ public class VerticalNavMenu : NavMenu
             Items[i].OnFocus(i == index);
         }
 
-        _currentItem = index;
+        _currentIndex = index;
     }
 
     private void FocusNext()
     {
-        if (_currentItem < Items.Length - 1)
+        if (_currentIndex < Items.Length - 1)
         {
-            FocusItem(_currentItem + 1);
+            FocusItem(_currentIndex + 1);
         }
         else
         {
@@ -71,9 +91,9 @@ public class VerticalNavMenu : NavMenu
 
     private void FocusPrevious()
     {
-        if (_currentItem > 0)
+        if (_currentIndex > 0)
         {
-            FocusItem(_currentItem - 1);
+            FocusItem(_currentIndex - 1);
         }
         else
         {
@@ -83,15 +103,36 @@ public class VerticalNavMenu : NavMenu
             } 
         } 
     }
-        
+
+    public override void UnfocusAll()
+    {
+        foreach(var item in Items)
+        {
+            item.OnFocus(false);
+        }
+    }
+
+    public override void FocusCurrent()
+    {
+        FocusItem(_currentIndex);
+    }
+
     private void OnItemSelected(int index)
+    {
+        var item = GetItem(index);
+
+        if(item != null)
+            item.OnSelect(MenuManager);
+    }
+
+    private NavItem GetItem(int index)
     {
         if (index < 0 || index >= Items.Length)
         {
             Debug.LogWarning("Tried to select invalid item.");
-            return;
+            return null;
         }
 
-        Items[index].OnSelect(MenuManager);
+        return Items[index];
     }
 }
