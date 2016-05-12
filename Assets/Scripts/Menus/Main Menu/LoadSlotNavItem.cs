@@ -12,9 +12,17 @@ public class LoadSlotNavItem : MenuNavItem
         Data[0] = Slot.ToString();
 
         var text = TargetGraphic as Text;
-        if (text != null && Slot <LoadMenu.SavedGames.Count)
+        if (text != null)
         {
-            text.text = LoadMenu.SavedGames[Slot].CurrentScene;
+			GameState save = LoadMenu.GetSaveInSlot (Slot);
+			if (save != null)
+			{
+				text.text = save.CurrentScene;
+			}
+			else
+			{
+				text.text = "Empty Save Slot";
+			}
         }
     }
 }

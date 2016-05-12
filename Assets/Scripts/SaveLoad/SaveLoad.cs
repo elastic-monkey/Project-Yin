@@ -77,7 +77,7 @@ public static class SaveLoad
         return saves;
     }
 
-    private static int GetCurrentSaveSlot()
+    public static int GetCurrentSaveSlot()
     {
         if (File.Exists("SSS.txt"))
         {
@@ -96,4 +96,16 @@ public static class SaveLoad
         else
             return _savePath + GetCurrentSaveSlot().ToString();
     }
+
+	public static void DeleteSaveGame(int slot){
+		if (File.Exists (_savePath + slot.ToString ())) {
+			File.Delete (_savePath + slot.ToString ());
+		}
+	}
+
+	public static void DeleteCheckpoint(){
+		if (File.Exists ("Checkpoint")) {
+			File.Delete ("Checkpoint");
+		}
+	}
 }

@@ -2,17 +2,19 @@
 
 public class MainMenu : MainMenuManager
 {
+	public LoadMenu LoadM;
+
     protected override void OnAction(Actions action, NavItem item, NavMenu target, string[] data)
     {
         switch (action)
         {
-            case Actions.New:
-                // Customized usage of "data" array goes here
-                TransitionTo(target);
+			case Actions.New:
+				LoadM.NewGameMode = true;
+	            TransitionTo(target);
                 break;
 
-            case Actions.Load:
-                // Customized usage of "data" array goes here
+			case Actions.Load:
+				LoadM.NewGameMode = false;
                 TransitionTo(target);
                 break;
 

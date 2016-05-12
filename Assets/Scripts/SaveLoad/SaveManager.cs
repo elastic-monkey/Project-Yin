@@ -12,12 +12,20 @@ public class SaveManager : MonoBehaviour
         {
             Debug.Log("SSS present. Loading savegame");
             var state = SaveLoad.Load(false);
-            LoadAllStates(state);
+			if (state != null)
+			{
+				LoadAllStates (state);
+			}
+			else
+			{
+				Debug.Log ("There is a SSS, but not a state. A New Game was started");
+			}
         }
     }
 
     void Update()
     {
+		// For testing purposes
         if (Input.GetKeyDown(KeyCode.F5))
         {
             SaveLoad.Save(false);
