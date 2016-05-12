@@ -82,8 +82,10 @@ public class MatrixNavMenu : NavMenu
         }
     }
 
-    protected override void OnSetActive(bool value)
+    public override void OnSetActive(bool value)
     {
+        base.OnSetActive(value);
+
         HoverIcon.gameObject.SetActive(value);
         if (!value && Reset)
         {

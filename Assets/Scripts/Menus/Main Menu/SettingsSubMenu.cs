@@ -14,7 +14,7 @@ public class SettingsSubMenu : MainMenuManager
                 break;
 
             case Actions.Back:
-                NavMenu.SetActive(false);
+                NavMenu.OnSetActive(false);
                 MainMenu.NavMenu.InputBlocked = false;
                 MainMenu.NavMenu.FocusCurrent();
                 break;

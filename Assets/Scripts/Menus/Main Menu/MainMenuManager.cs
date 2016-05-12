@@ -15,7 +15,18 @@ public abstract class MainMenuManager : MenuManager
     public Actions OnBack;
     public MainMenuTransition[] Transitions;
 
-    public override void OnBackPressed()
+    public override void HandleInput(bool active)
+    {
+        if (!active)
+            return;
+
+        if (PlayerInput.IsButtonUp(BackKey))
+        {
+            OnBackPressed();
+        }
+    }
+
+    public void OnBackPressed()
     {
         OnNavItemSelected(null, OnBack, null);
     }
@@ -37,7 +48,7 @@ public class MainMenuTransition
 {
     public string Name;
     public MainMenuManager.Actions OnAction;
-    public NavMenu TargetMenu;   
+    public NavMenu TargetMenu;
 }
 
 public static class MainMenuTransitionHelper

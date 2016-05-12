@@ -8,7 +8,7 @@ public class GameOver : GameMenuManager
 	public void OnGameOver(bool value)
 	{
         _gameManager.SetGamePaused(!value);
-        NavMenu.SetActive(value);
+        NavMenu.OnSetActive(value);
 	}
 
     protected override void OnAction(Actions action, NavItem item, NavMenu target, string[] data)

@@ -5,29 +5,16 @@ public abstract class MenuManager : MonoBehaviour
     public NavMenu NavMenu;
     public Axis BackKey;
 
-    private void Start()
-    {
-        NavMenu.SetActive(NavMenu.IsActive);
-    }
-
-    public virtual void HandleInput()
-    {
-        if (PlayerInput.IsButtonUp(BackKey))
-        {
-            OnBackPressed();
-        }
-    }
+    public abstract void HandleInput(bool active);
 
     protected void TransitionTo(NavMenu other)
     {
         if (other != null)
         {
-            other.SetActive(true);
-            NavMenu.SetActive(false);
+            other.OnSetActive(true);
+            NavMenu.OnSetActive(false);
         }
     }
-
-    public abstract void OnBackPressed();
 
     public abstract void OnNavItemSelected(NavItem item, object actionObj, object dataObj);
 

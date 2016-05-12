@@ -35,8 +35,10 @@ public class VerticalNavMenu : NavMenu
         }
     }
 
-    protected override void OnSetActive(bool value)
+    public override void OnSetActive(bool value)
     {
+        base.OnSetActive(value);
+
         if (value)
         {
             if (Reset)

@@ -22,7 +22,7 @@ public class MainMenu : MainMenuManager
                 break;
 
             default:
-                AudioMenu.NavMenu.SetActive(false);
+                AudioMenu.NavMenu.OnSetActive(false);
                 break;
         }
     }
@@ -42,7 +42,7 @@ public class MainMenu : MainMenuManager
                 break;
 
             case Actions.Settings:
-                AudioMenu.NavMenu.SetActive(true);
+                AudioMenu.NavMenu.OnSetActive(true);
                 NavMenu.InputBlocked = true;
                 NavMenu.UnfocusAll();
                 break;

@@ -18,7 +18,6 @@ public abstract class GameMenuManager : MenuManager
     }
 
     public Axis OpenKey;
-    public Actions OnBack;
     public GameMenuTransition[] Transitions;
     protected GameManager _gameManager;
 
@@ -27,23 +26,28 @@ public abstract class GameMenuManager : MenuManager
         _gameManager = GameManager.Instance;
     }
 
-    private void LateUpdate()
+    public override void HandleInput(bool active)
     {
-        if (PlayerInput.IsButtonUp(OpenKey))
+        if (active)
         {
-            OnPause(true);
+            if (PlayerInput.IsButtonUp(BackKey) && active)
+            {
+                OnPause(false);
+            }
         }
-    }
-
-    public override void OnBackPressed()
-    {
-        OnPause(false);
+        else
+        {
+            if (PlayerInput.IsButtonUp(OpenKey))
+            {
+                OnPause(true);
+            }            
+        }
     }
 
     protected void OnPause(bool value)
     {
         _gameManager.SetGamePaused(value);
-        NavMenu.SetActive(value);
+        NavMenu.OnSetActive(value);
     }
 
     public override void OnNavItemSelected(NavItem item, object actionObj, object dataObj)
@@ -77,8 +81,6 @@ public static class GameMenuTransitionHelper
                 return transition.TargetMenu;
             }
         }
-
-        Debug.Log("Not found");
 
         return null;
     }

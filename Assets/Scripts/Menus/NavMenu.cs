@@ -47,15 +47,20 @@ public abstract class NavMenu : MonoBehaviour
         _animatedPanel = GetComponent<IAnimatedPanel>();
     }
 
+    private void Start()
+    {
+        OnSetActive(IsActive);
+    }
+
     private void Update()
     {
-        if (!_active)
-            return;
-
         if (InputBlocked)
             return;
 
-        MenuManager.HandleInput();
+        MenuManager.HandleInput(IsActive);
+
+        if (!IsActive)
+            return;
 
         OnUpdate();
     }
@@ -75,7 +80,7 @@ public abstract class NavMenu : MonoBehaviour
         }
     }
 
-    public void SetActive(bool value)
+    public virtual void OnSetActive(bool value)
     {
         _activeNextFrame = value;
         _active = false;
@@ -84,8 +89,6 @@ public abstract class NavMenu : MonoBehaviour
         {
             _animatedPanel.SetVisible(value);
         }
-
-        OnSetActive(value);
     }
 
     public abstract void UnfocusAll();
@@ -93,6 +96,4 @@ public abstract class NavMenu : MonoBehaviour
     public abstract void FocusCurrent();
 
     protected abstract void OnUpdate();
-
-    protected abstract void OnSetActive(bool value);
 }
