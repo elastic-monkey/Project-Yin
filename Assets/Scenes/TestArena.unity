@@ -3971,83 +3971,6 @@ MonoBehaviour:
   PurchasedColor: {r: 0, g: 0.24728948, b: 0.49264705, a: 1}
   DisabledColor: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
   UpgradeLevel: 1
-<<<<<<< HEAD
-=======
-  UpgradeCost: {fileID: 368878533}
---- !u!1 &742511691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 742511692}
-  - 222: {fileID: 742511694}
-  - 114: {fileID: 742511693}
-  m_Layer: 0
-  m_Name: Interact
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &742511692
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 742511691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 412092308}
-  m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &742511693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 742511691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 85557d88fd6d3a546a0db787996314f5, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: INTERACTION
---- !u!222 &742511694
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 742511691}
->>>>>>> origin/master
 --- !u!1 &746322044
 GameObject:
   m_ObjectHideFlags: 0
@@ -6125,11 +6048,7 @@ MonoBehaviour:
   Container: {fileID: 1096275527}
   AnimationSpeed: 10
   Visible: 0
-<<<<<<< HEAD
 --- !u!114 &1096275531
-=======
---- !u!114 &1096275530
->>>>>>> origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -6140,16 +6059,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed6866d9a089d6418216ade4f1b46c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   NavMenu: {fileID: 1096275528}
   BackKey: 11
   OpenKey: 11
   OnBack: 1
   Transitions: []
-=======
-  NavMenu: {fileID: 0}
-  PauseMenu: {fileID: 1096275528}
->>>>>>> origin/master
 --- !u!1 &1096900767
 GameObject:
   m_ObjectHideFlags: 0
@@ -7223,14 +7137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavMenu: {fileID: 0}
-<<<<<<< HEAD
   BackKey: 0
   OpenKey: 0
   OnBack: 0
   Transitions: []
-=======
-  UpgradeMenu: {fileID: 1332269816}
->>>>>>> origin/master
   AvailableSP: {fileID: 1039556570}
   UpgradeCost: {fileID: 368878533}
   EffectText: {fileID: 2095084124}
@@ -8761,7 +8671,6 @@ MonoBehaviour:
   PurchasedColor: {r: 0, g: 0.24728948, b: 0.49264705, a: 1}
   DisabledColor: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
   UpgradeLevel: 2
-<<<<<<< HEAD
 --- !u!1 &1699879782
 GameObject:
   m_ObjectHideFlags: 0
@@ -8835,9 +8744,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1699879782}
-=======
-  UpgradeCost: {fileID: 368878533}
->>>>>>> origin/master
 --- !u!1 &1715137477
 GameObject:
   m_ObjectHideFlags: 0
@@ -10718,14 +10624,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavMenu: {fileID: 0}
-<<<<<<< HEAD
   BackKey: 0
   OpenKey: 0
   OnBack: 0
   Transitions: []
-=======
-  GameOverMenu: {fileID: 2135736147}
->>>>>>> origin/master
 --- !u!114 &2135736149
 MonoBehaviour:
   m_ObjectHideFlags: 0
