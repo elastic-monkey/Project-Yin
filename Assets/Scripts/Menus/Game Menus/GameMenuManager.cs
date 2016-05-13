@@ -46,6 +46,13 @@ public abstract class GameMenuManager : MenuManager
         }
     }
 
+    public override void SetActive(bool value)
+    {
+        base.SetActive(value);
+
+        OnPause(value);
+    }
+
     protected void OnPause(bool value)
     {
         _gameManager.SetGamePaused(value);

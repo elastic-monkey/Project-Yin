@@ -103,15 +103,15 @@ public class UpgradeMenu : GameMenuManager
         var currentLevel = upgradable.CurrentLevel;
         if (currentLevel >= item.UpgradeLevel)
         {
-            item.SetPurchased(true);
+            item.Purchase(true);
         }
         else if (currentLevel == item.UpgradeLevel - 1)
         {
-            item.SetDisabled(!upgradable.CanBeUpgradedTo(item.UpgradeLevel, Player));
+            item.Disable(!upgradable.CanBeUpgradedTo(item.UpgradeLevel, Player));
         }
         else
         {
-            item.SetDisabled(true);
+            item.Disable(true);
         }
     }
 
@@ -136,7 +136,7 @@ public class UpgradeMenu : GameMenuManager
             case Actions.UpgradeHealth:
                 if (Player.Health.UpgradeTo(level, Player))
                 {
-                    upgradeItem.SetPurchased(true);
+                    upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Health);
                 }
                 break;
@@ -144,7 +144,7 @@ public class UpgradeMenu : GameMenuManager
             case Actions.UpgradeStamina:
                 if (Player.Stamina.UpgradeTo(level, Player))
                 {
-                    upgradeItem.SetPurchased(true);
+                    upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Stamina);
                 }
                 break;
@@ -153,7 +153,7 @@ public class UpgradeMenu : GameMenuManager
                 var type = Ability.AbilityType.Speed;
                 if (Player.Abilities.UpgradeAbility(type, level))
                 {
-                    upgradeItem.SetPurchased(true);
+                    upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Abilities.Find(type));
                 }
                 break;
@@ -162,7 +162,7 @@ public class UpgradeMenu : GameMenuManager
                 type = Ability.AbilityType.Shield;
                 if (Player.Abilities.UpgradeAbility(type, level))
                 {
-                    upgradeItem.SetPurchased(true);
+                    upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Abilities.Find(type)); 
                 }
                 break;
@@ -171,7 +171,7 @@ public class UpgradeMenu : GameMenuManager
                 type = Ability.AbilityType.Strength;
                 if (Player.Abilities.UpgradeAbility(type, level))
                 {
-                    upgradeItem.SetPurchased(true);
+                    upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Abilities.Find(type)); 
                 }
                 break;

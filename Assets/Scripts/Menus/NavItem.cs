@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public abstract class NavItem : MonoBehaviour
 {
-    public Color SelectedColor;
+    public bool Disabled, Focused;
+    public Color FocusedColor = new Color32(113, 183, 188, 255);
+    public Color DisabledColor = new Color32(255, 255, 255, 40);
     public Graphic TargetGraphic;
 
     protected Color _initialColor;
@@ -14,14 +16,25 @@ public abstract class NavItem : MonoBehaviour
         _initialColor = TargetGraphic.color;
     }
 
-    public virtual void Focus(bool value)
+    public void Focus(bool value)
     {
+        Focused = value;
         OnFocus(value);
     }
 
     protected virtual void OnFocus(bool value)
     {
-        TargetGraphic.color = value ? SelectedColor : _initialColor;
+        UpdateColor();
+    }
+
+    public void Disable(bool value)
+    {
+        Disabled = value;
+    }
+
+    public void UpdateColor()
+    {
+        TargetGraphic.color = Disabled ? DisabledColor : Focused ? FocusedColor : _initialColor;
     }
 
     public abstract void OnSelect(MenuManager manager);

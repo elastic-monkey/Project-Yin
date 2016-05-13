@@ -44,13 +44,8 @@ public class VerticalNavMenu : NavMenu
             if (Reset)
             {
                 _currentIndex = 0;
-                FocusCurrent();
             }
-            else
-            {
-                _currentIndex = 0;
-                FocusCurrent();
-            }
+            FocusCurrent();
         }
         else
         {

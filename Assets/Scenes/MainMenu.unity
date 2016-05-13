@@ -274,7 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 61299159}
   Action: 3
   Data: []
@@ -380,7 +383,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuManager: {fileID: 76119837}
+  HoverIcon: {fileID: 0}
   IsSubMenu: 1
+  UseHoverNavigation: 0
   _active: 0
   _inputBlocked: 0
   Cyclic: 0
@@ -631,7 +636,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 142699192}
   Action: 4
   Data: []
@@ -856,7 +864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuManager: {fileID: 216691607}
+  HoverIcon: {fileID: 0}
   IsSubMenu: 0
+  UseHoverNavigation: 0
   _active: 1
   _inputBlocked: 0
   Cyclic: 0
@@ -899,7 +909,6 @@ MonoBehaviour:
     OnAction: 2
     TargetMenu: {fileID: 76119838}
   LoadMenu: {fileID: 993818360}
-  AudioMenu: {fileID: 0}
 --- !u!114 &216691608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,7 +1004,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 248317751}
   Action: 1
   Data: []
@@ -1157,7 +1169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 442703573}
   Action: 4
   Data: []
@@ -1452,7 +1467,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 568050010}
   Action: 0
   Data: []
@@ -1736,7 +1754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.84705883, g: 0.39215687, b: 0.39215687, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 833587367}
   Action: 3
   Data: []
@@ -1865,7 +1886,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53670467b7921ac4caac346ecad6a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 912891025}
   Action: 1
   Data: []
@@ -1957,7 +1981,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuManager: {fileID: 993818360}
+  HoverIcon: {fileID: 0}
   IsSubMenu: 0
+  UseHoverNavigation: 0
   _active: 0
   _inputBlocked: 0
   Cyclic: 0
@@ -2056,7 +2082,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuManager: {fileID: 1040210209}
+  HoverIcon: {fileID: 0}
   IsSubMenu: 0
+  UseHoverNavigation: 0
   _active: 0
   _inputBlocked: 0
   Cyclic: 0
@@ -2273,7 +2301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53670467b7921ac4caac346ecad6a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 1273413639}
   Action: 1
   Data: []
@@ -2397,7 +2428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f112eee54747f4ea0a0c46091b3e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 1287268655}
   Action: 2
   Data: []
@@ -2995,7 +3029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1bfc46268dcdc6499a884b17c586e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 898485102}
   Action: 5
   Data: []
@@ -3249,7 +3286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53670467b7921ac4caac346ecad6a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 1934497750}
   Action: 1
   Data: []
@@ -3406,7 +3446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53670467b7921ac4caac346ecad6a059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  Disabled: 0
+  Focused: 0
+  FocusedColor: {r: 0.44313726, g: 0.7176471, b: 0.7372549, a: 1}
+  DisabledColor: {r: 1, g: 1, b: 1, a: 0.15686275}
   TargetGraphic: {fileID: 2091801942}
   Action: 1
   Data: []

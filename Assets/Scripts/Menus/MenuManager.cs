@@ -7,6 +7,11 @@ public abstract class MenuManager : MonoBehaviour
 
     public abstract void HandleInput(bool active);
 
+    public virtual void SetActive(bool value)
+    {
+        NavMenu.OnSetActive(value);
+    }
+
     protected void TransitionTo(NavMenu other)
     {
         if (other == null)

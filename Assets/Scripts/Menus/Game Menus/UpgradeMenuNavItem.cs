@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class UpgradeMenuNavItem : GameNavItem
 {
-    public Color PurchasedColor, DisabledColor;
     public int UpgradeLevel;
 
     public override void OnSelect(MenuManager manager)
@@ -20,13 +19,8 @@ public class UpgradeMenuNavItem : GameNavItem
         //base.OnFocus(value);
     }
 
-    public void SetPurchased(bool value)
+    public void Purchase(bool value)
     {
-        TargetGraphic.color = value ? PurchasedColor : _initialColor;
-    }
-
-    public void SetDisabled(bool value)
-    {
-        TargetGraphic.color = value ? DisabledColor : _initialColor;
+        base.Focus(value);
     }
 }
