@@ -14,7 +14,9 @@ public abstract class GameMenuManager : MenuManager
         UpgradeStamina,
         UpgradeSpeed,
         UpgradeShield,
-        UpgradeStrength
+        UpgradeStrength,
+		ConfirmSave,
+		RefuseSave
     }
 
     public Axis OpenKey;
