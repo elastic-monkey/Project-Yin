@@ -29,8 +29,10 @@ public class LoadMenu : MainMenuManager
         Debug.Log("Got " + SavedGames.Count + " saved games.");
     }
 
-    protected override void OnAction(Actions action, NavItem item, NavMenu target, string[] data)
+    protected override void OnAction(object actionObj, NavItem item, NavMenu target, string[] data)
     {
+        var action = (Actions)actionObj;
+
         switch (action)
         {
             case Actions.Load:

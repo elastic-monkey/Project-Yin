@@ -2,8 +2,10 @@
 
 public class QuitMenu : MainMenuManager
 {
-    protected override void OnAction(Actions action, NavItem item, NavMenu target, string[] data)
+    protected override void OnAction(object actionObj, NavItem item, NavMenu target, string[] data)
     {
+        var action = (Actions)actionObj;
+
         switch (action)
         {
             case Actions.Quit:

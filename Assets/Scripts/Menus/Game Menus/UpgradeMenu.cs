@@ -117,8 +117,10 @@ public class UpgradeMenu : GameMenuManager
         AvailableSP.text = Player.Experience.SkillPoints.ToString();
     }
 
-    protected override void OnAction(Actions action, NavItem item, NavMenu target, string[] data)
+    protected override void OnAction(object actionObj, NavItem item, NavMenu target, string[] data)
     {
+        var action = (Actions)actionObj;
+
         var upgradeItem = item as UpgradeMenuNavItem;
         var level = int.Parse(data[0]); // put in range [0-3]
 

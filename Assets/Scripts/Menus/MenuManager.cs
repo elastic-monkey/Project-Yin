@@ -9,14 +9,29 @@ public abstract class MenuManager : MonoBehaviour
 
     protected void TransitionTo(NavMenu other)
     {
-        if (other != null)
+        if (other == null)
+            return;
+        
+        other.OnSetActive(true);
+        other.InputBlocked = false;
+
+        if (other.IsSubMenu)
         {
-            other.OnSetActive(true);
+            NavMenu.InputBlocked = true;
+            NavMenu.UnfocusAll();
+        }
+        else
+        {
             NavMenu.OnSetActive(false);
         }
     }
 
     public abstract void OnNavItemSelected(NavItem item, object actionObj, object dataObj);
+
+    protected virtual void OnAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
+    {
+        TransitionTo(targetNavMenu);
+    }
 
     public virtual void OnFocus(NavItem target)
     {

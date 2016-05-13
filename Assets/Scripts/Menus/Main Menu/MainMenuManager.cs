@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class MainMenuManager : MenuManager
+public class MainMenuManager : MenuManager
 {
     public enum Actions
     {
@@ -39,8 +39,6 @@ public abstract class MainMenuManager : MenuManager
 
         OnAction(action, item, target, data);
     }
-
-    protected abstract void OnAction(Actions action, NavItem item, NavMenu target, string[] data);
 }
 
 [System.Serializable]

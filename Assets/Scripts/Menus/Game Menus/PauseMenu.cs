@@ -5,11 +5,11 @@ using System.Collections;
 
 public class PauseMenu : GameMenuManager
 {
-    protected override void OnAction(Actions action, NavItem item, NavMenu target, string[] data)
+    protected override void OnAction(object actionObj, NavItem item, NavMenu target, string[] data)
     {
-        var actionEnum = (Actions)action;
+        var action = (Actions)actionObj;
 
-        switch (actionEnum)
+        switch (action)
         {
             case Actions.Pause:
                 OnPause(true);

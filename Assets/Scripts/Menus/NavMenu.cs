@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class NavMenu : MonoBehaviour
 {
     public MenuManager MenuManager;
+    public bool IsSubMenu;
 
     [SerializeField]
     private bool _active;
@@ -89,6 +90,8 @@ public abstract class NavMenu : MonoBehaviour
         {
             _animatedPanel.SetVisible(value);
         }
+
+        FocusCurrent();
     }
 
     public abstract void UnfocusAll();

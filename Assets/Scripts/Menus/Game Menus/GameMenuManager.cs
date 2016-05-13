@@ -60,8 +60,6 @@ public abstract class GameMenuManager : MenuManager
 
         OnAction(action, item, target, data);
     }
-
-    protected abstract void OnAction(Actions action, NavItem item, NavMenu target, string[] data);
 }
 
 [System.Serializable]
