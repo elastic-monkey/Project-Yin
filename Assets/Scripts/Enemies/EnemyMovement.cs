@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utilities;
 
 [RequireComponent(typeof(NavMeshAgent), typeof(EnemyBehavior))]
 public class EnemyMovement : Movement

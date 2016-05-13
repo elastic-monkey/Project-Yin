@@ -6,23 +6,22 @@ using System.IO;
 
 public static class SaveLoad
 {
-
     private static string _savePath = "Savegame";
 
     public static void Save(bool isCheckpoint)
     {
         string saveName = GetSaveName(isCheckpoint);
-        GameState savedGame = new GameState();
-        FileStream file;
-        BinaryFormatter bf = new BinaryFormatter();
+        var savedGame = new GameState();
+        Stream file;
         if (!File.Exists(saveName))
         {
             file = File.Create(saveName);
         }
         else
         {
-            file = File.Open(saveName, FileMode.Open, FileAccess.Write);
+            file = File.OpenWrite(saveName);
         }
+        var bf = new BinaryFormatter();
         bf.Serialize(file, savedGame);
         file.Close();
     }

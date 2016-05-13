@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Utilities;
 
 [RequireComponent(typeof(BoxCollider))]
 public class SquareEnemyArea : EnemyArea

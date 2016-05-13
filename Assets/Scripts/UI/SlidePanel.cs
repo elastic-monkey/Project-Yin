@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Utilities;
 
 public class SlidePanel : MonoBehaviour, IAnimatedPanel
 {
-	public Utils.WindowPositions HidePosition, ShowPosition;
+	public PanelHelper.WindowPositions HidePosition, ShowPosition;
 	public RectTransform Container;
 	public float AnimationSpeed;
 
@@ -30,10 +31,10 @@ public class SlidePanel : MonoBehaviour, IAnimatedPanel
 
         if (Visible)
 		{
-			Utils.GetAnchorsForWindowPosition(ShowPosition, out targetMin, out targetMax);
+			PanelHelper.GetAnchorsForWindowPosition(ShowPosition, out targetMin, out targetMax);
 			while (true)
 			{
-				if (Utils.LerpRectTransformAnchors(Container, targetMin, targetMax, Time.unscaledDeltaTime * AnimationSpeed))
+				if (PanelHelper.LerpRectTransformAnchors(Container, targetMin, targetMax, Time.unscaledDeltaTime * AnimationSpeed))
 					yield break;
 
 				yield return null;
@@ -41,10 +42,10 @@ public class SlidePanel : MonoBehaviour, IAnimatedPanel
 		}
 		else
 		{
-			Utils.GetAnchorsForWindowPosition(HidePosition, out targetMin, out targetMax);
+			PanelHelper.GetAnchorsForWindowPosition(HidePosition, out targetMin, out targetMax);
 			while (true)
 			{
-				if (Utils.LerpRectTransformAnchors(Container, targetMin, targetMax, Time.unscaledDeltaTime * AnimationSpeed))
+				if (PanelHelper.LerpRectTransformAnchors(Container, targetMin, targetMax, Time.unscaledDeltaTime * AnimationSpeed))
 					yield break;
 
 				yield return null;
