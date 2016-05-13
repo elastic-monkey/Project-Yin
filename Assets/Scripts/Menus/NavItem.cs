@@ -14,7 +14,12 @@ public abstract class NavItem : MonoBehaviour
         _initialColor = TargetGraphic.color;
     }
 
-    public virtual void OnFocus(bool value)
+    public virtual void Focus(bool value)
+    {
+        OnFocus(value);
+    }
+
+    protected virtual void OnFocus(bool value)
     {
         TargetGraphic.color = value ? SelectedColor : _initialColor;
     }

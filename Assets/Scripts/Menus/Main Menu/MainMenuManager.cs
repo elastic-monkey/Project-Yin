@@ -37,7 +37,7 @@ public class MainMenuManager : MenuManager
         var target = Transitions.Find(action);
         var data = dataObj as string[];
 
-        OnAction(action, item, target, data);
+        OnNavItemAction(action, item, target, data);
     }
 }
 

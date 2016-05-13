@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShowHidePanel : MonoBehaviour, IAnimatedPanel
+public class SlidePanel : MonoBehaviour, IAnimatedPanel
 {
 	public Utils.WindowPositions HidePosition, ShowPosition;
 	public RectTransform Container;

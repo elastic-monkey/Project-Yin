@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PauseMenu : GameMenuManager
 {
-    protected override void OnAction(object actionObj, NavItem item, NavMenu target, string[] data)
+    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
     {
         var action = (Actions)actionObj;
 

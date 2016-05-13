@@ -14,7 +14,6 @@ public class MatrixNavMenu : NavMenu
     [Tooltip("Column organization means each array inside each Item is treated as either a column or a line, hence affecting navigation. " +
         "This is used only for buttons navigation! Changes in visual organization are defined by the user.")]
     public Organization MenuOrganization;
-    public RectTransform HoverIcon;
     public NavItemCollection[] Items;
 
     [SerializeField]
@@ -22,15 +21,11 @@ public class MatrixNavMenu : NavMenu
 
     private void Start()
     {
-        FocusItem(new IndexPair(0, 0));
+        _currentIndex = new IndexPair(0, 0);
+        FocusCurrent();
     }
 
     protected override void OnUpdate()
-    {
-        HandleInput();
-    }
-
-    private void HandleInput()
     {
         if (PlayerInput.IsButtonDown(Axis.Nav_Vertical) && Vertical)
         {
@@ -45,7 +40,7 @@ public class MatrixNavMenu : NavMenu
                     else
                         FocusDown();
                 }
-                else if(MenuOrganization == Organization.Line)
+                else if (MenuOrganization == Organization.Line)
                 {
                     if (v > 0)
                         FocusLeft();
@@ -67,7 +62,7 @@ public class MatrixNavMenu : NavMenu
                     else
                         FocusLeft();
                 }
-                else if(MenuOrganization == Organization.Line)
+                else if (MenuOrganization == Organization.Line)
                 {
                     if (h > 0)
                         FocusDown();
@@ -86,50 +81,42 @@ public class MatrixNavMenu : NavMenu
     {
         base.OnSetActive(value);
 
-        HoverIcon.gameObject.SetActive(value);
         if (!value && Reset)
         {
-            FocusItem(new IndexPair(0, 0));
+            _currentIndex = new IndexPair(0, 0);
+            FocusCurrent();
         }
     }
 
-    private void FocusItem(IndexPair index)
+    protected override void FocusItem(NavItem item)
     {
-        index.First = Mathf.Clamp(index.First, 0, Items.Length - 1);
+        base.FocusItem(item);
 
-        for (var i = 0; i < Items.Length; i++)
+        if (item != null)
         {
-            var items = Items[i].Items;
-            var secondIndex = Mathf.Clamp(index.Second, 0, items.Length - 1);
-
-            for (var j = 0; j < items.Length; j++)
-            {
-                if (i == index.First && j == secondIndex)
-                {
-                    index.Second = secondIndex;
-                    items[j].OnFocus(true);
-                    MenuManager.OnFocus(items[j]);
-                    HoverIcon.SetParent(items[j].transform, false);
-                }
-                else
-                {
-                    items[j].OnFocus(false);
-                }
-            }
+            item.Focus(true);
         }
 
-        _currentIndex = index;
+        foreach (var collection in Items)
+        {
+            foreach (var other in collection.Items)
+            {
+                other.Focus(other == item);
+            }
+        }
     }
 
     private void FocusDown()
     {
         if (_currentIndex.Second < Items[_currentIndex.First].Items.Length - 1)
         {
-            FocusItem(_currentIndex.Set(_currentIndex.First, _currentIndex.Second + 1));
+            _currentIndex.Set(_currentIndex.First, _currentIndex.Second + 1);
+            FocusCurrent();
         }
         else if (Cyclic)
         {
-            FocusItem(_currentIndex.Set(_currentIndex.First, 0));
+            _currentIndex.Set(_currentIndex.First, 0);
+            FocusCurrent();
         }
     }
 
@@ -137,11 +124,13 @@ public class MatrixNavMenu : NavMenu
     {
         if (_currentIndex.Second > 0)
         {
-            FocusItem(_currentIndex.Set(_currentIndex.First, _currentIndex.Second - 1));
+            _currentIndex.Set(_currentIndex.First, _currentIndex.Second - 1);
+            FocusCurrent();
         }
         else if (Cyclic)
         {
-            FocusItem(_currentIndex.Set(_currentIndex.First, Items[_currentIndex.First].Items.Length - 1));
+            _currentIndex.Set(_currentIndex.First, Items[_currentIndex.First].Items.Length - 1);
+            FocusCurrent();
         } 
     }
 
@@ -149,11 +138,13 @@ public class MatrixNavMenu : NavMenu
     {
         if (_currentIndex.First < Items.Length - 1)
         {
-            FocusItem(_currentIndex.Set(_currentIndex.First + 1, _currentIndex.Second));
+            _currentIndex.Set(_currentIndex.First + 1, Mathf.Min(_currentIndex.Second, Items[_currentIndex.First + 1].Items.Length - 1));
+            FocusCurrent();
         }
         else if (Cyclic)
         {
-            FocusItem(_currentIndex.Set(0, _currentIndex.Second));
+            _currentIndex.Set(0, Mathf.Min(_currentIndex.Second, Items[0].Items.Length - 1));
+            FocusCurrent();
         } 
     }
 
@@ -161,28 +152,41 @@ public class MatrixNavMenu : NavMenu
     {
         if (_currentIndex.First > 0)
         {
-            FocusItem(_currentIndex.Set(_currentIndex.First - 1, _currentIndex.Second));
+            _currentIndex.Set(_currentIndex.First - 1, Mathf.Min(_currentIndex.Second, Items[_currentIndex.First - 1].Items.Length - 1));
+            FocusCurrent();
         }
         else if (Cyclic)
         {
-            FocusItem(_currentIndex.Set(Items.Length - 1, _currentIndex.Second));
+            _currentIndex.Set(Items.Length - 1, Mathf.Min(_currentIndex.Second, Items[Items.Length - 1].Items.Length - 1));
+            FocusCurrent();
         }
+    }
+
+    private NavItem GetItem(IndexPair index)
+    {
+        if (index.First < 0 || index.First >= Items.Length)
+            return null;
+
+        if (index.Second < 0 || index.Second > Items[index.First].Items.Length)
+            return null;
+
+        return Items[index.First].Items[index.Second];
     }
 
     public override void UnfocusAll()
     {
         foreach (var collection in Items)
         {
-            foreach(var item in collection.Items)
+            foreach (var item in collection.Items)
             {
-                item.OnFocus(false);
+                item.Focus(false);
             }
         }
     }
 
     public override void FocusCurrent()
     {
-        FocusItem(_currentIndex);
+        FocusItem(GetItem(_currentIndex));
     }
 
     private void OnItemSelected(IndexPair index)
@@ -210,15 +214,19 @@ public class IndexPair
     public int First;
     public int Second;
 
+    public IndexPair()
+        : this(-1, -1)
+    {
+    }
+
     public IndexPair(int first, int second)
     {
         Set(first, second);
     }
 
-    public IndexPair Set(int first, int second)
+    public void Set(int first, int second)
     {
         First = first;
         Second = second;
-        return this;
     }
 }

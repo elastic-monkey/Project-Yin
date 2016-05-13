@@ -37,7 +37,7 @@ public abstract class GameMenuManager : MenuManager
                 OnPause(false);
             }
         }
-        else
+        else if(!_gameManager.GamePaused)
         {
             if (PlayerInput.IsButtonUp(OpenKey))
             {
@@ -58,7 +58,21 @@ public abstract class GameMenuManager : MenuManager
         var target = Transitions.Find(action);
         var data = dataObj as string[];
 
-        OnAction(action, item, target, data);
+        OnNavItemAction(action, item, target, data);
+    }
+
+    protected override void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
+    {
+        base.OnNavItemAction(actionObj, navItem, targetNavMenu, data);
+
+        var action = (Actions)actionObj;
+
+        switch (action)
+        {
+            case Actions.Back:
+                OnPause(false);
+                break;
+        }
     }
 }
 

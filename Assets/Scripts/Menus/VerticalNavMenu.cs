@@ -43,11 +43,13 @@ public class VerticalNavMenu : NavMenu
         {
             if (Reset)
             {
-                FocusItem(0);
+                _currentIndex = 0;
+                FocusCurrent();
             }
             else
             {
-                FocusItem(_currentIndex);
+                _currentIndex = 0;
+                FocusCurrent();
             }
         }
         else
@@ -64,30 +66,32 @@ public class VerticalNavMenu : NavMenu
             item.OnHorizontalInput(value);
     }
 
-    private void FocusItem(int index)
+    protected override void FocusItem(NavItem item)
     {
-        index = Mathf.Clamp(index, 0, Items.Length - 1);
+        base.FocusItem(item);
 
-        for (var i = 0; i < Items.Length; i++)
+        if (item != null)
         {
-            Items[i].OnFocus(i == index);
+            item.Focus(true);
         }
 
-        _currentIndex = index;
+        foreach (var other in Items)
+        {
+            other.Focus(other == item);
+        }
     }
 
     private void FocusNext()
     {
         if (_currentIndex < Items.Length - 1)
         {
-            FocusItem(_currentIndex + 1);
+            _currentIndex += 1;
+            FocusCurrent();
         }
-        else
+        else if (Cyclic)
         {
-            if (Cyclic)
-            {
-                FocusItem(0);
-            } 
+            _currentIndex = 0;
+            FocusCurrent();
         }
     }
 
@@ -95,35 +99,34 @@ public class VerticalNavMenu : NavMenu
     {
         if (_currentIndex > 0)
         {
-            FocusItem(_currentIndex - 1);
+            _currentIndex -= 1;
+            FocusCurrent();
         }
-        else
+        else if (Cyclic)
         {
-            if (Cyclic)
-            {
-                FocusItem(Items.Length - 1);
-            } 
-        } 
+            _currentIndex = Items.Length - 1;
+            FocusCurrent();
+        }
     }
 
     public override void UnfocusAll()
     {
-        foreach(var item in Items)
+        foreach (var item in Items)
         {
-            item.OnFocus(false);
+            item.Focus(false);
         }
     }
 
     public override void FocusCurrent()
     {
-        FocusItem(_currentIndex);
+        FocusItem(GetItem(_currentIndex));
     }
 
     private void OnItemSelected(int index)
     {
         var item = GetItem(index);
 
-        if(item != null)
+        if (item != null)
             item.OnSelect(MenuManager);
     }
 

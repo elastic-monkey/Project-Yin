@@ -28,12 +28,12 @@ public abstract class MenuManager : MonoBehaviour
 
     public abstract void OnNavItemSelected(NavItem item, object actionObj, object dataObj);
 
-    protected virtual void OnAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
+    protected virtual void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
     {
         TransitionTo(targetNavMenu);
     }
 
-    public virtual void OnFocus(NavItem target)
+    public virtual void OnNavItemFocused(NavItem target)
     {
         // Do nothing
     }

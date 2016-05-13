@@ -4,7 +4,9 @@ using System.Collections;
 public abstract class NavMenu : MonoBehaviour
 {
     public MenuManager MenuManager;
+    public RectTransform HoverIcon;
     public bool IsSubMenu;
+    public bool UseHoverNavigation;
 
     [SerializeField]
     private bool _active;
@@ -91,7 +93,30 @@ public abstract class NavMenu : MonoBehaviour
             _animatedPanel.SetVisible(value);
         }
 
+        if (HoverIcon != null)
+        {
+            HoverIcon.gameObject.SetActive(value);
+        }
+
         FocusCurrent();
+    }
+
+    protected virtual void FocusItem(NavItem item)
+    {
+        MenuManager.OnNavItemFocused(item);
+
+        if (HoverIcon != null)
+        {
+            if (UseHoverNavigation)
+            {
+                HoverIcon.gameObject.SetActive(true);
+                HoverIcon.SetParent(item.transform, false);
+            }
+            else
+            {
+                HoverIcon.gameObject.SetActive(false);
+            }         
+        }
     }
 
     public abstract void UnfocusAll();

@@ -6,7 +6,7 @@ public class TerminalInteraction : Interaction
 {
 
 	public string TerminalName;
-    public ShowHidePanel DialogueWindow;
+    public SlidePanel DialogueWindow;
 
     private TerminalInformation _information;
     private bool _dialogueOpen;

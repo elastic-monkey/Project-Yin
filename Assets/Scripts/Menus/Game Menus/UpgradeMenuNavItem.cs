@@ -9,10 +9,13 @@ public class UpgradeMenuNavItem : GameNavItem
 
     public override void OnSelect(MenuManager manager)
     {
-        manager.OnNavItemSelected(this, Action, UpgradeLevel);
+        Data = new string[1];
+        Data[0] = UpgradeLevel.ToString();
+
+        manager.OnNavItemSelected(this, Action, Data);
     }
 
-    public override void OnFocus(bool value)
+    protected override void OnFocus(bool value)
     {
         //base.OnFocus(value);
     }

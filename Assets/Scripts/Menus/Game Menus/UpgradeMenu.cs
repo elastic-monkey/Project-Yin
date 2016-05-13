@@ -22,12 +22,18 @@ public class UpgradeMenu : GameMenuManager
         UpdateAllItems();
     }
 
-    public override void OnFocus(NavItem target)
+    public override void OnNavItemFocused(NavItem target)
     {
+        base.OnNavItemFocused(target);
+
+        NavMenu.UseHoverNavigation = false; // <-- default
+
         var upgradeItem = target as UpgradeMenuNavItem;
         if (upgradeItem == null)
             return;
-        
+
+        NavMenu.UseHoverNavigation = true; // <-- use only for upgrade items
+
         var action = upgradeItem.Action;
 
         switch (action)
@@ -41,27 +47,24 @@ public class UpgradeMenu : GameMenuManager
                 break;
 
             case Actions.UpgradeSpeed:
-                var upgradable = Player.Abilities.Find(Ability.AbilityType.Speed);
-                if (upgradable != null)
-                    OnItemFocused(upgradeItem, upgradable);
+                OnItemFocused(upgradeItem, Player.Abilities.Find(Ability.AbilityType.Speed));
                 break;
 
             case Actions.UpgradeShield:
-                upgradable = Player.Abilities.Find(Ability.AbilityType.Shield);
-                if (upgradable != null)
-                    OnItemFocused(upgradeItem, upgradable);
+                OnItemFocused(upgradeItem, Player.Abilities.Find(Ability.AbilityType.Shield));
                 break;
 
             case Actions.UpgradeStrength:
-                upgradable = Player.Abilities.Find(Ability.AbilityType.Strength);
-                if (upgradable != null)
-                    OnItemFocused(upgradeItem, upgradable);
+                OnItemFocused(upgradeItem, Player.Abilities.Find(Ability.AbilityType.Strength));
                 break;
         }
     }
 
     private void OnItemFocused(UpgradeMenuNavItem navItem, Upgradable upgradable)
     {
+        if (upgradable == null)
+            return;
+        
         UpgradeCost.text = upgradable.UpgradeCost(navItem.UpgradeLevel).ToString();
         UpdateAvailableSP();
     }
@@ -111,18 +114,22 @@ public class UpgradeMenu : GameMenuManager
             item.SetDisabled(true);
         }
     }
-        
+
     private void UpdateAvailableSP()
     {
         AvailableSP.text = Player.Experience.SkillPoints.ToString();
     }
 
-    protected override void OnAction(object actionObj, NavItem item, NavMenu target, string[] data)
+    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
     {
+        base.OnNavItemAction(actionObj, item, target, data);
+
         var action = (Actions)actionObj;
+        if (action < Actions.UpgradeHealth || action > Actions.UpgradeStrength)
+            return;
 
         var upgradeItem = item as UpgradeMenuNavItem;
-        var level = int.Parse(data[0]); // put in range [0-3]
+        var level = (item != null) ? int.Parse(data[0]) : -1;
 
         switch (action)
         {
@@ -167,11 +174,6 @@ public class UpgradeMenu : GameMenuManager
                     upgradeItem.SetPurchased(true);
                     OnItemFocused(upgradeItem, Player.Abilities.Find(type)); 
                 }
-                break;
-
-            case Actions.Back:
-                UpdateAvailableSP();
-                OnPause(false);
                 break;
         }
 
