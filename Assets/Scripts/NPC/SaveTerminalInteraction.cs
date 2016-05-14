@@ -6,12 +6,14 @@ public class SaveTerminalInteraction : Interaction
     public RectTransform DialogueWindow;
     public SaveTerminalMenu SaveMenu;
 
-    protected override void Awake()
-    {
-        base.Awake();
-
-        _interactionText.text = "Interact with Save Terminal";
-    }
+  	
+	protected override void OnTriggerEnter(Collider collider){
+		base.OnTriggerEnter (collider);
+		if (collider.CompareTag(PlayerTag.ToString()))
+		{
+			_interactionText.text = "Interact with Save Terminal";
+		}
+	}
 
     void Update()
     {

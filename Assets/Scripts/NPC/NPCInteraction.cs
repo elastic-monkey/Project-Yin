@@ -28,7 +28,6 @@ public class NPCInteraction : Interaction
 		_npcName = FileID;
 
         Text[] textComponents = DialogueWindow.GetComponentsInChildren<Text>();
-        _interactionText.text = "Talk with " + _npcName;
         _title = textComponents[0];
         _dialogueText = textComponents[1];
 		_npcDialogueList = DialogueLoader.GetNPCDialogue(_npcName);
@@ -40,6 +39,14 @@ public class NPCInteraction : Interaction
 		_skipLine = false;
     }
 
+	protected override void OnTriggerEnter(Collider collider){
+		base.OnTriggerEnter (collider);
+		if (collider.CompareTag(PlayerTag.ToString()))
+		{
+			_interactionText.text = "Talk with " + _npcName;
+		}
+	}
+		
     void Update()
     {
         if (_player != null)

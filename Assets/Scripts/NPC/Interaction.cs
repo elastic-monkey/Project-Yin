@@ -18,7 +18,7 @@ public class Interaction : MonoBehaviour
         _interactionText = InteractionPrompt.GetComponentInChildren<Text>();
     }
 
-    protected void OnTriggerEnter(Collider collider)
+    protected virtual void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag(PlayerTag.ToString()))
         {
@@ -27,7 +27,7 @@ public class Interaction : MonoBehaviour
         }
     }
 
-	protected void OnTriggerExit(Collider collider)
+	protected virtual void OnTriggerExit(Collider collider)
     {
         InteractionPrompt.gameObject.SetActive(false);
         if (_player != null)
