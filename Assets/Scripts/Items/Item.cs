@@ -23,11 +23,5 @@ public abstract class Item : MonoBehaviour
 
 	public ItemType Type { get; protected set; }
 
-
-	private void AddItemToPlayer(PlayerBehavior player)
-	{
-		player.PlayerInventory.AddItemToInventory(this);
-	}
-
 	public abstract void UseItem();
 }

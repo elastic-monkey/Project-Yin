@@ -22,7 +22,8 @@ public class UpgradeMenu : GameMenuManager
         UpdateAllItems();
     }
 
-    public override void HandleInput(bool active){
+    public override void HandleInput(bool active)
+    {
         base.HandleInput(active);
 
         if (active)

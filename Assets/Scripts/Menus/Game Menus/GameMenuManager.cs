@@ -15,8 +15,8 @@ public abstract class GameMenuManager : MenuManager
         UpgradeSpeed,
         UpgradeShield,
         UpgradeStrength,
-		ConfirmSave,
-		RefuseSave,
+        ConfirmSave,
+        RefuseSave,
         GoToUpgradeMenu,
         GoToInventoryMenu
     }
@@ -39,7 +39,7 @@ public abstract class GameMenuManager : MenuManager
                 OnPause(false);
             }
         }
-        else if(!_gameManager.GamePaused)
+        else if (!_gameManager.GamePaused)
         {
             if (PlayerInput.IsButtonUp(OpenKey))
             {
@@ -90,7 +90,7 @@ public class GameMenuTransition
 {
     public string Name;
     public GameMenuManager.Actions OnAction;
-    public NavMenu TargetMenu;   
+    public NavMenu TargetMenu;
 }
 
 public static class GameMenuTransitionHelper
