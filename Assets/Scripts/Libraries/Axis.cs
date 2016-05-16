@@ -18,7 +18,7 @@ public enum Axis
     Submit,
     Nav_Horizontal,
     Nav_Vertical,
-    Upgrade_Menu
+    Player_Menu
 }
 
 public static class AxisHelper
@@ -40,7 +40,7 @@ public static class AxisHelper
         { Axis.Submit, "Submit"},
         { Axis.Nav_Horizontal, "Nav Horizontal"},
         { Axis.Nav_Vertical, "Nav Vertical"},
-        { Axis.Upgrade_Menu, "Upgrade Menu"}
+        { Axis.Player_Menu, "Player Menu"}
 	};
 
     public static string EditorName(this Axis axis)

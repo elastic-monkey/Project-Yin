@@ -22,6 +22,19 @@ public class UpgradeMenu : GameMenuManager
         UpdateAllItems();
     }
 
+    public override void HandleInput(bool active){
+        base.HandleInput(active);
+
+        if (active)
+        {
+            if (PlayerInput.IsButtonUp(BackKey) && active)
+            {
+                TransitionTo(Transitions[0].TargetMenu);
+                _gameManager.SetGamePaused(true);
+            }
+        }
+    }
+
     public override void OnNavItemFocused(NavItem target)
     {
         base.OnNavItemFocused(target);

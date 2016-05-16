@@ -16,7 +16,9 @@ public abstract class GameMenuManager : MenuManager
         UpgradeShield,
         UpgradeStrength,
 		ConfirmSave,
-		RefuseSave
+		RefuseSave,
+        GoToUpgradeMenu,
+        GoToInventoryMenu
     }
 
     public Axis OpenKey;

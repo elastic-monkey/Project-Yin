@@ -14,6 +14,7 @@ public abstract class MenuManager : MonoBehaviour
 
     protected void TransitionTo(NavMenu other)
     {
+        Debug.Log("Transition");
         if (other == null)
             return;
         
