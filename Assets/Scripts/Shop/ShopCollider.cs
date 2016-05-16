@@ -7,9 +7,7 @@ public class ShopCollider : MonoBehaviour {
     public Tags TagToCompare;
     public Canvas ShopUI;
 
-    public Text totalValueText;
-
-    void OnCollisionEnter(Collision collision)
+	void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag(TagToCompare.ToString()))
         {
@@ -17,10 +15,6 @@ public class ShopCollider : MonoBehaviour {
             ShopUI.gameObject.SetActive(true);
 
             var player = GetPlayer(collision.collider);
-            var value = player.PlayerInventory.GetTotalInventoryValue();
-
-            totalValueText.text = "You have " + value + "$ in items!";
-
         }
     }
 

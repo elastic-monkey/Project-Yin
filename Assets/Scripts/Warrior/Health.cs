@@ -51,6 +51,14 @@ public class Health : Upgradable
         Alive = true;
     }
 
+	public void RecoverHealth(int recovery){
+		if (CurrentHealth + recovery > MaxHealth) {
+			CurrentHealth = MaxHealth;
+		} else {
+			CurrentHealth += recovery;
+		}
+	}
+
     protected override void OnUpgradeTo(int level)
     {
         MaxHealth = BaseMaxHealth + level * HealthLevelIncrement;

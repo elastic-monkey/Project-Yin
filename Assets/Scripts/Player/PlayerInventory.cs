@@ -3,33 +3,23 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public List<Item> Items;
+	public List<InventorySlotNavItem> Items;
 
-    public PlayerInventory()
-    {
-        Items = new List<Item>();
-    }
+	public void Start()
+	{
+		Items = new List<InventorySlotNavItem>();
+	}
 
-    public void AddItemToInventory(Item item)
-    {
-        Items.Add(item);
-    }
-
-    public void RemoveItemFromInventory(Item item)
-    {
-        Items.Remove(item);
-    }
-
-    public int GetTotalInventoryValue()
-    {
-        var value = 0;
-
-        foreach (var item in Items)
-        {
-            value += item.Value;
-        }
-
-        return value;
-    }
+	public void AddItemToInventory(Item item)
+	{
+		for (var i = 0; i < Items.Count; i++)
+		{
+			if (Items[i].Item.Type == item.Type)
+			{
+				Items[i].IncreaseStock(Items[i].Stock + 1);
+			}
+		}
+		Debug.Log("Adding a new Item");
+	}
 }
 

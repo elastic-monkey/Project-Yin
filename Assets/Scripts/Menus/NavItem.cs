@@ -4,48 +4,48 @@ using UnityEngine.UI;
 
 public abstract class NavItem : MonoBehaviour
 {
-    public bool Disabled, Focused;
-    public Color FocusedColor = new Color32(113, 183, 188, 255);
-    public Color DisabledColor = new Color32(255, 255, 255, 40);
-    public Graphic TargetGraphic;
+	public bool Disabled, Focused;
+	public Color FocusedColor = new Color32(113, 183, 188, 255);
+	public Color DisabledColor = new Color32(255, 255, 255, 40);
+	public Graphic TargetGraphic;
 
-    protected Color _initialColor;
+	protected Color _initialColor;
 
-    protected void Awake()
-    {
-        _initialColor = TargetGraphic.color;
-    }
+	protected void Awake()
+	{
+		_initialColor = TargetGraphic.color;
+	}
 
-    public void Focus(bool value)
-    {
-        Focused = value;
-        OnFocus(value);
-    }
+	public void Focus(bool value)
+	{
+		Focused = value;
+		OnFocus(value);
+	}
 
-    protected virtual void OnFocus(bool value)
-    {
-        UpdateColor();
-    }
+	protected virtual void OnFocus(bool value)
+	{
+		UpdateColor();
+	}
 
-    public void Disable(bool value)
-    {
-        Disabled = value;
-    }
+	public void Disable(bool value)
+	{
+		Disabled = value;
+	}
 
-    public void UpdateColor()
-    {
-        TargetGraphic.color = Disabled ? DisabledColor : Focused ? FocusedColor : _initialColor;
-    }
+	public void UpdateColor()
+	{
+		TargetGraphic.color = Disabled ? DisabledColor : Focused ? FocusedColor : _initialColor;
+	}
 
-    public abstract void OnSelect(MenuManager manager);
+	public abstract void OnSelect(MenuManager manager);
 
-    public virtual void OnHorizontalInput(float value)
-    {
-        // Not implemented here
-    }
+	public virtual void OnHorizontalInput(float value)
+	{
+		// Not implemented here
+	}
 
-    public virtual void OnVerticalInput(float value)
-    {
-        // Not implemented here
-    }
+	public virtual void OnVerticalInput(float value)
+	{
+		// Not implemented here
+	}
 }
