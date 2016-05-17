@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerBehavior Player;
 	public GameOver GameOverMenu;
+    public InteractionPrompt InteractionPrompt;
 
     [SerializeField]
     private bool _gamePaused;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Awake()
+    private void Awake()
     {
 		/*if (_instance != null)
 			Destroy (gameObject);*/
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         if (Player == null)
             Debug.LogError("Player instance is not defined");
@@ -87,5 +88,10 @@ public class GameManager : MonoBehaviour
     public void SetGamePaused(bool value)
     {
         GamePaused = value;
+    }
+
+    public void BlockGameplayInput(bool value)
+    {
+        PlayerInput.GameplayBlocked = value;
     }
 }

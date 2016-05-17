@@ -129,7 +129,7 @@ public class VerticalNavMenu : NavMenu
     {
         if (index < 0 || index >= Items.Length)
         {
-            Debug.LogWarning("Tried to select invalid item.");
+            Debug.Log("Tried to select invalid item.");
             return null;
         }
 
