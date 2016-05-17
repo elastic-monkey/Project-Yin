@@ -4,90 +4,76 @@
 [RequireComponent(typeof(Experience))]
 public class PlayerBehavior : WarriorBehavior
 {
-	private PlayerMovement _playerMovement;
-	private AbilitiesManager _abilities;
-	private Experience _experience;
-    private PlayerInventory _playerInventory;
+    private PlayerMovement _playerMovement;
+    private AbilitiesManager _abilities;
+    private Experience _experience;
 
-	public Experience Experience
-	{
-		get
-		{
-			if (_experience == null)
-				_experience = GetComponent<Experience>();
-
-			return _experience;
-		}
-	}
-
-	public PlayerMovement PlayerMovement
-	{
-		get
-		{
-			if (_playerMovement == null)
-				_playerMovement = GetComponent<PlayerMovement>();
-
-			return _playerMovement;
-		}
-	}
-
-	public AbilitiesManager Abilities
-	{
-		get
-		{
-			if(_abilities == null)
-				_abilities = GetComponent<AbilitiesManager>();
-
-			return _abilities;
-		}
-	}
-
-    public PlayerInventory PlayerInventory
+    public Experience Experience
     {
         get
         {
-            if (_playerInventory == null)
-            {
-                _playerInventory = GetComponent<PlayerInventory>();
-            }
+            if (_experience == null)
+                _experience = GetComponent<Experience>();
 
-            return _playerInventory;
+            return _experience;
         }
     }
 
-	protected override void Awake()
-	{
-		base.Awake();
-	}
+    public PlayerMovement PlayerMovement
+    {
+        get
+        {
+            if (_playerMovement == null)
+                _playerMovement = GetComponent<PlayerMovement>();
 
-	protected override void Update()
-	{
-		base.Update();
+            return _playerMovement;
+        }
+    }
 
-		if (!Health.Alive)
-			return;
+    public AbilitiesManager Abilities
+    {
+        get
+        {
+            if (_abilities == null)
+                _abilities = GetComponent<AbilitiesManager>();
 
-		if (Health.CurrentHealth <= 0)
-		{
-			_gameManager.OnPlayerDeath (this);
+            return _abilities;
+        }
+    }
 
-			PlayerDeath ();
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
-			return;
-		}
+    protected override void Update()
+    {
+        base.Update();
 
-		if (!PlayerInput.GameplayBlocked)
-		{
-			Abilities.ApplyAbilities();
+        if (!Health.Alive)
+            return;
 
-			Attack.ApplyAttack();
+        if (Health.CurrentHealth <= 0)
+        {
+            _gameManager.OnPlayerDeath(this);
 
-			if (!Attack.Attacking)
-				Defense.ApplyDefense();
+            PlayerDeath();
 
-			PlayerMovement.CanMove = !Attack.Attacking && !Defense.Defending;
-		}
-	}
+            return;
+        }
+
+        if (!PlayerInput.GameplayBlocked)
+        {
+            Abilities.ApplyAbilities();
+
+            Attack.ApplyAttack();
+
+            if (!Attack.Attacking)
+                Defense.ApplyDefense();
+
+            PlayerMovement.CanMove = !Attack.Attacking && !Defense.Defending;
+        }
+    }
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -111,11 +97,11 @@ public class PlayerBehavior : WarriorBehavior
         } 
     }
 
-	void FixedUpdate()
-	{
-		if (!PlayerInput.GameplayBlocked)
-		{
-			PlayerMovement.ApplyMovement();
-		}
-	}
+    void FixedUpdate()
+    {
+        if (!PlayerInput.GameplayBlocked)
+        {
+            PlayerMovement.ApplyMovement();
+        }
+    }
 }

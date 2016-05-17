@@ -8,6 +8,10 @@ public class FadeInOutPanel : MonoBehaviour, IAnimatedPanel
 
     private Coroutine _oldAnim;
 
+    public void Start(){
+        AlphaContainer.alpha = 0f;
+    }
+
     public void SetVisible(bool value)
     {
         if (_oldAnim != null)

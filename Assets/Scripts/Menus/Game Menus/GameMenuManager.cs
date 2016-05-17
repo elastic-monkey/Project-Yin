@@ -17,13 +17,17 @@ public abstract class GameMenuManager : MenuManager
         UpgradeStrength,
 		ConfirmSave,
 		RefuseSave,
-        OpenDialog
+        OpenDialog,
+        GoToUpgradeMenu,
+        GoToInventoryMenu,
+        UseItem
     }
 
     public bool PauseGame = true;
     [Tooltip("Only gets applied if PauseGame is set to false")]
     public bool BlockGameplayInput = true;
     public Axis OpenKey;
+    public Actions OnBack;
     public GameMenuTransition[] Transitions;
     protected GameManager _gameManager;
 
@@ -41,7 +45,7 @@ public abstract class GameMenuManager : MenuManager
                 OnBackPressed();
             }
         }
-        else if(!_gameManager.GamePaused)
+        else if (!_gameManager.GamePaused)
         {
             if (PlayerInput.IsButtonUp(OpenKey))
             {
@@ -50,14 +54,14 @@ public abstract class GameMenuManager : MenuManager
         }
     }
 
-    protected virtual void OnBackPressed()
-    {
-        OnPause(false);
-    }
-
     protected virtual void OnOpen()
     {
         OnPause(true);
+    }
+
+    public void OnBackPressed()
+    {
+        OnNavItemSelected(null, OnBack, null);
     }
 
     public override void SetActive(bool value)
@@ -109,7 +113,7 @@ public class GameMenuTransition
 {
     public string Name;
     public GameMenuManager.Actions OnAction;
-    public NavMenu TargetMenu;   
+    public NavMenu TargetMenu;
 }
 
 public static class GameMenuTransitionHelper
