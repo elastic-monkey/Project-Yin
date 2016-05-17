@@ -55,15 +55,6 @@ public class InventoryMenuManager : GameMenuManager
     {
         base.OnNavItemFocused(target);
 
-    }
-
-    private void OnItemFocused(UpgradeMenuNavItem navItem, Upgradable upgradable)
-    {
-      
-    }
-
-    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
-    {
-
+        NavMenu.UseHoverNavigation = true;
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class InventorySlotNavItem : NavItem
+public class InventorySlotNavItem : GameNavItem
 {
     private int _stock;
     public Item Item;
@@ -47,7 +47,13 @@ public class InventorySlotNavItem : NavItem
 
     public override void OnSelect(MenuManager manager)
     {
+        Debug.Log("asdasdasd");
         UseItem();
+    }
+
+    protected override void OnFocus(bool value)
+    {
+        //base.OnFocus(value);
     }
 
     public void UseItem()
