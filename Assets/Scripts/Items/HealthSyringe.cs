@@ -5,15 +5,15 @@ using System.Collections;
 public class HealthSyringe : Item
 {
 
-	public int RecoveryValue;
+    public int RecoveryValue;
 
-	public HealthSyringe()
-	{
-		Type = ItemType.HealthRecovery;
-	}
+    public HealthSyringe()
+    {
+        Type = ItemType.HealthRecovery;
+    }
 
-	public override void UseItem()
-	{
-		_player.Health.RecoverHealth(RecoveryValue);
-	}
+    public override void UseItem(PlayerBehavior player)
+    {
+        player.Health.RecoverHealth(RecoveryValue);
+    }
 }

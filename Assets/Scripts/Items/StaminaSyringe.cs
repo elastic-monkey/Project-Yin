@@ -5,25 +5,25 @@ using System.Collections;
 public class StaminaSyringe : Item
 {
 
-	public float StaminaRegenMulti;
-	public float Duration;
+    public float StaminaRegenMulti;
+    public float Duration;
 
-	public StaminaSyringe()
-	{
-		Type = ItemType.StaminaRegenRate;
-	}
+    public StaminaSyringe()
+    {
+        Type = ItemType.StaminaRegenRate;
+    }
 
-	public override void UseItem()
-	{
-		StartCoroutine(UseStaminaSyringe());
-	}
+    public override void UseItem(PlayerBehavior player)
+    {
+        StartCoroutine(UseStaminaSyringe(player));
+    }
 
-	private IEnumerator UseStaminaSyringe()
-	{
-		_player.Stamina.RegenerationRate *= StaminaRegenMulti;
+    private IEnumerator UseStaminaSyringe(PlayerBehavior player)
+    {
+        player.Stamina.RegenerationRate *= StaminaRegenMulti;
 
-		yield return new WaitForSeconds(Duration);
+        yield return new WaitForSeconds(Duration);
 
-		_player.Stamina.RegenerationRate /= StaminaRegenMulti;
-	}
+        player.Stamina.RegenerationRate /= StaminaRegenMulti;
+    }
 }

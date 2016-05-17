@@ -4,15 +4,11 @@ using System.Collections;
 
 public class InventorySlotNavItem : GameNavItem
 {
+    [SerializeField]
     private int _stock;
     public Item Item;
     public Text StockDisplay;
-
-    public InventorySlotNavItem(Item item)
-    {
-        Item = item;
-        Stock = 1;
-    }
+    public Image ItemIcon;
 
     public int Stock
     {
@@ -30,8 +26,13 @@ public class InventorySlotNavItem : GameNavItem
     {
         get
         {
-            return _stock > 0;
+            return _stock > 0 && Item != null;
         }
+    }
+
+    public void Start()
+    {
+        UpdateSlot();
     }
 
     public void AddItem(Item item)
@@ -61,7 +62,8 @@ public class InventorySlotNavItem : GameNavItem
         if (CanUse)
         {
             Stock -= 1;
-            Item.UseItem();
+            Item.UseItem(null);
+            UpdateSlot();
         }
         if (Stock == 0)
         {
@@ -72,5 +74,17 @@ public class InventorySlotNavItem : GameNavItem
     public void RemoveItem()
     {
         Item = null;
+    }
+
+    public void UpdateSlot()
+    {
+        if (Item != null && Stock > 0)
+        {
+            StockDisplay.text = "[" + Stock + "]";
+        }
+        else
+        {
+            StockDisplay.text = "";
+        }
     }
 }
