@@ -45,7 +45,6 @@ public class InventoryMenuManager : GameMenuManager
         {
             if (PlayerInput.IsButtonUp(BackKey) && active)
             {
-                TransitionTo(Transitions[0].TargetMenu);
                 _gameManager.SetGamePaused(true);
             }
         }

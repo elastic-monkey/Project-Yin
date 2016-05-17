@@ -23,6 +23,7 @@ public abstract class GameMenuManager : MenuManager
     }
 
     public Axis OpenKey;
+    public Actions OnBack;
     public GameMenuTransition[] Transitions;
     protected GameManager _gameManager;
 
@@ -38,6 +39,7 @@ public abstract class GameMenuManager : MenuManager
             if (PlayerInput.IsButtonUp(BackKey) && active)
             {
                 OnPause(false);
+                OnBackPressed();
             }
         }
         else if (!_gameManager.GamePaused)
@@ -47,6 +49,11 @@ public abstract class GameMenuManager : MenuManager
                 OnPause(true);
             }            
         }
+    }
+
+    public void OnBackPressed()
+    {
+        OnNavItemSelected(null, OnBack, null);
     }
 
     public override void SetActive(bool value)

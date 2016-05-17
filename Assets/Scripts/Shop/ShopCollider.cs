@@ -13,8 +13,6 @@ public class ShopCollider : MonoBehaviour {
         {
             Debug.Log("I'm at the store.");
             ShopUI.gameObject.SetActive(true);
-
-            var player = GetPlayer(collision.collider);
         }
     }
 
