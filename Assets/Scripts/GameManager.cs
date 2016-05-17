@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerBehavior Player;
 	public GameOver GameOverMenu;
-    public InteractionsManager Interactions;
+    public InteractionPrompt InteractionPrompt;
 
     [SerializeField]
     private bool _gamePaused;

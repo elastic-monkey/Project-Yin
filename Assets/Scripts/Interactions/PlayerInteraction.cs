@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(SphereCollider))]
-public class PlayerInteraction : MonoBehaviour
+public abstract class PlayerInteraction : MonoBehaviour
 {
     [Range(1, 4)]
-    public float InteractionRadius;
-    public InteractionsManager.Actions Action;
+    public float InteractionRadius = 2f;
     public string PromptText;
     public Axis ActivateKey;
-    public bool CanBeActivated;
+    public bool CanBeActivated, Active;
 
-    private InteractionsManager _interactionsManager;
+    protected GameManager _gameManager;
+    protected InteractionPrompt _interactionPrompt;
+
     private SphereCollider _collider;
-    private PlayerBehavior _player;
-    private bool _canBeOpen;
+    private bool _activeNextFrame;
 
     public SphereCollider Collider
     {
@@ -27,24 +26,32 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Collider.isTrigger = true;
     }
 
     private void Start()
     {
-        _interactionsManager = GameManager.Instance.Interactions;
-        _player = GameManager.Instance.Player;
+        _gameManager = GameManager.Instance;
+        _interactionPrompt = _gameManager.InteractionPrompt;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        if (CanBeActivated && PlayerInput.IsButtonDown(ActivateKey))
+        if (_activeNextFrame)
         {
-            CanBeActivated = false;
-            _interactionsManager.StartInteraction(Action, this);
+            _activeNextFrame = false;
+            Active = true;
         }
+    }
+
+    public virtual void SetActive(bool value)
+    {
+        BlockInput(value);
+
+        _activeNextFrame = value;
+        Active = false;
     }
 
     private void OnValidate()
@@ -52,21 +59,21 @@ public class PlayerInteraction : MonoBehaviour
         Collider.radius = InteractionRadius;
     }
 
-    virtual protected void OnTriggerEnter(Collider collider)
+    protected virtual void OnTriggerEnter(Collider collider)
     {
-        if (collider == _player.MainCollider)
+        if (collider == _gameManager.Player.MainCollider)
         {
-            _interactionsManager.ShowPrompt(true, this);
             CanBeActivated = true;
+            _interactionPrompt.Show(true, this);
         }
     }
 
-    virtual protected void OnTriggerExit(Collider collider)
+   protected virtual void OnTriggerExit(Collider collider)
     {
-        if (collider == _player.MainCollider)
+        if (collider == _gameManager.Player.MainCollider)
         {
-            _interactionsManager.ShowPrompt(false, this);
             CanBeActivated = false;
+            _interactionPrompt.Show(false, this);
         }
     }
 

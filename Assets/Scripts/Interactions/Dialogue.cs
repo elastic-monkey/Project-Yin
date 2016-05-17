@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class NPCDialogue : IComparable<NPCDialogue>
+public class Dialogue : IComparable<Dialogue>
 {
     public int Id;
     public List<NPCLine> Lines;
 
-    int IComparable<NPCDialogue>.CompareTo(NPCDialogue other)
+    int IComparable<Dialogue>.CompareTo(Dialogue other)
     {
         if (this.Id > other.Id)
         {

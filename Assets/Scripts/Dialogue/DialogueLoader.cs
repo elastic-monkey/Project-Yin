@@ -4,7 +4,6 @@ using System.IO;
 
 public class DialogueLoader
 {
-
     public static XmlDocument OpenDialogueFile(string file)
     {
         string FileToOpen = "Dialogue/" + file + ".xml";
@@ -20,28 +19,27 @@ public class DialogueLoader
         }
     }
 
-    public static List<NPCDialogue> GetNPCDialogue(string npcName)
+    public static List<Dialogue> LoadNPCDialogue(string npcName, DialogueType type)
     {
-        var list = new List<NPCDialogue>();
+        var list = new List<Dialogue>();
 
-        var dialogueFile = OpenDialogueFile("NPCDialogue");
-        var npcDialogue = dialogueFile.SelectSingleNode("/Document/" + npcName);
+        var dialogueFile = OpenDialogueFile(type.Filename());
+        var dialogueNode = dialogueFile.SelectSingleNode("/Document/" + npcName);
 
-        foreach (XmlNode xmlDialogue in npcDialogue)
+        foreach (XmlNode xmlDialogue in dialogueNode)
         {
-            list.Add(ParseDialog(xmlDialogue));
+            list.Add(ParseDialogue(xmlDialogue));
         }
 
         list.Sort();
-
         return list;
     }
 
-    public static NPCDialogue ParseDialog(XmlNode xmlDialogue)
+    public static Dialogue ParseDialogue(XmlNode xmlDialogue)
     {
-        var npcDialog = new NPCDialogue();
-        npcDialog.Id = int.Parse(xmlDialogue.Attributes[0].Value);
-        npcDialog.Lines = new List<NPCLine>();
+        var npcDialogue = new Dialogue();
+        npcDialogue.Id = xmlDialogue.Attributes.Count > 0 ? int.Parse(xmlDialogue.Attributes[0].Value) : 0;
+        npcDialogue.Lines = new List<NPCLine>();
 
         foreach (XmlNode line in xmlDialogue)
         {
@@ -53,53 +51,44 @@ public class DialogueLoader
                     case "id":
                         npcLine.Id = int.Parse(attr.Value);
                         break;
+
                     case "owner":
+                        npcLine.owner = attr.Value;
+                        break;
+
+                    case "title":
                         npcLine.owner = attr.Value;
                         break;
                 }
             }
             npcLine.text = line.InnerText.Trim();
-            npcDialog.Lines.Add(npcLine);
+            npcDialogue.Lines.Add(npcLine);
         }
 
-        npcDialog.Lines.Sort();
-        return npcDialog;
+        npcDialogue.Lines.Sort();
+        return npcDialogue;
     }
+}
 
-    public static TerminalInformation GetTerminalInfo(string terminalName)
+public enum DialogueType
+{
+    NPC,
+    Terminal
+}
+
+public static class DialogueHelper
+{
+    public static string Filename(this DialogueType type)
     {
-        var terminalInformation = new TerminalInformation();
-        terminalInformation.logs = new List<TerminalLog>();
-
-        var dialogueFile = OpenDialogueFile("Terminals");
-        var terminalLogs = dialogueFile.SelectSingleNode("/Document/" + terminalName);
-
-        foreach (XmlNode log in terminalLogs)
+        switch (type)
         {
-            terminalInformation.logs.Add(ParseTerminalLog(log));
+            case DialogueType.NPC:
+                return "NPCDialogue";
+
+            case DialogueType.Terminal:
+                return "Terminals";
         }
 
-        terminalInformation.logs.Sort();
-        return terminalInformation;
-    }
-
-    public static TerminalLog ParseTerminalLog(XmlNode xmlLog)
-    {
-        var log = new TerminalLog();
-
-        foreach (XmlAttribute attr in xmlLog.Attributes)
-        {
-            switch (attr.Name)
-            {
-                case "id":
-                    log.Id = int.Parse(attr.Value);
-                    break;
-                case "title":
-                    log.title = attr.Value;
-                    break;
-            }
-        }
-        log.text = xmlLog.InnerText.Trim();
-        return log;
+        return string.Empty;
     }
 }
