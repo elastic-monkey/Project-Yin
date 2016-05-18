@@ -16,8 +16,12 @@ public abstract class Item : MonoBehaviour
     public int BuyPrice;
     public int SellPrice;
     public string ItemName;
+    public int MaxStock;
+    public Image Icon;
 
     public ItemType Type { get; protected set; }
 
-    public abstract void UseItem(PlayerBehavior player);
+    public abstract void UseItem();
+
+    public abstract bool CanUse();
 }

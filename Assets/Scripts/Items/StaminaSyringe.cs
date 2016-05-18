@@ -7,23 +7,29 @@ public class StaminaSyringe : Item
 
     public float StaminaRegenMulti;
     public float Duration;
+    public PlayerBehavior Player;
 
     public StaminaSyringe()
     {
         Type = ItemType.StaminaRegenRate;
     }
 
-    public override void UseItem(PlayerBehavior player)
+    public override void UseItem()
     {
-        StartCoroutine(UseStaminaSyringe(player));
+        StartCoroutine(UseStaminaSyringe());
     }
 
-    private IEnumerator UseStaminaSyringe(PlayerBehavior player)
+    private IEnumerator UseStaminaSyringe()
     {
-        player.Stamina.RegenerationRate *= StaminaRegenMulti;
+        Player.Stamina.RegenerationRate *= StaminaRegenMulti;
 
         yield return new WaitForSeconds(Duration);
 
-        player.Stamina.RegenerationRate /= StaminaRegenMulti;
+        Player.Stamina.RegenerationRate /= StaminaRegenMulti;
+    }
+
+    public override bool CanUse()
+    {
+        return true;
     }
 }

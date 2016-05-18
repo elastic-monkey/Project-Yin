@@ -43,12 +43,12 @@ public class InventorySlotNavItem : GameNavItem
 
     public void IncreaseStock(int number)
     {
-        Stock += number;
+        if (Stock + number <= Item.MaxStock)
+            Stock += number;
     }
 
     public override void OnSelect(MenuManager manager)
     {
-        Debug.Log("asdasdasd");
         UseItem();
     }
 
@@ -59,10 +59,10 @@ public class InventorySlotNavItem : GameNavItem
 
     public void UseItem()
     {
-        if (CanUse)
+        if (CanUse && Item.CanUse())
         {
             Stock -= 1;
-            Item.UseItem(null);
+            Item.UseItem();
             UpdateSlot();
         }
         if (Stock == 0)
@@ -80,11 +80,15 @@ public class InventorySlotNavItem : GameNavItem
     {
         if (Item != null && Stock > 0)
         {
+            ItemIcon.sprite = Item.Icon.sprite;
             StockDisplay.text = "[" + Stock + "]";
         }
         else
         {
             StockDisplay.text = "";
+            Color temp = Color.white;
+            temp.a = 0f;
+            ItemIcon.color = temp;
         }
     }
 }
