@@ -7,7 +7,6 @@ public class HealthSyringe : Item
 {
  
     public int RecoveryValue;
-    public PlayerBehavior Player;
 
     public void Start()
     {

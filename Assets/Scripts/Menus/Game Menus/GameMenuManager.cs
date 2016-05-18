@@ -20,7 +20,8 @@ public abstract class GameMenuManager : MenuManager
         OpenDialog,
         GoToUpgradeMenu,
         GoToInventoryMenu,
-        UseItem
+        UseItem,
+        BuyItem
     }
 
     public bool PauseGame = true;
