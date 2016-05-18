@@ -16,11 +16,10 @@ public class UpgradeMenuNavItem : GameNavItem
 
     protected override void OnFocus(bool value)
     {
-        //base.OnFocus(value);
     }
 
     public void Purchase(bool value)
     {
-        base.Focus(value);
+        Focus(value);
     }
 }
