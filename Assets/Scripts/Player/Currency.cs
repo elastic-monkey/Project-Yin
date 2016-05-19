@@ -2,33 +2,54 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Currency : MonoBehaviour {
+public class Currency : MonoBehaviour
+{
 
-	public float MaxCredits = 999999f;
-	public Text PlayerCredits;
+    public float MaxCredits = 99999f;
+    public Text PlayerCredits;
+    [SerializeField]
+    private float _currentCredits;
 
-	private float _currentCredits;
+    public float CurrentCredits
+    {
+        get
+        {
+            return _currentCredits;
+        }
+        set
+        {
+            _currentCredits = value;
+            //_currentCredits = Mathf.Clamp(_currentCredits, 0f, MaxCredits);
+        }
+    }
 
-	public float CurrentCredits{
-		get{
-			return _currentCredits;
-		}
-		set{
-			_currentCredits = Mathf.Clamp(value + _currentCredits, 0f, MaxCredits);
-			PlayerCredits.text = _currentCredits.ToString ();
-		}
-	}
+    public void AddCredits(float credits)
+    {
+        CurrentCredits += credits;
+        UpgradeCreditsTotal();
+    }
 
-	public void AddCredits(float credits){
-		CurrentCredits += credits;
-	}
+    public void RemoveCredits(float credits)
+    {
+        AddCredits(-credits);
+        UpgradeCreditsTotal();
+    }
 
-	public void RemoveCredits(float credits){
-		AddCredits (-credits);
-	}
+    void Start()
+    {
+        CurrentCredits = 1000f;
+        UpgradeCreditsTotal();
+    }
 
-	void Awake(){
-		// TODO LOAD CREDITS FROM SAVEFILE
-		CurrentCredits = 1000f;
-	}
+    public void UpgradeCreditsTotal()
+    {
+        PlayerCredits.text = CurrentCredits.ToString();
+    }
+
+    public bool CanBuy(float price)
+    {
+        if (price <= CurrentCredits)
+            return true;
+        return false;
+    }
 }

@@ -7,6 +7,7 @@ public class PlayerBehavior : WarriorBehavior
     private PlayerMovement _playerMovement;
     private AbilitiesManager _abilities;
     private Experience _experience;
+    private Currency _currency;
 
     public Experience Experience
     {
@@ -16,6 +17,17 @@ public class PlayerBehavior : WarriorBehavior
                 _experience = GetComponent<Experience>();
 
             return _experience;
+        }
+    }
+
+    public Currency Currency
+    {
+        get
+        {
+            if (_currency == null)
+                _currency = GetComponent<Currency>();
+
+            return _currency;
         }
     }
 

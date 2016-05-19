@@ -8,12 +8,11 @@ public class ShopMenuNavItem : GameNavItem
     public Image ItemIcon;
     public InventoryMenuManager PlayerInventory;
 
-    public bool CanBuy
+    public bool CanSell
     {
         get
         {
-            //return Item.Player.Credits.CurrentCredits > Item.BuyPrice && Item != null;
-            return true;
+            return Item.Player.Currency.CanBuy(Item.BuyPrice) && Item != null;
         }
     }
 
@@ -25,12 +24,13 @@ public class ShopMenuNavItem : GameNavItem
 
     public override void OnSelect(MenuManager manager)
     {
-        SellItemToPlayer();
+        if (CanSell)
+            SellItemToPlayer();
     }
 
     public void SellItemToPlayer()
     {
-        //Item.Player.Credits.CurrentCredits
+        PlayerInventory.AddItemToInventory(Item);
     }
 
     public void UpdateSlot()

@@ -44,7 +44,10 @@ public class InventorySlotNavItem : GameNavItem
     public void IncreaseStock(int number)
     {
         if (Stock + number <= Item.MaxStock)
+        {
             Stock += number;
+            UpdateSlot();
+        }
     }
 
     public override void OnSelect(MenuManager manager)

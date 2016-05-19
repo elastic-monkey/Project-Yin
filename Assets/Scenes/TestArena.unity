@@ -8283,7 +8283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491712, guid: 1603fac283138ab43b80974509094182, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11470722, guid: 1603fac283138ab43b80974509094182, type: 2}
       propertyPath: Target
@@ -9996,13 +9996,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavMenu: {fileID: 1306519500}
-  BackKey: 11
+  BackKey: 4
   PauseGame: 1
   BlockGameplayInput: 1
   OpenKey: 4
   OnBack: 4
   Transitions: []
-  ShopSlots: []
 --- !u!114 &1306519500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13457,7 +13456,16 @@ MonoBehaviour:
   - Name: Player Menu
     OnAction: 4
     TargetMenu: {fileID: 457020479}
-  InventorySlots: []
+  InventorySlots:
+  - {fileID: 609602111}
+  - {fileID: 668983101}
+  - {fileID: 2056177209}
+  - {fileID: 925328427}
+  - {fileID: 1165495722}
+  - {fileID: 1685158262}
+  - {fileID: 1836662821}
+  - {fileID: 1592330603}
+  - {fileID: 1311753125}
 --- !u!114 &1878878057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14597,10 +14605,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11494910, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
-      propertyPath: Items.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 481428, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14631,8 +14635,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481428, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11465014, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
+      propertyPath: PlayerCredits
+      value: 
+      objectReference: {fileID: 1715137479}
+    - target: {fileID: 11499592, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
+      propertyPath: StaminaSlider
+      value: 
+      objectReference: {fileID: 2002525676}
+    - target: {fileID: 11490536, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
+      propertyPath: HealthSlider
+      value: 
+      objectReference: {fileID: 1519612782}
     - target: {fileID: 11487488, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
       propertyPath: ExpSlider
       value: 
@@ -14641,20 +14657,7 @@ Prefab:
       propertyPath: AvailableSP
       value: 
       objectReference: {fileID: 1869199911}
-    - target: {fileID: 11490536, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
-      propertyPath: HealthSlider
-      value: 
-      objectReference: {fileID: 1519612782}
-    - target: {fileID: 11499592, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
-      propertyPath: StaminaSlider
-      value: 
-      objectReference: {fileID: 2002525676}
-    - target: {fileID: 13683878, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11494910, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1977536327
