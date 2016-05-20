@@ -7,7 +7,6 @@ public class StaminaSyringe : Item
 
     public float StaminaRegenMulti;
     public float Duration;
-    public PlayerBehavior Player;
 
     public StaminaSyringe()
     {

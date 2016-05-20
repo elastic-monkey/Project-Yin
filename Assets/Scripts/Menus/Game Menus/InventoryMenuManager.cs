@@ -13,25 +13,19 @@ public class InventoryMenuManager : GameMenuManager
         }
     }
 
-    public void Start()
-    {
-        //TODO Get the components
-        InventorySlots = new List<InventorySlotNavItem>();
-    }
-
     public void AddItemToInventory(Item item)
     {
+        Debug.Log(InventorySlots.Count);
         for (var i = 0; i < InventorySlots.Count; i++)
         {
-            if (InventorySlots[i].Item.Type == item.Type)
+            InventorySlotNavItem SlotItem = InventorySlots[i];
+            if (SlotItem.Item != null)
             {
-                InventorySlots[i].IncreaseStock(InventorySlots[i].Stock + 1);
-            }
-            else
-            {
-                if (InventorySlots[i].Item == null) // Empty inventory slot
+                if (SlotItem.Item.Type == item.Type && SlotItem.Stock < item.MaxStock)
                 {
-                    InventorySlots[i].AddItem(item);
+                    SlotItem.IncreaseStock(1);
+                    Player.Currency.RemoveCredits(item.BuyPrice);
+                    return;
                 }
             }
         }

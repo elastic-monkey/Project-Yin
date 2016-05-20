@@ -18,6 +18,7 @@ public abstract class Item : MonoBehaviour
     public string ItemName;
     public int MaxStock;
     public Image Icon;
+    public PlayerBehavior Player;
 
     public ItemType Type { get; protected set; }
 
