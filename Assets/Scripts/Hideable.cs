@@ -9,12 +9,14 @@ public class Hideable : MonoBehaviour
     public bool Hidden = false;
 
     public HideableObj[] _children;
+    public List<Material> _fadeMaterials;
 
     public Coroutine _update;
 
     private void Awake()
     {
         _children = new HideableObj[transform.childCount];
+        _fadeMaterials.Clear();
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -23,8 +25,14 @@ public class Hideable : MonoBehaviour
             var hiddenY = (-transform.localScale.y * child.localPosition.y + HiddenBaseHeight - transform.localPosition.y) / transform.localScale.y;
             var hiddenPos = new Vector3(visiblePos.x, hiddenY, visiblePos.z);
             _children[i] = new HideableObj(child, visiblePos, hiddenPos);
+
+            var mat = child.GetComponent<Renderer>().sharedMaterial;
+            if (!_fadeMaterials.Contains(mat))
+            {
+                _fadeMaterials.Add(mat);
+            }
         }
-    } 
+    }
 
     public void Hide()
     {

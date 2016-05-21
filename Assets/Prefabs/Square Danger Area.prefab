@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11404598}
   m_Layer: 14
   m_Name: Square Danger Area
-  m_TagString: Untagged
+  m_TagString: Danger Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,8 +24,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0.1, z: 7.5}
+  m_LocalPosition: {x: -2.5, y: 0, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -39,8 +40,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 20, z: 15}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 20, y: 10, z: 20}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!114 &11404598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,10 +55,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DangerColor: {r: 1, g: 0, b: 0, a: 1}
   WarningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  PlayerInWarningZone: 0
+  PlayerInDangerZone: 0
+  _enemiesAssigned: []
+  _player: {fileID: 0}
   DangerWidth: 15
-  DangerDepth: 10
+  DangerDepth: 15
   WarningWidth: 20
-  WarningDepth: 15
+  WarningDepth: 20
+  Height: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

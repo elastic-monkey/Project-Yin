@@ -9,6 +9,7 @@ public class SquareEnemyArea : EnemyArea
     public float DangerDepth = 10f;
     public float WarningWidth = 15f;
     public float WarningDepth = 15f;
+    public float Height = 15f;
 
     private BoxCollider _collider;
     private float _halfDangerWidth, _halfWarningWidth;
@@ -41,7 +42,7 @@ public class SquareEnemyArea : EnemyArea
 
     protected override void OnValidate()
     {
-        BoundsCollider.size = new Vector3(WarningWidth, Mathf.Max(WarningWidth, WarningDepth), WarningDepth);
+        BoundsCollider.size = new Vector3(WarningWidth, Height, WarningDepth);
     }
 
     public override Vector3 GetBorder(Transform source, Transform target)

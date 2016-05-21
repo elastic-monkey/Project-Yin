@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 245bd8c773bc7fc448b501c23db2ca4c
+timeCreated: 1463846671
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Armature.002
+    100006: Boss
+    100008: //RootNode
+    100010: Camera
+    100012: Camera.001
+    100014: Chest
+    100016: Cube.000
+    100018: Elbow Follow_L
+    100020: Elbow Follow_L_end
+    100022: ElbowFollow_R
+    100024: ElbowFollow_R_end
+    100026: Empty
+    100028: FingersFollowL
+    100030: FingersFollowL_end
+    100032: FingersFollowR
+    100034: FingersFollowR_end
+    100036: Foot_L
+    100038: Foot_R
+    100040: Hand_L
+    100042: Hand_R
+    100044: Head
+    100046: Head_end
+    100048: Hips
+    100050: Index1_L
+    100052: Index2_L
+    100054: Index2_L_end
+    100056: Index_L
+    100058: Index_R
+    100060: Index_R.001
+    100062: Index_R.001_end
+    100064: Index_R.002
+    100066: Knee Follow_L
+    100068: Knee Follow_L_end
+    100070: Knee Follow_R
+    100072: Knee Follow_R_end
+    100074: LoArm_L
+    100076: LoArm_R
+    100078: LoLeg_L
+    100080: LoLeg_L_end
+    100082: LoLeg_R
+    100084: LoLeg_R_end
+    100086: MasterFloor
+    100088: Mid2_L
+    100090: Mid2_L_end
+    100092: Mid_L
+    100094: Mid_L.002
+    100096: Mid_R
+    100098: Mid_R.001
+    100100: Mid_R.001_end
+    100102: Mid_R.002
+    100104: Mit1_L
+    100106: Mit2_L
+    100108: Mit2_L_end
+    100110: Mit2_R
+    100112: Mit2_R_end
+    100114: Mit_L
+    100116: Mit_R.001
+    100118: Mit_R.004
+    100120: Pink1_L
+    100122: Pink2_L
+    100124: Pink2_L_end
+    100126: Pink_L
+    100128: Pink_R
+    100130: Pink_R.001
+    100132: Pink_R.001_end
+    100134: Pink_R.002
+    100136: Spine1
+    100138: Spine2
+    100140: Thumb-1_L
+    100142: Thumb-1_R
+    100144: Thumb-2_L
+    100146: Thumb-2_L_end
+    100148: Thumb-2_R
+    100150: Thumb-2_R_end
+    100152: Toe_L
+    100154: Toe_L_end
+    100156: Toe_R
+    100158: Toe_R_end
+    100160: UpArm_L
+    100162: UpArm_R
+    100164: UpLeg_L
+    100166: UpLeg_R
+    100168: Wrist_L
+    100170: Wrist_L_end
+    100172: Wrist_R
+    100174: Wrist_R_end
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Armature.002
+    400006: Boss
+    400008: //RootNode
+    400010: Camera
+    400012: Camera.001
+    400014: Chest
+    400016: Cube.000
+    400018: Elbow Follow_L
+    400020: Elbow Follow_L_end
+    400022: ElbowFollow_R
+    400024: ElbowFollow_R_end
+    400026: Empty
+    400028: FingersFollowL
+    400030: FingersFollowL_end
+    400032: FingersFollowR
+    400034: FingersFollowR_end
+    400036: Foot_L
+    400038: Foot_R
+    400040: Hand_L
+    400042: Hand_R
+    400044: Head
+    400046: Head_end
+    400048: Hips
+    400050: Index1_L
+    400052: Index2_L
+    400054: Index2_L_end
+    400056: Index_L
+    400058: Index_R
+    400060: Index_R.001
+    400062: Index_R.001_end
+    400064: Index_R.002
+    400066: Knee Follow_L
+    400068: Knee Follow_L_end
+    400070: Knee Follow_R
+    400072: Knee Follow_R_end
+    400074: LoArm_L
+    400076: LoArm_R
+    400078: LoLeg_L
+    400080: LoLeg_L_end
+    400082: LoLeg_R
+    400084: LoLeg_R_end
+    400086: MasterFloor
+    400088: Mid2_L
+    400090: Mid2_L_end
+    400092: Mid_L
+    400094: Mid_L.002
+    400096: Mid_R
+    400098: Mid_R.001
+    400100: Mid_R.001_end
+    400102: Mid_R.002
+    400104: Mit1_L
+    400106: Mit2_L
+    400108: Mit2_L_end
+    400110: Mit2_R
+    400112: Mit2_R_end
+    400114: Mit_L
+    400116: Mit_R.001
+    400118: Mit_R.004
+    400120: Pink1_L
+    400122: Pink2_L
+    400124: Pink2_L_end
+    400126: Pink_L
+    400128: Pink_R
+    400130: Pink_R.001
+    400132: Pink_R.001_end
+    400134: Pink_R.002
+    400136: Spine1
+    400138: Spine2
+    400140: Thumb-1_L
+    400142: Thumb-1_R
+    400144: Thumb-2_L
+    400146: Thumb-2_L_end
+    400148: Thumb-2_R
+    400150: Thumb-2_R_end
+    400152: Toe_L
+    400154: Toe_L_end
+    400156: Toe_R
+    400158: Toe_R_end
+    400160: UpArm_L
+    400162: UpArm_R
+    400164: UpLeg_L
+    400166: UpLeg_R
+    400168: Wrist_L
+    400170: Wrist_L_end
+    400172: Wrist_R
+    400174: Wrist_R_end
+    2300000: Cube.000
+    3300000: Cube.000
+    4300000: Cube.000
+    4300002: Boss
+    7400000: Walk Cycle
+    7400002: Armature.002|Walk Cycle
+    9500000: //RootNode
+    13700000: Boss
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk Cycle
+      takeName: Walk Cycle
+      firstFrame: 0
+      lastFrame: 236
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature.002
+        weight: 1
+      - path: Armature.002/MasterFloor
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature.002/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/Head
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/Head/Head_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Cube.000
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Camera.001
+        weight: 1
+      - path: Empty
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature.002|Walk Cycle
+      takeName: Armature.002|Walk Cycle
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature.002
+        weight: 1
+      - path: Armature.002/MasterFloor
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature.002/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/Head
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/Head/Head_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Cube.000
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature.002/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature.002/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature.002/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Camera.001
+        weight: 1
+      - path: Empty
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
