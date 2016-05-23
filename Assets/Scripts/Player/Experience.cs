@@ -3,10 +3,7 @@ using UnityEngine.UI;
 
 public class Experience : MonoBehaviour
 {
-
     public float MaxExperience = 100f;
-    public Slider ExpSlider;
-    public Image AvailableSP;
     public int SkillPoints;
 
     private float _currentExp;
@@ -24,10 +21,6 @@ public class Experience : MonoBehaviour
                 SkillPoints++;
                 _currentExp = _currentExp + value - MaxExperience;
             }
-            if (ExpSlider != null)
-            {
-                ExpSlider.value = _currentExp;
-            }
         }
     }
 
@@ -39,33 +32,9 @@ public class Experience : MonoBehaviour
         }
     }
 
-    void Awake()
+    private void Awake()
     {
         CurrentExperience = 0f;
-        if (ExpSlider == null)
-        {
-            Debug.LogWarning("ExpSlider is null. No exception will be thrown, but this must be repaired.");
-        }
-
-        if (AvailableSP == null)
-        {
-            Debug.LogWarning("AvailableSP is null. No exception will be thrown, but this must be repaired.");
-        }
-    }
-
-    void Update()
-    {
-        if (AvailableSP != null)
-        {
-            if (HasSkillPoints && !AvailableSP.enabled)
-            {
-                AvailableSP.enabled = true;
-            }
-            else if (!HasSkillPoints && AvailableSP.enabled)
-            {
-                AvailableSP.enabled = false;
-            }
-        }
     }
 
     public void GiveExp(float exp)

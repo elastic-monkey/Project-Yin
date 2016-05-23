@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeMenu : GameMenuManager
 {
@@ -95,6 +96,7 @@ public class UpgradeMenu : GameMenuManager
                     break;
 
                 case Actions.UpgradeSpeed:
+                    
                     PurchaseOrDisable(item, Player.Abilities.Find(Ability.AbilityType.Speed));
                     break;
 

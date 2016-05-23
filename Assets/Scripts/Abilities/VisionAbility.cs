@@ -3,11 +3,6 @@ using System.Collections;
 
 public class VisionAbility : Ability
 {
-    private void Start()
-    {
-        Type = AbilityType.Vision;
-    }
-
     public override void SetActive(PlayerBehavior player)
     {
         Debug.LogWarning("Vision is not yet conceived");
@@ -20,7 +15,7 @@ public class VisionAbility : Ability
 
     public override SerializableAbility Serialize()
     {
-        return new SerializableAbility(InputAxis, Type, CurrentLevel, null);
+        return new SerializableAbility(InputAxis, Type(), CurrentLevel, null);
     }
 
     public static Ability Deserialize(SerializableAbility sAbility)
@@ -30,5 +25,10 @@ public class VisionAbility : Ability
 
         // No additional data
         return obj;
+    }
+
+    public override AbilityType Type()
+    {
+        return AbilityType.Vision;
     }
 }

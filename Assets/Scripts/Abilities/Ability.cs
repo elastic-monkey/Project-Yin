@@ -8,12 +8,11 @@ public abstract class Ability : Upgradable
         Vision,
         Speed,
         Shield,
-        Strength
+        Strength,
+        None
     }
 
     public Axis InputAxis;
-
-    public AbilityType Type { get; protected set; }
 
     private void Awake()
     {
@@ -52,7 +51,6 @@ public abstract class Ability : Upgradable
         if (obj != null)
         {
             obj.InputAxis = sAbility.InputAxis;
-            obj.Type = sAbility.Type;
             obj.CurrentLevel = sAbility.CurrentLevel;
         }
 
@@ -68,6 +66,8 @@ public abstract class Ability : Upgradable
     {
         return true;
     }
+
+    public abstract AbilityType Type();
 }
 
 [System.Serializable]

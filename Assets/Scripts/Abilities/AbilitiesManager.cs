@@ -60,7 +60,7 @@ public class AbilitiesManager : MonoBehaviour
     {
         foreach (var ability in Abilities)
         {
-            if (ability.Type.Equals(type))
+            if (ability.Type().Equals(type))
                 return ability;
         }
 
@@ -71,7 +71,7 @@ public class AbilitiesManager : MonoBehaviour
     {
         foreach (var ability in Abilities)
         {
-            if (ability.Type.Equals(type))
+            if (ability.Type().Equals(type))
             {
                 return ability.UpgradeTo(level, _player);
             }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class SpeedAbility : Ability
 {
@@ -7,11 +6,6 @@ public class SpeedAbility : Ability
     public float BaseMultiplier = 1.5f;
     [Range(0, 1)]
     public float Increment = 0.25f;
-
-    private void Start()
-    {
-        Type = AbilityType.Speed;
-    }
 
     public override void SetActive(PlayerBehavior player)
     {
@@ -30,7 +24,7 @@ public class SpeedAbility : Ability
         array[0] = BaseMultiplier.ToString();
         array[1] = Increment.ToString();
 
-        return new SerializableAbility(InputAxis, Type, CurrentLevel, array);
+        return new SerializableAbility(InputAxis, Type(), CurrentLevel, array);
     }
 
     public static Ability Deserialize(SerializableAbility sAbility)
@@ -42,5 +36,10 @@ public class SpeedAbility : Ability
         obj.Increment = float.Parse(sAbility.Data[1]);
 
         return obj;
+    }
+
+    public override AbilityType Type()
+    {
+        return AbilityType.Speed;
     }
 }

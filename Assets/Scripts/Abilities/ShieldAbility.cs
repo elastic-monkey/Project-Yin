@@ -1,14 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ShieldAbility : Ability
 {
     public bool IsActive;
-
-    private void Start()
-    {
-        Type = AbilityType.Shield;
-    }
 
     public override void SetActive(PlayerBehavior player)
     {
@@ -32,7 +26,7 @@ public class ShieldAbility : Ability
         var array = new string[1];
         array[0] = IsActive.ToString();
 
-        return new SerializableAbility(InputAxis, Type, CurrentLevel, array);
+        return new SerializableAbility(InputAxis, Type(), CurrentLevel, array);
     }
 
     public static Ability Deserialize(SerializableAbility sAbility)
@@ -43,5 +37,10 @@ public class ShieldAbility : Ability
         obj.IsActive = bool.Parse(sAbility.Data[0]);
 
         return obj;
+    }
+
+    public override AbilityType Type()
+    {
+        return AbilityType.Shield;
     }
 }

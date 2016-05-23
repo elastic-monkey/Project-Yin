@@ -6,7 +6,6 @@ public class Health : Upgradable
     public float HealthLevelIncrement = 20f;
     public float BaseMaxHealth = 100f;
     public float MaxHealth = 100f;
-    public Slider HealthSlider;
     public bool Alive;
 
     [SerializeField]
@@ -22,25 +21,11 @@ public class Health : Upgradable
         set
         {
             _currentHealth = Mathf.Clamp(value, 0f, MaxHealth);
-            if (HealthSlider != null)
-            {
-                HealthSlider.value = _currentHealth;
-            }
         }
     }
 
     private void Awake()
     {
-        if (HealthSlider == null)
-        {
-            Debug.LogWarning("HealthSlider is null. No exception will be thrown, but this must be repaired.");
-        }
-        else
-        {
-            HealthSlider.minValue = 0;
-            HealthSlider.maxValue = MaxHealth;
-        }
-
         CurrentHealth = MaxHealth;
         Alive = true;
     }

@@ -7,7 +7,6 @@ public class Stamina : Upgradable
     public float BaseMaxStamina = 100f;
     public float MaxStamina = 100f;
     public float RegenerationRate = 10f;
-	public Slider StaminaSlider;
     public bool RegenerateIsOn = true;
     public bool Regenerating = false;
 
@@ -23,20 +22,11 @@ public class Stamina : Upgradable
         set
         {
             _currentStamina = Mathf.Clamp(value, 0, MaxStamina);
-            if (StaminaSlider != null)
-            {
-                StaminaSlider.value = _currentStamina;
-            }
         }
     }
 
     void Awake()
     {
-        if (StaminaSlider == null)
-        {
-            Debug.LogWarning("StaminaSlider is null. No exception will be thrown, but this must be repaired.");
-        }
-
         CurrentStamina = MaxStamina;
     }
 

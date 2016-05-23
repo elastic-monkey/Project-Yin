@@ -12,11 +12,6 @@ public class StrengthAbility : Ability
     [Range(0, 1)]
     public float StaminaIncrement = 0.25f;
 
-    private void Start()
-    {
-        Type = AbilityType.Strength;
-    }
-
     public override void SetActive(PlayerBehavior player)
     {
         player.Attack.DamageMultiplier = BaseDamageMultiplier + DamageIncrement * CurrentLevel;
@@ -39,7 +34,7 @@ public class StrengthAbility : Ability
         array[2] = BaseStaminaMultiplier.ToString();
         array[3] = StaminaIncrement.ToString();
 
-        return new SerializableAbility(InputAxis, Type, CurrentLevel, array);
+        return new SerializableAbility(InputAxis, Type(), CurrentLevel, array);
     }
 
     public static Ability Deserialize(SerializableAbility sAbility)
@@ -53,5 +48,10 @@ public class StrengthAbility : Ability
         obj.StaminaIncrement = float.Parse(sAbility.Data[3]);
 
         return obj;
+    }
+
+    public override AbilityType Type()
+    {
+        return AbilityType.Strength;
     }
 }
