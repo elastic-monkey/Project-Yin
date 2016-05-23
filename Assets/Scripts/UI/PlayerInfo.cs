@@ -5,6 +5,7 @@ public class PlayerInfo : MonoBehaviour
 {
     public Slider Health, Stamina, Experience;
     public Image AvailableSkillPoints;
+    public Text Credits;
 
     private PlayerBehavior _player;
 
@@ -28,5 +29,21 @@ public class PlayerInfo : MonoBehaviour
         Experience.wholeNumbers = false;
 
         AvailableSkillPoints.enabled = _player.Experience.HasSkillPoints;
+    }
+
+    private void Update()
+    {
+        Health.value = _player.Health.CurrentHealth;
+        Health.maxValue = _player.Health.MaxHealth;
+
+        Stamina.value = _player.Stamina.CurrentStamina;
+        Stamina.value = _player.Stamina.MaxStamina;
+
+        Experience.value = _player.Experience.CurrentExperience;
+        Experience.maxValue = _player.Experience.MaxExperience;
+
+        AvailableSkillPoints.enabled = _player.Experience.HasSkillPoints;
+
+        Credits.text = _player.Currency.CurrentCredits.ToString();
     }
 }

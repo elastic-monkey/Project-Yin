@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Hideable : MonoBehaviour
+public class HideableMesh : MonoBehaviour
 {
     public float Speed = 10;
     public float HiddenBaseHeight = 1;

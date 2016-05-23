@@ -170,7 +170,8 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11401000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &39531325 stripped
@@ -388,7 +389,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11438514, guid: 992b491c4e44eae49bee212e78e0a1bc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 992b491c4e44eae49bee212e78e0a1bc, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &81885822 stripped
@@ -450,7 +452,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11438514, guid: 992b491c4e44eae49bee212e78e0a1bc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 992b491c4e44eae49bee212e78e0a1bc, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &99557853 stripped
@@ -1011,7 +1014,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11484452, guid: 0c6e53294a6e0ee429b0180a87de5e4b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0c6e53294a6e0ee429b0180a87de5e4b, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &288775864 stripped
@@ -1257,7 +1261,8 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11401000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &408246164 stripped
@@ -1531,13 +1536,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11401000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &498371752 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413570, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_PrefabInternal: {fileID: 498371751}
+--- !u!1 &498371753 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 116196, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
+  m_PrefabInternal: {fileID: 498371751}
+--- !u!114 &498371754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 498371753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018b60b094235b94ebcfeb4a26fa7102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 10
+  HiddenBaseHeight: 1
+  Hidden: 0
+  _fadeMaterials: []
 --- !u!1001 &562699297
 Prefab:
   m_ObjectHideFlags: 0
@@ -2253,7 +2278,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11438514, guid: 992b491c4e44eae49bee212e78e0a1bc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 992b491c4e44eae49bee212e78e0a1bc, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &715057482 stripped
@@ -2439,7 +2465,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11484452, guid: 0c6e53294a6e0ee429b0180a87de5e4b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0c6e53294a6e0ee429b0180a87de5e4b, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &797316994 stripped
@@ -4356,9 +4383,19 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 170.76775
       objectReference: {fileID: 0}
+    - target: {fileID: 11494820, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
+      propertyPath: Credits
+      value: 
+      objectReference: {fileID: 1002065717}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1002065717 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11486606, guid: 4e77616374f009a4bbb811f3be4cab91,
+    type: 2}
+  m_PrefabInternal: {fileID: 984149048}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1027680016
 Prefab:
   m_ObjectHideFlags: 0
@@ -4616,7 +4653,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11401000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1041279116 stripped
@@ -5570,7 +5608,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11498292, guid: d950e0e2d48837243819fe475b5e4f60, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d950e0e2d48837243819fe475b5e4f60, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1423667021 stripped
@@ -6112,7 +6151,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11498292, guid: d950e0e2d48837243819fe475b5e4f60, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d950e0e2d48837243819fe475b5e4f60, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1557265998 stripped
@@ -6353,7 +6393,8 @@ Prefab:
       propertyPath: m_Name
       value: Archway
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11401000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4c578eebf24866f4f8ce71c23b1ecf1d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1608012707 stripped
@@ -6493,7 +6534,8 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 15
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11444400, guid: 6f4612e196be2cd49bba8d59386e2ad1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6f4612e196be2cd49bba8d59386e2ad1, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1662288892 stripped
@@ -6679,7 +6721,8 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 16
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11444400, guid: 6f4612e196be2cd49bba8d59386e2ad1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6f4612e196be2cd49bba8d59386e2ad1, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1699976413 stripped
@@ -7582,7 +7625,6 @@ MonoBehaviour:
     m_Bits: 4096
   MaxDistance: 2000
   IsoCamera: {fileID: 1518027639}
-  _hiddenObjects: []
 --- !u!1001 &1985279268
 Prefab:
   m_ObjectHideFlags: 0

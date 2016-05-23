@@ -19,26 +19,25 @@ public class Currency : MonoBehaviour
         set
         {
             _currentCredits = value;
-            //_currentCredits = Mathf.Clamp(_currentCredits, 0f, MaxCredits);
         }
     }
 
     public void AddCredits(float credits)
     {
         CurrentCredits += credits;
-        UpgradeCreditsTotal();
+        //UpgradeCreditsTotal();
     }
 
     public void RemoveCredits(float credits)
     {
         AddCredits(-credits);
-        UpgradeCreditsTotal();
+        //UpgradeCreditsTotal();
     }
 
     void Start()
     {
         CurrentCredits = 1000f;
-        UpgradeCreditsTotal();
+        //UpgradeCreditsTotal();
     }
 
     public void UpgradeCreditsTotal()
