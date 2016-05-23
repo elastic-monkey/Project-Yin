@@ -15,7 +15,7 @@ public class InventoryMenuManager : GameMenuManager
 
     public void AddItemToInventory(Item item)
     {
-        Debug.Log(InventorySlots.Count);
+        Debug.Log(item.Type);
         for (var i = 0; i < InventorySlots.Count; i++)
         {
             InventorySlotNavItem SlotItem = InventorySlots[i];
@@ -27,6 +27,17 @@ public class InventoryMenuManager : GameMenuManager
                     Player.Currency.RemoveCredits(item.BuyPrice);
                     return;
                 }
+            }
+        }
+        for (var i = 0; i < InventorySlots.Count; i++)
+        {
+            InventorySlotNavItem SlotItem = InventorySlots[i];
+            if (SlotItem.Item == null)
+            {
+                SlotItem.Item = item;
+                SlotItem.IncreaseStock(1);
+                Player.Currency.RemoveCredits(item.BuyPrice);
+                return;
             }
         }
     }

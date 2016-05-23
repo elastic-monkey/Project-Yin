@@ -5,16 +5,11 @@ using UnityEngine.UI;
 [System.Serializable]
 public class HealthSyringe : Item
 {
- 
     public int RecoveryValue;
 
     public void Start()
     {
         Icon = GetComponent<Image>();
-    }
-
-    public HealthSyringe()
-    {
         Type = ItemType.HealthRecovery;
     }
 

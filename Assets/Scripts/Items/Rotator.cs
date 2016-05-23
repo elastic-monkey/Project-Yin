@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-public class Rotator : MonoBehaviour {
+public class Rotator : MonoBehaviour
+{
 
+    public float Speed = 1.0f;
     public int RotationXAxis;
     public int RotationYAxis;
     public int RotationZAxis;
 
-	void Update () {
+    void Update()
+    {
 
-        transform.Rotate(new Vector3(RotationXAxis, RotationYAxis, RotationZAxis) * Time.deltaTime);
+        transform.Rotate(new Vector3(RotationXAxis, RotationYAxis, RotationZAxis) * Time.deltaTime * Speed);
 
-	}
+    }
 }

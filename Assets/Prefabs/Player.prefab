@@ -259,6 +259,7 @@ GameObject:
   - 114: {fileID: 11490536}
   - 114: {fileID: 11410396}
   - 114: {fileID: 11487488}
+  - 114: {fileID: 11476292}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -2041,6 +2042,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentLevel: 0
   InputAxis: 6
+--- !u!114 &11476292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4d3ece37643fb4386aec5f7812312a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxCredits: 99999
+  PlayerCredits: {fileID: 0}
+  _currentCredits: 1000
 --- !u!114 &11486992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2067,8 +2082,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxExperience: 100
-  ExpSlider: {fileID: 0}
-  AvailableSP: {fileID: 0}
   SkillPoints: 10
 --- !u!114 &11490536
 MonoBehaviour:
@@ -2085,7 +2098,6 @@ MonoBehaviour:
   HealthLevelIncrement: 20
   BaseMaxHealth: 100
   MaxHealth: 100
-  HealthSlider: {fileID: 0}
   Alive: 0
   _currentHealth: 0
 --- !u!114 &11499592
@@ -2104,7 +2116,6 @@ MonoBehaviour:
   BaseMaxStamina: 100
   MaxStamina: 100
   RegenerationRate: 10
-  StaminaSlider: {fileID: 0}
   RegenerateIsOn: 1
   Regenerating: 0
 --- !u!135 &13596576

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 [System.Serializable]
@@ -8,8 +9,9 @@ public class StaminaSyringe : Item
     public float StaminaRegenMulti;
     public float Duration;
 
-    public StaminaSyringe()
+    public void Start()
     {
+        Icon = GetComponent<Image>();
         Type = ItemType.StaminaRegenRate;
     }
 

@@ -81,6 +81,8 @@ public class InventorySlotNavItem : GameNavItem
 
     public void UpdateSlot()
     {
+        Color temp = Color.white;
+        temp.a = 1.0f;
         if (Item != null && Stock > 0)
         {
             ItemIcon.sprite = Item.Icon.sprite;
@@ -89,9 +91,8 @@ public class InventorySlotNavItem : GameNavItem
         else
         {
             StockDisplay.text = "";
-            Color temp = Color.white;
             temp.a = 0f;
-            ItemIcon.color = temp;
         }
+        ItemIcon.color = temp;
     }
 }
