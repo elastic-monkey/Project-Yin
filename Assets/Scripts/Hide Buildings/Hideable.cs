@@ -3,14 +3,37 @@ using System.Collections;
 
 public class Hideable : MonoBehaviour
 {
-    public static LayerMask mask = LayerMask.NameToLayer("Hideable Building");
-
     public Collider ColliderArea;
-    public Mesh MeshToHide;
+    public MeshRenderer MeshToHide;
+    public MeshRenderer SubstituteMesh;
 
-    private void Awake()
+    private bool _hidden;
+
+    public bool Hidden
     {
-        ColliderArea.isTrigger = true;
-        ColliderArea.gameObject.layer = mask;
+        get { return _hidden; }
+
+        set
+        {
+            if (_hidden == value)
+                return;
+            
+            _hidden = value;
+            OnHide(value);
+        }
+    }
+
+    private void Start()
+    {
+        ColliderArea.gameObject.layer = LayerMask.NameToLayer("Hideable Building");   
+    }
+
+    protected virtual void OnHide(bool value)
+    {
+        MeshToHide.enabled = !value;
+        if (SubstituteMesh != null)
+        {
+            SubstituteMesh.enabled = value;
+        }
     }
 }

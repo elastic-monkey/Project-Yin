@@ -690,6 +690,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &160532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 463048}
+  m_Layer: 9
+  m_Name: Raycast Spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &164518
 GameObject:
   m_ObjectHideFlags: 1
@@ -1563,6 +1578,19 @@ Transform:
   - {fileID: 472016}
   m_Father: {fileID: 467266}
   m_RootOrder: 0
+--- !u!4 &463048
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 481428}
+  m_RootOrder: 5
 --- !u!4 &465518
 Transform:
   m_ObjectHideFlags: 1
@@ -1804,6 +1832,7 @@ Transform:
   - {fileID: 462208}
   - {fileID: 487664}
   - {fileID: 426258}
+  - {fileID: 463048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &487478
@@ -1919,6 +1948,7 @@ MonoBehaviour:
   EnemyTag: 1
   MainCollider: {fileID: 13683878}
   DeathDuration: 0
+  RaycastSpot: {fileID: 463048}
 --- !u!114 &11410396
 MonoBehaviour:
   m_ObjectHideFlags: 1

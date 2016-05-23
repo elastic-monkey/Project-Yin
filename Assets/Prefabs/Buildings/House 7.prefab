@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 434890}
+  - 114: {fileID: 11435786}
   m_Layer: 0
   m_Name: House 7
   m_TagString: Untagged
@@ -262,6 +263,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 2.5, z: 10}
   m_Center: {x: 0, y: 3.75, z: 0}
+--- !u!114 &11435786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88e8a7c43d3a6c438b75556a15e6281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColliderArea: {fileID: 6599182}
+  MeshToHide: {fileID: 2321294}
+  SubstituteMesh: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

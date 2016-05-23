@@ -4,6 +4,8 @@
 [RequireComponent(typeof(Experience))]
 public class PlayerBehavior : WarriorBehavior
 {
+    public Transform RaycastSpot;
+
     private PlayerMovement _playerMovement;
     private AbilitiesManager _abilities;
     private Experience _experience;

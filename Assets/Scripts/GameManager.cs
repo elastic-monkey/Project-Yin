@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     static GameManager _instance;
 
     public PlayerBehavior Player;
+    public HideBuidings HideBuildings;
 	public GameOver GameOverMenu;
     public InteractionPrompt InteractionPrompt;
 
