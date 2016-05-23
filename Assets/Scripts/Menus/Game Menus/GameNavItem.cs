@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class GameNavItem : NavItem
+﻿public class GameNavItem : NavItem
 {
     public GameMenuManager.Actions Action;
     public string[] Data;

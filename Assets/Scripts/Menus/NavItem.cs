@@ -30,9 +30,10 @@ public abstract class NavItem : MonoBehaviour
 	public void Disable(bool value)
 	{
 		Disabled = value;
-	}
+        UpdateColor();
+    }
 
-	public void UpdateColor()
+	public virtual void UpdateColor()
 	{
 		TargetGraphic.color = Disabled ? DisabledColor : Focused ? FocusedColor : _initialColor;
 	}

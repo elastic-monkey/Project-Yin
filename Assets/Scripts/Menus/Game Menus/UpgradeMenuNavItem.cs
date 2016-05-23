@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 public class UpgradeMenuNavItem : GameNavItem
 {
+    public bool Purchased;
+    public Color PurchasedColor;
     public int UpgradeLevel;
 
     public override void OnSelect(MenuManager manager)
@@ -16,10 +16,17 @@ public class UpgradeMenuNavItem : GameNavItem
 
     protected override void OnFocus(bool value)
     {
+        //base.OnFocus(value);
     }
 
     public void Purchase(bool value)
     {
-        Focus(value);
+        Purchased = true;
+        UpdateColor();
+    }
+
+    public override void UpdateColor()
+    {
+        TargetGraphic.color = Disabled ? DisabledColor : Purchased ? PurchasedColor : _initialColor;
     }
 }

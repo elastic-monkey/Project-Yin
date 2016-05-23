@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
 public class UpgradeMenu : GameMenuManager
 {
@@ -26,12 +24,12 @@ public class UpgradeMenu : GameMenuManager
     {
         base.HandleInput(active);
 
-        if (active)
+        if (!active)
+            return;
+
+        if (PlayerInput.IsButtonUp(BackKey) && active)
         {
-            if (PlayerInput.IsButtonUp(BackKey) && active)
-            {
-                _gameManager.SetGamePaused(true);
-            }
+            _gameManager.SetGamePaused(true);
         }
     }
 
@@ -77,7 +75,7 @@ public class UpgradeMenu : GameMenuManager
     {
         if (upgradable == null)
             return;
-        
+
         UpgradeCost.text = upgradable.UpgradeCost(navItem.UpgradeLevel).ToString();
         UpdateAvailableSP();
     }
@@ -176,7 +174,7 @@ public class UpgradeMenu : GameMenuManager
                 if (Player.Abilities.UpgradeAbility(type, level))
                 {
                     upgradeItem.Purchase(true);
-                    OnItemFocused(upgradeItem, Player.Abilities.Find(type)); 
+                    OnItemFocused(upgradeItem, Player.Abilities.Find(type));
                 }
                 break;
 
@@ -185,7 +183,7 @@ public class UpgradeMenu : GameMenuManager
                 if (Player.Abilities.UpgradeAbility(type, level))
                 {
                     upgradeItem.Purchase(true);
-                    OnItemFocused(upgradeItem, Player.Abilities.Find(type)); 
+                    OnItemFocused(upgradeItem, Player.Abilities.Find(type));
                 }
                 break;
         }
