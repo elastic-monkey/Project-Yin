@@ -10,6 +10,10 @@ public class InventorySlotNavItem : GameNavItem
     public Text StockDisplay;
     public Image ItemIcon;
 
+    public Text Effect;
+    public Text Name;
+    public Text FlavorText;
+
     public int Stock
     {
         get
@@ -57,7 +61,10 @@ public class InventorySlotNavItem : GameNavItem
 
     protected override void OnFocus(bool value)
     {
-        //base.OnFocus(value);
+        if (Focused)
+        {
+            UpdateDescription();
+        }
     }
 
     public void UseItem()
@@ -94,5 +101,21 @@ public class InventorySlotNavItem : GameNavItem
             temp.a = 0f;
         }
         ItemIcon.color = temp;
+    }
+
+    public void UpdateDescription()
+    {
+        if (Item != null)
+        {
+            Name.text = Item.ItemName;
+            Effect.text = Item.Effect;
+            FlavorText.text = Item.FlavorText;
+        }
+        else
+        {
+            Name.text = "";
+            Effect.text = "";
+            FlavorText.text = "";
+        }
     }
 }

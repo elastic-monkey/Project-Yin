@@ -15,10 +15,12 @@ public abstract class Item : MonoBehaviour
     public Tags TagToCompare;
     public int BuyPrice;
     public int SellPrice;
-    public string ItemName;
     public int MaxStock;
     public Image Icon;
     public PlayerBehavior Player;
+    public string ItemName;
+    public string Effect;
+    public string FlavorText;
 
     public ItemType Type { get; protected set; }
 
