@@ -21,7 +21,10 @@ public abstract class GameMenuManager : MenuManager
         GoToUpgradeMenu,
         GoToInventoryMenu,
         UseItem,
-        BuyItem
+        BuyItem,
+        GoToShop,
+        SellComponents,
+        LeaveShop
     }
 
     public bool PauseGame = true;
