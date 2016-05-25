@@ -61,4 +61,17 @@ public class InventoryMenuManager : GameMenuManager
 
         NavMenu.UseHoverNavigation = true;
     }
+
+    public int GetStockInInventory(Item item)
+    {
+        for (var i = 0; i < InventorySlots.Count; i++)
+        {
+            InventorySlotNavItem SlotItem = InventorySlots[i];
+            if (SlotItem.Item.Type == item.Type)
+            {
+                return SlotItem.Stock;
+            }
+        }
+        return -1;
+    }
 }

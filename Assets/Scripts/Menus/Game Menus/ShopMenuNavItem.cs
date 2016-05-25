@@ -8,6 +8,12 @@ public class ShopMenuNavItem : GameNavItem
     public Image ItemIcon;
     public InventoryMenuManager PlayerInventory;
 
+    public Text Effect;
+    public Text Name;
+    public Text FlavorText;
+    public Text StockText;
+    public Text Price;
+
     public bool CanSell
     {
         get
@@ -28,9 +34,19 @@ public class ShopMenuNavItem : GameNavItem
             SellItemToPlayer();
     }
 
+    protected override void OnFocus(bool value)
+    {
+        base.OnFocus(value);
+        if (Focused)
+        {
+            UpdateDescription();
+        }
+    }
+
     public void SellItemToPlayer()
     {
         PlayerInventory.AddItemToInventory(Item);
+        UpdateDescription();
     }
 
     public void UpdateSlot()
@@ -44,6 +60,27 @@ public class ShopMenuNavItem : GameNavItem
             Color temp = Color.white;
             temp.a = 0f;
             ItemIcon.color = temp;
+        }
+    }
+
+    public void UpdateDescription()
+    {
+        if (Item != null)
+        {
+            Effect.text = Item.Effect;
+            FlavorText.text = Item.FlavorText;
+            Name.text = Item.ItemName;
+            int stock = PlayerInventory.GetStockInInventory(Item);
+            StockText.text = "Inventory: " + stock.ToString() + "/" + Item.MaxStock.ToString();
+            Price.text = Item.BuyPrice.ToString() + " Credits";
+        }
+        else
+        {
+            Effect.text = "";
+            FlavorText.text = "";
+            Name.text = "";
+            StockText.text = ""; 
+            Price.text = "";
         }
     }
 }
