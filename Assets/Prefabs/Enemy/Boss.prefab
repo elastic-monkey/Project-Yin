@@ -2747,7 +2747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377938be936fc384394229f9a23327aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 2
+  Range: 2.5
   RangeCollider: {fileID: 13525958}
   Attacks:
   - Damage: 10
@@ -2852,7 +2852,6 @@ MonoBehaviour:
   BaseMaxStamina: 100
   MaxStamina: 100
   RegenerationRate: 10
-  StaminaSlider: {fileID: 11438574}
   RegenerateIsOn: 1
   Regenerating: 0
 --- !u!114 &11436470
@@ -3034,7 +3033,6 @@ MonoBehaviour:
   HealthLevelIncrement: 20
   BaseMaxHealth: 100
   MaxHealth: 100
-  HealthSlider: {fileID: 11414262}
   Alive: 0
   _currentHealth: 0
 --- !u!114 &11481608
@@ -3101,7 +3099,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13681900
 CapsuleCollider:
@@ -3112,7 +3110,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -3221,7 +3219,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147272}
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 0.7
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
