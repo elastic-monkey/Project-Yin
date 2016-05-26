@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public abstract class NavMenu : MonoBehaviour
 {
@@ -52,7 +51,7 @@ public abstract class NavMenu : MonoBehaviour
 
     private void Start()
     {
-        OnSetActive(IsActive);
+        SetActive(IsActive);
     }
 
     private void Update()
@@ -83,7 +82,7 @@ public abstract class NavMenu : MonoBehaviour
         }
     }
 
-    public virtual void OnSetActive(bool value)
+    public virtual void SetActive(bool value)
     {
         _activeNextFrame = value;
         _active = false;

@@ -5,6 +5,7 @@ public class FadeInOutPanel : MonoBehaviour, IAnimatedPanel
 {
     public CanvasGroup AlphaContainer;
     public float Duration;
+    public bool Faded;
 
     private Coroutine _oldAnim;
 
@@ -14,6 +15,8 @@ public class FadeInOutPanel : MonoBehaviour, IAnimatedPanel
 
     public void SetVisible(bool value)
     {
+        Faded = !value;
+
         if (_oldAnim != null)
             StopCoroutine(_oldAnim);
 

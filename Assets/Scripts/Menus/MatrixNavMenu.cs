@@ -77,9 +77,9 @@ public class MatrixNavMenu : NavMenu
         }
     }
 
-    public override void OnSetActive(bool value)
+    public override void SetActive(bool value)
     {
-        base.OnSetActive(value);
+        base.SetActive(value);
 
         if (!value && Reset)
         {
