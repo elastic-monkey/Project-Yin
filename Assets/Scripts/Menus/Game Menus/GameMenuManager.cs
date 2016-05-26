@@ -23,6 +23,7 @@ public abstract class GameMenuManager : MenuManager
         UseItem,
         BuyItem,
         GoToShop,
+        GoToSellComponents,
         SellComponents,
         LeaveShop
     }
