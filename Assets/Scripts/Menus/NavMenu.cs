@@ -6,6 +6,7 @@ public abstract class NavMenu : MonoBehaviour
     public RectTransform HoverIcon;
     public bool IsSubMenu;
     public bool UseHoverNavigation;
+    public bool Cyclic, Reset;
 
     [SerializeField]
     private bool _active;

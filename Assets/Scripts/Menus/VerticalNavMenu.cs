@@ -3,7 +3,6 @@ using System.Collections;
 
 public class VerticalNavMenu : NavMenu
 {
-    public bool Cyclic, Reset;
     public bool SendHorizontalInput;
     public NavItem[] Items;
 

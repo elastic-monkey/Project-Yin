@@ -10,7 +10,6 @@ public class MatrixNavMenu : NavMenu
     }
 
     public bool Horizontal, Vertical;
-    public bool Cyclic, Reset;
     [Tooltip("Column organization means each array inside each Item is treated as either a column or a line, hence affecting navigation. " +
         "This is used only for buttons navigation! Changes in visual organization are defined by the user.")]
     public Organization MenuOrganization;

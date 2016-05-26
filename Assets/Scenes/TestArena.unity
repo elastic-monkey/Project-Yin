@@ -551,12 +551,12 @@ MonoBehaviour:
   HoverIcon: {fileID: 0}
   IsSubMenu: 0
   UseHoverNavigation: 0
+  Cyclic: 0
+  Reset: 1
   _active: 0
   _inputBlocked: 0
   Horizontal: 1
   Vertical: 0
-  Cyclic: 0
-  Reset: 1
   MenuOrganization: 1
   Items:
   - Name: Options
@@ -7820,12 +7820,12 @@ MonoBehaviour:
   HoverIcon: {fileID: 0}
   IsSubMenu: 1
   UseHoverNavigation: 0
+  Cyclic: 0
+  Reset: 1
   _active: 0
   _inputBlocked: 0
   Horizontal: 1
   Vertical: 0
-  Cyclic: 0
-  Reset: 1
   MenuOrganization: 1
   Items:
   - Name: Options
@@ -7874,7 +7874,7 @@ MonoBehaviour:
   BlockGameplayInput: 1
   OpenKey: 0
   Transitions:
-  - Name: Shop Menu Interaction
+  - Name: Back
     OnAction: 4
     TargetMenu: {fileID: 1260072097}
 --- !u!114 &878902371
@@ -7947,10 +7947,10 @@ MonoBehaviour:
   HoverIcon: {fileID: 0}
   IsSubMenu: 0
   UseHoverNavigation: 0
-  _active: 0
-  _inputBlocked: 0
   Cyclic: 0
   Reset: 1
+  _active: 0
+  _inputBlocked: 0
   SendHorizontalInput: 0
   Items:
   - {fileID: 1927124307}
@@ -8740,7 +8740,7 @@ MonoBehaviour:
   BlockGameplayInput: 1
   OpenKey: 0
   Transitions:
-  - Name: Player Menu
+  - Name: Back
     OnAction: 4
     TargetMenu: {fileID: 1459265354}
   InventorySlots:
@@ -10408,10 +10408,10 @@ MonoBehaviour:
   HoverIcon: {fileID: 0}
   IsSubMenu: 0
   UseHoverNavigation: 0
-  _active: 0
-  _inputBlocked: 0
   Cyclic: 0
   Reset: 1
+  _active: 0
+  _inputBlocked: 0
   SendHorizontalInput: 0
   Items:
   - {fileID: 1153660918}
@@ -11009,12 +11009,12 @@ MonoBehaviour:
   HoverIcon: {fileID: 0}
   IsSubMenu: 0
   UseHoverNavigation: 0
+  Cyclic: 0
+  Reset: 1
   _active: 0
   _inputBlocked: 0
   Horizontal: 1
   Vertical: 0
-  Cyclic: 0
-  Reset: 1
   MenuOrganization: 1
   Items:
   - Name: Options
@@ -11062,10 +11062,10 @@ MonoBehaviour:
   BlockGameplayInput: 1
   OpenKey: 0
   Transitions:
-  - Name: Shop Menu
+  - Name: GoToShop
     OnAction: 17
     TargetMenu: {fileID: 1726271878}
-  - Name: Shop Menu
+  - Name: GoToSellComponents
     OnAction: 18
     TargetMenu: {fileID: 878902368}
 --- !u!114 &1260072100
@@ -12706,10 +12706,10 @@ MonoBehaviour:
   HoverIcon: {fileID: 0}
   IsSubMenu: 0
   UseHoverNavigation: 0
-  _active: 0
-  _inputBlocked: 0
   Cyclic: 1
   Reset: 0
+  _active: 0
+  _inputBlocked: 0
   SendHorizontalInput: 0
   Items:
   - {fileID: 267932767}
@@ -12733,10 +12733,10 @@ MonoBehaviour:
   BlockGameplayInput: 1
   OpenKey: 15
   Transitions:
-  - Name: Enhancements
+  - Name: GoToUpgradeMenu
     OnAction: 13
     TargetMenu: {fileID: 1999804639}
-  - Name: Inventory
+  - Name: GoToInventoryMenu
     OnAction: 14
     TargetMenu: {fileID: 1786025538}
 --- !u!114 &1459265356
@@ -14325,12 +14325,12 @@ MonoBehaviour:
   HoverIcon: {fileID: 717415560}
   IsSubMenu: 1
   UseHoverNavigation: 0
+  Cyclic: 0
+  Reset: 1
   _active: 0
   _inputBlocked: 0
   Horizontal: 1
   Vertical: 1
-  Cyclic: 0
-  Reset: 1
   MenuOrganization: 0
   Items:
   - Name: Col1
@@ -15254,12 +15254,12 @@ MonoBehaviour:
   HoverIcon: {fileID: 931516015}
   IsSubMenu: 1
   UseHoverNavigation: 0
+  Cyclic: 0
+  Reset: 1
   _active: 0
   _inputBlocked: 0
   Horizontal: 1
   Vertical: 1
-  Cyclic: 0
-  Reset: 1
   MenuOrganization: 0
   Items:
   - Name: Col1
@@ -17207,12 +17207,12 @@ MonoBehaviour:
   HoverIcon: {fileID: 990268388}
   IsSubMenu: 1
   UseHoverNavigation: 0
+  Cyclic: 0
+  Reset: 1
   _active: 0
   _inputBlocked: 0
   Horizontal: 1
   Vertical: 1
-  Cyclic: 0
-  Reset: 1
   MenuOrganization: 0
   Items:
   - Name: Health
@@ -17266,7 +17266,7 @@ MonoBehaviour:
   BlockGameplayInput: 1
   OpenKey: 0
   Transitions:
-  - Name: Player Menu
+  - Name: Back
     OnAction: 4
     TargetMenu: {fileID: 1459265354}
   AvailableSP: {fileID: 1798104965}
