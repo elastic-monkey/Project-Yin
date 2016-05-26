@@ -5,10 +5,10 @@ public class InteractionPrompt : MonoBehaviour
 {
     public Axis InteractKey;
     public bool WaitingInput;
-    public PlayerInteraction Interaction;
 
     private Text _myText;
     private IAnimatedPanel _animatedPanel;
+    private PlayerInteraction _currentInteraction;
     private bool _waitForInputNextFrame;
 
     public Text Title
@@ -30,18 +30,13 @@ public class InteractionPrompt : MonoBehaviour
 
     private void Update()
     {
-        if (Interaction == null || !WaitingInput)
+        if (_currentInteraction == null || !WaitingInput)
             return;
 
-        if (Interaction.Active)
+        if (!PlayerInput.IsButtonDown(InteractKey))
             return;
-
-        if (PlayerInput.IsButtonDown(InteractKey))
-        {
-            Interaction.SetActive(true);
-            Show(false, Interaction);
-            WaitingInput = false;
-        }
+        
+        _currentInteraction.StartInteraction();
     }
 
     private void LateUpdate()
@@ -55,19 +50,25 @@ public class InteractionPrompt : MonoBehaviour
 
     public void Show(bool value, PlayerInteraction interaction)
     {
-        if (interaction != Interaction && value)
+        if (value)
         {
+            if (interaction == _currentInteraction)
+                return;
+            
             Title.text = interaction.PromptText;
-            Interaction = interaction;
-            _waitForInputNextFrame = value;
+            _currentInteraction = interaction;
+            _waitForInputNextFrame = true;
             WaitingInput = false;
             _animatedPanel.SetVisible(value);
         }
-        else if (interaction == Interaction && !value)
+        else
         {
+            if (interaction != _currentInteraction)
+                return;
+            
             Title.text = string.Empty;
-            Interaction = null;
-            _waitForInputNextFrame = value;
+            _currentInteraction = null;
+            _waitForInputNextFrame = false;
             WaitingInput = false;
             _animatedPanel.SetVisible(value);
         }

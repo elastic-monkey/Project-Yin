@@ -5,20 +5,15 @@ public class OpenMenuInteraction : PlayerInteraction
 {
     public GameMenuManager Target;
 
-    public override void SetActive(bool value)
+    public override void StartInteraction()
     {
-        base.SetActive(value);
+        base.StartInteraction();
 
-        if (value)
-            Target.SetActive(value);
+        Target.SetActive(true);
     }
 
-    private void Update()
+    public override bool ShouldStop()
     {
-        if (Active && !Target.NavMenu.IsActive)
-        {
-            SetActive(false);
-            _interactionPrompt.Show(CanBeActivated, this);
-        }
+        return !Target.Active;
     }
 }

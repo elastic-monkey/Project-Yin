@@ -7,7 +7,8 @@ public abstract class PlayerInteraction : MonoBehaviour
     public float InteractionRadius = 2f;
     public string PromptText;
     public Axis ActivateKey;
-    public bool CanBeActivated, Active;
+    public bool CanBeTriggered;
+    public bool Ongoing;
 
     protected GameManager _gameManager;
     protected InteractionPrompt _interactionPrompt;
@@ -37,48 +38,55 @@ public abstract class PlayerInteraction : MonoBehaviour
         _interactionPrompt = _gameManager.InteractionPrompt;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        if (_activeNextFrame)
+        if (!Ongoing)
+            return;
+
+        if (ShouldStop())
+            StopInteraction();
+    }
+
+    public virtual void StartInteraction()
+    {
+        Debug.Log("Start Interaction");
+        _interactionPrompt.Show(false, this);
+        Ongoing = true;
+    }
+
+    public virtual void StopInteraction()
+    {
+        Debug.Log("Stop Interaction");
+        _interactionPrompt.Show(CanBeTriggered, this);
+        Ongoing = false;
+    }
+
+    public abstract bool ShouldStop();
+
+    protected virtual void OnTriggerEnter(Collider collider)
+    {
+        if (collider == _gameManager.Player.MainCollider)
         {
-            _activeNextFrame = false;
-            Active = true;
+            CanBeTriggered = true;
+            _interactionPrompt.Show(true, this);
         }
     }
 
-    public virtual void SetActive(bool value)
+    protected virtual void OnTriggerExit(Collider collider)
     {
-        BlockInput(value);
-
-        _activeNextFrame = value;
-        Active = false;
+        if (collider == _gameManager.Player.MainCollider)
+        {
+            CanBeTriggered = false;
+            _interactionPrompt.Show(false, this);
+        }
     }
+
+    #region Editor Only
 
     private void OnValidate()
     {
         Collider.radius = InteractionRadius;
     }
 
-    protected virtual void OnTriggerEnter(Collider collider)
-    {
-        if (collider == _gameManager.Player.MainCollider)
-        {
-            CanBeActivated = true;
-            _interactionPrompt.Show(true, this);
-        }
-    }
-
-   protected virtual void OnTriggerExit(Collider collider)
-    {
-        if (collider == _gameManager.Player.MainCollider)
-        {
-            CanBeActivated = false;
-            _interactionPrompt.Show(false, this);
-        }
-    }
-
-    protected void BlockInput(bool block)
-    {
-        PlayerInput.GameplayBlocked = block;
-    }
+    #endregion
 }
