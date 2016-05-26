@@ -14,6 +14,6 @@ public class OpenMenuInteraction : PlayerInteraction
 
     public override bool ShouldStop()
     {
-        return !Target.Active;
+        return !Target.NavMenu.IsActive;
     }
 }

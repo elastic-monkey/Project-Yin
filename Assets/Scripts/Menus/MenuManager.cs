@@ -9,7 +9,7 @@ public abstract class MenuManager : MonoBehaviour
 
     public virtual void SetActive(bool value)
     {
-        NavMenu.OnSetActive(value);
+        NavMenu.SetActive(value);
     }
 
     protected void TransitionTo(NavMenu other)
@@ -17,7 +17,7 @@ public abstract class MenuManager : MonoBehaviour
         if (other == null)
             return;
         
-        other.OnSetActive(true);
+        other.SetActive(true);
         other.InputBlocked = false;
 
         if (other.IsSubMenu)
@@ -27,7 +27,7 @@ public abstract class MenuManager : MonoBehaviour
         }
         else
         {
-            NavMenu.OnSetActive(false);
+            NavMenu.SetActive(false);
         }
     }
 

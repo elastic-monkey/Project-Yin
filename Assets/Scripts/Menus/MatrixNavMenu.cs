@@ -73,7 +73,7 @@ public class MatrixNavMenu : NavMenu
         }
         else if (PlayerInput.IsButtonDown(Axis.Fire1) || PlayerInput.IsButtonDown(Axis.Submit))
         {
-            OnItemSelected(_currentIndex);
+            SelectItem(_currentIndex);
         }
     }
 
@@ -189,7 +189,7 @@ public class MatrixNavMenu : NavMenu
         FocusItem(GetItem(_currentIndex));
     }
 
-    private void OnItemSelected(IndexPair index)
+    private void SelectItem(IndexPair index)
     {
         if (index.First < 0 || index.First >= Items.Length || index.Second < 0 || index.Second >= Items[index.First].Items.Length)
         {
