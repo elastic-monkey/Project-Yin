@@ -72,7 +72,17 @@ public abstract class GameMenuManager : MenuManager
     {
         base.SetActive(value);
 
-        OnPause(value);
+        if (NavMenu.IsSubMenu)
+        {
+            if (value)
+            {
+                OnPause(value);
+            }
+        }
+        else
+        {
+            OnPause(value);
+        }
     }
 
     protected void OnPause(bool value)
@@ -100,29 +110,32 @@ public abstract class GameMenuManager : MenuManager
     protected override void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
     {
         base.OnNavItemAction(actionObj, navItem, targetNavMenu, data);
+    }
 
-        var action = (Actions)actionObj;
-
-        switch (action)
+    private void OnValidate()
+    {
+        if (Transitions.Length > 0)
         {
-            case Actions.Back:
-                OnPause(false);
-                break;
+            foreach (var t in Transitions)
+            {
+                t.Name = t.OnAction.ToString();
+            }
         }
     }
-}
 
-[System.Serializable]
-public class GameMenuTransition
-{
-    public string Name;
-    public GameMenuManager.Actions OnAction;
-    public NavMenu TargetMenu;
+    [System.Serializable]
+    public class GameMenuTransition
+    {
+        [HideInInspector]
+        public string Name;
+        public Actions OnAction;
+        public NavMenu TargetMenu;
+    }
 }
 
 public static class GameMenuTransitionHelper
 {
-    public static NavMenu Find(this GameMenuTransition[] transitions, GameMenuManager.Actions action)
+    public static NavMenu Find(this GameMenuManager.GameMenuTransition[] transitions, GameMenuManager.Actions action)
     {
         foreach (var transition in transitions)
         {

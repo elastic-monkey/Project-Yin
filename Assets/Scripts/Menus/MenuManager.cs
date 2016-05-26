@@ -27,7 +27,7 @@ public abstract class MenuManager : MonoBehaviour
         }
         else
         {
-            NavMenu.SetActive(false);
+            SetActive(false);
         }
     }
 

@@ -10,19 +10,6 @@ public class ShopMenuManager : GameMenuManager
             return _gameManager.Player;
         }
     }
-        
-    public override void HandleInput(bool active)
-    {
-        base.HandleInput(active);
-
-        if (active)
-        {
-            if (PlayerInput.IsButtonUp(BackKey) && active)
-            {
-                _gameManager.SetGamePaused(false);
-            }
-        }
-    }
 
     public override void OnNavItemFocused(NavItem target)
     {
