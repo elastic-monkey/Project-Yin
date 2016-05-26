@@ -2,7 +2,6 @@
 
 public abstract class NavMenu : MonoBehaviour
 {
-    public MenuManager MenuManager;
     public RectTransform HoverIcon;
     public bool IsSubMenu;
     public bool UseHoverNavigation;
@@ -15,6 +14,18 @@ public abstract class NavMenu : MonoBehaviour
     private bool _inputBlocked;
     private bool _inputUnlockedNextFrame;
     private IAnimatedPanel _animatedPanel;
+    private MenuManager _menuManager;
+
+    public MenuManager MenuManager
+    {
+        get
+        {
+            if (_menuManager == null)
+                _menuManager = GetComponent<MenuManager>();
+
+            return _menuManager;
+        }
+    }
 
     public bool InputBlocked
     {

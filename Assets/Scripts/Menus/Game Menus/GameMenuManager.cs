@@ -32,6 +32,7 @@ public abstract class GameMenuManager : MenuManager
     [Tooltip("Only gets applied if PauseGame is set to false")]
     public bool BlockGameplayInput = true;
     public Axis OpenKey;
+    public Actions OnBackAction = Actions.Back;
     public GameMenuTransition[] Transitions;
     protected GameManager _gameManager;
 
@@ -65,7 +66,7 @@ public abstract class GameMenuManager : MenuManager
 
     public void OnBackPressed()
     {
-        OnNavItemSelected(null, Actions.Back, null);
+        OnNavItemSelected(null, OnBackAction, null);
     }
 
     public override void SetActive(bool value)

@@ -15,33 +15,22 @@ public class InventoryMenuManager : GameMenuManager
 
     public void AddItemToInventory(Item item)
     {
-        Debug.Log(item.Type);
-        for (var i = 0; i < InventorySlots.Count; i++)
+        if (Player.Currency.CurrentCredits < item.BuyPrice)
+            return;
+
+        var stock = GetStockInInventory(item);
+        if (stock == 0)
         {
-            InventorySlotNavItem SlotItem = InventorySlots[i];
-            if (SlotItem.Item != null)
-            {
-                if (SlotItem.Item.Type == item.Type && SlotItem.Stock < item.MaxStock)
-                {
-                    SlotItem.IncreaseStock(1);
-                    Player.Currency.RemoveCredits(item.BuyPrice);
-                    return;
-                }
-            }
+            // TODO: add new entry
         }
-        for (var i = 0; i < InventorySlots.Count; i++)
+        else if(stock < item.MaxStock)
         {
-            InventorySlotNavItem SlotItem = InventorySlots[i];
-            if (SlotItem.Item == null)
-            {
-                SlotItem.Item = item;
-                SlotItem.IncreaseStock(1);
-                Player.Currency.RemoveCredits(item.BuyPrice);
-                return;
-            }
+            var slotItem = GetSlotItem(item);
+            slotItem.IncreaseStock(1);
+            Player.Currency.RemoveCredits(item.BuyPrice);
         }
     }
-
+        
     public override void HandleInput(bool active)
     {
         base.HandleInput(active);
@@ -64,14 +53,25 @@ public class InventoryMenuManager : GameMenuManager
 
     public int GetStockInInventory(Item item)
     {
-        for (var i = 0; i < InventorySlots.Count; i++)
+        foreach (var slotItem in InventorySlots)
         {
-            InventorySlotNavItem SlotItem = InventorySlots[i];
-            if (SlotItem.Item.Type == item.Type)
+            if (slotItem.Item.Type == item.Type)
             {
-                return SlotItem.Stock;
+                return slotItem.Stock;
             }
         }
-        return -1;
+
+        return 0;
+    }
+
+    public InventorySlotNavItem GetSlotItem(Item item)
+    {
+        foreach (var slotItem in InventorySlots)
+        {
+            if (slotItem.Item.Type == item.Type)
+                return slotItem;
+        }
+
+        return null;
     }
 }

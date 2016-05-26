@@ -5,7 +5,6 @@ using System.Collections;
 [System.Serializable]
 public class StaminaSyringe : Item
 {
-
     public float StaminaRegenMulti;
     public float Duration;
 
@@ -34,5 +33,12 @@ public class StaminaSyringe : Item
     public override bool CanUse()
     {
         return true;
+    }
+
+    private void OnValidate()
+    {
+        Type = ItemType.StaminaRegenRate;
+        Effect = "Restores " + (StaminaRegenMulti*Duration).ToString() + " Energy Points over " + Duration.ToString() + " seconds";
+        FlavorText = "A small syringe containing a blue liquid";
     }
 }

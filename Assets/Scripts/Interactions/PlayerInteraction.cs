@@ -49,14 +49,12 @@ public abstract class PlayerInteraction : MonoBehaviour
 
     public virtual void StartInteraction()
     {
-        Debug.Log("Start Interaction");
         _interactionPrompt.Show(false, this);
         Ongoing = true;
     }
 
     public virtual void StopInteraction()
     {
-        Debug.Log("Stop Interaction");
         _interactionPrompt.Show(CanBeTriggered, this);
         Ongoing = false;
     }

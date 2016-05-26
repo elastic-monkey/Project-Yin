@@ -26,4 +26,11 @@ public class HealthSyringe : Item
             return false;
         return true;
     }
+
+    private void OnValidate()
+    {
+        Type = ItemType.HealthRecovery;
+        Effect = "Restores " + RecoveryValue.ToString() + " Health Points";
+        FlavorText = "A small syringe containing a red liquid";
+    }
 }

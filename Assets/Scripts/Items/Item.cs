@@ -13,16 +13,23 @@ public abstract class Item : MonoBehaviour
     }
 
     public Tags TagToCompare;
+    public ItemType Type;
     public int BuyPrice;
     public int SellPrice;
     public int MaxStock;
     public Image Icon;
-    public PlayerBehavior Player;
     public string ItemName;
+    [TextArea(1, 4)]
     public string Effect;
+    [TextArea(1, 4)]
     public string FlavorText;
 
-    public ItemType Type { get; protected set; }
+    protected PlayerBehavior Player;
+
+    private void Start()
+    {
+        Player = GameManager.Instance.Player;
+    }
 
     public abstract void UseItem();
 
