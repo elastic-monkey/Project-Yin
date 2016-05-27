@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c9839c617c5261a4ab0e8ff27dde0595
-timeCreated: 1464340375
+guid: bace1a3ab4f967840b6fda7143d22d71
+timeCreated: 1464350806
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -205,339 +205,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Idle' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'Hips' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Start Walking' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'Hips' has translation animation
-      that will be discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Walk Cycle' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'Hips' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'End Walking' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'Hips' has translation
-      animation that will be discarded.\n\t'Hips' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'Run Cycle.Start'
-      has import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'Hips' has translation
-      animation that will be discarded.\n\t'Hips' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'Run Cycle' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Hips' has translation animation
-      that will be discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Run Cycle.End' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'Hips' has translation animation
-      that will be discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Attack1' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Hips' has translation animation that will
-      be discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation animation
-      that will be discarded.\n\nClip 'Attack2' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'Hips' has translation animation that will be
-      discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation animation
-      that will be discarded.\n\nClip 'Armature_Boss|Attack1' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'Hips' has translation animation
-      that will be discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Armature_Boss|Attack2' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Hips' has translation animation
-      that will be discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Armature_Boss|End Walking' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Hips' has translation animation
-      that will be discarded.\n\t'Hips' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Armature_Boss|Idle' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'Hips' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'Armature_Boss|Run
-      Cycle' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Hips'
-      has translation animation that will be discarded.\n\t'Hips' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\nClip 'Armature_Boss|Run
-      Cycle.End' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Hips'
-      has translation animation that will be discarded.\n\t'Hips' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\nClip 'Armature_Boss|Run
-      Cycle.Start' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Hips'
-      has translation animation that will be discarded.\n\t'Hips' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\nClip 'Armature_Boss|Start
-      Walking' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Hips'
-      has translation animation that will be discarded.\n\t'Hips' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\nClip 'Armature_Boss|Walk
-      Cycle' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Hips'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
-    animationRetargetingWarnings: "\nRetargeting quality report for clip 'Idle':\n\tLeftLowerLeg
-      average position error 5.3 mm and maximum position error 9.5 mm at time 1: 0
-      (75.0%) Frame 30\n\tRightLowerLeg average position error 5.3 mm and maximum
-      position error 9.5 mm at time 0:10 (25.0%) Frame 10\n\nRetargeting quality report
-      for clip 'Start Walking':\n\tLeftLowerLeg average position error 19.6 mm and
-      maximum position error 36.4 mm at time 0:11 (100.0%) Frame 11\n\tLeftFoot average
-      position error 19.6 mm and maximum position error 37.1 mm at time 0:11 (100.0%)
-      Frame 11\n\tRightLowerLeg average position error 18.1 mm and maximum position
-      error 33.7 mm at time 0:11 (100.0%) Frame 11\n\tRightFoot average position error
-      19.3 mm and maximum position error 36.3 mm at time 0:11 (100.0%) Frame 11\n\tLeftUpperArm
-      average position error 17.8 mm and maximum position error 32.9 mm at time 0:11
-      (100.0%) Frame 11\n\tLeftLowerArm average position error 17.8 mm and maximum
-      position error 33.0 mm at time 0:11 (100.0%) Frame 11\n\tLeftHand average position
-      error 17.8 mm and maximum position error 32.9 mm at time 0:11 (100.0%) Frame
-      11\n\tRightUpperArm average position error 17.8 mm and maximum position error
-      32.9 mm at time 0:11 (100.0%) Frame 11\n\tRightLowerArm average position error
-      17.8 mm and maximum position error 32.9 mm at time 0:11 (100.0%) Frame 11\n\tRightHand
-      average position error 17.8 mm and maximum position error 32.9 mm at time 0:11
-      (100.0%) Frame 11\n\tHead average position error 17.8 mm and maximum position
-      error 32.9 mm at time 0:11 (100.0%) Frame 11\n\nRetargeting quality report for
-      clip 'Walk Cycle':\n\tLeftLowerLeg average position error 34.1 mm and maximum
-      position error 36.7 mm at time 1:26 (93.3%) Frame 56\n\tLeftFoot average position
-      error 34.9 mm and maximum position error 37.1 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg
-      average position error 34.0 mm and maximum position error 37.0 mm at time 0:26
-      (43.3%) Frame 26\n\tRightFoot average position error 34.8 mm and maximum position
-      error 37.4 mm at time 1: 0 (50.0%) Frame 30\n\tLeftUpperArm average position
-      error 32.9 mm and maximum position error 32.9 mm at time 0: 1 (1.7%) Frame 1\n\tLeftLowerArm
-      average position error 32.8 mm and maximum position error 33.0 mm at time 0:
-      0 (0.0%) Frame 0\n\tLeftHand average position error 33.0 mm and maximum position
-      error 33.0 mm at time 1: 0 (50.0%) Frame 30\n\tRightUpperArm average position
-      error 32.9 mm and maximum position error 32.9 mm at time 0:19 (31.7%) Frame
-      19\n\tRightLowerArm average position error 32.9 mm and maximum position error
-      33.0 mm at time 1: 0 (50.0%) Frame 30\n\tRightHand average position error 32.9
-      mm and maximum position error 33.0 mm at time 1: 0 (50.0%) Frame 30\n\tHead
-      average position error 32.9 mm and maximum position error 32.9 mm at time 0:
-      1 (1.7%) Frame 1\n\nRetargeting quality report for clip 'End Walking':\n\tLeftLowerLeg
-      average position error 18.1 mm and maximum position error 36.4 mm at time 0:
-      0 (0.0%) Frame 0\n\tLeftFoot average position error 18.1 mm and maximum position
-      error 37.1 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg average position
-      error 16.7 mm and maximum position error 33.7 mm at time 0: 0 (0.0%) Frame 0\n\tRightFoot
-      average position error 17.8 mm and maximum position error 36.3 mm at time 0:
-      0 (0.0%) Frame 0\n\tLeftUpperArm average position error 16.5 mm and maximum
-      position error 32.9 mm at time 0: 0 (0.0%) Frame 0\n\tLeftLowerArm average position
-      error 16.5 mm and maximum position error 33.0 mm at time 0: 0 (0.0%) Frame 0\n\tLeftHand
-      average position error 16.5 mm and maximum position error 32.9 mm at time 0:
-      0 (0.0%) Frame 0\n\tRightUpperArm average position error 16.5 mm and maximum
-      position error 32.9 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerArm average
-      position error 16.5 mm and maximum position error 32.9 mm at time 0: 0 (0.0%)
-      Frame 0\n\tRightHand average position error 16.5 mm and maximum position error
-      32.9 mm at time 0: 0 (0.0%) Frame 0\n\tHead average position error 16.5 mm and
-      maximum position error 32.9 mm at time 0: 0 (0.0%) Frame 0\n\nRetargeting quality
-      report for clip 'Run Cycle.Start':\n\tLeftLowerLeg average position error 25.8
-      mm and maximum position error 53.2 mm at time 1: 0 (100.0%) Frame 30\n\tLeftFoot
-      average position error 26.5 mm and maximum position error 57.4 mm at time 1:
-      0 (100.0%) Frame 30\n\tRightLowerLeg average position error 27.2 mm and maximum
-      position error 68.6 mm at time 1: 0 (100.0%) Frame 30\n\tRightFoot average position
-      error 28.2 mm and maximum position error 67.0 mm at time 1: 0 (100.0%) Frame
-      30\n\tLeftUpperArm average position error 21.6 mm and maximum position error
-      34.5 mm at time 0:29 (96.7%) Frame 29\n\tLeftLowerArm average position error
-      21.7 mm and maximum position error 35.1 mm at time 1: 0 (100.0%) Frame 30\n\tLeftHand
-      average position error 22.6 mm and maximum position error 43.5 mm at time 1:
-      0 (100.0%) Frame 30\n\tRightUpperArm average position error 21.6 mm and maximum
-      position error 34.5 mm at time 0:29 (96.7%) Frame 29\n\tRightLowerArm average
-      position error 23.6 mm and maximum position error 44.7 mm at time 1: 0 (100.0%)
-      Frame 30\n\tRightHand average position error 25.5 mm and maximum position error
-      57.9 mm at time 1: 0 (100.0%) Frame 30\n\tHead average position error 21.6 mm
-      and maximum position error 34.5 mm at time 0:29 (96.7%) Frame 29\n\nRetargeting
-      quality report for clip 'Run Cycle':\n\tLeftLowerLeg average position error
-      58.5 mm and maximum position error 70.0 mm at time 1:18 (60.0%) Frame 48\n\tLeftFoot
-      average position error 59.6 mm and maximum position error 75.0 mm at time 1:18
-      (60.0%) Frame 48\n\tRightLowerLeg average position error 59.6 mm and maximum
-      position error 68.8 mm at time 0: 5 (6.3%) Frame 5\n\tRightFoot average position
-      error 59.7 mm and maximum position error 67.6 mm at time 0: 9 (11.3%) Frame
-      9\n\tLeftUpperArm average position error 35.4 mm and maximum position error
-      52.0 mm at time 1:20 (62.5%) Frame 50\n\tLeftLowerArm average position error
-      40.5 mm and maximum position error 56.0 mm at time 1:18 (60.0%) Frame 48\n\tLeftHand
-      average position error 51.9 mm and maximum position error 66.5 mm at time 1:18
-      (60.0%) Frame 48\n\tRightUpperArm average position error 35.4 mm and maximum
-      position error 52.0 mm at time 1:20 (62.5%) Frame 50\n\tRightLowerArm average
-      position error 40.3 mm and maximum position error 57.6 mm at time 1:20 (62.5%)
-      Frame 50\n\tRightHand average position error 51.2 mm and maximum position error
-      68.0 mm at time 1:20 (62.5%) Frame 50\n\tHead average position error 35.4 mm
-      and maximum position error 52.0 mm at time 1:20 (62.5%) Frame 50\n\nRetargeting
-      quality report for clip 'Run Cycle.End':\n\tLeftLowerLeg average position error
-      47.6 mm and maximum position error 93.7 mm at time 0:20 (66.7%) Frame 20\n\tLeftFoot
-      average position error 49.1 mm and maximum position error 93.7 mm at time 0:20
-      (66.7%) Frame 20\n\tRightLowerLeg average position error 50.6 mm and maximum
-      position error 93.7 mm at time 0:20 (66.7%) Frame 20\n\tRightFoot average position
-      error 50.8 mm and maximum position error 93.7 mm at time 0:20 (66.7%) Frame
-      20\n\tLeftUpperArm average position error 44.5 mm and maximum position error
-      93.7 mm at time 0:20 (66.7%) Frame 20\n\tLeftLowerArm average position error
-      43.9 mm and maximum position error 93.6 mm at time 0:20 (66.7%) Frame 20\n\tLeftHand
-      average position error 45.4 mm and maximum position error 93.7 mm at time 0:20
-      (66.7%) Frame 20\n\tRightUpperArm average position error 44.5 mm and maximum
-      position error 93.7 mm at time 0:20 (66.7%) Frame 20\n\tRightLowerArm average
-      position error 44.8 mm and maximum position error 91.1 mm at time 0:20 (66.7%)
-      Frame 20\n\tRightHand average position error 48.3 mm and maximum position error
-      93.7 mm at time 0:20 (66.7%) Frame 20\n\tHead average position error 44.5 mm
-      and maximum position error 93.7 mm at time 0:20 (66.7%) Frame 20\n\nRetargeting
-      quality report for clip 'Attack1':\n\tLeftLowerLeg average position error 52.5
-      mm and maximum position error 77.9 mm at time 0:20 (40.0%) Frame 20\n\tLeftFoot
-      average position error 50.7 mm and maximum position error 76.9 mm at time 0:20
-      (40.0%) Frame 20\n\tRightLowerLeg average position error 50.0 mm and maximum
-      position error 75.8 mm at time 0:20 (40.0%) Frame 20\n\tRightFoot average position
-      error 51.9 mm and maximum position error 79.0 mm at time 0:20 (40.0%) Frame
-      20\n\tLeftUpperArm average position error 50.9 mm and maximum position error
-      74.1 mm at time 1: 6 (72.0%) Frame 36\n\tLeftLowerArm average position error
-      50.9 mm and maximum position error 74.2 mm at time 1: 4 (68.0%) Frame 34\n\tLeftHand
-      average position error 50.9 mm and maximum position error 74.1 mm at time 1:
-      4 (68.0%) Frame 34\n\tRightUpperArm average position error 50.9 mm and maximum
-      position error 74.1 mm at time 1: 6 (72.0%) Frame 36\n\tRightLowerArm average
-      position error 50.2 mm and maximum position error 74.1 mm at time 0:24 (48.0%)
-      Frame 24\n\tRightHand average position error 50.9 mm and maximum position error
-      74.2 mm at time 1:10 (80.0%) Frame 40\n\tHead average position error 50.9 mm
-      and maximum position error 74.1 mm at time 1: 6 (72.0%) Frame 36\n\nRetargeting
-      quality report for clip 'Attack2':\n\tLeftLowerLeg average position error 69.3
-      mm and maximum position error 100.7 mm at time 0:15 (30.0%) Frame 15\n\tLeftFoot
-      average position error 62.2 mm and maximum position error 95.3 mm at time 0:19
-      (38.0%) Frame 19\n\tRightLowerLeg average position error 59.3 mm and maximum
-      position error 90.2 mm at time 0:18 (36.0%) Frame 18\n\tRightFoot average position
-      error 68.1 mm and maximum position error 107.1 mm at time 0:18 (36.0%) Frame
-      18\n\tLeftUpperArm average position error 58.1 mm and maximum position error
-      74.1 mm at time 0:17 (34.0%) Frame 17\n\tLeftLowerArm average position error
-      57.6 mm and maximum position error 74.2 mm at time 1: 6 (72.0%) Frame 36\n\tLeftHand
-      average position error 58.1 mm and maximum position error 74.2 mm at time 0:17
-      (34.0%) Frame 17\n\tRightUpperArm average position error 58.1 mm and maximum
-      position error 74.1 mm at time 0:17 (34.0%) Frame 17\n\tRightLowerArm average
-      position error 57.1 mm and maximum position error 74.1 mm at time 0:27 (54.0%)
-      Frame 27\n\tRightHand average position error 58.2 mm and maximum position error
-      74.2 mm at time 0:10 (20.0%) Frame 10\n\tHead average position error 58.1 mm
-      and maximum position error 74.1 mm at time 0:17 (34.0%) Frame 17\n\nRetargeting
-      quality report for clip 'Armature_Boss|Attack1':\n\tLeftLowerLeg average position
-      error 52.5 mm and maximum position error 77.9 mm at time 0:20 (40.0%) Frame
-      20\n\tLeftFoot average position error 50.7 mm and maximum position error 76.9
-      mm at time 0:20 (40.0%) Frame 20\n\tRightLowerLeg average position error 50.0
-      mm and maximum position error 75.8 mm at time 0:20 (40.0%) Frame 20\n\tRightFoot
-      average position error 51.9 mm and maximum position error 79.0 mm at time 0:20
-      (40.0%) Frame 20\n\tLeftUpperArm average position error 50.9 mm and maximum
-      position error 74.1 mm at time 1: 6 (72.0%) Frame 36\n\tLeftLowerArm average
-      position error 50.9 mm and maximum position error 74.2 mm at time 1: 4 (68.0%)
-      Frame 34\n\tLeftHand average position error 50.9 mm and maximum position error
-      74.1 mm at time 1: 4 (68.0%) Frame 34\n\tRightUpperArm average position error
-      50.9 mm and maximum position error 74.1 mm at time 1: 6 (72.0%) Frame 36\n\tRightLowerArm
-      average position error 50.2 mm and maximum position error 74.1 mm at time 0:24
-      (48.0%) Frame 24\n\tRightHand average position error 50.9 mm and maximum position
-      error 74.2 mm at time 1:10 (80.0%) Frame 40\n\tHead average position error 50.9
-      mm and maximum position error 74.1 mm at time 1: 6 (72.0%) Frame 36\n\nRetargeting
-      quality report for clip 'Armature_Boss|Attack2':\n\tLeftLowerLeg average position
-      error 69.3 mm and maximum position error 100.7 mm at time 0:15 (30.0%) Frame
-      15\n\tLeftFoot average position error 62.2 mm and maximum position error 95.3
-      mm at time 0:19 (38.0%) Frame 19\n\tRightLowerLeg average position error 59.3
-      mm and maximum position error 90.2 mm at time 0:18 (36.0%) Frame 18\n\tRightFoot
-      average position error 68.1 mm and maximum position error 107.1 mm at time 0:18
-      (36.0%) Frame 18\n\tLeftUpperArm average position error 58.1 mm and maximum
-      position error 74.1 mm at time 0:17 (34.0%) Frame 17\n\tLeftLowerArm average
-      position error 57.6 mm and maximum position error 74.2 mm at time 1: 6 (72.0%)
-      Frame 36\n\tLeftHand average position error 58.1 mm and maximum position error
-      74.2 mm at time 0:17 (34.0%) Frame 17\n\tRightUpperArm average position error
-      58.1 mm and maximum position error 74.1 mm at time 0:17 (34.0%) Frame 17\n\tRightLowerArm
-      average position error 57.1 mm and maximum position error 74.1 mm at time 0:27
-      (54.0%) Frame 27\n\tRightHand average position error 58.2 mm and maximum position
-      error 74.2 mm at time 0:10 (20.0%) Frame 10\n\tHead average position error 58.1
-      mm and maximum position error 74.1 mm at time 0:17 (34.0%) Frame 17\n\nRetargeting
-      quality report for clip 'Armature_Boss|End Walking':\n\tLeftLowerLeg average
-      position error 18.1 mm and maximum position error 36.4 mm at time 0: 0 (0.0%)
-      Frame 0\n\tLeftFoot average position error 18.1 mm and maximum position error
-      37.1 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg average position error
-      16.7 mm and maximum position error 33.7 mm at time 0: 0 (0.0%) Frame 0\n\tRightFoot
-      average position error 17.8 mm and maximum position error 36.3 mm at time 0:
-      0 (0.0%) Frame 0\n\tLeftUpperArm average position error 16.5 mm and maximum
-      position error 32.9 mm at time 0: 0 (0.0%) Frame 0\n\tLeftLowerArm average position
-      error 16.5 mm and maximum position error 33.0 mm at time 0: 0 (0.0%) Frame 0\n\tLeftHand
-      average position error 16.5 mm and maximum position error 32.9 mm at time 0:
-      0 (0.0%) Frame 0\n\tRightUpperArm average position error 16.5 mm and maximum
-      position error 32.9 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerArm average
-      position error 16.5 mm and maximum position error 32.9 mm at time 0: 0 (0.0%)
-      Frame 0\n\tRightHand average position error 16.5 mm and maximum position error
-      32.9 mm at time 0: 0 (0.0%) Frame 0\n\tHead average position error 16.5 mm and
-      maximum position error 32.9 mm at time 0: 0 (0.0%) Frame 0\n\nRetargeting quality
-      report for clip 'Armature_Boss|Idle':\n\tLeftLowerLeg average position error
-      5.3 mm and maximum position error 9.5 mm at time 1: 0 (75.0%) Frame 30\n\tRightLowerLeg
-      average position error 5.3 mm and maximum position error 9.5 mm at time 0:10
-      (25.0%) Frame 10\n\nRetargeting quality report for clip 'Armature_Boss|Run Cycle':\n\tLeftLowerLeg
-      average position error 58.5 mm and maximum position error 70.0 mm at time 1:18
-      (60.0%) Frame 48\n\tLeftFoot average position error 59.6 mm and maximum position
-      error 75.0 mm at time 1:18 (60.0%) Frame 48\n\tRightLowerLeg average position
-      error 59.6 mm and maximum position error 68.8 mm at time 0: 5 (6.3%) Frame 5\n\tRightFoot
-      average position error 59.7 mm and maximum position error 67.6 mm at time 0:
-      9 (11.3%) Frame 9\n\tLeftUpperArm average position error 35.4 mm and maximum
-      position error 52.0 mm at time 1:20 (62.5%) Frame 50\n\tLeftLowerArm average
-      position error 40.5 mm and maximum position error 56.0 mm at time 1:18 (60.0%)
-      Frame 48\n\tLeftHand average position error 51.9 mm and maximum position error
-      66.5 mm at time 1:18 (60.0%) Frame 48\n\tRightUpperArm average position error
-      35.4 mm and maximum position error 52.0 mm at time 1:20 (62.5%) Frame 50\n\tRightLowerArm
-      average position error 40.3 mm and maximum position error 57.6 mm at time 1:20
-      (62.5%) Frame 50\n\tRightHand average position error 51.2 mm and maximum position
-      error 68.0 mm at time 1:20 (62.5%) Frame 50\n\tHead average position error 35.4
-      mm and maximum position error 52.0 mm at time 1:20 (62.5%) Frame 50\n\nRetargeting
-      quality report for clip 'Armature_Boss|Run Cycle.End':\n\tLeftLowerLeg average
-      position error 47.6 mm and maximum position error 93.7 mm at time 0:20 (66.7%)
-      Frame 20\n\tLeftFoot average position error 49.1 mm and maximum position error
-      93.7 mm at time 0:20 (66.7%) Frame 20\n\tRightLowerLeg average position error
-      50.6 mm and maximum position error 93.7 mm at time 0:20 (66.7%) Frame 20\n\tRightFoot
-      average position error 50.8 mm and maximum position error 93.7 mm at time 0:20
-      (66.7%) Frame 20\n\tLeftUpperArm average position error 44.5 mm and maximum
-      position error 93.7 mm at time 0:20 (66.7%) Frame 20\n\tLeftLowerArm average
-      position error 43.9 mm and maximum position error 93.6 mm at time 0:20 (66.7%)
-      Frame 20\n\tLeftHand average position error 45.4 mm and maximum position error
-      93.7 mm at time 0:20 (66.7%) Frame 20\n\tRightUpperArm average position error
-      44.5 mm and maximum position error 93.7 mm at time 0:20 (66.7%) Frame 20\n\tRightLowerArm
-      average position error 44.8 mm and maximum position error 91.1 mm at time 0:20
-      (66.7%) Frame 20\n\tRightHand average position error 48.3 mm and maximum position
-      error 93.7 mm at time 0:20 (66.7%) Frame 20\n\tHead average position error 44.5
-      mm and maximum position error 93.7 mm at time 0:20 (66.7%) Frame 20\n\nRetargeting
-      quality report for clip 'Armature_Boss|Run Cycle.Start':\n\tLeftLowerLeg average
-      position error 25.8 mm and maximum position error 53.2 mm at time 1: 0 (100.0%)
-      Frame 30\n\tLeftFoot average position error 26.5 mm and maximum position error
-      57.4 mm at time 1: 0 (100.0%) Frame 30\n\tRightLowerLeg average position error
-      27.2 mm and maximum position error 68.6 mm at time 1: 0 (100.0%) Frame 30\n\tRightFoot
-      average position error 28.2 mm and maximum position error 67.0 mm at time 1:
-      0 (100.0%) Frame 30\n\tLeftUpperArm average position error 21.6 mm and maximum
-      position error 34.5 mm at time 0:29 (96.7%) Frame 29\n\tLeftLowerArm average
-      position error 21.7 mm and maximum position error 35.1 mm at time 1: 0 (100.0%)
-      Frame 30\n\tLeftHand average position error 22.6 mm and maximum position error
-      43.5 mm at time 1: 0 (100.0%) Frame 30\n\tRightUpperArm average position error
-      21.6 mm and maximum position error 34.5 mm at time 0:29 (96.7%) Frame 29\n\tRightLowerArm
-      average position error 23.6 mm and maximum position error 44.7 mm at time 1:
-      0 (100.0%) Frame 30\n\tRightHand average position error 25.5 mm and maximum
-      position error 57.9 mm at time 1: 0 (100.0%) Frame 30\n\tHead average position
-      error 21.6 mm and maximum position error 34.5 mm at time 0:29 (96.7%) Frame
-      29\n\nRetargeting quality report for clip 'Armature_Boss|Start Walking':\n\tLeftLowerLeg
-      average position error 18.1 mm and maximum position error 36.4 mm at time 0:10
-      (100.0%) Frame 10\n\tLeftFoot average position error 18.1 mm and maximum position
-      error 37.1 mm at time 0:10 (100.0%) Frame 10\n\tRightLowerLeg average position
-      error 16.7 mm and maximum position error 33.7 mm at time 0:10 (100.0%) Frame
-      10\n\tRightFoot average position error 17.8 mm and maximum position error 36.3
-      mm at time 0:10 (100.0%) Frame 10\n\tLeftUpperArm average position error 16.5
-      mm and maximum position error 32.9 mm at time 0:10 (100.0%) Frame 10\n\tLeftLowerArm
-      average position error 16.5 mm and maximum position error 33.0 mm at time 0:10
-      (100.0%) Frame 10\n\tLeftHand average position error 16.5 mm and maximum position
-      error 32.9 mm at time 0:10 (100.0%) Frame 10\n\tRightUpperArm average position
-      error 16.5 mm and maximum position error 32.9 mm at time 0:10 (100.0%) Frame
-      10\n\tRightLowerArm average position error 16.5 mm and maximum position error
-      32.9 mm at time 0:10 (100.0%) Frame 10\n\tRightHand average position error 16.5
-      mm and maximum position error 32.9 mm at time 0:10 (100.0%) Frame 10\n\tHead
-      average position error 16.5 mm and maximum position error 32.9 mm at time 0:10
-      (100.0%) Frame 10\n\nRetargeting quality report for clip 'Armature_Boss|Walk
-      Cycle':\n\tLeftLowerLeg average position error 34.1 mm and maximum position
-      error 36.7 mm at time 1:26 (93.3%) Frame 56\n\tLeftFoot average position error
-      34.9 mm and maximum position error 37.1 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg
-      average position error 34.0 mm and maximum position error 37.0 mm at time 0:26
-      (43.3%) Frame 26\n\tRightFoot average position error 34.8 mm and maximum position
-      error 37.4 mm at time 1: 0 (50.0%) Frame 30\n\tLeftUpperArm average position
-      error 32.9 mm and maximum position error 32.9 mm at time 1:21 (85.0%) Frame
-      51\n\tLeftLowerArm average position error 32.8 mm and maximum position error
-      33.0 mm at time 0: 0 (0.0%) Frame 0\n\tLeftHand average position error 33.0
-      mm and maximum position error 33.0 mm at time 1: 0 (50.0%) Frame 30\n\tRightUpperArm
-      average position error 32.9 mm and maximum position error 32.9 mm at time 0:27
-      (45.0%) Frame 27\n\tRightLowerArm average position error 32.9 mm and maximum
-      position error 33.0 mm at time 1: 0 (50.0%) Frame 30\n\tRightHand average position
-      error 32.9 mm and maximum position error 33.0 mm at time 1: 0 (50.0%) Frame
-      30\n\tHead average position error 32.9 mm and maximum position error 32.9 mm
-      at time 0:27 (45.0%) Frame 27\n"
-    animationDoRetargetingWarnings: 1
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -1525,6 +1195,1770 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|Attack1
+      takeName: Armature_Boss|Attack1
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|Attack2
+      takeName: Armature_Boss|Attack2
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|End Walking
+      takeName: Armature_Boss|End Walking
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|Idle
+      takeName: Armature_Boss|Idle
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|Run Cycle
+      takeName: Armature_Boss|Run Cycle
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|Run Cycle.End
+      takeName: Armature_Boss|Run Cycle.End
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|Run Cycle.Start
+      takeName: Armature_Boss|Run Cycle.Start
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|Start Walking
+      takeName: Armature_Boss|Start Walking
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_Boss|Walk Cycle
+      takeName: Armature_Boss|Walk Cycle
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_Boss
+        weight: 1
+      - path: Armature_Boss/MasterFloor
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/Head/Head_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/Chest/UpArm_R/LoArm_R/Hand_R/Weapon/Weapon_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_L/Knee Follow_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Knee Follow_R/Knee Follow_R_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_L/Wrist_L_end
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R
+        weight: 1
+      - path: Armature_Boss/MasterFloor/Wrist_R/Wrist_R_end
+        weight: 1
+      - path: Boss
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -1550,772 +2984,8 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    human:
-    - boneName: MasterFloor
-      humanName: Hips
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: UpLeg_L
-      humanName: LeftUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: UpLeg_R
-      humanName: RightUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: LoLeg_L
-      humanName: LeftLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: LoLeg_R
-      humanName: RightLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Chest
-      humanName: Spine
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Head
-      humanName: Head
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: UpArm_L
-      humanName: LeftUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: UpArm_R
-      humanName: RightUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: LoArm_L
-      humanName: LeftLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: LoArm_R
-      humanName: RightLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Hand_L
-      humanName: LeftHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Hand_R
-      humanName: RightHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Thumb-1_L
-      humanName: Left Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Thumb-2_L
-      humanName: Left Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Index_L
-      humanName: Left Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Index1_L
-      humanName: Left Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Index2_L
-      humanName: Left Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mid_L
-      humanName: Left Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mid_L.002
-      humanName: Left Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mid2_L
-      humanName: Left Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mit_L
-      humanName: Left Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mit1_L
-      humanName: Left Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mit2_L
-      humanName: Left Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Pink_L
-      humanName: Left Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Pink1_L
-      humanName: Left Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Pink2_L
-      humanName: Left Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Thumb-1_R
-      humanName: Right Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Thumb-2_R
-      humanName: Right Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Index_R
-      humanName: Right Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Index_R.002
-      humanName: Right Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Index_R.001
-      humanName: Right Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mid_R
-      humanName: Right Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mid_R.002
-      humanName: Right Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mid_R.001
-      humanName: Right Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mit_R.001
-      humanName: Right Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mit_R.004
-      humanName: Right Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Mit2_R
-      humanName: Right Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Pink_R
-      humanName: Right Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Pink_R.002
-      humanName: Right Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Pink_R.001
-      humanName: Right Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: LoLeg_L_end
-      humanName: LeftFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: LoLeg_R_end
-      humanName: RightFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    skeleton:
-    - name: Boss v4(Clone)
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Armature_Boss
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: -0.7071067, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 10, y: 10, z: 10}
-      transformModified: 1
-    - name: MasterFloor
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0.7071068, y: -4.32978e-17, z: -0.7071067, w: -4.3297806e-17}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Ankle_L
-      position: {x: -0.012687923, y: -0.00018424272, z: 0.018503176}
-      rotation: {x: 0.7071068, y: -0.00000009415696, z: -0.7071067, w: -0.00000009415697}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Foot_L
-      position: {x: 3.307199e-10, y: 0.0000000022270332, z: -1.8872995e-10}
-      rotation: {x: 0.93222845, y: 0.0000000520897, z: -0.00000034947251, w: -0.36187032}
-      scale: {x: 1, y: 1.0000001, z: 0.9999998}
-      transformModified: 1
-    - name: Toe_L
-      position: {x: -7.79028e-10, y: 0.019160476, z: -1.801976e-10}
-      rotation: {x: -0.000000012481303, y: 0.93222845, z: -0.36187032, w: -0.00000042367034}
-      scale: {x: 1, y: 1.0000001, z: 1}
-      transformModified: 1
-    - name: Toe_L_end
-      position: {x: -0, y: 0.01209343, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Ankle_R
-      position: {x: -0.012687926, y: -0.00018424272, z: -0.018503172}
-      rotation: {x: 0.7071068, y: -0.00000009415696, z: -0.7071067, w: -0.00000009415697}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Foot_R
-      position: {x: -0.0000000015022245, y: 0.000000002524931, z: 0.0000000021954558}
-      rotation: {x: 0.93222845, y: -0.00000011092001, z: 0.00000036383616, w: -0.36187032}
-      scale: {x: 1, y: 1.0000001, z: 0.9999998}
-      transformModified: 1
-    - name: Toe_R
-      position: {x: -0.0000000014850223, y: 0.019160476, z: -2.4309305e-10}
-      rotation: {x: 0.000000012481332, y: 0.93222845, z: -0.36187032, w: 0.00000042367034}
-      scale: {x: 1, y: 1.0000001, z: 1}
-      transformModified: 1
-    - name: Toe_R_end
-      position: {x: -0, y: 0.01209343, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Elbow Follow_L
-      position: {x: -0.1743568, y: 0.050374407, z: 0.02800259}
-      rotation: {x: -0, y: -0.7071067, z: 0, w: 0.7071068}
-      scale: {x: 1.0689175, y: 1, z: 1}
-      transformModified: 1
-    - name: Elbow Follow_L_end
-      position: {x: -0, y: 0.018339356, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: ElbowFollow_R
-      position: {x: -0.1743568, y: 0.050374407, z: -0.03280541}
-      rotation: {x: -0, y: -0.7071067, z: 0, w: 0.7071068}
-      scale: {x: 1.0689175, y: 1, z: 1}
-      transformModified: 1
-    - name: ElbowFollow_R_end
-      position: {x: -0, y: 0.018339356, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Hips
-      position: {x: -0.101579204, y: -0.0026663928, z: 0.000000007668808}
-      rotation: {x: -0.00000048854685, y: 0.00000054195556, z: 0.7071067, w: 0.7071068}
-      scale: {x: 0.99999994, y: 1, z: 1}
-      transformModified: 1
-    - name: Chest
-      position: {x: -1.9835572e-11, y: 0.02428215, z: 8.650598e-17}
-      rotation: {x: 0.07820406, y: 0.7027684, z: -0.07820394, w: 0.7027694}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Head
-      position: {x: 1.1602783e-16, y: 0.059186652, z: 0.0000000013991726}
-      rotation: {x: -0.09992147, y: -0.0030554202, z: 0.008032568, w: 0.9949582}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Head_end
-      position: {x: -0, y: 0.038577765, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UpArm_L
-      position: {x: -0.031226482, y: 0.044346966, z: -0.0039855526}
-      rotation: {x: 0.57292557, y: -0.55509937, z: -0.4405467, w: -0.41175193}
-      scale: {x: 0.9999998, y: 1, z: 0.99999994}
-      transformModified: 1
-    - name: LoArm_L
-      position: {x: 1.04223186e-10, y: 0.03411537, z: 0.0000000015810895}
-      rotation: {x: 0.002293289, y: 0.07073379, z: 0.00056952244, w: 0.99749243}
-      scale: {x: 1, y: 1.0000001, z: 1.0000001}
-      transformModified: 1
-    - name: Hand_L
-      position: {x: 3.990463e-10, y: 0.032171365, z: -8.982929e-10}
-      rotation: {x: 0.10057476, y: -0.044349227, z: -0.05371713, w: 0.99248797}
-      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
-      transformModified: 1
-    - name: FingersFollowL
-      position: {x: 0.0014535859, y: 0.012959525, z: 0.005939727}
-      rotation: {x: 0.21400857, y: -0.70767194, z: -0.18004647, w: 0.6488328}
-      scale: {x: 1, y: 1.0000001, z: 1.0000001}
-      transformModified: 1
-    - name: FingersFollowL_end
-      position: {x: -0, y: 0.0062499996, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Index_L
-      position: {x: -0.006211675, y: 0.020038906, z: -0.00071064645}
-      rotation: {x: -0.099927805, y: 0.62298954, z: 0.0052854354, w: 0.77580315}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
-      transformModified: 1
-    - name: Index1_L
-      position: {x: -0.0000000022789406, y: 0.004934779, z: 0.0000000029510716}
-      rotation: {x: 0.0046403487, y: 0.17469022, z: -0.0365029, w: 0.98393565}
-      scale: {x: 0.99999994, y: 1, z: 0.9999999}
-      transformModified: 1
-    - name: Index2_L
-      position: {x: 0.0000000016153242, y: 0.0040390375, z: 0.0000000028935636}
-      rotation: {x: 0.007329545, y: -0.0059423437, z: -0.037210014, w: 0.999263}
-      scale: {x: 1.0000002, y: 1, z: 0.99999994}
-      transformModified: 1
-    - name: Index2_L_end
-      position: {x: -0, y: 0.0038450542, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Mid_L
-      position: {x: -0.0019277829, y: 0.020183925, z: -0.0005568408}
-      rotation: {x: -0.052599207, y: 0.64065224, z: -0.023608094, w: 0.7656636}
-      scale: {x: 1, y: 1.0000002, z: 1.0000002}
-      transformModified: 1
-    - name: Mid_L.002
-      position: {x: 0.0000000017060449, y: 0.004651801, z: -0.0000000014286837}
-      rotation: {x: -0.005011864, y: 0.08982613, z: -0.036795642, w: 0.9952649}
-      scale: {x: 0.9999999, y: 1, z: 0.9999999}
-      transformModified: 1
-    - name: Mid2_L
-      position: {x: 0.0000000017825031, y: 0.005041657, z: 0.0000000022613522}
-      rotation: {x: 0.01092742, y: 0.06377621, z: -0.03785652, w: 0.99718606}
-      scale: {x: 1.0000001, y: 0.99999994, z: 1}
-      transformModified: 1
-    - name: Mid2_L_end
-      position: {x: -0, y: 0.004103832, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Mit_L
-      position: {x: 0.0024508757, y: 0.020116568, z: -0.0006469991}
-      rotation: {x: -0.049900442, y: 0.72763985, z: -0.058948815, w: 0.68159765}
-      scale: {x: 0.9999998, y: 0.99999994, z: 0.99999994}
-      transformModified: 1
-    - name: Mit1_L
-      position: {x: -0.0000000030134528, y: 0.003728029, z: -0.0000000010219497}
-      rotation: {x: 0.001256503, y: 0.07154607, z: -0.039810505, w: 0.9966417}
-      scale: {x: 1.0000001, y: 1, z: 0.99999994}
-      transformModified: 1
-    - name: Mit2_L
-      position: {x: -6.293848e-10, y: 0.0047478233, z: -5.3767157e-11}
-      rotation: {x: -0.0029984936, y: -0.1262025, z: -0.03735754, w: 0.9912963}
-      scale: {x: 0.9999998, y: 1.0000001, z: 1.0000001}
-      transformModified: 1
-    - name: Mit2_L_end
-      position: {x: -0, y: 0.0038538196, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Pink_L
-      position: {x: 0.0064776377, y: 0.02028541, z: -0.00084766786}
-      rotation: {x: -0.033015404, y: 0.73557156, z: -0.058054633, w: 0.6741469}
-      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
-      transformModified: 1
-    - name: Pink1_L
-      position: {x: 5.168565e-10, y: 0.003188682, z: -5.646638e-10}
-      rotation: {x: 0.001923874, y: 0.06450883, z: -0.03662622, w: 0.997243}
-      scale: {x: 1, y: 0.99999994, z: 1}
-      transformModified: 1
-    - name: Pink2_L
-      position: {x: -0.0000000021742221, y: 0.0034196312, z: -1.8659932e-10}
-      rotation: {x: 0.014095222, y: 0.049151663, z: -0.036087524, w: 0.99803966}
-      scale: {x: 1, y: 1, z: 1.0000001}
-      transformModified: 1
-    - name: Pink2_L_end
-      position: {x: -0, y: 0.003206816, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Thumb-1_L
-      position: {x: -0.009676693, y: 0.011461202, z: -0.0031131655}
-      rotation: {x: -0.29310715, y: 0.57153946, z: 0.22461168, w: 0.7327896}
-      scale: {x: 1, y: 1.0000001, z: 1.0000001}
-      transformModified: 1
-    - name: Thumb-2_L
-      position: {x: 2.0285185e-10, y: 0.0062431544, z: 0.00000000401439}
-      rotation: {x: 0.01684758, y: -0.6311917, z: -0.031445026, w: 0.77480614}
-      scale: {x: 0.9999999, y: 1.0000001, z: 0.99999994}
-      transformModified: 1
-    - name: Thumb-2_L_end
-      position: {x: -0, y: 0.0055227918, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UpArm_R
-      position: {x: 0.031226479, y: 0.044346966, z: -0.0039855563}
-      rotation: {x: 0.5891178, y: 0.569014, z: 0.41905534, w: -0.39186233}
-      scale: {x: 0.99999994, y: 0.9999999, z: 1.0000001}
-      transformModified: 1
-    - name: LoArm_R
-      position: {x: 0.0000000019710804, y: 0.03411537, z: -0.000000009280035}
-      rotation: {x: 0.0007698236, y: -0.07180825, z: -0.0033428662, w: 0.99741256}
-      scale: {x: 0.99999994, y: 1, z: 1.0000001}
-      transformModified: 1
-    - name: Hand_R
-      position: {x: -9.845883e-10, y: 0.032171365, z: 0.0000000036141414}
-      rotation: {x: 0.10549938, y: 0.043985777, z: 0.05296203, w: 0.99203336}
-      scale: {x: 1, y: 0.99999994, z: 0.9999999}
-      transformModified: 1
-    - name: FingersFollowR
-      position: {x: 0.0008328239, y: 0.012906967, z: 0.005725654}
-      rotation: {x: -0.08208384, y: -0.12710433, z: 0.005420247, w: 0.9884722}
-      scale: {x: 0.9999994, y: 0.9999998, z: 0.9999999}
-      transformModified: 1
-    - name: FingersFollowR_end
-      position: {x: -0, y: 0.0074663353, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Index_R
-      position: {x: 0.0062116715, y: 0.020038921, z: -0.00071064895}
-      rotation: {x: -0.08545164, y: -0.6136403, z: 0.019552799, w: 0.7847046}
-      scale: {x: 1, y: 1.0000001, z: 0.99999994}
-      transformModified: 1
-    - name: Index_R.002
-      position: {x: -0.0000000031913827, y: 0.0049347756, z: 0.0000000013255592}
-      rotation: {x: -0.0011375828, y: -0.108854674, z: 0.01882806, w: 0.99387866}
-      scale: {x: 1, y: 0.9999999, z: 0.99999994}
-      transformModified: 1
-    - name: Index_R.001
-      position: {x: 0.0000000020343731, y: 0.0040390287, z: 1.9253205e-10}
-      rotation: {x: 0.0002810694, y: 0.0024652553, z: 0.019911347, w: 0.99979866}
-      scale: {x: 0.99999994, y: 1, z: 1}
-      transformModified: 1
-    - name: Index_R.001_end
-      position: {x: -0, y: 0.0038450575, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Mid_R
-      position: {x: 0.0019277752, y: 0.020183932, z: -0.00055686024}
-      rotation: {x: -0.08127343, y: -0.64576536, z: 0.026308592, w: 0.7587421}
-      scale: {x: 1, y: 0.99999994, z: 1.0000001}
-      transformModified: 1
-    - name: Mid_R.002
-      position: {x: -0.0000000056142015, y: 0.0046518007, z: -7.057812e-10}
-      rotation: {x: -0.0019417813, y: -0.08754417, z: 0.019036112, w: 0.99597687}
-      scale: {x: 0.9999998, y: 1.0000001, z: 1}
-      transformModified: 1
-    - name: Mid_R.001
-      position: {x: 0.0000000067851316, y: 0.005041659, z: -2.1505822e-10}
-      rotation: {x: 0.00083025533, y: -0.008620436, z: 0.021442471, w: 0.99973255}
-      scale: {x: 1.0000002, y: 1, z: 0.99999994}
-      transformModified: 1
-    - name: Mid_R.001_end
-      position: {x: -0, y: 0.0041038273, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Mit_R.001
-      position: {x: -0.0024508855, y: 0.020116584, z: -0.000646984}
-      rotation: {x: -0.07473417, y: -0.626263, z: 0.025754508, w: 0.77559406}
-      scale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
-      transformModified: 1
-    - name: Mit_R.004
-      position: {x: -0.0000000063830177, y: 0.0037280216, z: -0.0000000010406807}
-      rotation: {x: -0.0029991467, y: -0.11372808, z: 0.021613173, w: 0.9932723}
-      scale: {x: 0.9999999, y: 1, z: 1}
-      transformModified: 1
-    - name: Mit2_R
-      position: {x: -0.0000000036950643, y: 0.004747819, z: 2.222086e-10}
-      rotation: {x: -0.00071040535, y: 0.024341267, z: 0.01956412, w: 0.9995121}
-      scale: {x: 1.0000001, y: 1, z: 1}
-      transformModified: 1
-    - name: Mit2_R_end
-      position: {x: -0, y: 0.0038538196, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Pink_R
-      position: {x: -0.0064776354, y: 0.020285405, z: -0.0008476657}
-      rotation: {x: -0.08178961, y: -0.76177484, z: 0.0336923, w: 0.6417745}
-      scale: {x: 0.99999994, y: 1, z: 1}
-      transformModified: 1
-    - name: Pink_R.002
-      position: {x: -0.0000000032330105, y: 0.0031886846, z: -3.1052336e-10}
-      rotation: {x: 0.00033523134, y: 0.051667694, z: 0.01870745, w: 0.9984891}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1}
-      transformModified: 1
-    - name: Pink_R.001
-      position: {x: 0.0000000025341784, y: 0.0034196207, z: 2.1241746e-10}
-      rotation: {x: 0.00036437047, y: -0.010154727, z: 0.020739993, w: 0.99973327}
-      scale: {x: 0.99999994, y: 0.99999994, z: 1}
-      transformModified: 1
-    - name: Pink_R.001_end
-      position: {x: -0, y: 0.003206816, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Thumb-1_R
-      position: {x: 0.009676684, y: 0.011461212, z: -0.003113163}
-      rotation: {x: -0.3592623, y: -0.5715818, z: -0.2136718, w: 0.7060944}
-      scale: {x: 0.99999994, y: 1.0000002, z: 1}
-      transformModified: 1
-    - name: Thumb-2_R
-      position: {x: -0.000000001326467, y: 0.0062431493, z: -0.000000006188087}
-      rotation: {x: 0.010447841, y: 0.6408708, z: 0.014425138, w: 0.76744205}
-      scale: {x: 1, y: 1.0000001, z: 1}
-      transformModified: 1
-    - name: Thumb-2_R_end
-      position: {x: -0, y: 0.0055227918, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Weapon
-      position: {x: -0.0452308, y: 0.013656175, z: -0.004907923}
-      rotation: {x: 0.29287082, y: 0.31827155, z: -0.6119865, w: 0.66211975}
-      scale: {x: 1.0000001, y: 0.99999994, z: 1}
-      transformModified: 1
-    - name: Weapon_end
-      position: {x: -0, y: 0.11407081, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UpLeg_L
-      position: {x: 0.0043069283, y: 0.0011626434, z: 0.014405652}
-      rotation: {x: 0.71844053, y: 0.016367007, z: -0.6892632, w: 0.092149615}
-      scale: {x: 0.99999946, y: 0.9999999, z: 0.9999999}
-      transformModified: 1
-    - name: LoLeg_L
-      position: {x: -0.0000000028831164, y: 0.047284994, z: -9.874008e-10}
-      rotation: {x: 0.18104433, y: 0.0427578, z: -0.051178545, w: 0.98121125}
-      scale: {x: 0.99999994, y: 1, z: 1.0000001}
-      transformModified: 1
-    - name: LoLeg_L_end
-      position: {x: -0, y: 0.044518452, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: UpLeg_R
-      position: {x: 0.00430697, y: 0.0011626434, z: -0.014405639}
-      rotation: {x: -0.68924344, y: -0.09213913, z: 0.71846217, w: -0.0163073}
-      scale: {x: 0.99999905, y: 0.99999994, z: 0.99999964}
-      transformModified: 1
-    - name: LoLeg_R
-      position: {x: 8.1722695e-10, y: 0.047284994, z: -7.6713913e-10}
-      rotation: {x: 0.1810425, y: -0.04275772, z: 0.051177964, w: 0.9812116}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
-      transformModified: 1
-    - name: LoLeg_R_end
-      position: {x: -0, y: 0.044518452, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Knee Follow_L
-      position: {x: -0.056699913, y: 0.050374407, z: 0.01850318}
-      rotation: {x: -0, y: -0.7071067, z: 0, w: 0.7071068}
-      scale: {x: 0.99999994, y: 1, z: 1}
-      transformModified: 1
-    - name: Knee Follow_L_end
-      position: {x: -0, y: 0.018339356, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Knee Follow_R
-      position: {x: -0.056699913, y: 0.050374407, z: -0.01850317}
-      rotation: {x: -0, y: -0.7071067, z: 0, w: 0.7071068}
-      scale: {x: 0.99999994, y: 1, z: 1}
-      transformModified: 1
-    - name: Knee Follow_R_end
-      position: {x: -0, y: 0.018339356, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Wrist_L
-      position: {x: -0.114418246, y: 0.012183678, z: 0.05380153}
-      rotation: {x: 0.7085356, y: 0.0024700079, z: -0.7049751, w: -0.03132744}
-      scale: {x: 0.9469004, y: 1, z: 0.9999957}
-      transformModified: 1
-    - name: Wrist_L_end
-      position: {x: -0, y: 0.019529372, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Wrist_R
-      position: {x: -0.11442772, y: 0.012210957, z: -0.055643596}
-      rotation: {x: -0.7049765, y: 0.03126749, z: 0.70853686, w: -0.002471668}
-      scale: {x: 0.9469004, y: 1, z: 0.99999577}
-      transformModified: 1
-    - name: Wrist_R_end
-      position: {x: -0, y: 0.019529372, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Boss
-      position: {x: -1.9907815e-16, y: 0, z: 0}
-      rotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-      scale: {x: 12.5, y: 12.5, z: 12.5}
-      transformModified: 1
+    human: []
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -2326,7 +2996,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
