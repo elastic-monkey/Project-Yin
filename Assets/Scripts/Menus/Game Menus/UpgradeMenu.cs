@@ -11,7 +11,7 @@ public class UpgradeMenu : GameMenuManager
     {
         get
         {
-            return _gameManager.Player;
+            return GameManager.Player;
         }
     }
 
@@ -30,7 +30,7 @@ public class UpgradeMenu : GameMenuManager
 
         if (PlayerInput.IsButtonUp(BackKey) && active)
         {
-            _gameManager.SetGamePaused(true);
+            GameManager.SetGamePaused(true);
         }
     }
 

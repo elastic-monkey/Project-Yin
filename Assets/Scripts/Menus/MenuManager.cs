@@ -25,7 +25,10 @@ public abstract class MenuManager : MonoBehaviour
 
     public abstract void HandleInput(bool active);
 
-    protected virtual void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data) { TransitionTo(targetNavMenu); }
+    protected virtual void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
+    {
+        TransitionTo(targetNavMenu);
+    }
 
     protected void TransitionTo(NavMenu other)
     {

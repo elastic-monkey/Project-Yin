@@ -34,11 +34,17 @@ public abstract class GameMenuManager : MenuManager
     public Axis OpenKey;
     public Actions OnBackAction = Actions.Back;
     public GameMenuTransition[] Transitions;
-    protected GameManager _gameManager;
+    private GameManager _gameManager;
 
-    private void Awake()
+    protected GameManager GameManager
     {
-        _gameManager = GameManager.Instance;
+        get
+        {
+            if (_gameManager == null)
+                _gameManager = GameManager.Instance;
+
+            return _gameManager;
+        }
     }
 
     public override void HandleInput(bool active)
@@ -50,7 +56,7 @@ public abstract class GameMenuManager : MenuManager
                 OnBackPressed();
             }
         }
-        else if (!_gameManager.GamePaused)
+        else if (!GameManager.GamePaused)
         {
             if (PlayerInput.IsButtonUp(OpenKey))
             {
@@ -90,11 +96,11 @@ public abstract class GameMenuManager : MenuManager
     {
         if (PauseGame)
         {
-            _gameManager.SetGamePaused(value);
+            GameManager.SetGamePaused(value);
         }
         else if(BlockGameplayInput)
         {
-            _gameManager.BlockGameplayInput(value);
+            GameManager.BlockGameplayInput(value);
         }
         NavMenu.SetActive(value);
     }
@@ -111,6 +117,15 @@ public abstract class GameMenuManager : MenuManager
     protected override void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
     {
         base.OnNavItemAction(actionObj, navItem, targetNavMenu, data);
+
+        var action = (Actions)actionObj;
+
+        switch (action)
+        {
+            case Actions.Back:
+                SetActive(false);
+                break;
+        }
     }
 
     private void OnValidate()

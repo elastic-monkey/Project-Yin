@@ -7,7 +7,7 @@ public class GameOver : GameMenuManager
 {
 	public void OnGameOver(bool value)
 	{
-        _gameManager.SetGamePaused(!value);
+        GameManager.SetGamePaused(!value);
         NavMenu.SetActive(value);
 	}
 

@@ -16,7 +16,7 @@ public class ShopMenuManager : GameMenuManager
     {
         get
         {
-            return _gameManager.Player;
+            return GameManager.Player;
         }
     }
 

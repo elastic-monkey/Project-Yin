@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -3}
+  m_LocalPosition: {x: -21.45, y: 1.56, z: -30.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -109,8 +109,8 @@ MonoBehaviour:
   InteractionRadius: 2
   PromptText: Save Game
   ActivateKey: 3
-  CanBeActivated: 0
-  Active: 0
+  CanBeTriggered: 0
+  Ongoing: 0
   Target: {fileID: 0}
 --- !u!135 &13506912
 SphereCollider:
