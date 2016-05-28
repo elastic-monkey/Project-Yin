@@ -1240,6 +1240,7 @@ GameObject:
   - 195: {fileID: 19578012}
   - 114: {fileID: 11406946}
   - 95: {fileID: 9596184}
+  - 114: {fileID: 11411534}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -1934,7 +1935,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164624}
-  m_LocalRotation: {x: 0.6998228, y: 0.70483273, z: 0.07882882, w: -0.08511806}
+  m_LocalRotation: {x: 0.6998227, y: 0.7048327, z: 0.07882881, w: -0.085118055}
   m_LocalPosition: {x: -0.016449776, y: 0.009488263, z: -0.0026318817}
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 1}
   m_LocalEulerAnglesHint: {x: -13.3123, y: -179.43149, z: 89.524895}
@@ -2782,6 +2783,23 @@ MonoBehaviour:
   OnInitialPos: 0
   DistanceToInitial: 0
   _targetTransform: {fileID: 0}
+--- !u!114 &11411534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf870feb1a1aff47928d40ae4840ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundManager: {fileID: 0}
+  PlayVariations: 1
+  Clips:
+  - Name: Step --> Menu1
+    Action: 0
+    Clip: {fileID: 8300000, guid: e128616566c987a4083970794d8db691, type: 3}
 --- !u!114 &11412614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3034,7 +3052,7 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: 9e997c9ed40fd3044b0da05358837d31, type: 2}
   - {fileID: 2100000, guid: ae918965b6aaaaf4594f9f05eda4af74, type: 2}
   - {fileID: 2100000, guid: 72acf025ef8eeb14ab17c8228affe848, type: 2}
-  - {fileID: 2100000, guid: 92ebd86500119674ead08045d16314ed, type: 2}
+  - {fileID: 2100000, guid: 65cccae358d25f747bf74b0741140f5d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
