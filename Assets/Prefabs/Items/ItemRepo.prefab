@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477446}
+  - 114: {fileID: 11442562}
   m_Layer: 0
   m_Name: ItemRepo
   m_TagString: Untagged
@@ -151,14 +152,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TagToCompare: 0
+  Type: 0
   BuyPrice: 100
   SellPrice: 0
   MaxStock: 15
   Icon: {fileID: 11458870}
-  Player: {fileID: 0}
   ItemName: Health Syringe
-  Effect: 
-  FlavorText: 
+  Effect: Restores 20 Health Points
+  FlavorText: A small syringe containing a red liquid
   RecoveryValue: 20
 --- !u!114 &11429190
 MonoBehaviour:
@@ -172,16 +173,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TagToCompare: 0
+  Type: 1
   BuyPrice: 100
   SellPrice: 0
   MaxStock: 15
   Icon: {fileID: 11400752}
-  Player: {fileID: 0}
   ItemName: Energy Syringe
-  Effect: 
-  FlavorText: 
+  Effect: Restores 10 Energy Points over 5 seconds
+  FlavorText: A small syringe containing a blue liquid
   StaminaRegenMulti: 2
   Duration: 5
+--- !u!114 &11442562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4173d5fe5522e4aa5f5901e447e8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items: []
 --- !u!114 &11458870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,14 +234,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TagToCompare: 0
+  Type: 2
   BuyPrice: 0
-  SellPrice: 0
+  SellPrice: 100
   MaxStock: 99
   Icon: {fileID: 11413280}
-  Player: {fileID: 0}
   ItemName: Circuitry
-  Effect: 
-  FlavorText: 
+  Effect: Can be sold for 100 Credits
+  FlavorText: A bunch of circuitry dropped by automatons
   Value: 100
   Inventory: {fileID: 0}
 --- !u!222 &22245468

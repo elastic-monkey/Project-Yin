@@ -84,6 +84,8 @@ public class InventorySlotNavItem : GameNavItem
     public void RemoveItem()
     {
         Item = null;
+        Stock = 0;
+        UpdateSlot();
     }
 
     public void UpdateSlot()

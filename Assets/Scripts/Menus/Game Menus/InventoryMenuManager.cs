@@ -18,19 +18,19 @@ public class InventoryMenuManager : GameMenuManager
         if (Player.Currency.CurrentCredits < item.BuyPrice)
             return;
 
-        var stock = GetStockInInventory(item);
+        var stock = GetStockInInventory(item.Type);
         if (stock == 0)
         {
             // TODO: add new entry
         }
-        else if(stock < item.MaxStock)
+        else if (stock < item.MaxStock)
         {
             var slotItem = GetSlotItem(item);
             slotItem.IncreaseStock(1);
             Player.Currency.RemoveCredits(item.BuyPrice);
         }
     }
-        
+
     public override void HandleInput(bool active)
     {
         base.HandleInput(active);
@@ -51,11 +51,11 @@ public class InventoryMenuManager : GameMenuManager
         NavMenu.UseHoverNavigation = true;
     }
 
-    public int GetStockInInventory(Item item)
+    public int GetStockInInventory(Item.ItemType Type)
     {
         foreach (var slotItem in InventorySlots)
         {
-            if (slotItem.Item.Type == item.Type)
+            if (slotItem.Item.Type == Type)
             {
                 return slotItem.Stock;
             }
@@ -73,5 +73,39 @@ public class InventoryMenuManager : GameMenuManager
         }
 
         return null;
+    }
+
+    public int GetTotalComponentsValue()
+    {
+        for (var i = 0; i < InventorySlots.Count; i++)
+        {
+            InventorySlotNavItem Slot = InventorySlots[i];
+            if (Slot.Item != null)
+            {
+                if (Slot.Item.Type == Item.ItemType.Component)
+                {
+                    return Slot.Stock * Slot.Item.SellPrice;
+                }
+            }
+        }
+
+        return 0;
+    }
+
+    public void SellAllComponents()
+    {
+        for (var i = 0; i < InventorySlots.Count; i++)
+        {
+            InventorySlotNavItem Slot = InventorySlots[i];
+            if (Slot.Item != null)
+            {
+                if (Slot.Item.Type == Item.ItemType.Component)
+                {
+                    Debug.Log("Selling " + Slot.Stock + " components");
+                    Player.Currency.AddCredits(Slot.Stock * Slot.Item.SellPrice);
+                    Slot.RemoveItem();
+                }
+            }
+        }
     }
 }

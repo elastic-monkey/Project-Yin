@@ -24,9 +24,10 @@ public abstract class Item : MonoBehaviour
     [TextArea(1, 4)]
     public string FlavorText;
 
+    [SerializeField]
     protected PlayerBehavior Player;
 
-    private void Start()
+    private void Awake()
     {
         Player = GameManager.Instance.Player;
     }

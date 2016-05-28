@@ -17,7 +17,7 @@ public class EnemyDropItem : Item
 
     public override bool CanUse()
     {
-        return true;
+        return false;
     }
 
     public override void UseItem()

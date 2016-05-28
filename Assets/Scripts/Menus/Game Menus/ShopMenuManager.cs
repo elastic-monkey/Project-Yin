@@ -42,7 +42,7 @@ public class ShopMenuManager : GameMenuManager
         Effect.text = nullItem ? string.Empty : item.Effect;
         FlavorText.text = nullItem ? string.Empty : item.FlavorText;
         Name.text = nullItem ? "No Item"  : item.ItemName;
-        StockText.text = nullItem ? string.Empty : string.Concat("Inventory: ", PlayerInventory.GetStockInInventory(item), "/", item.MaxStock.ToString());
+        StockText.text = nullItem ? string.Empty : string.Concat("Inventory: ", PlayerInventory.GetStockInInventory(item.Type), "/", item.MaxStock.ToString());
         Price.text = nullItem ? string.Empty : string.Concat("Cost: ", item.BuyPrice.ToString(), " Credits");
     }
 
