@@ -150,22 +150,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &117552
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 466784}
-  - 135: {fileID: 13596576}
-  m_Layer: 9
-  m_Name: Attack Range
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &118032
 GameObject:
   m_ObjectHideFlags: 1
@@ -1559,7 +1543,7 @@ Transform:
   - {fileID: 410074}
   - {fileID: 470596}
   m_Father: {fileID: 481428}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &426258
 Transform:
   m_ObjectHideFlags: 1
@@ -2064,7 +2048,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 481428}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &463048
 Transform:
   m_ObjectHideFlags: 1
@@ -2077,7 +2061,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 481428}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &464182
 Transform:
   m_ObjectHideFlags: 1
@@ -2118,19 +2102,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 497300}
   m_RootOrder: 0
---- !u!4 &466784
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 117552}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 481428}
-  m_RootOrder: 1
 --- !u!4 &468358
 Transform:
   m_ObjectHideFlags: 1
@@ -2335,7 +2306,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 426258}
-  - {fileID: 466784}
   - {fileID: 462208}
   - {fileID: 463048}
   - {fileID: 424544}
@@ -2634,7 +2604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxCredits: 99999
-  PlayerCredits: {fileID: 0}
   _currentCredits: 1000
 --- !u!114 &11486992
 MonoBehaviour:
@@ -2698,18 +2667,6 @@ MonoBehaviour:
   RegenerationRate: 10
   RegenerateIsOn: 1
   Regenerating: 0
---- !u!135 &13596576
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 117552}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0.69, z: 0}
 --- !u!136 &13683878
 CapsuleCollider:
   m_ObjectHideFlags: 1
