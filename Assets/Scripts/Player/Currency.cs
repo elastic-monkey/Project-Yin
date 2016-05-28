@@ -6,7 +6,6 @@ public class Currency : MonoBehaviour
 {
 
     public float MaxCredits = 99999f;
-    public Text PlayerCredits;
     [SerializeField]
     private float _currentCredits;
 
@@ -25,24 +24,16 @@ public class Currency : MonoBehaviour
     public void AddCredits(float credits)
     {
         CurrentCredits += credits;
-        //UpgradeCreditsTotal();
     }
 
     public void RemoveCredits(float credits)
     {
         AddCredits(-credits);
-        //UpgradeCreditsTotal();
     }
 
     void Start()
     {
         CurrentCredits = 1000f;
-        //UpgradeCreditsTotal();
-    }
-
-    public void UpgradeCreditsTotal()
-    {
-        PlayerCredits.text = CurrentCredits.ToString();
     }
 
     public bool CanBuy(float price)

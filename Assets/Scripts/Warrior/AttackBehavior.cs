@@ -1,22 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Utilities;
 
 [RequireComponent(typeof(WarriorBehavior), typeof(Animator), typeof(Stamina))]
 public class AttackBehavior : MonoBehaviour
 {
     public float Range = 2f;
-    public SphereCollider RangeCollider;
     public Attack[] Attacks;
     public bool CanAttack = true;
     public bool Attacking = false;
-    [HideInInspector]
-    public List<Collider> Targets;
+    public List<WarriorBehavior> Targets;
     public float DamageMultiplier = 1.0f;
     public float StaminaMultiplier = 1.0f;
 
     private Stamina _stamina;
     private WarriorBehavior _warrior;
+    private GameManager _gameManager;
+    private float _sqrRange;
 
     private bool CanPerformNewAttack
     {
@@ -30,12 +31,30 @@ public class AttackBehavior : MonoBehaviour
     {
         _stamina = GetComponent<Stamina>();
         _warrior = GetComponent<WarriorBehavior>();
+        _sqrRange = Range * Range;
     }
 
-    private void OnValidate()
+    private void Start()
     {
-        if (RangeCollider != null)
-            RangeCollider.radius = Range;
+        _gameManager = GameManager.Instance;
+        }
+    
+    private void Update()
+    {
+        Targets.Clear();
+        var enemies = _gameManager.GetWarriors(_warrior.EnemyTag);
+        foreach (var enemy in enemies)
+        {
+            if (_sqrRange >= Vector3Helper.DistanceXZ(_warrior.transform.position, enemy.transform.position))
+            {
+                Targets.Add(enemy);
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        GizmosHelper.DrawAngleOfSight(transform.position + Vector3.up, transform.forward * Range, 360, 20, Color.red);
     }
 
     public void ChooseAndApplyAttack()

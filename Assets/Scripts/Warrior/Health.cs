@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Health : Upgradable
 {
     public float HealthLevelIncrement = 20f;
     public float BaseMaxHealth = 100f;
-    public float MaxHealth = 100f;
     public bool Alive;
 
     [SerializeField]
-    private float _currentHealth;
+    private float _currentHealth, _maxHealth;
 
     public float CurrentHealth
     {
@@ -24,8 +22,22 @@ public class Health : Upgradable
         }
     }
 
+    public float MaxHealth
+    {
+        get
+        {
+            return _maxHealth;
+        }
+
+        set
+        {
+            _maxHealth = Mathf.Max(value, 0);
+        }
+    }
+
     private void Awake()
     {
+        MaxHealth = BaseMaxHealth;
         CurrentHealth = MaxHealth;
         Alive = true;
     }
@@ -36,13 +48,17 @@ public class Health : Upgradable
         Alive = true;
     }
 
-	public void RecoverHealth(int recovery){
-		if (CurrentHealth + recovery > MaxHealth) {
-			CurrentHealth = MaxHealth;
-		} else {
-			CurrentHealth += recovery;
-		}
-	}
+    public void RecoverHealth(int recovery)
+    {
+        if (CurrentHealth + recovery > MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
+        }
+        else
+        {
+            CurrentHealth += recovery;
+        }
+    }
 
     protected override void OnUpgradeTo(int level)
     {

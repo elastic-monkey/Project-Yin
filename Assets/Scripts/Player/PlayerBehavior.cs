@@ -89,21 +89,22 @@ public class PlayerBehavior : WarriorBehavior
         }
     }
 
-    protected override void OnTriggerEnter(Collider other)
+    public override void OnAttacked(WarriorBehavior attacker)
     {
-        base.OnTriggerEnter(other);
+        // Attacked
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.CompareTag(Tags.DangerArea.TagToString()))
         {
             var dangerArea = other.GetComponent<EnemyArea>();
             dangerArea.AddPlayer(this);
         }
     }
-
-    protected override void OnTriggerExit(Collider other)
+        
+    private void OnTriggerExit(Collider other)
     {
-        base.OnTriggerExit(other);
-
         if (other.CompareTag(Tags.DangerArea.TagToString()))
         {
             var dangerArea = other.GetComponent<EnemyArea>();
@@ -111,7 +112,7 @@ public class PlayerBehavior : WarriorBehavior
         } 
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (!PlayerInput.GameplayBlocked)
         {

@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager _instance;
+    private static GameManager _instance;
 
     public PlayerBehavior Player;
+    public EnemiesManager EnemiesManager;
     public HideBuidings HideBuildings;
 	public GameOver GameOverMenu;
     public InteractionPrompt InteractionPrompt;
 
     [SerializeField]
     private bool _gamePaused;
+    private List<WarriorBehavior> _players, _enemies;
 
     public bool GamePaused
     {
@@ -55,7 +58,30 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         if (Player == null)
+        {
             Debug.LogError("Player instance is not defined");
+        }
+
+        _players = new List<WarriorBehavior>();
+        _players.Add(Player);
+
+        _enemies = new List<WarriorBehavior>();
+        foreach (var enemy in EnemiesManager.Enemies)
+            _enemies.Add(enemy);
+    }
+
+    public List<WarriorBehavior> GetWarriors(Tags tag)
+    {
+        switch (tag)
+        {
+            case Tags.Player:
+                return _players;
+               
+            case Tags.Enemy:
+                return _enemies;
+        }
+
+        return null;
     }
 
     public void OnWarriorDeath(WarriorBehavior warrior)

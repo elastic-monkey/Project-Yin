@@ -28,7 +28,7 @@ public class EnemyBehavior : WarriorBehavior
     {
         get
         {
-            return _enemiesInRange.Count > 0;
+            return Attack.Targets.Count > 0;
         }
     }
 
@@ -125,8 +125,6 @@ public class EnemyBehavior : WarriorBehavior
 
     public override void OnAttacked(WarriorBehavior attacker)
     {
-        base.OnAttacked(attacker);
-
         SetTarget(attacker);
 
         MyArea.NotifyEnemies(attacker);
@@ -137,10 +135,8 @@ public class EnemyBehavior : WarriorBehavior
         _target = target;
     }
 
-    protected override void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        base.OnTriggerEnter(other);
-
         if (other.CompareTag(Tags.DangerArea.TagToString()))
         {
             var dangerArea = other.GetComponent<EnemyArea>();
@@ -149,10 +145,8 @@ public class EnemyBehavior : WarriorBehavior
         }
     }
 
-    protected override void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        base.OnTriggerExit(other);
-
         if (other.CompareTag(Tags.DangerArea.TagToString()))
         {
             MyArea = null;
