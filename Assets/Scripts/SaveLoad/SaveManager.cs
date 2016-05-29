@@ -69,6 +69,8 @@ public class SaveManager : MonoBehaviour
         var player = GameObject.Find("Player");
         var playerBehavior = player.GetComponent<PlayerBehavior>();
 		var playerAnimator = player.GetComponent<Animator> ();
+        var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenuManager>();
+        var itemRepo = GameObject.Find("ItemRepo").GetComponent<ItemRepo>();
 
 		playerAnimator.SetBool (AnimatorHashIDs.DeadBool, false);
 
@@ -85,12 +87,27 @@ public class SaveManager : MonoBehaviour
         playerBehavior.Experience.CurrentExperience = state.Experience;
         playerBehavior.Experience.SkillPoints = state.SkillPoints;
 
+        playerBehavior.Currency.CurrentCredits = state.Credits;
+
         var playerAbilities = player.GetComponent<AbilitiesManager>();
         playerAbilities.RemoveAbilities();
 
         foreach (var sAbility in state.Abilities)
         {
             playerAbilities.Add(Ability.DeserializeAbility(sAbility));
+        }
+
+        for (var i = 0; i < inventory.InventorySlots.Count; i++)
+        {
+            var loadSlot = state.Inventory[i];
+            var slot = inventory.InventorySlots[i];
+            if (loadSlot.Type != Item.ItemType.Null && loadSlot.Stock != 0)
+            {
+                var item = itemRepo.Find(loadSlot.Type);
+                slot.Item = item;
+                slot.Stock = loadSlot.Stock;
+                slot.UpdateSlot();
+            }
         }
     }
 

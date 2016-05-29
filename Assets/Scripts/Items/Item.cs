@@ -9,7 +9,8 @@ public abstract class Item : MonoBehaviour
     {
         HealthRecovery,
         StaminaRegenRate,
-        Component
+        Component,
+        Null
     }
 
     public Tags TagToCompare;

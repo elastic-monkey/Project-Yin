@@ -55,9 +55,12 @@ public class InventoryMenuManager : GameMenuManager
     {
         foreach (var slotItem in InventorySlots)
         {
-            if (slotItem.Item.Type == Type)
-            {
-                return slotItem.Stock;
+            if (slotItem.Item != null)
+            {  
+                if (slotItem.Item.Type == Type)
+                {
+                    return slotItem.Stock;
+                }
             }
         }
 

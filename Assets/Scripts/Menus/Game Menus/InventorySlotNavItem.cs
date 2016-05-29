@@ -121,3 +121,16 @@ public class InventorySlotNavItem : GameNavItem
         }
     }
 }
+
+[System.Serializable]
+public class InventorySlotSave
+{
+    public Item.ItemType Type;
+    public int Stock;
+
+    public InventorySlotSave(Item.ItemType type, int stock)
+    {
+        Type = type;
+        Stock = stock;
+    }
+}
