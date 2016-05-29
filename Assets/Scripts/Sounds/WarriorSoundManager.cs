@@ -12,7 +12,7 @@ public class WarriorSoundManager : MonoBehaviour
 
     public SoundManager SoundManager;
     public bool PlayVariations;
-    public List<AudioClipItem> Clips;
+    public List<AudioClipItem> Items;
 
     public void PlayClip(ClipActions action)
     {
@@ -39,30 +39,35 @@ public class WarriorSoundManager : MonoBehaviour
 
     private AudioClip FindClip(ClipActions action)
     {
-        if (PlayVariations)
+        var item = FindItem(action);
+        if (item == null)
         {
-            var index = -1;
-            for (var i = 0; i < Clips.Count; i++)
-            {
-                var clip = Clips[i];
-                if (clip.Action.Equals(action))
-                {
-                    index = (index < 0) ? i : (Random.Range(0, 2) < 1) ? index : i;
-                }
-            }
+            Debug.LogWarning(string.Concat(name, ": Sound item not found for [", action.ToString(), "]"));
+            return null;
+        }
 
-            if (index >= 0)
-            {
-                return Clips[index].Clip;
-            }
+        if (item.Clips.Count == 0)
+        {
+            Debug.LogWarning(string.Concat(name, ": Found sound item not found for [", action.ToString(), "], but has no clips."));
+            return null;
+        }
+
+        if (item.UseVariations)
+        {
+            return item.Clips[Random.Range(0, item.Clips.Count)];
         }
         else
         {
-            foreach (var clip in Clips)
-            {
-                if (clip.Action.Equals(action))
-                    return clip.Clip;
-            }
+            return item.Clips[item.DefaultClip];
+        }
+    }
+
+    private AudioClipItem FindItem(ClipActions action)
+    {
+        foreach (var item in Items)
+        {
+            if (item.Action.Equals(action))
+                return item;
         }
 
         return null;
@@ -72,12 +77,9 @@ public class WarriorSoundManager : MonoBehaviour
 
     private void OnValidate()
     {
-        foreach (var item in Clips)
+        foreach (var item in Items)
         {
-            if (item.Clip != null)
-                item.Name = string.Concat(item.Action.ToString(), " --> ", item.Clip.name);
-            else
-                item.Name = item.Action.ToString();
+            item.Name = item.Action.ToString();
         }
     }
 
@@ -89,6 +91,8 @@ public class WarriorSoundManager : MonoBehaviour
         [HideInInspector]
         public string Name;
         public ClipActions Action;
-        public AudioClip Clip;
+        public bool UseVariations;
+        public int DefaultClip = 0;
+        public List<AudioClip> Clips;
     }
 }
