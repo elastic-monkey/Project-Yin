@@ -38,6 +38,12 @@ public class EnemyMovement : Movement
 
     private void Update()
     {
+        if (!CanMove)
+        {
+            StopAndLookAtTarget();
+            return;
+        }
+
         if (_targetTransform == null)
         {
             if (_enemyBehavior.Target != null)
@@ -52,18 +58,15 @@ public class EnemyMovement : Movement
                 if (StandingGuard)
                 {
                     // No movement except rotation 
-                    _navAgent.Stop();
-                    LookAtTarget();
+                    StopAndLookAtTarget();
                 }
                 else if (Vector3Helper.DistanceXZ(_targetTransform.position, transform.position) <= StoppingRange)
                 {
                     // If too close, stops movement.
-                    _navAgent.Stop();
+                    StopAndLookAtTarget();
                     Moving = false;
-
-                    LookAtTarget();
                 }
-                else
+                else if(CanMove)
                 {
                     // Else moves along path to catch player
                     _navAgent.SetDestination(_targetTransform.position);
@@ -100,6 +103,12 @@ public class EnemyMovement : Movement
         }
     }
 
+    private void StopAndLookAtTarget()
+    {
+        _navAgent.Stop();
+        LookAtTarget();
+    }
+
     private void LookAtTarget()
     {
         var lookRotation = Quaternion.LookRotation(_targetTransform.position - transform.position);
@@ -116,6 +125,9 @@ public class EnemyMovement : Movement
 
     public void ChaseTarget()
     {
+        if (!CanMove)
+            return;
+
         if (ChasingTarget && !StandingGuard)
             return;
 

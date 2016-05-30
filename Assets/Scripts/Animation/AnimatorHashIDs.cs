@@ -10,4 +10,5 @@ public static class AnimatorHashIDs
 	public static int SpeedMultiFloat = Animator.StringToHash("SpeedMulti");
 	public static int SuddenShiftBool = Animator.StringToHash("SuddenShift");
     public static int CanMoveBool = Animator.StringToHash("CanMove");
+    public static int MovingBool = Animator.StringToHash("Moving");
 }

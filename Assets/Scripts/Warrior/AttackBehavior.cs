@@ -45,7 +45,7 @@ public class AttackBehavior : MonoBehaviour
         var enemies = _gameManager.GetWarriors(_warrior.EnemyTag);
         foreach (var enemy in enemies)
         {
-            if (_sqrRange >= Vector3Helper.DistanceXZ(_warrior.transform.position, enemy.transform.position))
+            if (_sqrRange >= Vector3Helper.SqrDistanceXZ(_warrior.transform.position, enemy.transform.position))
             {
                 Targets.Add(enemy);
             }

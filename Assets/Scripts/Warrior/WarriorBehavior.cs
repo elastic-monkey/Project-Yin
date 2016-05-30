@@ -120,6 +120,7 @@ public abstract class WarriorBehavior : MonoBehaviour
         }
         Animator.SetBool(AnimatorHashIDs.AttackingBool, Attack.Attacking);
         Animator.SetBool(AnimatorHashIDs.DefendingBool, Defense.Defending);
+        Animator.SetBool(AnimatorHashIDs.MovingBool, Movement.Moving);
         Animator.SetFloat(AnimatorHashIDs.SpeedMultiFloat, Movement.SpeedMulti);
     }
 

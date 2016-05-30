@@ -63,6 +63,8 @@ public class EnemyBehavior : WarriorBehavior
             return;
         }
 
+        _myMovement.CanMove = !Attack.Attacking;
+
         if (Target == null)
         {
             if (Eye.CanSee(transform, _gameManager.Player.transform))

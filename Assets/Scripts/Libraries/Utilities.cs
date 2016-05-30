@@ -73,9 +73,12 @@
 
         public static float DistanceXZ(Vector3 a, Vector3 b)
         {
-            var delta = new Vector2(a.x - b.x, a.z - b.z);
+            return SubractXZ(a, b).magnitude;
+        }
 
-            return delta.magnitude;
+        public static float SqrDistanceXZ(Vector3 a, Vector3 b)
+        {
+            return SubractXZ(a, b).sqrMagnitude;
         }
 
         public static Vector3 RotateAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)

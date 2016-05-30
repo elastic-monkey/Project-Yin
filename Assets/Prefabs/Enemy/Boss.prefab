@@ -510,7 +510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &147572
 GameObject:
   m_ObjectHideFlags: 1
@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377938be936fc384394229f9a23327aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 2.5
+  Range: 2
   Attacks:
   - Damage: 10
     Radius: 1
@@ -2835,10 +2835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundManager: {fileID: 0}
   PlayVariations: 1
-  Clips:
-  - Name: Step --> Menu2
-    Action: 0
-    Clip: {fileID: 8300000, guid: f47d1b82f35ad6541a749afd7219c42f, type: 3}
+  Items: []
 --- !u!114 &11479342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3086,7 +3083,7 @@ RectTransform:
   m_Father: {fileID: 22417800}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
