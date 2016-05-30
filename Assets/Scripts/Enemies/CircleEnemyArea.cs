@@ -22,8 +22,10 @@ public class CircleEnemyArea : EnemyArea
         }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _center = transform.position;
     }
 

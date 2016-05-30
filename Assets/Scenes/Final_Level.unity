@@ -15635,6 +15635,26 @@ Prefab:
       propertyPath: m_Speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 491014, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 240.00009
+      objectReference: {fileID: 0}
+    - target: {fileID: 429902, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.26426598
+      objectReference: {fileID: 0}
+    - target: {fileID: 429902, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.5629476
+      objectReference: {fileID: 0}
+    - target: {fileID: 429902, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.28872362
+      objectReference: {fileID: 0}
+    - target: {fileID: 429902, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7279369
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
   m_IsPrefabParent: 0
@@ -16259,21 +16279,37 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 429902, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.26426598
+      objectReference: {fileID: 0}
+    - target: {fileID: 429902, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.5629476
+      objectReference: {fileID: 0}
+    - target: {fileID: 429902, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.28872362
+      objectReference: {fileID: 0}
+    - target: {fileID: 429902, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7279369
+      objectReference: {fileID: 0}
     - target: {fileID: 437798, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.6998227
+      value: 0.6998228
       objectReference: {fileID: 0}
     - target: {fileID: 437798, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.7048327
+      value: 0.70483273
       objectReference: {fileID: 0}
     - target: {fileID: 437798, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.07882881
+      value: 0.07882882
       objectReference: {fileID: 0}
     - target: {fileID: 437798, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.085118055
+      value: -0.08511806
       objectReference: {fileID: 0}
     - target: {fileID: 11411534, guid: fb9c918ea313ebd43a6e5afb698ae2f3, type: 2}
       propertyPath: SoundManager
@@ -18663,6 +18699,14 @@ Prefab:
     - target: {fileID: 11404598, guid: 957fd10bbf17a25498e80acc4b449ca5, type: 2}
       propertyPath: Height
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404598, guid: 957fd10bbf17a25498e80acc4b449ca5, type: 2}
+      propertyPath: FightDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404598, guid: 957fd10bbf17a25498e80acc4b449ca5, type: 2}
+      propertyPath: MaxEnemiesPerFight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 957fd10bbf17a25498e80acc4b449ca5, type: 2}
@@ -60587,6 +60631,10 @@ Prefab:
     - target: {fileID: 181306, guid: 957fd10bbf17a25498e80acc4b449ca5, type: 2}
       propertyPath: m_Name
       value: Enemy Area 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404598, guid: 957fd10bbf17a25498e80acc4b449ca5, type: 2}
+      propertyPath: FightDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 957fd10bbf17a25498e80acc4b449ca5, type: 2}

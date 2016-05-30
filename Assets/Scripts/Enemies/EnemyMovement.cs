@@ -9,7 +9,9 @@ public class EnemyMovement : Movement
     public bool StandingGuard;
     public bool GoingBack;
     public bool OnInitialPos;
+    public bool Taunting;
     public float DistanceToInitial;
+    public float TauntingDistance;
 
     private EnemyBehavior _enemyBehavior;
     private NavMeshAgent _navAgent;
@@ -53,7 +55,24 @@ public class EnemyMovement : Movement
         }
         else
         {
-            if (ChasingTarget)
+            if (Taunting)
+            {
+                var direction = Vector3Helper.SubractXZ(transform.position, _targetTransform.position);
+                var distanceToPlayer = direction.magnitude;
+                if (Mathf.Abs(distanceToPlayer - TauntingDistance) < 0.05f)
+                {
+                    StopAndLookAtTarget();
+                    Moving = false;
+                }
+                else
+                {
+                    var point = _targetTransform.position + direction.normalized * TauntingDistance;
+                    _navAgent.SetDestination(point);
+                    _navAgent.Resume();
+                    Moving = true;
+                }
+            }
+            else if (ChasingTarget)
             {
                 if (StandingGuard)
                 {

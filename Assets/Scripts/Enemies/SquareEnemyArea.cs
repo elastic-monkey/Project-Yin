@@ -26,8 +26,10 @@ public class SquareEnemyArea : EnemyArea
         }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _halfDangerWidth = DangerWidth / 2;
         _halfWarningWidth = WarningWidth / 2;
         _halfDangerDepth = DangerDepth / 2;

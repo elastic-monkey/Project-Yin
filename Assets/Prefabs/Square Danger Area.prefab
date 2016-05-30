@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: 7.5}
+  m_LocalPosition: {x: 2.5, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -40,7 +40,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 10, z: 20}
+  m_Size: {x: 35, y: 10, z: 25}
   m_Center: {x: 0, y: 5, z: 0}
 --- !u!114 &11404598
 MonoBehaviour:
@@ -57,12 +57,14 @@ MonoBehaviour:
   WarningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   PlayerInWarningZone: 0
   PlayerInDangerZone: 0
+  FightDistance: 5
+  MaxEnemiesPerFight: 1
   _enemiesAssigned: []
   _player: {fileID: 0}
-  DangerWidth: 15
-  DangerDepth: 15
-  WarningWidth: 20
-  WarningDepth: 20
+  DangerWidth: 25
+  DangerDepth: 20
+  WarningWidth: 35
+  WarningDepth: 25
   Height: 10
 --- !u!1001 &100100000
 Prefab:
