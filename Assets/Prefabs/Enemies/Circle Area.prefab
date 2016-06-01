@@ -11,7 +11,7 @@ GameObject:
   - 135: {fileID: 13566724}
   - 114: {fileID: 11401976}
   m_Layer: 0
-  m_Name: Circle Danger Area
+  m_Name: Circle Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +43,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DangerColor: {r: 1, g: 0, b: 0, a: 1}
   WarningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  PlayerInWarningZone: 0
+  PlayerInDangerZone: 0
+  FightDistance: 0
+  MaxEnemiesPerFight: 0
   _enemiesAssigned: []
+  _player: {fileID: 0}
   DangerRadius: 10
   WarningRadius: 15
 --- !u!135 &13566724
