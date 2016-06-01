@@ -110,21 +110,29 @@ public abstract class WarriorBehavior : MonoBehaviour
     protected virtual void Update()
     {
         Animator.SetBool(AnimatorHashIDs.CanMoveBool, Movement.CanMove);
+        Animator.SetBool(AnimatorHashIDs.MovingBool, Movement.Moving);
+        Animator.SetFloat(AnimatorHashIDs.SpeedMultiplierFloat, Movement.SpeedMulti);
+        Animator.SetBool(AnimatorHashIDs.AttackingBool, Attack.Attacking);
+        Animator.SetBool(AnimatorHashIDs.DefendingBool, Defense.Defending);
+        Animator.SetBool(AnimatorHashIDs.DeadBool, !Health.Alive);
+
         if (Movement.Moving && !PlayerInput.GameplayBlocked)
-        {
             Animator.SetFloat(AnimatorHashIDs.SpeedFloat, Movement.SpeedThreshold, Movement.SpeedDampTime, Time.deltaTime);
+        else
+            Animator.SetFloat(AnimatorHashIDs.SpeedFloat, 0f);
+    }
+
+    public virtual void OnAttacked(WarriorBehavior attacker)
+    {
+        if (Defense.ShieldOn)
+        {
+            // Shield defense
         }
         else
         {
-            Animator.SetFloat(AnimatorHashIDs.SpeedFloat, 0f);
+            // No defense. Hit
         }
-        Animator.SetBool(AnimatorHashIDs.AttackingBool, Attack.Attacking);
-        Animator.SetBool(AnimatorHashIDs.DefendingBool, Defense.Defending);
-        Animator.SetBool(AnimatorHashIDs.MovingBool, Movement.Moving);
-        Animator.SetFloat(AnimatorHashIDs.SpeedMultiFloat, Movement.SpeedMulti);
     }
-
-    public abstract void OnAttacked(WarriorBehavior attacker);
 
     public void Live()
     {
@@ -137,6 +145,7 @@ public abstract class WarriorBehavior : MonoBehaviour
     {
         Health.Alive = false;
         ToggleColliders(false);
+        OnDeath();
 
         StartCoroutine(DieCoroutine(false));
     }
@@ -158,6 +167,8 @@ public abstract class WarriorBehavior : MonoBehaviour
         if (!playerDeath)
             gameObject.SetActive(false);
     }
+
+    protected abstract void OnDeath();
 
     private void ToggleColliders(bool value)
     {

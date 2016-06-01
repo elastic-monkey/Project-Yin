@@ -18,7 +18,7 @@ public class EnemyBehavior : WarriorBehavior
     [HideInInspector]
     public float Courage = 50;
     public Eyesight Eye;
-    public EnemyArea MyArea;
+    public EnemyArea Area;
 
     private EnemyMovement _myMovement;
     [SerializeField]
@@ -74,12 +74,12 @@ public class EnemyBehavior : WarriorBehavior
         }
         else
         {
-            if (MyArea.PlayerInDangerZone)
+            if (Area.PlayerInDangerZone)
             {
                 _myMovement.ChaseTarget();
-                MyArea.NotifyEnemies(Target);
+                Area.NotifyEnemies(Target);
             }
-            else if (MyArea.PlayerInWarningZone)
+            else if (Area.PlayerInWarningZone)
             {
                 _myMovement.StandGuard();
             }
@@ -105,20 +105,24 @@ public class EnemyBehavior : WarriorBehavior
                         var inclination = Random.Range(MinAttackDefense, MaxAttackDefense);
                         if (inclination >= AttackDefense)
                         {
+                            _myMovement.Stop();
                             Attack.ChooseAndApplyAttack();
                         }
                         else
                         {
+                            _myMovement.Stop();
                             Defense.ChooseAndApplyDefense();
                         }
                     }
                     else
                     {
+                        _myMovement.Stop();
                         Attack.ChooseAndApplyAttack();
                     }
                 }
                 else if (AutomaticDefense)
                 {
+                    _myMovement.Stop();
                     Defense.ChooseAndApplyDefense();
                 }
             }
@@ -127,32 +131,20 @@ public class EnemyBehavior : WarriorBehavior
 
     public override void OnAttacked(WarriorBehavior attacker)
     {
-        SetTarget(attacker);
+        base.OnAttacked(attacker);
 
-        MyArea.NotifyEnemies(attacker);
+        SetTarget(attacker);
+        Area.NotifyEnemies(attacker);
+    }
+
+    protected override void OnDeath()
+    {
+        Area.RemoveEnemy(this);
     }
 
     public void SetTarget(WarriorBehavior target)
     {
         _target = target;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(Tags.DangerArea.TagToString()))
-        {
-            var dangerArea = other.GetComponent<EnemyArea>();
-            dangerArea.AddEnemy(this);
-            MyArea = dangerArea;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag(Tags.DangerArea.TagToString()))
-        {
-            MyArea = null;
-        }
     }
 
     private void OnDrawGizmos()
@@ -177,15 +169,6 @@ public class Eyesight
         var direction = (to.position - from.position).normalized;
         var ray = new Ray(from.position, direction);
 
-        if (Physics.Raycast(ray, Range, Mask) && Vector3.Angle(from.forward, direction) <= 0.5f * Angle)
-        {
-            //Debug.DrawLine(from.position, target.position, Color.green);
-            return true;
-        }
-        else
-        {
-            //Debug.DrawLine(from.position, target.position, Color.red);
-            return false;
-        }
+        return (Physics.Raycast(ray, Range, Mask) && Vector3.Angle(from.forward, direction) <= 0.5f * Angle);
     }
 }

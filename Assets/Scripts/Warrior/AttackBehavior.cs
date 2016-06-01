@@ -37,8 +37,8 @@ public class AttackBehavior : MonoBehaviour
     private void Start()
     {
         _gameManager = GameManager.Instance;
-        }
-    
+    }
+
     private void Update()
     {
         Targets.Clear();
@@ -118,12 +118,21 @@ public class AttackBehavior : MonoBehaviour
         foreach (var target in Targets)
         {
             var warrior = target.GetComponentInParent<WarriorBehavior>();
-            warrior.OnAttacked(_warrior);
-
-            if (warrior.Defense != null)
+            if (warrior == null)
             {
-                warrior.Defense.TakeDamage(attack.Damage * DamageMultiplier);
+                Debug.LogWarning("Attack: target does not have WarriorBehaviour.");
+                continue;
             }
+
+            var defense = target.GetComponentInParent<WarriorBehavior>().Defense;
+            if (defense == null)
+            {
+                Debug.LogWarning("Attack: target defense is NULL.");
+                continue;
+            }
+
+            warrior.OnAttacked(_warrior);
+            defense.TakeDamage(attack.Damage * DamageMultiplier);
         }
 
         yield return new WaitForSeconds(Mathf.Max(0, attack.Duration - attack.HitTime));

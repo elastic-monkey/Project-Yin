@@ -91,32 +91,21 @@ public class PlayerBehavior : WarriorBehavior
 
     public override void OnAttacked(WarriorBehavior attacker)
     {
-        // Attacked
+        base.OnAttacked(attacker);
+
+        // TODO: sound or reaction
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnDeath()
     {
-        if (other.CompareTag(Tags.DangerArea.TagToString()))
-        {
-            var dangerArea = other.GetComponent<EnemyArea>();
-            dangerArea.AddPlayer(this);
-        }
-    }
-        
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag(Tags.DangerArea.TagToString()))
-        {
-            var dangerArea = other.GetComponent<EnemyArea>();
-            dangerArea.RemovePlayer();
-        } 
+        throw new System.NotImplementedException();
     }
 
     private void FixedUpdate()
     {
-        if (!PlayerInput.GameplayBlocked)
-        {
-            PlayerMovement.ApplyMovement();
-        }
+        if (PlayerInput.GameplayBlocked)
+            return;
+        
+        PlayerMovement.ApplyMovement();
     }
 }

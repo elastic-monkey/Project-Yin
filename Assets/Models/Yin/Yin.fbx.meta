@@ -156,11 +156,11 @@ ModelImporter:
     400146: Yin
     400148: //RootNode
     4300000: Yin
-    7400000: Yin Run Cycle
+    7400000: Yin | Run Cycle
     9500000: //RootNode
     13700000: Yin
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -174,8 +174,10 @@ ModelImporter:
       warnings that might lower retargeting quality:\nNote: Activate translation DOF
       on avatar to improve retargeting quality.\n\t'FingersLowerRight' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n"
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'Armature|ArmatureAction.001':\n\tLeftLowerLeg
+      average position error 0.3 mm and maximum position error 2.5 mm at time 0: 7
+      (23.3%) Frame 7\n"
+    animationDoRetargetingWarnings: 1
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -184,7 +186,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Yin Run Cycle
+      name: Yin | Run Cycle
       takeName: Armature|ArmatureAction.001
       firstFrame: 0
       lastFrame: 30

@@ -182,15 +182,15 @@ ModelImporter:
     400172: Wrist_R
     400174: Wrist_R_end
     4300000: Enemy1
-    7400000: Idle
+    7400000: Enemy | Idle
     7400002: Start Walking.001
-    7400004: Walk Cycle
+    7400004: Enemy | Walk Cycle
     7400006: End Walking
     7400008: Run Cycle.Start.001
-    7400010: Run Cycle
+    7400010: Enemy | Run Cycle
     7400012: Run Cycle.End
-    7400014: Attack1
-    7400016: Attack2
+    7400014: Enemy | Attack 1
+    7400016: Enemy | Attack 2
     7400018: Armature_Enemy1|Attack1
     7400020: Armature_Enemy1|Attack2.001
     7400022: Armature_Enemy1|Attack2
@@ -293,8 +293,205 @@ ModelImporter:
       retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
       quality.\n\t'Hips' is inbetween humanoid transforms and has rotation animation
       that will be discarded.\n"
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'Idle':\n\tLeftLowerLeg
+      average position error 3.4 mm and maximum position error 6.2 mm at time 0:10
+      (25.0%) Frame 10\n\tRightLowerLeg average position error 3.4 mm and maximum
+      position error 6.2 mm at time 0:10 (25.0%) Frame 10\n\nRetargeting quality report
+      for clip 'Start Walking.001':\n\tLeftLowerLeg average position error 19.5 mm
+      and maximum position error 36.3 mm at time 0:11 (100.0%) Frame 11\n\tLeftFoot
+      average position error 19.5 mm and maximum position error 36.9 mm at time 0:11
+      (100.0%) Frame 11\n\tRightLowerLeg average position error 18.2 mm and maximum
+      position error 34.0 mm at time 0:11 (100.0%) Frame 11\n\tRightFoot average position
+      error 19.3 mm and maximum position error 36.2 mm at time 0:11 (100.0%) Frame
+      11\n\tLeftUpperArm average position error 17.7 mm and maximum position error
+      32.8 mm at time 0:11 (100.0%) Frame 11\n\tLeftLowerArm average position error
+      17.7 mm and maximum position error 32.6 mm at time 0:11 (100.0%) Frame 11\n\tLeftHand
+      average position error 17.7 mm and maximum position error 32.7 mm at time 0:11
+      (100.0%) Frame 11\n\tRightUpperArm average position error 17.7 mm and maximum
+      position error 32.8 mm at time 0:11 (100.0%) Frame 11\n\tRightLowerArm average
+      position error 17.7 mm and maximum position error 32.7 mm at time 0:11 (100.0%)
+      Frame 11\n\tRightHand average position error 17.7 mm and maximum position error
+      32.7 mm at time 0:11 (100.0%) Frame 11\n\tHead average position error 17.8 mm
+      and maximum position error 32.8 mm at time 0:11 (100.0%) Frame 11\n\nRetargeting
+      quality report for clip 'Walk Cycle':\n\tLeftLowerLeg average position error
+      34.1 mm and maximum position error 36.8 mm at time 1:25 (91.7%) Frame 55\n\tLeftFoot
+      average position error 34.7 mm and maximum position error 36.9 mm at time 0:
+      0 (0.0%) Frame 0\n\tRightLowerLeg average position error 34.0 mm and maximum
+      position error 37.2 mm at time 0:26 (43.3%) Frame 26\n\tRightFoot average position
+      error 34.7 mm and maximum position error 37.1 mm at time 1: 0 (50.0%) Frame
+      30\n\tLeftUpperArm average position error 32.9 mm and maximum position error
+      33.2 mm at time 1: 0 (50.0%) Frame 30\n\tLeftLowerArm average position error
+      33.2 mm and maximum position error 33.8 mm at time 1: 0 (50.0%) Frame 30\n\tLeftHand
+      average position error 33.1 mm and maximum position error 33.4 mm at time 1:
+      0 (50.0%) Frame 30\n\tRightUpperArm average position error 32.9 mm and maximum
+      position error 33.1 mm at time 1: 0 (50.0%) Frame 30\n\tRightLowerArm average
+      position error 32.4 mm and maximum position error 32.7 mm at time 1:27 (95.0%)
+      Frame 57\n\tRightHand average position error 32.4 mm and maximum position error
+      32.7 mm at time 0: 0 (0.0%) Frame 0\n\tHead average position error 32.9 mm and
+      maximum position error 33.2 mm at time 1: 0 (50.0%) Frame 30\n\nRetargeting
+      quality report for clip 'End Walking':\n\tLeftLowerLeg average position error
+      18.0 mm and maximum position error 36.3 mm at time 0: 0 (0.0%) Frame 0\n\tLeftFoot
+      average position error 18.0 mm and maximum position error 36.9 mm at time 0:
+      0 (0.0%) Frame 0\n\tRightLowerLeg average position error 16.8 mm and maximum
+      position error 34.0 mm at time 0: 0 (0.0%) Frame 0\n\tRightFoot average position
+      error 17.8 mm and maximum position error 36.2 mm at time 0: 0 (0.0%) Frame 0\n\tLeftUpperArm
+      average position error 16.4 mm and maximum position error 32.8 mm at time 0:
+      0 (0.0%) Frame 0\n\tLeftLowerArm average position error 16.3 mm and maximum
+      position error 32.6 mm at time 0: 0 (0.0%) Frame 0\n\tLeftHand average position
+      error 16.3 mm and maximum position error 32.7 mm at time 0: 0 (0.0%) Frame 0\n\tRightUpperArm
+      average position error 16.4 mm and maximum position error 32.8 mm at time 0:
+      0 (0.0%) Frame 0\n\tRightLowerArm average position error 16.3 mm and maximum
+      position error 32.7 mm at time 0: 0 (0.0%) Frame 0\n\tRightHand average position
+      error 16.3 mm and maximum position error 32.7 mm at time 0: 0 (0.0%) Frame 0\n\tHead
+      average position error 16.4 mm and maximum position error 32.8 mm at time 0:
+      0 (0.0%) Frame 0\n\nRetargeting quality report for clip 'Run Cycle.Start.001':\n\tLeftLowerLeg
+      average position error 25.9 mm and maximum position error 51.3 mm at time 1:
+      0 (100.0%) Frame 30\n\tLeftFoot average position error 27.1 mm and maximum position
+      error 59.5 mm at time 1: 0 (100.0%) Frame 30\n\tRightLowerLeg average position
+      error 26.2 mm and maximum position error 59.6 mm at time 1: 0 (100.0%) Frame
+      30\n\tRightFoot average position error 26.7 mm and maximum position error 55.6
+      mm at time 1: 0 (100.0%) Frame 30\n\tLeftUpperArm average position error 21.9
+      mm and maximum position error 34.7 mm at time 0:29 (96.7%) Frame 29\n\tLeftLowerArm
+      average position error 20.9 mm and maximum position error 31.3 mm at time 0:17
+      (56.7%) Frame 17\n\tLeftHand average position error 23.2 mm and maximum position
+      error 45.7 mm at time 1: 0 (100.0%) Frame 30\n\tRightUpperArm average position
+      error 21.8 mm and maximum position error 34.7 mm at time 0:29 (96.7%) Frame
+      29\n\tRightLowerArm average position error 22.7 mm and maximum position error
+      40.9 mm at time 1: 0 (100.0%) Frame 30\n\tRightHand average position error 25.3
+      mm and maximum position error 55.9 mm at time 1: 0 (100.0%) Frame 30\n\tHead
+      average position error 21.9 mm and maximum position error 34.7 mm at time 0:29
+      (96.7%) Frame 29\n\nRetargeting quality report for clip 'Run Cycle':\n\tLeftLowerLeg
+      average position error 55.8 mm and maximum position error 73.9 mm at time 1:20
+      (62.5%) Frame 50\n\tLeftFoot average position error 56.2 mm and maximum position
+      error 71.7 mm at time 1:20 (62.5%) Frame 50\n\tRightLowerLeg average position
+      error 54.0 mm and maximum position error 65.3 mm at time 0:12 (15.0%) Frame
+      12\n\tRightFoot average position error 54.5 mm and maximum position error 63.7
+      mm at time 1:18 (60.0%) Frame 48\n\tLeftUpperArm average position error 35.7
+      mm and maximum position error 52.1 mm at time 1:20 (62.5%) Frame 50\n\tLeftLowerArm
+      average position error 37.1 mm and maximum position error 49.3 mm at time 1:17
+      (58.8%) Frame 47\n\tLeftHand average position error 50.6 mm and maximum position
+      error 66.3 mm at time 1:18 (60.0%) Frame 48\n\tRightUpperArm average position
+      error 35.7 mm and maximum position error 52.0 mm at time 1:20 (62.5%) Frame
+      50\n\tRightLowerArm average position error 37.4 mm and maximum position error
+      56.3 mm at time 1:21 (63.8%) Frame 51\n\tRightHand average position error 47.7
+      mm and maximum position error 70.5 mm at time 1:20 (62.5%) Frame 50\n\tHead
+      average position error 35.8 mm and maximum position error 52.1 mm at time 1:20
+      (62.5%) Frame 50\n\nRetargeting quality report for clip 'Run Cycle.End':\n\tLeftLowerLeg
+      average position error 47.4 mm and maximum position error 93.5 mm at time 0:20
+      (66.7%) Frame 20\n\tLeftFoot average position error 49.4 mm and maximum position
+      error 93.5 mm at time 0:20 (66.7%) Frame 20\n\tRightLowerLeg average position
+      error 49.2 mm and maximum position error 93.5 mm at time 0:20 (66.7%) Frame
+      20\n\tRightFoot average position error 48.9 mm and maximum position error 93.5
+      mm at time 0:20 (66.7%) Frame 20\n\tLeftUpperArm average position error 44.4
+      mm and maximum position error 93.5 mm at time 0:20 (66.7%) Frame 20\n\tLeftLowerArm
+      average position error 43.5 mm and maximum position error 93.4 mm at time 0:20
+      (66.7%) Frame 20\n\tLeftHand average position error 45.9 mm and maximum position
+      error 93.5 mm at time 0:20 (66.7%) Frame 20\n\tRightUpperArm average position
+      error 44.4 mm and maximum position error 93.5 mm at time 0:20 (66.7%) Frame
+      20\n\tRightLowerArm average position error 45.3 mm and maximum position error
+      92.8 mm at time 0:20 (66.7%) Frame 20\n\tRightHand average position error 47.9
+      mm and maximum position error 93.4 mm at time 0:20 (66.7%) Frame 20\n\tHead
+      average position error 44.4 mm and maximum position error 93.5 mm at time 0:20
+      (66.7%) Frame 20\n\nRetargeting quality report for clip 'Attack1':\n\tLeftLowerLeg
+      average position error 52.5 mm and maximum position error 78.0 mm at time 0:20
+      (40.0%) Frame 20\n\tLeftFoot average position error 50.5 mm and maximum position
+      error 76.6 mm at time 0:20 (40.0%) Frame 20\n\tRightLowerLeg average position
+      error 49.9 mm and maximum position error 76.0 mm at time 0:20 (40.0%) Frame
+      20\n\tRightFoot average position error 51.8 mm and maximum position error 78.7
+      mm at time 0:20 (40.0%) Frame 20\n\tLeftUpperArm average position error 50.7
+      mm and maximum position error 73.9 mm at time 0:20 (40.0%) Frame 20\n\tLeftLowerArm
+      average position error 50.7 mm and maximum position error 73.8 mm at time 0:23
+      (46.0%) Frame 23\n\tLeftHand average position error 50.7 mm and maximum position
+      error 73.9 mm at time 1: 4 (68.0%) Frame 34\n\tRightUpperArm average position
+      error 50.6 mm and maximum position error 73.8 mm at time 0:21 (42.0%) Frame
+      21\n\tRightLowerArm average position error 50.6 mm and maximum position error
+      73.8 mm at time 0:24 (48.0%) Frame 24\n\tRightHand average position error 50.6
+      mm and maximum position error 73.8 mm at time 0:26 (52.0%) Frame 26\n\tHead
+      average position error 50.7 mm and maximum position error 73.9 mm at time 0:20
+      (40.0%) Frame 20\n\nRetargeting quality report for clip 'Attack2':\n\tLeftLowerLeg
+      average position error 71.3 mm and maximum position error 107.0 mm at time 0:14
+      (28.0%) Frame 14\n\tLeftFoot average position error 62.0 mm and maximum position
+      error 95.2 mm at time 0:19 (38.0%) Frame 19\n\tRightLowerLeg average position
+      error 59.9 mm and maximum position error 92.6 mm at time 0:18 (36.0%) Frame
+      18\n\tRightFoot average position error 68.6 mm and maximum position error 107.5
+      mm at time 0:17 (34.0%) Frame 17\n\tLeftUpperArm average position error 57.9
+      mm and maximum position error 73.9 mm at time 1: 9 (78.0%) Frame 39\n\tLeftLowerArm
+      average position error 57.9 mm and maximum position error 73.8 mm at time 1:
+      2 (64.0%) Frame 32\n\tLeftHand average position error 57.9 mm and maximum position
+      error 73.9 mm at time 1: 6 (72.0%) Frame 36\n\tRightUpperArm average position
+      error 57.9 mm and maximum position error 73.8 mm at time 1: 9 (78.0%) Frame
+      39\n\tRightLowerArm average position error 57.7 mm and maximum position error
+      73.8 mm at time 0:11 (22.0%) Frame 11\n\tRightHand average position error 57.9
+      mm and maximum position error 73.8 mm at time 0:10 (20.0%) Frame 10\n\tHead
+      average position error 58.0 mm and maximum position error 73.9 mm at time 0:11
+      (22.0%) Frame 11\n\nRetargeting quality report for clip 'Armature_Enemy1|Attack1':\n\tLeftLowerLeg
+      average position error 3.4 mm and maximum position error 6.2 mm at time 0:10
+      (25.0%) Frame 10\n\tRightLowerLeg average position error 3.4 mm and maximum
+      position error 6.2 mm at time 0:10 (25.0%) Frame 10\n\nRetargeting quality report
+      for clip 'Armature_Enemy1|Attack2.001':\n\tRetargeting quality is good. No significant
+      differences with original animation were found.\n\nRetargeting quality report
+      for clip 'Armature_Enemy1|Attack2':\n\tLeftLowerLeg average position error 2.8
+      mm and maximum position error 6.2 mm at time 0:10 (20.0%) Frame 10\n\tRightLowerLeg
+      average position error 2.8 mm and maximum position error 6.2 mm at time 0:10
+      (20.0%) Frame 10\n\nRetargeting quality report for clip 'Armature_Enemy1|Attack2.002':\n\tLeftLowerLeg
+      average position error 3.4 mm and maximum position error 6.2 mm at time 0:10
+      (25.0%) Frame 10\n\tRightLowerLeg average position error 3.4 mm and maximum
+      position error 6.2 mm at time 0:10 (25.0%) Frame 10\n\nRetargeting quality report
+      for clip 'Armature_Enemy1|End Walking':\n\tLeftLowerLeg average position error
+      3.1 mm and maximum position error 6.2 mm at time 0:10 (100.0%) Frame 10\n\tRightLowerLeg
+      average position error 3.1 mm and maximum position error 6.2 mm at time 0:10
+      (100.0%) Frame 10\n\nRetargeting quality report for clip 'Armature_Enemy1|Idle':\n\tLeftLowerLeg
+      average position error 3.4 mm and maximum position error 6.2 mm at time 0:10
+      (25.0%) Frame 10\n\tRightLowerLeg average position error 3.4 mm and maximum
+      position error 6.2 mm at time 0:10 (25.0%) Frame 10\n\nRetargeting quality report
+      for clip 'Armature_Enemy1|Run Cycle':\n\tLeftLowerLeg average position error
+      4.4 mm and maximum position error 36.3 mm at time 2:20 (100.0%) Frame 80\n\tLeftFoot
+      average position error 2.9 mm and maximum position error 36.9 mm at time 2:20
+      (100.0%) Frame 80\n\tRightLowerLeg average position error 4.2 mm and maximum
+      position error 34.0 mm at time 2:20 (100.0%) Frame 80\n\tRightFoot average position
+      error 2.8 mm and maximum position error 36.2 mm at time 2:20 (100.0%) Frame
+      80\n\tLeftUpperArm average position error 2.5 mm and maximum position error
+      32.8 mm at time 2:20 (100.0%) Frame 80\n\tLeftLowerArm average position error
+      2.7 mm and maximum position error 32.6 mm at time 2:20 (100.0%) Frame 80\n\tLeftHand
+      average position error 2.5 mm and maximum position error 32.7 mm at time 2:20
+      (100.0%) Frame 80\n\tRightUpperArm average position error 2.5 mm and maximum
+      position error 32.8 mm at time 2:20 (100.0%) Frame 80\n\tRightLowerArm average
+      position error 2.5 mm and maximum position error 32.7 mm at time 2:20 (100.0%)
+      Frame 80\n\tRightHand average position error 2.5 mm and maximum position error
+      32.7 mm at time 2:20 (100.0%) Frame 80\n\tHead average position error 2.5 mm
+      and maximum position error 32.8 mm at time 2:20 (100.0%) Frame 80\n\nRetargeting
+      quality report for clip 'Armature_Enemy1|Run Cycle.End':\n\tLeftLowerLeg average
+      position error 3.6 mm and maximum position error 6.2 mm at time 0:10 (33.3%)
+      Frame 10\n\tRightLowerLeg average position error 3.6 mm and maximum position
+      error 6.2 mm at time 0:10 (33.3%) Frame 10\n\nRetargeting quality report for
+      clip 'Armature_Enemy1|Run Cycle.Start':\n\tLeftLowerLeg average position error
+      2.1 mm and maximum position error 6.2 mm at time 0:21 (67.7%) Frame 21\n\tRightLowerLeg
+      average position error 2.1 mm and maximum position error 6.2 mm at time 0:21
+      (67.7%) Frame 21\n\nRetargeting quality report for clip 'Armature_Enemy1|Start
+      Run Cycle':\n\tLeftLowerLeg average position error 4.4 mm and maximum position
+      error 36.3 mm at time 2:20 (100.0%) Frame 80\n\tLeftFoot average position error
+      2.9 mm and maximum position error 36.9 mm at time 2:20 (100.0%) Frame 80\n\tRightLowerLeg
+      average position error 4.2 mm and maximum position error 34.0 mm at time 2:20
+      (100.0%) Frame 80\n\tRightFoot average position error 2.8 mm and maximum position
+      error 36.2 mm at time 2:20 (100.0%) Frame 80\n\tLeftUpperArm average position
+      error 2.5 mm and maximum position error 32.8 mm at time 2:20 (100.0%) Frame
+      80\n\tLeftLowerArm average position error 2.7 mm and maximum position error
+      32.6 mm at time 2:20 (100.0%) Frame 80\n\tLeftHand average position error 2.5
+      mm and maximum position error 32.7 mm at time 2:20 (100.0%) Frame 80\n\tRightUpperArm
+      average position error 2.5 mm and maximum position error 32.8 mm at time 2:20
+      (100.0%) Frame 80\n\tRightLowerArm average position error 2.5 mm and maximum
+      position error 32.7 mm at time 2:20 (100.0%) Frame 80\n\tRightHand average position
+      error 2.5 mm and maximum position error 32.7 mm at time 2:20 (100.0%) Frame
+      80\n\tHead average position error 2.5 mm and maximum position error 32.8 mm
+      at time 2:20 (100.0%) Frame 80\n\nRetargeting quality report for clip 'Armature_Enemy1|Start
+      Walking':\n\tLeftLowerLeg average position error 3.3 mm and maximum position
+      error 6.2 mm at time 0:10 (90.9%) Frame 10\n\tRightLowerLeg average position
+      error 3.3 mm and maximum position error 6.2 mm at time 0:10 (90.9%) Frame 10\n\nRetargeting
+      quality report for clip 'Armature_Enemy1|Walk Cycle':\n\tLeftLowerLeg average
+      position error 2.3 mm and maximum position error 6.2 mm at time 0:10 (16.7%)
+      Frame 10\n\tRightLowerLeg average position error 2.3 mm and maximum position
+      error 6.2 mm at time 0:10 (16.7%) Frame 10\n"
+    animationDoRetargetingWarnings: 1
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -303,7 +500,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Enemy | Idle
       takeName: Idle
       firstFrame: 0
       lastFrame: 40
@@ -507,7 +704,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk Cycle
+      name: Enemy | Walk Cycle
       takeName: Walk Cycle
       firstFrame: 0
       lastFrame: 60
@@ -711,211 +908,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: End Walking
-      takeName: End Walking
-      firstFrame: 0
-      lastFrame: 10
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature_Enemy1
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Ankle_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Ankle_L/Foot_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Ankle_L/Foot_L/Toe_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Ankle_L/Foot_L/Toe_L/Toe_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Ankle_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Ankle_R/Foot_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Ankle_R/Foot_R/Toe_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Ankle_R/Foot_R/Toe_R/Toe_R_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Elbow Follow_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Elbow Follow_L/Elbow Follow_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/ElbowFollow_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/ElbowFollow_R/ElbowFollow_R_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/Head
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/Head/Head_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/FingersFollowL/FingersFollowL_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Index_L/Index1_L/Index2_L/Index2_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mid_L/Mid_L.002/Mid2_L/Mid2_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Mit_L/Mit1_L/Mit2_L/Mit2_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Pink_L/Pink1_L/Pink2_L/Pink2_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_L/LoArm_L/Hand_L/Thumb-1_L/Thumb-2_L/Thumb-2_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/FingersFollowR/FingersFollowR_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Index_R/Index_R.002/Index_R.001/Index_R.001_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mid_R/Mid_R.002/Mid_R.001/Mid_R.001_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Mit_R.001/Mit_R.004/Mit2_R/Mit2_R_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Pink_R/Pink_R.002/Pink_R.001/Pink_R.001_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Thumb-1_R/Thumb-2_R/Thumb-2_R_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Weapon.001
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/Spine1/Spine2/Chest/UpArm_R/LoArm_R/Hand_R/Weapon.001/Weapon.001_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/UpLeg_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/UpLeg_L/LoLeg_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/UpLeg_L/LoLeg_L/LoLeg_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/UpLeg_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/UpLeg_R/LoLeg_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Hips/UpLeg_R/LoLeg_R/LoLeg_R_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Knee Follow_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Knee Follow_L/Knee Follow_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Knee Follow_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Knee Follow_R/Knee Follow_R_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Wrist_L
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Wrist_L/Wrist_L_end
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Wrist_R
-        weight: 1
-      - path: Armature_Enemy1/MasterFloor/Wrist_R/Wrist_R_end
-        weight: 1
-      - path: Armature_Enemy1/Weapon
-        weight: 1
-      - path: Armature_Enemy1/Weapon/Weapon_end
-        weight: 1
-      - path: Enemy1
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Run Cycle
+      name: Enemy | Run Cycle
       takeName: Run Cycle
       firstFrame: 0
       lastFrame: 80
@@ -1119,7 +1112,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Attack1
+      name: Enemy | Attack 1
       takeName: Attack1
       firstFrame: 0
       lastFrame: 50
@@ -1323,7 +1316,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Attack2
+      name: Enemy | Attack 2
       takeName: Attack2
       firstFrame: 0
       lastFrame: 50

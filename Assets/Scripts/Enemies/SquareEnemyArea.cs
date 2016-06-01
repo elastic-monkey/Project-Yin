@@ -2,7 +2,6 @@
 using System.Collections;
 using Utilities;
 
-[RequireComponent(typeof(BoxCollider))]
 public class SquareEnemyArea : EnemyArea
 {
     public float DangerWidth = 10f;
@@ -11,20 +10,8 @@ public class SquareEnemyArea : EnemyArea
     public float WarningDepth = 15f;
     public float Height = 15f;
 
-    private BoxCollider _collider;
     private float _halfDangerWidth, _halfWarningWidth;
     private float _halfDangerDepth, _halfWarningDepth;
-
-    public BoxCollider BoundsCollider
-    {
-        get
-        {
-            if (_collider == null)
-                _collider = GetComponent<BoxCollider>();
-
-            return _collider;
-        }
-    }
 
     protected override void Awake()
     {
@@ -39,17 +26,10 @@ public class SquareEnemyArea : EnemyArea
     private void OnDrawGizmos()
     {
         GizmosHelper.DrawSquareArena(transform.position, transform.rotation, DangerWidth, DangerDepth, DangerColor);
+        GizmosHelper.DrawSquareArena(transform.position + 0.5f * Vector3.up, transform.rotation, DangerWidth, DangerDepth, DangerColor);
+        GizmosHelper.DrawSquareArena(transform.position + Vector3.up, transform.rotation, DangerWidth, DangerDepth, DangerColor);
+        GizmosHelper.DrawSquareArena(transform.position + 1.5f * Vector3.up, transform.rotation, DangerWidth, DangerDepth, DangerColor);
         GizmosHelper.DrawSquareArena(transform.position, transform.rotation, WarningWidth, WarningDepth, WarningColor);
-    }
-
-    protected override void OnValidate()
-    {
-        BoundsCollider.size = new Vector3(WarningWidth, Height, WarningDepth);
-    }
-
-    public override Vector3 GetBorder(Transform source, Transform target)
-    {
-        throw new System.NotImplementedException();
     }
 
     public override bool ContainsInDangerZone(Transform t)

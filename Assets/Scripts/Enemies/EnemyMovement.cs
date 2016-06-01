@@ -122,6 +122,12 @@ public class EnemyMovement : Movement
         }
     }
 
+    public void Stop()
+    {
+        _navAgent.Stop();
+        Moving = false;
+    }
+
     private void StopAndLookAtTarget()
     {
         _navAgent.Stop();
@@ -155,17 +161,19 @@ public class EnemyMovement : Movement
         StandingGuard = false;
         GoingBack = false;
         OnInitialPos = false;
+        Taunting = false;
     }
 
     public void StandGuard()
     {
         if (StandingGuard)
             return;
-        
+
+        StandingGuard = true;
         Moving = false;
         ChasingTarget = true;
-        StandingGuard = true;
         GoingBack = false;
+        Taunting = false;
     }
 
     public void GoBack()
@@ -174,9 +182,10 @@ public class EnemyMovement : Movement
             return;
         
         Moving = true;
+        GoingBack = true;
         ChasingTarget = false;
         StandingGuard = false;
-        GoingBack = true;
+        Taunting = false;
 
         SetTarget(null);
         _navAgent.SetDestination(_initialPosition);

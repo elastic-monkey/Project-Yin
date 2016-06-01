@@ -2,25 +2,12 @@
 using System.Collections;
 using Utilities;
 
-[RequireComponent(typeof(SphereCollider))]
 public class CircleEnemyArea : EnemyArea
 {
     public float DangerRadius = 10f;
     public float WarningRadius = 15f;
 
     private Vector3 _center;
-    private SphereCollider _collider;
-
-    public SphereCollider BoundsCollider
-    {
-        get
-        {
-            if (_collider == null)
-                _collider = GetComponent<SphereCollider>();
-
-            return _collider;
-        }
-    }
 
     protected override void Awake()
     {
@@ -33,16 +20,6 @@ public class CircleEnemyArea : EnemyArea
     {
         GizmosHelper.DrawCircleArena(transform.position, DangerRadius, 36, DangerColor);
         GizmosHelper.DrawCircleArena(transform.position, WarningRadius, 36, WarningColor);
-    }
-
-    protected override void OnValidate()
-    {
-        BoundsCollider.radius = DangerRadius;
-    }
-
-    public override Vector3 GetBorder(Transform source, Transform target)
-    {
-        return Vector3.ClampMagnitude((target.position - _center), DangerRadius);
     }
 
     public override bool ContainsInDangerZone(Transform t)

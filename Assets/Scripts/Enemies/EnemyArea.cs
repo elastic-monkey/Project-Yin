@@ -15,13 +15,23 @@ public abstract class EnemyArea : MonoBehaviour
     protected List<EnemyBehavior> _enemiesAssigned;
     [SerializeField]
     protected PlayerBehavior _player;
-    private float _sqrFightDistance;
-    private System.Diagnostics.Stopwatch timer;
 
     protected virtual void Awake()
     {
-        _sqrFightDistance = FightDistance * FightDistance;
-        timer = new System.Diagnostics.Stopwatch();
+        // Do nothing
+    }
+
+    private void Start()
+    {
+        var gameManager = GameManager.Instance;
+        _player = gameManager.Player;
+
+        var enemyList = gameManager.EnemiesManager.Enemies;
+        foreach (var enemy in enemyList)
+        {
+            if (ContainsInZone(enemy.transform))
+                AddEnemy(enemy);
+        }
     }
 
     private void Update()
@@ -32,13 +42,14 @@ public abstract class EnemyArea : MonoBehaviour
         PlayerInWarningZone = ContainsInZone(_player.transform);
         PlayerInDangerZone = ContainsInDangerZone(_player.transform);
 
+        if (!PlayerInWarningZone || !PlayerInDangerZone)
+            return;
+
         AssignEnemiesToFight();
     }
 
     private void AssignEnemiesToFight()
     {
-        var distances = new List<float>();
-        var closeEnemies = new List<int>();
         var enemiesFighting = 0;
 
         _enemiesAssigned = SortEnemiesByDistanceToTarget(_player.transform.position);
@@ -101,20 +112,13 @@ public abstract class EnemyArea : MonoBehaviour
         return sortedList;
     }
 
-    protected abstract void OnValidate();
-
-    public abstract Vector3 GetBorder(Transform source, Transform target);
-
-    public abstract bool ContainsInDangerZone(Transform t);
-
-    public abstract bool ContainsInWarningZone(Transform t);
-
-    public abstract bool ContainsInZone(Transform t);
-
     public void AddEnemy(EnemyBehavior enemy)
     {
         if (!_enemiesAssigned.Contains(enemy))
+        {
             _enemiesAssigned.Add(enemy);
+            enemy.Area = this;
+        }
     }
 
     public void AddPlayer(PlayerBehavior player)
@@ -139,4 +143,11 @@ public abstract class EnemyArea : MonoBehaviour
             enemy.SetTarget(target);
         }
     }
+
+    public abstract bool ContainsInDangerZone(Transform t);
+
+    public abstract bool ContainsInWarningZone(Transform t);
+
+    public abstract bool ContainsInZone(Transform t);
+
 }
