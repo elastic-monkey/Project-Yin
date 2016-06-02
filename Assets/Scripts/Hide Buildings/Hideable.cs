@@ -4,10 +4,11 @@ using System.Collections;
 public class Hideable : MonoBehaviour
 {
     public Collider ColliderArea;
-    public MeshRenderer MeshToHide;
-    public MeshRenderer SubstituteMesh;
+    public Transform MeshToHide;
+    public Transform SubstituteMesh;
 
     private bool _hidden;
+    private Renderer _meshToHide, _substituteMesh;
 
     public bool Hidden
     {
@@ -23,17 +24,26 @@ public class Hideable : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
+    {
+        _meshToHide = MeshToHide.GetComponent<Renderer>();
+        if (SubstituteMesh != null)
+        {
+            _substituteMesh = SubstituteMesh.GetComponent<Renderer>();
+        }
+    }
+
+    protected virtual void Start()
     {
         ColliderArea.gameObject.layer = LayerMask.NameToLayer("Hideable Building");   
     }
 
     protected virtual void OnHide(bool value)
     {
-        MeshToHide.enabled = !value;
-        if (SubstituteMesh != null)
+        _meshToHide.enabled = !value;
+        if (_substituteMesh != null)
         {
-            SubstituteMesh.enabled = value;
+            _substituteMesh.enabled = value;
         }
     }
 }
