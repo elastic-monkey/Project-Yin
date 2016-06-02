@@ -24,7 +24,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 435278}
-  - 114: {fileID: 11416380}
+  - 114: {fileID: 11494876}
   m_Layer: 0
   m_Name: House Large 1
   m_TagString: Untagged
@@ -113,10 +113,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109266}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.25, y: 0, z: 15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.38268337, z: 0, w: 0.9238796}
+  m_LocalPosition: {x: 12.38, y: 0, z: 12.69}
+  m_LocalScale: {x: 1, y: 1.16, z: 0.8}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
   m_Children:
   - {fileID: 429466}
   - {fileID: 419602}
@@ -221,7 +221,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 4, z: 0.8}
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &11416380
+--- !u!114 &11494876
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -229,12 +229,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 109266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d88e8a7c43d3a6c438b75556a15e6281, type: 3}
+  m_Script: {fileID: 11500000, guid: 822e81456d2d05d48bd38a036f08e80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ColliderArea: {fileID: 6533414}
-  MeshToHide: {fileID: 2331632}
+  MeshToHide: {fileID: 429466}
   SubstituteMesh: {fileID: 0}
+  Height: 5
+  VisibleHeight: 1
+  AnimDuration: 0.5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
