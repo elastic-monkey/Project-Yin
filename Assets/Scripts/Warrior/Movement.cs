@@ -6,6 +6,8 @@ public abstract class Movement : MonoBehaviour
 	public bool CanMove = true;
 	public bool Moving = false;
 
+    public float AnimSpeedMulti = 1.0f;
+
 	public float Speed = 6f;
 	public float SpeedMulti = 1.0f;
 	public float SpeedThreshold = 1.0f;

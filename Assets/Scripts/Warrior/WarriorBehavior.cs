@@ -111,7 +111,7 @@ public abstract class WarriorBehavior : MonoBehaviour
     {
         Animator.SetBool(AnimatorHashIDs.CanMoveBool, Movement.CanMove);
         Animator.SetBool(AnimatorHashIDs.MovingBool, Movement.Moving);
-        Animator.SetFloat(AnimatorHashIDs.SpeedMultiplierFloat, Movement.SpeedMulti);
+        Animator.SetFloat(AnimatorHashIDs.SpeedMultiplierFloat, Movement.AnimSpeedMulti);
         Animator.SetBool(AnimatorHashIDs.AttackingBool, Attack.Attacking);
         Animator.SetBool(AnimatorHashIDs.DefendingBool, Defense.Defending);
         Animator.SetBool(AnimatorHashIDs.DeadBool, !Health.Alive);
@@ -120,6 +120,9 @@ public abstract class WarriorBehavior : MonoBehaviour
             Animator.SetFloat(AnimatorHashIDs.SpeedFloat, Movement.SpeedThreshold, Movement.SpeedDampTime, Time.deltaTime);
         else
             Animator.SetFloat(AnimatorHashIDs.SpeedFloat, 0f);
+
+        if (Attack.Attacking)
+            Animator.SetFloat(AnimatorHashIDs.AttackMultiplierFloat, Attack.CurrentAttack.AnimDurationMulti);
     }
 
     public virtual void OnAttacked(WarriorBehavior attacker)

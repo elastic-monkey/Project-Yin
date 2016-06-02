@@ -18,6 +18,15 @@ public class AttackBehavior : MonoBehaviour
     private WarriorBehavior _warrior;
     private GameManager _gameManager;
     private float _sqrRange;
+    private Attack _currentAttack;
+
+    public Attack CurrentAttack
+    {
+        get
+        {
+            return _currentAttack;
+        }
+    }
 
     private bool CanPerformNewAttack
     {
@@ -110,6 +119,7 @@ public class AttackBehavior : MonoBehaviour
     private IEnumerator AttackCoroutine(Attack attack)
     {
         Attacking = true;
+        _currentAttack = attack;
 
         _stamina.ConsumeStamina(attack.StaminaCost * StaminaMultiplier);
 
@@ -136,7 +146,9 @@ public class AttackBehavior : MonoBehaviour
         }
 
         yield return new WaitForSeconds(Mathf.Max(0, attack.Duration - attack.HitTime));
+
         Attacking = false;
+        _currentAttack = null;
     }
 }
 
@@ -151,4 +163,12 @@ public class Attack
     public float Angle = 10f;
     public int StaminaCost = 10;
     public float Duration = 0f, HitTime = 0f;
+    public float AnimClipDuration = 1.0f;
+    public float AnimDurationMulti
+    {
+        get
+        {
+            return (AnimClipDuration / Duration);
+        }
+    }
 }

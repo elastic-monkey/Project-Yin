@@ -10,8 +10,13 @@ public static class AnimatorHashIDs
     public static int DefendingBool = Animator.StringToHash("Defending");
     public static int CanMoveBool = Animator.StringToHash("CanMove");
     public static int MovingBool = Animator.StringToHash("Moving");
+    public static int AttackMultiplierFloat = Animator.StringToHash("Attack Multiplier");
 
     // NPCs
     public static int NPCTalkingBool = Animator.StringToHash("Talking");
     public static int NPCEngagedBool = Animator.StringToHash("Engaged");
+
+    // Store
+    public static int StoreOpenTrigger = Animator.StringToHash("Open");
+    public static int StoreCloseTrigger = Animator.StringToHash("Close");
 }

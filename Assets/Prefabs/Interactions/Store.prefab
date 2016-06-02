@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 425656}
   - 33: {fileID: 3399188}
-  - 135: {fileID: 13557398}
   - 23: {fileID: 2344100}
   m_Layer: 0
   m_Name: Store
@@ -42,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.879997, y: 0.81, z: -19.77}
+  m_LocalPosition: {x: -3.52288, y: 0.0000022947788, z: -31.845402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -112,18 +111,6 @@ MonoBehaviour:
   CanBeTriggered: 0
   Ongoing: 0
   Target: {fileID: 0}
---- !u!135 &13557398
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116070}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13592094
 SphereCollider:
   m_ObjectHideFlags: 1
