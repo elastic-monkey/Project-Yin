@@ -5,7 +5,8 @@ public class PlayerInfo : MonoBehaviour
 {
     public Slider Health, Stamina, Experience;
     public Image AvailableSkillPoints;
-    public Text Credits;
+    public Text MenuCredits;
+    public Text StoreCredits;
 
     private PlayerBehavior _player;
 
@@ -44,6 +45,7 @@ public class PlayerInfo : MonoBehaviour
 
         AvailableSkillPoints.enabled = _player.Experience.HasSkillPoints;
 
-        Credits.text = _player.Currency.CurrentCredits.ToString();
+        MenuCredits.text = _player.Currency.CurrentCredits.ToString();
+        StoreCredits.text = MenuCredits.text;
     }
 }

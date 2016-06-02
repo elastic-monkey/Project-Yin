@@ -66,7 +66,7 @@ public class SaveManager : MonoBehaviour
 
 	public static void LoadPlayerState(PlayerState state)
     {
-        var player = GameObject.Find("Player");
+        var player = GameObject.Find("Yin");
         var playerBehavior = player.GetComponent<PlayerBehavior>();
 		var playerAnimator = player.GetComponent<Animator> ();
         var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenuManager>();
