@@ -16,6 +16,17 @@ public class StoreInteraction : OpenMenuInteraction
         }
     }
 
+    protected override void OnTriggerExit(Collider collider)
+    {
+        base.OnTriggerExit(collider);
+
+        if (collider == _gameManager.Player.MainCollider)
+        {
+            Animator.ResetTrigger(AnimatorHashIDs.StoreOpenTrigger);
+            Animator.SetTrigger(AnimatorHashIDs.StoreCloseTrigger);
+        }
+    }
+
     public override void StopInteraction()
     {
         base.StopInteraction();
