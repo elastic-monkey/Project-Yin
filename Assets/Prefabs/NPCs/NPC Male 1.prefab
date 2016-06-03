@@ -386,6 +386,7 @@ GameObject:
   - 4: {fileID: 419842}
   - 95: {fileID: 9503424}
   - 114: {fileID: 11432594}
+  - 136: {fileID: 13644090}
   m_Layer: 0
   m_Name: NPC Male 1
   m_TagString: Untagged
@@ -1688,10 +1689,23 @@ MonoBehaviour:
   Engaged: 0
   Talking: 0
   MaxBeginDelay: 5
-  TalkProbability: 0
+  TalkProbability: 0.15
   TalkDuration: 5
   EngagedProbability: 0.25
   EngagedDuration: 5
+--- !u!136 &13644090
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146050}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &13756820
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

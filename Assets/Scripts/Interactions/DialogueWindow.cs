@@ -10,19 +10,21 @@ public class DialogueWindow : MonoBehaviour
     public bool WritingLine;
     public bool Active;
     public Text Speaker, Line;
+    public NPCLine CurrentLine;
 
     private IAnimatedPanel _animatedPanel;
     private Coroutine _runningCoroutine;
     private bool _fastForward;
-    private DialogueManager _myDialogues;
-
+    public bool CurrentLineOver;
+    private bool _hasFinished;
+   
     public bool HasFinished
     {
         get
         {
-            if (_myDialogues != null)
+            if (CurrentLine != null)
             {
-                return _myDialogues.FinishedDialogue;
+                return _hasFinished;
             }
 
             return false;
@@ -32,8 +34,6 @@ public class DialogueWindow : MonoBehaviour
     private void Awake()
     {
         _animatedPanel = GetComponent<IAnimatedPanel>();
-        _myDialogues = new DialogueManager();
-
     }
 
     private void Update()
@@ -41,27 +41,31 @@ public class DialogueWindow : MonoBehaviour
         if (!Active)
             return;
         
-        if (!PlayerInput.IsButtonDown(ForwardKey))
+        if (CurrentLine == null)
+        {
             return;
+        }
 
-        if (_myDialogues.FinishedDialogue)
-            return;
-
-        if (WritingLine)
+        if (WritingLine && PlayerInput.IsButtonDown(ForwardKey))
+        {
             _fastForward = true;
-        else
+        }
+        else if (!WritingLine && CurrentLine != null)
+        {
             _runningCoroutine = StartCoroutine(WriteDialogLine());
+        }
     }
 
     private IEnumerator WriteDialogLine()
     {
-        _myDialogues.FinishedDialogue = false;
+        _hasFinished = false;
         WritingLine = true;
+        CurrentLineOver = false;
 
         Line.text = "";
-        Speaker.text = _myDialogues.CurrentDialogueLine.owner;
+        Speaker.text = CurrentLine.owner;
 
-        foreach (var letter in _myDialogues.CurrentDialogueLine.text)
+        foreach (var letter in CurrentLine.text)
         {
             Line.text += letter;
             yield return new WaitForSeconds(LetterTime);
@@ -70,11 +74,12 @@ public class DialogueWindow : MonoBehaviour
                 break;
         }
 
-        Line.text = _myDialogues.CurrentDialogueLine.text;
+        Line.text = CurrentLine.text;
 
         _fastForward = false;
         WritingLine = false;
-        _myDialogues.GoToNext();
+        CurrentLineOver = true;
+        CurrentLine = null;
     }
 
     private void StopCoroutineIfExists()
@@ -91,60 +96,9 @@ public class DialogueWindow : MonoBehaviour
 
         if (!value)
         {
-            _myDialogues.Dialogues.Clear();
-            _myDialogues.Dialogues = null;
+            CurrentLine = null;
         }
     }
 
-    public void LoadDialogue(string id, DialogueType type)
-    {
-        _myDialogues.Dialogues = DialogueLoader.LoadNPCDialogue(id, type);
-        _myDialogues.Reset();
-    }
-}
-
-[System.Serializable]
-public class DialogueManager
-{
-    public int CurrentDialog = 0;
-    public int CurrentLine = 0;
-    public List<Dialogue> Dialogues;
-    public bool FinishedDialogue;
-
-    public NPCLine CurrentDialogueLine
-    {
-        get
-        {
-            return Dialogues[CurrentDialog].Lines[CurrentLine];
-        }
-    }
-
-    public void GoToNext()
-    {
-        if ((CurrentLine + 1) >= Dialogues[CurrentDialog].Lines.Count)
-        {
-            CurrentLine = 0;
-            FinishedDialogue = true;
-
-            if ((CurrentDialog + 1) < Dialogues.Count)
-            {
-                CurrentDialog++;
-            }
-            else
-            {
-                CurrentDialog = 0;
-            }
-        }
-        else
-        {
-            CurrentLine++;
-        }
-    }
-
-    public void Reset()
-    {
-        CurrentDialog = 0;
-        CurrentLine = 0;
-        FinishedDialogue = false;
-    }
+   
 }
