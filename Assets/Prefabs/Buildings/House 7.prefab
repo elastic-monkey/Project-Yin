@@ -129,10 +129,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105198}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.0000003874302}
-  m_LocalPosition: {x: -9.999993, y: 0, z: -30.000002}
+  m_LocalRotation: {x: 0, y: 0.707107, z: 0, w: 0.7071066}
+  m_LocalPosition: {x: -35, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 179.9999, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
   - {fileID: 401052}
   - {fileID: 487444}
@@ -261,8 +261,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 4, z: 10}
-  m_Center: {x: 0, y: 3.1, z: 0}
+  m_Size: {x: 10, y: 3, z: 10}
+  m_Center: {x: 0, y: 3.5, z: 0}
 --- !u!114 &11409500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,12 +274,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822e81456d2d05d48bd38a036f08e80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColliderArea: {fileID: 6599182}
-  MeshToHide: {fileID: 401052}
-  SubstituteMesh: {fileID: 0}
-  Height: 5
+  MeshesToHide:
+  - {fileID: 401052}
+  Colliders:
+  - {fileID: 6517774}
+  - {fileID: 6592198}
+  - {fileID: 6599182}
+  CombinedHeight: 5
   VisibleHeight: 0.5
   AnimDuration: 0.5
+  _hidden: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

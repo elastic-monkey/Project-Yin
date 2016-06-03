@@ -115,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 109266}
   m_LocalRotation: {x: 0, y: -0.38268337, z: 0, w: 0.9238796}
   m_LocalPosition: {x: 12.38, y: 0, z: 12.69}
-  m_LocalScale: {x: 1, y: 1.16, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
   m_Children:
   - {fileID: 429466}
@@ -232,12 +232,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822e81456d2d05d48bd38a036f08e80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColliderArea: {fileID: 6533414}
-  MeshToHide: {fileID: 429466}
-  SubstituteMesh: {fileID: 0}
-  Height: 5
-  VisibleHeight: 1
+  MeshesToHide:
+  - {fileID: 429466}
+  Colliders:
+  - {fileID: 6533414}
+  CombinedHeight: 4
+  VisibleHeight: 0.5
   AnimDuration: 0.5
+  _hidden: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

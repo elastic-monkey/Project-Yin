@@ -1,46 +1,94 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class HideableTransform : Hideable
+public class HideableTransform : MonoBehaviour, IHideable
 {
-    public float Height = 5.0f;
+    public Transform[] MeshesToHide;
+    public Collider[] Colliders;
+    public float CombinedHeight = 5.0f;
     public float VisibleHeight = 1.0f;
     public float AnimDuration = 1.0f;
 
     private Coroutine _lastHide = null;
-    private Vector3 _initialPosition, _hiddenPosition;
+    private List<Vector3> _initialPositions, _hiddenPositions;
+    [SerializeField]
+    private bool _hidden;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
-    
-        _initialPosition = MeshToHide.transform.localPosition;
-        _hiddenPosition = _initialPosition - new Vector3(0, Height - VisibleHeight, 0);
+        _initialPositions = new List<Vector3>();
+        _hiddenPositions = new List<Vector3>();
+
+        var hiddenOffset = new Vector3(0, CombinedHeight - VisibleHeight, 0);
+        foreach (var mesh in MeshesToHide)
+        {
+            _initialPositions.Add(mesh.localPosition);
+            _hiddenPositions.Add(mesh.localPosition - hiddenOffset);
+        }
+
+        foreach (var col in Colliders)
+        {
+            col.gameObject.layer = LayerMask.NameToLayer("Hideable Building");
+        }
+
+        if (_hidden)
+            Hide();
+        else
+            Show();
     }
 
-    protected override void OnHide(bool value)
+    public void Hide()
     {
+        if (_hidden)
+            return;
+
         if (_lastHide != null)
             StopCoroutine(_lastHide);
 
-        _lastHide = StartCoroutine(HideCoroutine(value));
+        _lastHide = StartCoroutine(HideCoroutine(true));
     }
 
-    private IEnumerator HideCoroutine(bool value)
+    public void Show()
     {
-        var timePassed = 0f;
-        var invDuration = 1f / AnimDuration;
-        var targetPosition = value ? _hiddenPosition : _initialPosition;
+        if (!_hidden)
+            return;
+        
+        if (_lastHide != null)
+            StopCoroutine(_lastHide);
+
+        _lastHide = StartCoroutine(HideCoroutine(false));
+    }
+
+    public bool IsHidden()
+    {
+        return _hidden;
+    }
+
+    private IEnumerator HideCoroutine(bool hide)
+    {
+        var timePassed = 0.0f;
+        var invDuration = 1.0f / AnimDuration;
+        _hidden = hide;
 
         while (timePassed <= AnimDuration)
         {
-            var lerpFactor = timePassed * invDuration;
-            MeshToHide.transform.localPosition = Vector3.Lerp(MeshToHide.transform.localPosition, targetPosition, lerpFactor);
-
+            LerpPositions(timePassed * invDuration, hide);
             timePassed += Time.deltaTime;
+
             yield return null;
         }
 
-        MeshToHide.transform.localPosition = targetPosition;
+        LerpPositions(1.0f, hide);
+    }
+
+    private void LerpPositions(float lerpFactor, bool hide)
+    {
+        for (var i = 0; i < MeshesToHide.Length; i++)
+        {
+            var mesh = MeshesToHide[i];
+            var targetPos = hide ? _hiddenPositions[i] : _initialPositions[i];
+            mesh.localPosition = Vector3.Lerp(mesh.localPosition, targetPos, lerpFactor);
+        }
     }
 }

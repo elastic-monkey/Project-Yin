@@ -81,8 +81,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113248}
-  m_LocalRotation: {x: 0, y: -0.70710665, z: 0, w: 0.707107}
-  m_LocalPosition: {x: -17.4, y: 0, z: -4.9}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.000000029802322}
+  m_LocalPosition: {x: -35, y: 0, z: 27.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_Children:
@@ -148,12 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822e81456d2d05d48bd38a036f08e80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColliderArea: {fileID: 6562382}
-  MeshToHide: {fileID: 407414}
-  SubstituteMesh: {fileID: 0}
-  Height: 5
+  MeshesToHide:
+  - {fileID: 407414}
+  Colliders:
+  - {fileID: 6562382}
+  CombinedHeight: 5
   VisibleHeight: 0.5
   AnimDuration: 0.5
+  _hidden: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

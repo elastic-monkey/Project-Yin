@@ -7,13 +7,14 @@ public class HideBuidings : MonoBehaviour
     public LayerMask RaycastMask;
     public int MaxDistance = 2000;
     public IsometricCamera IsoCamera;
-    public List<Hideable> HiddenObjects;
+    public List<IHideable> HiddenObjects;
+    public int HiddenCount = 0;
 
     private PlayerBehavior _player;
 
     private void Awake()
     {
-        HiddenObjects = new List<Hideable>();
+        HiddenObjects = new List<IHideable>();
     }
 
     private void Start()
@@ -39,7 +40,7 @@ public class HideBuidings : MonoBehaviour
         {
             for (var i = 0; i < HiddenObjects.Count; i++)
             {
-                HiddenObjects[i].Hidden = false;
+                HiddenObjects[i].Show();
                 HiddenObjects.RemoveAt(i);
                 i--;
             }
@@ -53,11 +54,16 @@ public class HideBuidings : MonoBehaviour
 
             for (int j = 0; j < hits.Count; j++)
             {
-                var hit = hits[j].collider.GetComponent<Hideable>();
-                if (hit == null)
-                    hit = hits[j].collider.GetComponentInParent<Hideable>();
+                var hit1 = hits[j].collider.GetComponent<IHideable>();
+                var hit2 = hits[j].collider.GetComponentInParent<IHideable>();
                 
-                if (hit != null && hit == obj)
+                if (hit1 != null && hit1 == obj)
+                {
+                    hits.RemoveAt(j);
+                    found = true;
+                    break;
+                }
+                else if (hit2 != null && hit2 == obj)
                 {
                     hits.RemoveAt(j);
                     found = true;
@@ -67,7 +73,7 @@ public class HideBuidings : MonoBehaviour
 
             if (!found)
             {
-                obj.Hidden = false;
+                obj.Show();
                 HiddenObjects.RemoveAt(i);
                 i--;
             }
@@ -81,14 +87,14 @@ public class HideBuidings : MonoBehaviour
         
         foreach (var hit in hits)
         {
-            var hitObj = hit.collider.GetComponent<Hideable>();
-            if (hitObj == null)
-                hitObj = hit.collider.GetComponentInParent<Hideable>();
+            var hit1 = hit.collider.GetComponent<IHideable>();
+            var hit2 = hit.collider.GetComponentInParent<IHideable>();
+
+            if (hit1 != null)
+                HiddenObjects.Add(hit1);
             
-            if (hitObj != null)
-            {
-                HiddenObjects.Add(hitObj);
-            }
+            if (hit2 != null)
+                HiddenObjects.Add(hit2);
         }
     }
 
@@ -96,7 +102,8 @@ public class HideBuidings : MonoBehaviour
     {
         foreach (var hideable in HiddenObjects)
         {
-            hideable.Hidden = true;
+            hideable.Hide();
         }
+        HiddenCount = HiddenObjects.Count;
     }
 }
