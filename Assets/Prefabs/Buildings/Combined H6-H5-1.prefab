@@ -24,7 +24,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445318}
-  - 114: {fileID: 11493116}
+  - 114: {fileID: 11417270}
   m_Layer: 0
   m_Name: Combined H6-H5-1
   m_TagString: Untagged
@@ -220,7 +220,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5c8676e3fc9f92c4e92d220027456408, type: 2}
+  - {fileID: 2100000, guid: 4a7dcfaebd8a06c4491e44b49e60b09d, type: 2}
   - {fileID: 2100000, guid: 0bda21cb631de5a42accd62d616d7416, type: 2}
   - {fileID: 2100000, guid: 107396dea51c9b544b71b223a02d44e2, type: 2}
   - {fileID: 2100000, guid: 3e24054e042655d4ba8824e10ac8cf58, type: 2}
@@ -249,9 +249,9 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5c8676e3fc9f92c4e92d220027456408, type: 2}
+  - {fileID: 2100000, guid: 4a7dcfaebd8a06c4491e44b49e60b09d, type: 2}
   - {fileID: 2100000, guid: 0bda21cb631de5a42accd62d616d7416, type: 2}
-  - {fileID: 2100000, guid: 056e880c5f8126e4e84cc348868fbdc4, type: 2}
+  - {fileID: 2100000, guid: 18794bef79fad40408131c2162df26ef, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -305,6 +305,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 10, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11417270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5ce1c929ff3ef4fb26876551103ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 0.2
+  _hidden: 0
+  _renderers: []
 --- !u!114 &11436128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,25 +335,6 @@ MonoBehaviour:
   Colliders:
   - {fileID: 6594168}
   CombinedHeight: 10
-  VisibleHeight: 0.5
-  AnimDuration: 0.5
-  _hidden: 0
---- !u!114 &11493116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 822e81456d2d05d48bd38a036f08e80f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MeshesToHide:
-  - {fileID: 425150}
-  Colliders:
-  - {fileID: 6567244}
-  CombinedHeight: 5
   VisibleHeight: 0.5
   AnimDuration: 0.5
   _hidden: 0

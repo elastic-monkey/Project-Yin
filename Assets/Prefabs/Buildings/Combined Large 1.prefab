@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 461172}
-  - 114: {fileID: 11444384}
+  - 114: {fileID: 11411678}
   m_Layer: 0
   m_Name: Combined Large 1
   m_TagString: Untagged
@@ -341,7 +341,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 4a7dcfaebd8a06c4491e44b49e60b09d, type: 2}
   - {fileID: 2100000, guid: 18794bef79fad40408131c2162df26ef, type: 2}
-  - {fileID: 2100000, guid: ce582ed8ff653ee4d87e3814c795ffda, type: 2}
+  - {fileID: 2100000, guid: 0bda21cb631de5a42accd62d616d7416, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -369,7 +369,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 4a7dcfaebd8a06c4491e44b49e60b09d, type: 2}
   - {fileID: 2100000, guid: 18794bef79fad40408131c2162df26ef, type: 2}
-  - {fileID: 2100000, guid: ce582ed8ff653ee4d87e3814c795ffda, type: 2}
+  - {fileID: 2100000, guid: 0bda21cb631de5a42accd62d616d7416, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -471,7 +471,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.8, y: 4, z: 20}
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &11444384
+--- !u!114 &11411678
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -479,19 +479,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 172600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 822e81456d2d05d48bd38a036f08e80f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a5ce1c929ff3ef4fb26876551103ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeshesToHide:
-  - {fileID: 451554}
-  - {fileID: 419842}
-  Colliders:
-  - {fileID: 6596060}
-  - {fileID: 6554516}
-  CombinedHeight: 7.5
-  VisibleHeight: 0.5
-  AnimDuration: 0.5
+  Duration: 0.2
   _hidden: 0
+  _renderers: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

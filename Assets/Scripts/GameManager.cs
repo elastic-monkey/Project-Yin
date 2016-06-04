@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerBehavior Player;
     public EnemiesManager EnemiesManager;
     public HideBuidings HideBuildings;
+    public SwapToFadeManager SwapFadeMaterials;
 	public GameOver GameOverMenu;
     public InteractionPrompt InteractionPrompt;
 

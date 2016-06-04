@@ -2623,11 +2623,11 @@ MonoBehaviour:
   Range: 1.5
   Attacks:
   - Damage: 15
-    Radius: 1
+    Radius: 1.5
     Angle: 10
     StaminaCost: 20
     Duration: 1
-    HitTime: 0.2
+    HitTime: 0.8
     AnimClipDuration: 1.2
   CanAttack: 1
   Attacking: 0
@@ -2760,13 +2760,13 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
+  - {fileID: 2100000, guid: 214b3ee958cc96640b673e8f32a9b349, type: 2}
+  - {fileID: 2100000, guid: 18311f794240105478fb596702ae0828, type: 2}
+  - {fileID: 2100000, guid: 5795454b1e8d00843b8fb2d66598bfec, type: 2}
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 03ec5245e0b5fec4cb1d095e412041eb, type: 2}
+  - {fileID: 2100000, guid: 2080bf3e6e1905c4896cd23cfbe6b95a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
