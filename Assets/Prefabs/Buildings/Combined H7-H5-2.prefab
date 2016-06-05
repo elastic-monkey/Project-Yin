@@ -440,8 +440,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 0.2
-  _hidden: 0
-  _renderers: []
+  Colliders:
+  - {fileID: 6535936}
+  - {fileID: 6521002}
+  - {fileID: 6500520}
+  - {fileID: 6573964}
+  Renderers: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

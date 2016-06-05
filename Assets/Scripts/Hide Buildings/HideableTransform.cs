@@ -73,16 +73,16 @@ public class HideableTransform : MonoBehaviour, IHideable
 
         while (timePassed <= AnimDuration)
         {
-            LerpPositions(timePassed * invDuration, hide);
+            LerpPosition(timePassed * invDuration, hide);
             timePassed += Time.deltaTime;
 
             yield return null;
         }
-
-        LerpPositions(1.0f, hide);
+            
+        LerpPosition(1.0f, hide);
     }
 
-    private void LerpPositions(float lerpFactor, bool hide)
+    private void LerpPosition(float lerpFactor, bool hide)
     {
         for (var i = 0; i < MeshesToHide.Length; i++)
         {

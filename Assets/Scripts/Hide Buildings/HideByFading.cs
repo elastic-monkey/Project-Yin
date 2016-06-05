@@ -5,23 +5,21 @@ using System.Collections.Generic;
 public class HideByFading : MonoBehaviour, IHideable
 {
     public float Duration = 1.0f;
+    public Collider[] Colliders;
+    [HideInInspector]
+    public List<Renderer> Renderers;
 
-    [SerializeField]
     private bool _hidden;
-
-    [SerializeField]
-    private List<Renderer> _renderers;
     private SwapToFadeManager _swapManager;
     private Coroutine _lastCoroutine;
 
     public void Awake()
     {
-        _renderers = new List<Renderer>(GetComponentsInChildren<Renderer>());
+        Renderers = new List<Renderer>(GetComponentsInChildren<Renderer>());
 
         _swapManager = GameManager.Instance.SwapFadeMaterials;
 
-        var colliders = GetComponentsInChildren<Collider>();
-        foreach (var col in colliders)
+        foreach (var col in Colliders)
         {
             col.gameObject.layer = LayerMask.NameToLayer("Hideable Building");
         }
@@ -63,63 +61,73 @@ public class HideByFading : MonoBehaviour, IHideable
         var invDuration = 1f / Duration;
 
         if (hide)
-            ReplaceToFadeMaterials();
-
-        while (timePassed <= Duration)
         {
-            SetFade(targetAlpha, timePassed * invDuration);
+            _swapManager.ReplaceByFadeMaterials(this);
 
-            yield return null;
+            while (timePassed <= Duration)
+            {
+                SetFade(targetAlpha, timePassed * invDuration);
 
-            timePassed += Time.deltaTime;
+                yield return null;
+
+                timePassed += Time.deltaTime;
+            }
         }
+        else
+        {
+            while (timePassed <= Duration)
+            {
+                SetFade(targetAlpha, timePassed * invDuration);
 
-        SetFade(targetAlpha, 1);
+                yield return null;
 
-        if (!hide)
-            ReplaceToOpaqueMaterials();
+                timePassed += Time.deltaTime;
+            }
+
+            _swapManager.ReplaceByOpaqueMaterials(this);
+        }
     }
 
     private void SetFade(float targetValue, float lerpFactor)
     {
-        foreach (var r in _renderers)
+        foreach (var r in Renderers)
         {
-            var mats = r.sharedMaterials;
+            var mats = r.materials;
             foreach (var mat in mats)
             {
                 var c = mat.color;
-                c.a = Mathf.Lerp(c.a, targetValue, lerpFactor);
+                c.a = Mathf.Lerp(targetValue == 0f ? 1f : 0f, targetValue, lerpFactor);
                 mat.color = c;
             }
-            r.sharedMaterials = mats;
+            r.materials = mats;
         }
     }
-
-    private void ReplaceToFadeMaterials()
-    {
-        foreach (var r in _renderers)
-        {
-            var mats = r.sharedMaterials;
-            for(var i = 0; i < mats.Length; i++)
-            {
-                var swap = _swapManager.FindSubstitute(mats[i]);
-                mats[i] = swap;
-            }
-            r.sharedMaterials = mats;
-        }
-    }
-
-    private void ReplaceToOpaqueMaterials()
-    {
-        foreach (var r in _renderers)
-        {
-            var mats = r.sharedMaterials;
-            for (var i = 0; i < mats.Length; i++)
-            {
-                var swap = _swapManager.FindOriginal(mats[i]);
-                mats[i] = swap;
-            }
-            r.sharedMaterials = mats;
-        }
-    }
+//
+//    private void ReplaceToFadeMaterials()
+//    {
+//        foreach (var r in _renderers)
+//        {
+//            var mats = r.sharedMaterials;
+//            for(var i = 0; i < mats.Length; i++)
+//            {
+//                var swap = _swapManager.FindSubstitute(mats[i]);
+//                mats[i] = swap;
+//            }
+//            r.materials = mats;
+//        }
+//    }
+//
+//    private void ReplaceToOpaqueMaterials()
+//    {
+//        foreach (var r in _renderers)
+//        {
+//            var mats = r.sharedMaterials;
+//            for (var i = 0; i < mats.Length; i++)
+//            {
+//                var swap = _swapManager.FindOriginal(mats[i]);
+//                mats[i] = swap;
+//            }
+//            r.materials = mats;
+//        }
+//    }
 }
