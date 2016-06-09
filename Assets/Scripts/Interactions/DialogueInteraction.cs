@@ -77,6 +77,8 @@ public class DialogueInteraction : PlayerInteraction
 
     public override void StopInteraction()
     {
+        base.StopInteraction();
+
         Target.SetActive(false);
         _myDialogues.FinishedDialogue = false;
         _hasFinished = true;

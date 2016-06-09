@@ -51,12 +51,14 @@ public abstract class PlayerInteraction : MonoBehaviour
     {
         _interactionPrompt.Show(false, this);
         Ongoing = true;
+        PlayerInput.OnlyMenus = true;
     }
 
     public virtual void StopInteraction()
     {
         _interactionPrompt.Show(CanBeTriggered, this);
         Ongoing = false;
+        PlayerInput.OnlyMenus = false;
     }
 
     public abstract bool ShouldStop();

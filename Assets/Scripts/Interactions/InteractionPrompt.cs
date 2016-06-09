@@ -55,7 +55,7 @@ public class InteractionPrompt : MonoBehaviour
             if (interaction == _currentInteraction)
                 return;
             
-            Title.text = interaction.PromptText;
+            Title.text = interaction.PromptText + " (" + InteractKey.ScreenName() + ")";
             _currentInteraction = interaction;
             _waitForInputNextFrame = true;
             WaitingInput = false;
