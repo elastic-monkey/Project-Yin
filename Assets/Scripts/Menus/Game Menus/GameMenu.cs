@@ -22,8 +22,8 @@ public class GameMenu : MonoBehaviour, IMenu
         GoToInventoryMenu,
         UseItem,
         BuyItem,
-        GoToShop,
-        GoToSellComponents,
+        GoToBuy,
+        GoToSell,
         SellComponents,
         LeaveShop,
         GoToMainMenu
@@ -113,15 +113,15 @@ public class GameMenu : MonoBehaviour, IMenu
             Pause(false);
     }
 
-    protected void TransitionTo(GameMenu other)
+    protected void TransitionTo(GameMenu target)
     {
-        if (other == null)
+        if (target == null)
             return;
 
-        other.Open();
-        other.NavMenu.InputBlocked = false;
+        target.Open();
+        target.NavMenu.InputBlocked = false;
 
-        if (IsOpen && other.SubMenu)
+        if (target.SubMenu)
         {
             NavMenu.InputBlocked = true;
             NavMenu.UnfocusAll();
