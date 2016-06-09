@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public enum Axes
 {
     None,
-    MovementHorizontal,
-    MovementVertical,
+    Horizontal,
+    Vertical,
     Confirm,
     Back,
     Attack,
@@ -20,12 +20,12 @@ public enum Axes
     PauseMenu,
 }
 
-public static class AxisHelper
+public static class AxesHelper
 {
     private static readonly Dictionary<Axes, string> _keyBindings = new Dictionary<Axes, string>()
     {
-        { Axes.MovementHorizontal, "Horizontal"},
-        { Axes.MovementVertical, "Vertical"},
+        { Axes.Horizontal, "Horizontal"},
+        { Axes.Vertical, "Vertical"},
         { Axes.Confirm, "Confirm"},
         { Axes.Back, "Back"},
         { Axes.Attack, "Attack"},
@@ -42,8 +42,8 @@ public static class AxisHelper
 
     private static readonly Dictionary<Axes, string> _joystickKeyToScreenName = new Dictionary<Axes, string>()
     {
-        { Axes.MovementHorizontal, "X Axes"},
-        { Axes.MovementVertical, "Y Axes"},
+        { Axes.Horizontal, "X Axes"},
+        { Axes.Vertical, "Y Axes"},
         { Axes.Confirm, "A"},
         { Axes.Back, "B"},
         { Axes.Attack, "X"},
@@ -60,8 +60,8 @@ public static class AxisHelper
 
     private static readonly Dictionary<Axes, string> _keyboardKeyToScreenName = new Dictionary<Axes, string>()
     {
-        { Axes.MovementHorizontal, "Arrow Keys"},
-        { Axes.MovementVertical, "Arrow Keys"},
+        { Axes.Horizontal, "Arrow Keys"},
+        { Axes.Vertical, "Arrow Keys"},
         { Axes.Confirm, "E"},
         { Axes.Back, "Esc"},
         { Axes.Attack, "Left Click"},
@@ -99,5 +99,10 @@ public static class AxisHelper
         _keyBindings.TryGetValue(axis, out s);
 
         return s;
+    }
+
+    public static Axes[] ToArray()
+    {
+        return (Axes[])System.Enum.GetValues(typeof(Axes));
     }
 }

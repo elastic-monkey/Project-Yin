@@ -30,8 +30,8 @@ public class PlayerMovement : Movement
 			return;
 		}
 
-        var h = PlayerInput.GetAxis(Axes.MovementHorizontal);
-        var v = PlayerInput.GetAxis(Axes.MovementVertical);
+        var h = PlayerInput.GetAxis(Axes.Horizontal);
+        var v = PlayerInput.GetAxis(Axes.Vertical);
 
 		if (Mathf.Abs(h) > MinInputValue || Mathf.Abs(v) > MinInputValue)
 		{
