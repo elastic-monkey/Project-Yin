@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         private set
         {
             _gamePaused = value;
-            PlayerInput.GameplayBlocked = value;
+            PlayerInput.OnlyMenus = value;
             Time.timeScale = value ? 0 : 1;
         }
     }
@@ -119,6 +119,6 @@ public class GameManager : MonoBehaviour
 
     public void BlockGameplayInput(bool value)
     {
-        PlayerInput.GameplayBlocked = value;
+        PlayerInput.OnlyMenus = value;
     }
 }

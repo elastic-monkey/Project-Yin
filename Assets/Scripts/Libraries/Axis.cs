@@ -21,11 +21,27 @@ public enum Axis
     Player_Menu
 }
 
+public enum Axes
+{
+    Confirm,
+    Back,
+    Attack,
+    Defend,
+    Dodge,
+    Shield,
+    Strength,
+    Speed,
+    QuickInventoryChange,
+    QuickInventoryUse,
+    PlayerMenu,
+    PauseMenu,
+}
+
 public static class AxisHelper
 {
-    private static readonly Dictionary<Axis, string> AxisMap = new Dictionary<Axis, string>()
+    private static readonly Dictionary<Axis, string> _axisDictionary = new Dictionary<Axis, string>()
     {
-		{ Axis.None, "NULL" },
+		{ Axis.None, "<No Key>" },
 		{ Axis.Horizontal, "Horizontal" },
         { Axis.Vertical, "Vertical" },
         { Axis.Fire1, "Fire1" },
@@ -46,7 +62,9 @@ public static class AxisHelper
     public static string EditorName(this Axis axis)
     {
         var s = string.Empty;
-        AxisMap.TryGetValue(axis, out s);
+
+        _axisDictionary.TryGetValue(axis, out s);
+
         return s;
     }
 }

@@ -116,7 +116,7 @@ public abstract class WarriorBehavior : MonoBehaviour
         Animator.SetBool(AnimatorHashIDs.DefendingBool, Defense.Defending);
         Animator.SetBool(AnimatorHashIDs.DeadBool, !Health.Alive);
 
-        if (Movement.Moving && !PlayerInput.GameplayBlocked)
+        if (Movement.Moving && !PlayerInput.OnlyMenus)
             Animator.SetFloat(AnimatorHashIDs.SpeedFloat, Movement.SpeedThreshold, Movement.SpeedDampTime, Time.deltaTime);
         else
             Animator.SetFloat(AnimatorHashIDs.SpeedFloat, 0f);

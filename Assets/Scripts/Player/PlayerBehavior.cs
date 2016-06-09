@@ -76,7 +76,7 @@ public class PlayerBehavior : WarriorBehavior
             return;
         }
 
-        if (!PlayerInput.GameplayBlocked)
+        if (!PlayerInput.OnlyMenus)
         {
             Abilities.ApplyAbilities();
 
@@ -103,7 +103,7 @@ public class PlayerBehavior : WarriorBehavior
 
     private void FixedUpdate()
     {
-        if (PlayerInput.GameplayBlocked)
+        if (PlayerInput.OnlyMenus)
             return;
         
         PlayerMovement.ApplyMovement();

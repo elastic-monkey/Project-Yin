@@ -2,7 +2,7 @@
 
 public abstract class PlayerInput
 {
-    public static bool GameplayBlocked = false;
+    public static bool OnlyMenus = false;
 
     public static float GetAxis(Axis axis)
     {
