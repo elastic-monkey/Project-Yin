@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeMenu : GameMenuManager
+public class UpgradeMenu : GameMenu
 {
     public Text AvailableSP, UpgradeCost, EffectText;
 

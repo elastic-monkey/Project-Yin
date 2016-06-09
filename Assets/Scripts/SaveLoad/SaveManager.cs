@@ -69,7 +69,7 @@ public class SaveManager : MonoBehaviour
         var player = GameObject.Find("Yin");
         var playerBehavior = player.GetComponent<PlayerBehavior>();
 		var playerAnimator = player.GetComponent<Animator> ();
-        var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenuManager>();
+        var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenu>();
         var itemRepo = GameObject.Find("ItemRepo").GetComponent<ItemRepo>();
 
 		playerAnimator.SetBool (AnimatorHashIDs.DeadBool, false);

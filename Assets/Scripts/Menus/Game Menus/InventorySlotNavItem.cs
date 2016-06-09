@@ -54,7 +54,7 @@ public class InventorySlotNavItem : GameNavItem
         }
     }
 
-    public override void OnSelect(MenuManager manager)
+    public override void OnSelect(Menu manager)
     {
         UseItem();
     }

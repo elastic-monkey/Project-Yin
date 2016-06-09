@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class PauseMenu : GameMenuManager
+public class PauseMenu : GameMenu
 {
     protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {

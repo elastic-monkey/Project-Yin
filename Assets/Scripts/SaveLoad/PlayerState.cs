@@ -21,7 +21,7 @@ public class PlayerState
     {
         var player = GameObject.Find("Player");
         var playerBehaviour = player.GetComponent<PlayerBehavior>();
-        var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenuManager>();
+        var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenu>();
         position = player.transform.position;
         rotation = player.transform.rotation;
 

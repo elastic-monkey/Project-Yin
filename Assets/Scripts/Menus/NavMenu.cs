@@ -14,14 +14,14 @@ public abstract class NavMenu : MonoBehaviour
     private bool _inputBlocked;
     private bool _inputUnlockedNextFrame;
     private IAnimatedPanel _animatedPanel;
-    private MenuManager _menuManager;
+    private Menu _menuManager;
 
-    public MenuManager MenuManager
+    public Menu MenuManager
     {
         get
         {
             if (_menuManager == null)
-                _menuManager = GetComponent<MenuManager>();
+                _menuManager = GetComponent<Menu>();
 
             return _menuManager;
         }
@@ -80,6 +80,7 @@ public abstract class NavMenu : MonoBehaviour
         {
             _activeNextFrame = false;
             _active = true;
+            _inputBlocked = false;
         }
 
         if (_inputUnlockedNextFrame)

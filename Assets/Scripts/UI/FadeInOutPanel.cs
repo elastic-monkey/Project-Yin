@@ -27,12 +27,13 @@ public class FadeInOutPanel : MonoBehaviour, IAnimatedPanel
     {
         var targetAlpha = value ? 1 : 0;
         var timePassed = 0f;
+        var invDuration = 1f / Duration;
 
         while (timePassed <= 1)
         {
             timePassed += Time.unscaledDeltaTime;
 
-            AlphaContainer.alpha = Mathf.Lerp(AlphaContainer.alpha, targetAlpha, timePassed / Duration);
+            AlphaContainer.alpha = Mathf.Lerp(AlphaContainer.alpha, targetAlpha, timePassed * invDuration);
 
             yield return null;
         }

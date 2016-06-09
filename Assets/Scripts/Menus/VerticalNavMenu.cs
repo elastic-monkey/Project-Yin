@@ -71,6 +71,12 @@ public class VerticalNavMenu : NavMenu
 
         foreach (var other in Items)
         {
+            if (other == null)
+            {
+                Debug.LogWarning("Tried to focus null object. Check your object assignment.");
+                continue;
+            }
+
             other.Focus(other == item);
         }
     }

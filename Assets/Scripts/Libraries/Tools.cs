@@ -48,19 +48,10 @@
             }
         }
 
-        public static bool LerpRectTransformAnchors(RectTransform rectTransform, Vector2 targetMin, Vector2 targetMax, float speed)
+        public static void LerpRectTransformAnchors(RectTransform rectTransform, Vector2 targetMin, Vector2 targetMax, float speed)
         {
             rectTransform.anchorMin = Vector2.Lerp(rectTransform.anchorMin, targetMin, speed);
             rectTransform.anchorMax = Vector2.Lerp(rectTransform.anchorMax, targetMax, speed);
-
-            if (Vector2.Distance(rectTransform.anchorMin, targetMin) < 0.001f || Vector2.Distance(rectTransform.anchorMax, targetMax) < 0.001f)
-            {
-                rectTransform.anchorMin = targetMin;
-                rectTransform.anchorMax = targetMax;
-                return true;
-            }
-
-            return false;
         }
     }
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MainMenuManager : MenuManager
+public class MainMenuManager : Menu
 {
     public enum Actions
     {
@@ -15,9 +15,9 @@ public class MainMenuManager : MenuManager
     public Actions OnBack;
     public MainMenuTransition[] Transitions;
 
-    public void OnBackPressed()
+    protected override NavMenu FindTransitionTarget(object actionObj)
     {
-        OnNavItemSelected(null, OnBack, null);
+        return Transitions.Find((Actions)actionObj);
     }
 }
 

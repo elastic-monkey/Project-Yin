@@ -3,7 +3,7 @@ using System.Collections;
 
 public class OpenMenuInteraction : PlayerInteraction
 {
-    public GameMenuManager Target;
+    public GameMenu Target;
 
     public override void StartInteraction()
     {
