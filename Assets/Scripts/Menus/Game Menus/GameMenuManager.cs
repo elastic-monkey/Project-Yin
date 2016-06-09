@@ -31,7 +31,7 @@ public abstract class GameMenuManager : MenuManager
     public bool PauseGame = true;
     [Tooltip("Only gets applied if PauseGame is set to false")]
     public bool BlockGameplayInput = true;
-    public Axis OpenKey;
+    public Axes OpenKey;
     public Actions OnBackAction = Actions.Back;
     public GameMenuTransition[] Transitions;
     private GameManager _gameManager;

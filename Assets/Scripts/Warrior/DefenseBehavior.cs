@@ -94,11 +94,14 @@ public class DefenseBehavior : MonoBehaviour
 	{
 		var chosenDefenseIndex = -1;
 
-		// Change to reflect several types of defense
-		if (PlayerInput.IsButtonDown(Axis.Fire3))
-			chosenDefenseIndex = 0;
-		else if (PlayerInput.IsButtonUp(Axis.Fire3))
-			CancelDefense();
+        if (PlayerInput.IsButtonDown(Axes.Defend))
+        {
+            chosenDefenseIndex = 0;
+        }
+        else if (PlayerInput.IsButtonUp(Axes.Defend))
+        {
+            CancelDefense();
+        }
 
 		ApplyDefense(chosenDefenseIndex);
 	}

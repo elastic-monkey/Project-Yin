@@ -6,7 +6,7 @@ public abstract class PlayerInteraction : MonoBehaviour
     [Range(1, 4)]
     public float InteractionRadius = 2f;
     public string PromptText;
-    public Axis ActivateKey;
+    public Axes ActivateKey;
     public bool CanBeTriggered;
     public bool Ongoing;
 

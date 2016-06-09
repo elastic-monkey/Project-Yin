@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class InteractionPrompt : MonoBehaviour
 {
-    public Axis InteractKey;
+    public Axes InteractKey;
     public bool WaitingInput;
 
     private Text _myText;

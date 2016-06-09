@@ -2,7 +2,7 @@
 
 public abstract class MenuManager : MonoBehaviour
 {
-    public Axis BackKey;
+    public Axes BackKey;
 
     private NavMenu _navMenu;
 

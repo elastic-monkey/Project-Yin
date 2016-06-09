@@ -26,9 +26,9 @@ public class MatrixNavMenu : NavMenu
 
     protected override void OnUpdate()
     {
-        if (PlayerInput.IsButtonDown(Axis.Nav_Vertical) && Vertical)
+        if (PlayerInput.IsButtonDown(Axes.MovementVertical) && Vertical)
         {
-            var v = PlayerInput.GetAxisRaw(Axis.Nav_Vertical);
+            var v = PlayerInput.GetAxisRaw(Axes.MovementVertical);
 
             if (v != 0)
             {
@@ -48,9 +48,9 @@ public class MatrixNavMenu : NavMenu
                 }
             }
         }
-        else if (PlayerInput.IsButtonDown(Axis.Nav_Horizontal) && Horizontal)
+        else if (PlayerInput.IsButtonDown(Axes.MovementHorizontal) && Horizontal)
         {
-            var h = PlayerInput.GetAxisRaw(Axis.Nav_Horizontal);
+            var h = PlayerInput.GetAxisRaw(Axes.MovementHorizontal);
 
             if (h != 0)
             {
@@ -70,7 +70,7 @@ public class MatrixNavMenu : NavMenu
                 }
             }
         }
-        else if (PlayerInput.IsButtonDown(Axis.Fire1) || PlayerInput.IsButtonDown(Axis.Submit))
+        else if (PlayerInput.IsButtonDown(Axes.Confirm))
         {
             SelectItem(_currentIndex);
         }

@@ -12,7 +12,7 @@ public abstract class Ability : Upgradable
         None
     }
 
-    public Axis InputAxis;
+    public Axes InputAxis;
 
     private void Awake()
     {
@@ -73,12 +73,12 @@ public abstract class Ability : Upgradable
 [System.Serializable]
 public class SerializableAbility
 {
-    public Axis InputAxis;
+    public Axes InputAxis;
     public Ability.AbilityType Type;
     public int CurrentLevel;
     public string[] Data;
 
-    public SerializableAbility(Axis axis, Ability.AbilityType type, int level, string[] data)
+    public SerializableAbility(Axes axis, Ability.AbilityType type, int level, string[] data)
     {
         InputAxis = axis;
         Type = type;

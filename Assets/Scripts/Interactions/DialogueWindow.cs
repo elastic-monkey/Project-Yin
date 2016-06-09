@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class DialogueWindow : MonoBehaviour
 {
-    public Axis ForwardKey;
+    public Axes ForwardKey;
     public float LetterTime = 0.02f;
     public bool WritingLine;
     public bool Active;

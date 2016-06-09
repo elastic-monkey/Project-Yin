@@ -94,7 +94,7 @@ public class AttackBehavior : MonoBehaviour
     {
         var chosenAttackIndex = -1;
 
-        if (PlayerInput.IsButtonPressed(Axis.Fire2))
+        if (PlayerInput.IsButtonPressed(Axes.Attack))
             chosenAttackIndex = 0;
 
         ApplyAttack(chosenAttackIndex);
