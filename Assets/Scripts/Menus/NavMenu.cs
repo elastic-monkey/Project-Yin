@@ -3,7 +3,6 @@
 public abstract class NavMenu : MonoBehaviour
 {
     public RectTransform HoverIcon;
-    public bool IsSubMenu;
     public bool UseHoverNavigation;
     public bool Cyclic, Reset;
 
@@ -14,16 +13,16 @@ public abstract class NavMenu : MonoBehaviour
     private bool _inputBlocked;
     private bool _inputUnlockedNextFrame;
     private IAnimatedPanel _animatedPanel;
-    private MenuManager _menuManager;
+    private IMenu _menu;
 
-    public MenuManager MenuManager
+    public IMenu Menu
     {
         get
         {
-            if (_menuManager == null)
-                _menuManager = GetComponent<MenuManager>();
+            if (_menu == null)
+                _menu = GetComponent<IMenu>();
 
-            return _menuManager;
+            return _menu;
         }
     }
 
@@ -68,15 +67,10 @@ public abstract class NavMenu : MonoBehaviour
 
     private void Update()
     {
-        if (InputBlocked)
+        if (!IsActive || InputBlocked)
             return;
 
-        MenuManager.HandleInput(IsActive);
-
-        if (!IsActive)
-            return;
-
-        OnUpdate();
+        HandleInput();
     }
 
     private void LateUpdate()
@@ -85,6 +79,7 @@ public abstract class NavMenu : MonoBehaviour
         {
             _activeNextFrame = false;
             _active = true;
+            _inputBlocked = false;
         }
 
         if (_inputUnlockedNextFrame)
@@ -100,21 +95,17 @@ public abstract class NavMenu : MonoBehaviour
         _active = false;
 
         if (_animatedPanel != null)
-        {
             _animatedPanel.SetVisible(value);
-        }
 
         if (HoverIcon != null)
-        {
             HoverIcon.gameObject.SetActive(value);
-        }
 
         FocusCurrent();
     }
 
     protected virtual void FocusItem(NavItem item)
     {
-        MenuManager.OnNavItemFocused(item);
+        Menu.OnNavItemFocused(item);
 
         if (HoverIcon != null)
         {
@@ -134,5 +125,5 @@ public abstract class NavMenu : MonoBehaviour
 
     public abstract void FocusCurrent();
 
-    protected abstract void OnUpdate();
+    protected abstract void HandleInput();
 }

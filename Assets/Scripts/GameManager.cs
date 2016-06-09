@@ -9,11 +9,11 @@ public class GameManager : MonoBehaviour
     public EnemiesManager EnemiesManager;
     public HideBuidings HideBuildings;
     public SwapToFadeManager SwapFadeMaterials;
-	public GameOver GameOverMenu;
+	public GameOverMenu GameOverMenu;
     public InteractionPrompt InteractionPrompt;
 
     [SerializeField]
-    private bool _gamePaused;
+    private bool _gamePaused, _gameNotPausedNextFrame;
     private List<WarriorBehavior> _players, _enemies;
 
     public bool GamePaused
@@ -70,6 +70,15 @@ public class GameManager : MonoBehaviour
             _enemies.Add(enemy);
     }
 
+    private void LateUpdate()
+    {
+        if (_gameNotPausedNextFrame)
+        {
+            _gameNotPausedNextFrame = false;
+            GamePaused = false;
+        }
+    }
+
     public List<WarriorBehavior> GetWarriors(Tags tag)
     {
         switch (tag)
@@ -114,7 +123,14 @@ public class GameManager : MonoBehaviour
 
     public void SetGamePaused(bool value)
     {
-        GamePaused = value;
+        if (value)
+        {
+            GamePaused = true;
+        }
+        else
+        {
+            _gameNotPausedNextFrame = true;
+        }
     }
 
     public void BlockGameplayInput(bool value)

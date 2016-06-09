@@ -3,13 +3,13 @@ using System.Collections;
 
 public class OpenMenuInteraction : PlayerInteraction
 {
-    public GameMenuManager Target;
+    public GameMenu Target;
 
     public override void StartInteraction()
     {
         base.StartInteraction();
 
-        Target.SetActive(true);
+        Target.Open();
     }
 
     public override bool ShouldStop()

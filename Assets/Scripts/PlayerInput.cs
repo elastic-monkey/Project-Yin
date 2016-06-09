@@ -46,6 +46,6 @@ public abstract class PlayerInput
 
     public static bool InvalidAxis(Axes axis)
     {
-        return axis == Axes.None;
+        return (axis == Axes.None);
     }
 }

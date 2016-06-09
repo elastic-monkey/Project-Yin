@@ -1,9 +1,9 @@
 ﻿public class GameNavItem : NavItem
 {
-    public GameMenuManager.Actions Action;
+    public GameMenu.Actions Action;
     public string[] Data;
 
-    public override void OnSelect(MenuManager manager)
+    public override void OnSelect(IMenu manager)
     {
         manager.OnNavItemSelected(this, Action, Data);
     }

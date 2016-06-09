@@ -9,7 +9,7 @@ public class VerticalNavMenu : NavMenu
     [SerializeField]
     private int _currentIndex;
 
-    protected override void OnUpdate()
+    protected override void HandleInput()
     {
         if (PlayerInput.IsButtonDown(Axes.Vertical))
         {
@@ -71,6 +71,12 @@ public class VerticalNavMenu : NavMenu
 
         foreach (var other in Items)
         {
+            if (other == null)
+            {
+                Debug.LogWarning("Tried to focus null object. Check your object assignment.");
+                continue;
+            }
+
             other.Focus(other == item);
         }
     }
@@ -121,7 +127,7 @@ public class VerticalNavMenu : NavMenu
         var item = GetItem(index);
 
         if (item != null)
-            item.OnSelect(MenuManager);
+            item.OnSelect(Menu);
     }
 
     private NavItem GetItem(int index)

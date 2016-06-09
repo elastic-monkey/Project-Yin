@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class ShopMenuManager : GameMenuManager
+public class ShopBuyMenu : GameMenu
 {
     public ItemRepo ItemRepo;
-    public InventoryMenuManager PlayerInventory;
+    public InventoryMenu PlayerInventory;
     public Text Effect;
     public Text Name;
     public Text FlavorText;
@@ -46,10 +46,8 @@ public class ShopMenuManager : GameMenuManager
         Price.text = nullItem ? string.Empty : string.Concat("Cost: ", item.BuyPrice.ToString(), " Credits");
     }
 
-    protected override void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
+    public override bool OnNavItemAction(NavItem navItem, object actionObj, string[] data)
     {
-        base.OnNavItemAction(actionObj, navItem, targetNavMenu, data);
-
         var action = (Actions)actionObj;
 
         switch (action)
@@ -61,7 +59,9 @@ public class ShopMenuManager : GameMenuManager
                     PlayerInventory.AddItemToInventory(item);
                     UpdateInfo(navItem);
                 }
-                break;
+                return true;
         }
+
+        return false;
     }
 }

@@ -3,10 +3,10 @@ using System.Collections;
 
 public class MenuNavItem : NavItem
 {
-    public MainMenuManager.Actions Action;
+    public MainMenu.Actions Action;
     public string[] Data;
 
-    public override void OnSelect(MenuManager manager)
+    public override void OnSelect(IMenu manager)
     {
         manager.OnNavItemSelected(this, Action, Data);
     }

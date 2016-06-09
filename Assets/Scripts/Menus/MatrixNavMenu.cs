@@ -24,7 +24,7 @@ public class MatrixNavMenu : NavMenu
         FocusCurrent();
     }
 
-    protected override void OnUpdate()
+    protected override void HandleInput()
     {
         if (PlayerInput.IsButtonDown(Axes.Vertical) && Vertical)
         {
@@ -196,7 +196,7 @@ public class MatrixNavMenu : NavMenu
             return;
         }
 
-        Items[index.First].Items[index.Second].OnSelect(MenuManager);
+        Items[index.First].Items[index.Second].OnSelect(Menu);
     }
 }
 

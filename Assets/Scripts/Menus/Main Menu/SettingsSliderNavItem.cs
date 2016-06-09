@@ -7,7 +7,7 @@ public class SettingsSliderNavItem : MenuNavItem
     public Slider Slider;
     public float Increment;
 
-    public override void OnSelect(MenuManager manager)
+    public override void OnSelect(IMenu manager)
     {
         Data = new string[1];
         Data[0] = Slider.value.ToString();

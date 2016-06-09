@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class QuitMenu : MainMenu
+public class ShopMenu : GameMenu
 {
     public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
@@ -8,8 +9,8 @@ public class QuitMenu : MainMenu
 
         switch (action)
         {
-            case Actions.Quit:
-                Application.Quit();
+            case Actions.LeaveShop:
+                Close();
                 return true;
         }
 

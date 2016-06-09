@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class SaveTerminalMenu : GameMenuManager
+public class SaveTerminalMenu : GameMenu
 {
-    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
+    public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 
@@ -14,7 +14,7 @@ public class SaveTerminalMenu : GameMenuManager
                 break;
         }
 
-        SetActive(false);
-
+        Close();
+        return true;
     }
 }

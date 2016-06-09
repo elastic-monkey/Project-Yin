@@ -4,9 +4,9 @@ using Utilities;
 
 public class SlidePanel : MonoBehaviour, IAnimatedPanel
 {
-	public PanelHelper.WindowPositions HidePosition, ShowPosition;
-	public RectTransform Container;
-	public float AnimationSpeed;
+    public PanelHelper.WindowPositions HidePosition, ShowPosition;
+    public RectTransform Container;
+    public float Duration = 1f;
 
     public bool Visible;
     private Coroutine _oldAnim = null;
@@ -25,31 +25,21 @@ public class SlidePanel : MonoBehaviour, IAnimatedPanel
         _oldAnim = StartCoroutine(AnimateWindow());
     }
 
-	private IEnumerator AnimateWindow()
-	{
-		Vector2 targetMin, targetMax;
+    private IEnumerator AnimateWindow()
+    {
+        var timePassed = 0f;
+        var invDuration = 1f / Duration;
+        Vector2 targetMin, targetMax;
 
-        if (Visible)
-		{
-			PanelHelper.GetAnchorsForWindowPosition(ShowPosition, out targetMin, out targetMax);
-			while (true)
-			{
-				if (PanelHelper.LerpRectTransformAnchors(Container, targetMin, targetMax, Time.unscaledDeltaTime * AnimationSpeed))
-					yield break;
+        PanelHelper.GetAnchorsForWindowPosition(Visible ? ShowPosition : HidePosition, out targetMin, out targetMax);
 
-				yield return null;
-			}
-		}
-		else
-		{
-			PanelHelper.GetAnchorsForWindowPosition(HidePosition, out targetMin, out targetMax);
-			while (true)
-			{
-				if (PanelHelper.LerpRectTransformAnchors(Container, targetMin, targetMax, Time.unscaledDeltaTime * AnimationSpeed))
-					yield break;
+        while (timePassed <= 1f)
+        {
+            PanelHelper.LerpRectTransformAnchors(Container, targetMin, targetMax, timePassed * invDuration);
 
-				yield return null;
-			}
-		}
-	}
+            yield return null;
+
+            timePassed += Time.unscaledDeltaTime;
+        }
+    }
 }

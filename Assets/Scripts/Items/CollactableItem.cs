@@ -6,10 +6,10 @@ public class CollactableItem : MonoBehaviour
     public Item Item;
     public Tags PlayerTag;
     [SerializeField]
-    private InventoryMenuManager _inventory;
+    private InventoryMenu _inventory;
 
     public void Start(){
-        _inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenuManager>();
+        _inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenu>();
     }
 
     public void OnTriggerEnter(Collider collider)

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class InventoryMenuManager : GameMenuManager
+public class InventoryMenu : GameMenu
 {
     public List<InventorySlotNavItem> InventorySlots;
 
@@ -28,19 +28,6 @@ public class InventoryMenuManager : GameMenuManager
             var slotItem = GetSlotItem(item);
             slotItem.IncreaseStock(1);
             Player.Currency.RemoveCredits(item.BuyPrice);
-        }
-    }
-
-    public override void HandleInput(bool active)
-    {
-        base.HandleInput(active);
-
-        if (active)
-        {
-            if (PlayerInput.IsButtonUp(BackKey) && active)
-            {
-                GameManager.SetGamePaused(true);
-            }
         }
     }
 
