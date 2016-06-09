@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ShopMenu : GameMenu
 {
-    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
+    public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 

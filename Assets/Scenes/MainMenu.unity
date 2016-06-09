@@ -366,17 +366,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 76119835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532917c87fb2e0f4ab96fd014c655f9d, type: 3}
+  m_Script: {fileID: 11500000, guid: e9275f892fca31d4985ec7b07d6bf8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenKey: 0
-  CloseKey: 0
-  IsOpen: 0
-  OnBack: 4
+  SubMenu: 1
+  Current: 0
   Transitions:
   - Name: Back
     OnAction: 4
-    TargetMenu: {fileID: 216691606}
+    TargetMenu: {fileID: 216691607}
 --- !u!114 &76119838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverIcon: {fileID: 0}
-  IsSubMenu: 1
   UseHoverNavigation: 0
   Cyclic: 0
   Reset: 1
@@ -839,7 +836,7 @@ GameObject:
   - 114: {fileID: 216691606}
   - 114: {fileID: 216691607}
   m_Layer: 0
-  m_Name: Main Menu
+  m_Name: Start Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,7 +873,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverIcon: {fileID: 0}
-  IsSubMenu: 0
   UseHoverNavigation: 0
   Cyclic: 0
   Reset: 0
@@ -900,26 +896,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f53530f4a483c4d93dfe766b0d9969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenKey: 0
-  CloseKey: 0
-  IsOpen: 0
-  OnBack: 4
+  SubMenu: 0
+  Current: 0
   Transitions:
   - Name: New
     OnAction: 0
-    TargetMenu: {fileID: 993818359}
+    TargetMenu: {fileID: 993818360}
   - Name: Load
     OnAction: 1
-    TargetMenu: {fileID: 993818359}
+    TargetMenu: {fileID: 993818360}
   - Name: Quit
     OnAction: 3
-    TargetMenu: {fileID: 1040210208}
-  - Name: Back
-    OnAction: 4
-    TargetMenu: {fileID: 1040210208}
+    TargetMenu: {fileID: 1040210209}
   - Name: Settings
     OnAction: 2
-    TargetMenu: {fileID: 76119838}
+    TargetMenu: {fileID: 76119837}
   LoadMenu: {fileID: 993818360}
 --- !u!114 &216691608
 MonoBehaviour:
@@ -935,7 +926,7 @@ MonoBehaviour:
   HidePosition: 2
   ShowPosition: 0
   Container: {fileID: 216691605}
-  AnimationSpeed: 10
+  Duration: 1
   Visible: 0
 --- !u!1 &248317749
 GameObject:
@@ -1990,8 +1981,8 @@ RectTransform:
   - {fileID: 88423628}
   m_Father: {fileID: 194990340}
   m_RootOrder: 1
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 2, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 2}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2007,7 +1998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverIcon: {fileID: 0}
-  IsSubMenu: 0
   UseHoverNavigation: 0
   Cyclic: 0
   Reset: 1
@@ -2032,17 +2022,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff25ba8e6458cd408835b5ffe40a0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenKey: 0
-  CloseKey: 0
-  IsOpen: 0
-  OnBack: 4
+  SubMenu: 0
+  Current: 0
   Transitions:
   - Name: Back
     OnAction: 4
-    TargetMenu: {fileID: 216691606}
-  - Name: Quit
-    OnAction: 3
-    TargetMenu: {fileID: 216691606}
+    TargetMenu: {fileID: 216691607}
   Title: {fileID: 185576510}
 --- !u!114 &993818361
 MonoBehaviour:
@@ -2055,10 +2040,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673d4ddbbfccc7c4598344e863cdfe5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HidePosition: 3
+  HidePosition: 2
   ShowPosition: 0
   Container: {fileID: 993818358}
-  AnimationSpeed: 10
+  Duration: 1
   Visible: 0
 --- !u!1 &1040210206
 GameObject:
@@ -2109,7 +2094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoverIcon: {fileID: 0}
-  IsSubMenu: 0
   UseHoverNavigation: 0
   Cyclic: 0
   Reset: 1
@@ -2131,17 +2115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3179980a0ff894e8a2aecc36206586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenKey: 0
-  CloseKey: 0
-  IsOpen: 0
-  OnBack: 4
+  SubMenu: 0
+  Current: 0
   Transitions:
   - Name: Back
     OnAction: 4
-    TargetMenu: {fileID: 216691606}
-  - Name: Quit
-    OnAction: 3
-    TargetMenu: {fileID: 216691606}
+    TargetMenu: {fileID: 216691607}
 --- !u!114 &1040210210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2156,7 +2135,7 @@ MonoBehaviour:
   HidePosition: 3
   ShowPosition: 0
   Container: {fileID: 1040210207}
-  AnimationSpeed: 10
+  Duration: 1
   Visible: 0
 --- !u!1 &1089455371
 GameObject:

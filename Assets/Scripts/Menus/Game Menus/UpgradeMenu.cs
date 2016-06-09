@@ -120,7 +120,7 @@ public class UpgradeMenu : GameMenu
         AvailableSP.text = Player.Experience.SkillPoints.ToString();
     }
 
-    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
+    public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
         if (action < Actions.UpgradeHealth || action > Actions.UpgradeStrength)

@@ -12,7 +12,12 @@ public class ShopSellMenu : GameMenu
         UpdateTitle();
     }
 
-    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
+    private void UpdateTitle()
+    {
+        Title.text = "Sell all Components for " + Inventory.GetTotalComponentsValue() + " Credits?";
+    }
+
+    public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 
@@ -25,10 +30,5 @@ public class ShopSellMenu : GameMenu
         }
 
         return false;
-    }
-
-    private void UpdateTitle()
-    {
-        Title.text = "Sell all Components for " + Inventory.GetTotalComponentsValue() + " Credits?";
     }
 }

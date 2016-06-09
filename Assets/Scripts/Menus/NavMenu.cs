@@ -3,7 +3,6 @@
 public abstract class NavMenu : MonoBehaviour
 {
     public RectTransform HoverIcon;
-    public bool IsSubMenu;
     public bool UseHoverNavigation;
     public bool Cyclic, Reset;
 
@@ -14,16 +13,16 @@ public abstract class NavMenu : MonoBehaviour
     private bool _inputBlocked;
     private bool _inputUnlockedNextFrame;
     private IAnimatedPanel _animatedPanel;
-    private Menu _menuManager;
+    private IMenu _menu;
 
-    public Menu MenuManager
+    public IMenu Menu
     {
         get
         {
-            if (_menuManager == null)
-                _menuManager = GetComponent<Menu>();
+            if (_menu == null)
+                _menu = GetComponent<IMenu>();
 
-            return _menuManager;
+            return _menu;
         }
     }
 
@@ -106,7 +105,7 @@ public abstract class NavMenu : MonoBehaviour
 
     protected virtual void FocusItem(NavItem item)
     {
-        MenuManager.OnNavItemFocused(item);
+        Menu.OnNavItemFocused(item);
 
         if (HoverIcon != null)
         {

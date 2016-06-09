@@ -127,7 +127,7 @@ public class VerticalNavMenu : NavMenu
         var item = GetItem(index);
 
         if (item != null)
-            item.OnSelect(MenuManager);
+            item.OnSelect(Menu);
     }
 
     private NavItem GetItem(int index)

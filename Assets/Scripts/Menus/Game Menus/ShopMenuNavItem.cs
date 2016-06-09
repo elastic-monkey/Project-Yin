@@ -12,7 +12,7 @@ public class ShopMenuNavItem : GameNavItem
         UpdateSlot();
     }
 
-    public override void OnSelect(Menu manager)
+    public override void OnSelect(IMenu manager)
     {
         if (Item == null)
             return;

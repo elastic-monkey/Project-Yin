@@ -6,7 +6,7 @@ public class UpgradeMenuNavItem : GameNavItem
     public Color PurchasedColor;
     public int UpgradeLevel;
 
-    public override void OnSelect(Menu manager)
+    public override void OnSelect(IMenu manager)
     {
         Data = new string[1];
         Data[0] = UpgradeLevel.ToString();

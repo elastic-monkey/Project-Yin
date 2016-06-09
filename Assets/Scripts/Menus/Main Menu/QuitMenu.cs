@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class QuitMenu : MainMenuManager
+public class QuitMenu : MainMenu
 {
-    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
+    public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 

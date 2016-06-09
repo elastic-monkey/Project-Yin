@@ -1,24 +1,112 @@
 ﻿using UnityEngine;
 
-public class MainMenu : MainMenuManager
+public class MainMenu : MonoBehaviour, IMenu
 {
-	public LoadMenu LoadMenu;
-
-    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
+    public enum Actions
     {
-        var action = (Actions)actionObj;
+        New,
+        Load,
+        Settings,
+        Quit,
+        Back,
+        Audio
+    }
 
-        switch (action)
+    public bool SubMenu = false;
+    public bool Current = false;
+    public MainMenuTransition[] Transitions;
+    private NavMenu _navMenu;
+
+    public NavMenu NavMenu
+    {
+        get
         {
-			case Actions.New:
-				LoadMenu.NewGameMode = true;
-                break;
+            if (_navMenu == null)
+                _navMenu = GetComponent<NavMenu>();
 
-			case Actions.Load:
-				LoadMenu.NewGameMode = false;
-                break;
+            return _navMenu;
+        }
+    }
+
+    private void Update()
+    {
+        if (!Current)
+            return;
+
+        if (PlayerInput.IsButtonUp(Axes.Back))
+        {
+            TransitionTo(Transitions.Find(Actions.Back));
+        }
+    }
+
+    public virtual void OnNavItemFocused(NavItem target)
+    {
+        // Do stuff
+    }
+
+    public virtual void OnNavItemSelected(NavItem item, object actionObj, string[] dataObj)
+    {
+        if (OnNavItemAction(item, actionObj, dataObj))
+            return;
+
+        TransitionTo(Transitions.Find((Actions)actionObj));
+    }
+
+    public virtual bool OnNavItemAction(NavItem navItem, object actionObj, string[] data)
+    {
+        return false;
+    }
+
+    protected void TransitionTo(MainMenu other)
+    {
+        if (other == null)
+            return;
+
+        other.NavMenu.SetActive(true);
+        other.Current = true;
+
+        if (other.SubMenu)
+        {
+            NavMenu.InputBlocked = true;
+            NavMenu.UnfocusAll();
+            Current = false;
+        }
+        else
+        {
+            NavMenu.SetActive(false);
+            Current = false;
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (Transitions.Length > 0)
+            foreach (var t in Transitions)
+                t.Name = t.OnAction.ToString();
+    }
+}
+
+[System.Serializable]
+public class MainMenuTransition
+{
+    [HideInInspector]
+    public string Name;
+    public MainMenu.Actions OnAction;
+    public MainMenu TargetMenu;
+}
+
+public static class MainMenuTransitionHelper
+{
+    public static MainMenu Find(this MainMenuTransition[] transitions, MainMenu.Actions action)
+    {
+        foreach (var transition in transitions)
+        {
+            if (transition.OnAction == action)
+            {
+                return transition.TargetMenu;
+            }
         }
 
-        return false;
+        return null;
     }
 }

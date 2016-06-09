@@ -46,7 +46,7 @@ public class ShopBuyMenu : GameMenu
         Price.text = nullItem ? string.Empty : string.Concat("Cost: ", item.BuyPrice.ToString(), " Credits");
     }
 
-    protected override bool OnNavItemAction(NavItem navItem, object actionObj, string[] data)
+    public override bool OnNavItemAction(NavItem navItem, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 

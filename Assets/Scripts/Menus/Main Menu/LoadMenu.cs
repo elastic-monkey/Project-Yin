@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine.UI;
 
-public class LoadMenu : MainMenuManager
+public class LoadMenu : MainMenu
 {
     public static List<GameState> SavedGames;
     private bool _newGameMode;
@@ -29,7 +29,7 @@ public class LoadMenu : MainMenuManager
         Debug.Log("Got " + SavedGames.Count + " saved games.");
     }
 
-    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
+    public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 
