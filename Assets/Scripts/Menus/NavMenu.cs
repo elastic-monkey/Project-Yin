@@ -68,15 +68,10 @@ public abstract class NavMenu : MonoBehaviour
 
     private void Update()
     {
-        if (InputBlocked)
+        if (!IsActive || InputBlocked)
             return;
 
-        MenuManager.HandleInput(IsActive);
-
-        if (!IsActive)
-            return;
-
-        OnUpdate();
+        HandleInput();
     }
 
     private void LateUpdate()
@@ -100,14 +95,10 @@ public abstract class NavMenu : MonoBehaviour
         _active = false;
 
         if (_animatedPanel != null)
-        {
             _animatedPanel.SetVisible(value);
-        }
 
         if (HoverIcon != null)
-        {
             HoverIcon.gameObject.SetActive(value);
-        }
 
         FocusCurrent();
     }
@@ -134,5 +125,5 @@ public abstract class NavMenu : MonoBehaviour
 
     public abstract void FocusCurrent();
 
-    protected abstract void OnUpdate();
+    protected abstract void HandleInput();
 }

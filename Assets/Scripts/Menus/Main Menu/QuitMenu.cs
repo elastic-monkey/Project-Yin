@@ -2,20 +2,17 @@
 
 public class QuitMenu : MainMenuManager
 {
-    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
+    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 
         switch (action)
         {
             case Actions.Quit:
-                // TODO: save something before quitting?
                 Application.Quit();
-                break;
-
-            case Actions.Back:
-                TransitionTo(target);
-                break;
+                return true;
         }
+
+        return false;
     }
 }

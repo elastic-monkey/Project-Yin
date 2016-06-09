@@ -46,10 +46,8 @@ public class ShopMenuManager : GameMenuManager
         Price.text = nullItem ? string.Empty : string.Concat("Cost: ", item.BuyPrice.ToString(), " Credits");
     }
 
-    protected override void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
+    protected override bool OnNavItemAction(NavItem navItem, object actionObj, string[] data)
     {
-        base.OnNavItemAction(actionObj, navItem, targetNavMenu, data);
-
         var action = (Actions)actionObj;
 
         switch (action)
@@ -61,7 +59,9 @@ public class ShopMenuManager : GameMenuManager
                     PlayerInventory.AddItemToInventory(item);
                     UpdateInfo(navItem);
                 }
-                break;
+                return true;
         }
+
+        return false;
     }
 }

@@ -9,7 +9,7 @@ public class VerticalNavMenu : NavMenu
     [SerializeField]
     private int _currentIndex;
 
-    protected override void OnUpdate()
+    protected override void HandleInput()
     {
         if (PlayerInput.IsButtonDown(Axes.Vertical))
         {

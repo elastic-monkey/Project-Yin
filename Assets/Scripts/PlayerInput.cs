@@ -3,6 +3,7 @@
 public abstract class PlayerInput
 {
     public static bool OnlyMenus = false;
+    public static bool OnlyOpenMenu = false;
 
     public static float GetAxis(Axes axis)
     {
@@ -46,6 +47,6 @@ public abstract class PlayerInput
 
     public static bool InvalidAxis(Axes axis)
     {
-        return axis == Axes.None;
+        return (axis == Axes.None);
     }
 }

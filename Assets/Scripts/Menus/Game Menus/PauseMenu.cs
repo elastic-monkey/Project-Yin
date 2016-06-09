@@ -5,28 +5,26 @@ using System.Collections;
 
 public class PauseMenu : GameMenuManager
 {
-    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
+    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 
         switch (action)
         {
-            case Actions.Pause:
-                OnPause(true);
-                break;
-
             case Actions.Resume:
-                OnPause(false);
-                break;
+                Close();
+                return true;
 
             case Actions.LoadLastCheckpoint:
                 SaveManager.LoadLastCheckpoint();
-                OnPause(false);
-                break;
+                Close();
+                return true;
 
-            case Actions.Back:
+            case Actions.GoToMainMenu:
                 SceneManager.LoadScene("MainMenu");
-                break;
+                return true;
         }
+
+        return false;
     }
 }

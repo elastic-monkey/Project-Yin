@@ -2,7 +2,9 @@
 
 public abstract class MenuManager : MonoBehaviour
 {
-    public Axes BackKey;
+    public Axes OpenKey;
+    public Axes CloseKey;
+    public bool IsOpen = false;
 
     private NavMenu _navMenu;
 
@@ -17,35 +19,77 @@ public abstract class MenuManager : MonoBehaviour
         }
     }
 
-    public virtual void SetActive(bool value) { NavMenu.SetActive(value); }
-
-    public virtual void OnNavItemFocused(NavItem target) { }
-
-    public abstract void OnNavItemSelected(NavItem item, object actionObj, object dataObj);
-
-    public abstract void HandleInput(bool active);
-
-    protected virtual void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
+    protected virtual void Update()
     {
-        TransitionTo(targetNavMenu);
+        if (PlayerInput.OnlyMenus && !IsOpen)
+            return;
+
+        if (!IsOpen && PlayerInput.IsButtonUp(OpenKey))
+        {
+            Open();
+        }
+        else if (IsOpen && PlayerInput.IsButtonUp(CloseKey))
+        {
+            Close();
+        }
     }
 
-    protected void TransitionTo(NavMenu other)
+    public virtual void SetActive(bool value)
+    {
+        NavMenu.SetActive(value);
+    }
+
+    public virtual void Open()
+    {
+        IsOpen = true;
+        NavMenu.SetActive(true);
+    }
+
+    public virtual void Close()
+    {
+        IsOpen = false;
+        NavMenu.SetActive(false);
+    }
+
+    public virtual void OnNavItemFocused(NavItem target)
+    {
+        // Do stuff
+    }
+
+    public void OnNavItemSelected(NavItem item, object actionObj, string[] dataObj)
+    {
+        if (OnNavItemAction(item, actionObj, dataObj))
+            return;
+
+        var target = actionObj as NavMenu;
+        if (target == null)
+            return;
+
+        TransitionTo(target);
+    }
+
+    protected virtual bool OnNavItemAction(NavItem navItem, object actionObj, string[] data)
+    {
+        return false;
+    }
+
+    private void TransitionTo(NavMenu other)
     {
         if (other == null)
             return;
 
-        other.SetActive(true);
+        other.MenuManager.Open();
         other.InputBlocked = false;
 
         if (other.IsSubMenu)
         {
             NavMenu.InputBlocked = true;
             NavMenu.UnfocusAll();
+            IsOpen = false;
         }
         else
         {
-            SetActive(false);
+            Close();
         }
     }
 }

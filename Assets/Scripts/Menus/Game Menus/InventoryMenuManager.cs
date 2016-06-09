@@ -31,19 +31,6 @@ public class InventoryMenuManager : GameMenuManager
         }
     }
 
-    public override void HandleInput(bool active)
-    {
-        base.HandleInput(active);
-
-        if (active)
-        {
-            if (PlayerInput.IsButtonUp(BackKey) && active)
-            {
-                GameManager.SetGamePaused(true);
-            }
-        }
-    }
-
     public override void OnNavItemFocused(NavItem target)
     {
         base.OnNavItemFocused(target);

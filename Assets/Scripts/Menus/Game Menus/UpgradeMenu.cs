@@ -21,19 +21,6 @@ public class UpgradeMenu : GameMenuManager
         UpdateAllItems();
     }
 
-    public override void HandleInput(bool active)
-    {
-        base.HandleInput(active);
-
-        if (!active)
-            return;
-
-        if (PlayerInput.IsButtonUp(BackKey) && active)
-        {
-            GameManager.SetGamePaused(true);
-        }
-    }
-
     public override void OnNavItemFocused(NavItem target)
     {
         base.OnNavItemFocused(target);
@@ -133,16 +120,15 @@ public class UpgradeMenu : GameMenuManager
         AvailableSP.text = Player.Experience.SkillPoints.ToString();
     }
 
-    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
+    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
-        base.OnNavItemAction(actionObj, item, target, data);
-
         var action = (Actions)actionObj;
         if (action < Actions.UpgradeHealth || action > Actions.UpgradeStrength)
-            return;
+            return false;
 
         var upgradeItem = item as UpgradeMenuNavItem;
         var level = (item != null) ? int.Parse(data[0]) : -1;
+        var affected = false;
 
         switch (action)
         {
@@ -152,6 +138,7 @@ public class UpgradeMenu : GameMenuManager
                     upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Health);
                 }
+                affected = true;
                 break;
 
             case Actions.UpgradeStamina:
@@ -160,6 +147,7 @@ public class UpgradeMenu : GameMenuManager
                     upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Stamina);
                 }
+                affected = true;
                 break;
 
             case Actions.UpgradeSpeed:
@@ -169,6 +157,7 @@ public class UpgradeMenu : GameMenuManager
                     upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Abilities.Find(type));
                 }
+                affected = true;
                 break;
 
             case Actions.UpgradeShield:
@@ -178,6 +167,7 @@ public class UpgradeMenu : GameMenuManager
                     upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Abilities.Find(type));
                 }
+                affected = true;
                 break;
 
             case Actions.UpgradeStrength:
@@ -187,9 +177,11 @@ public class UpgradeMenu : GameMenuManager
                     upgradeItem.Purchase(true);
                     OnItemFocused(upgradeItem, Player.Abilities.Find(type));
                 }
+                affected = true;
                 break;
         }
 
         UpdateAllItems();
+        return affected;
     }
 }

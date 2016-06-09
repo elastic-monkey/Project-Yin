@@ -4,19 +4,16 @@ using UnityEngine.UI;
 
 public class SellComponentsMenu : GameMenuManager
 {
-
     public InventoryMenuManager Inventory;
     public Text Title;
 
-    public void Start()
+    private void Start()
     {
         UpdateTitle();
     }
 
-    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
+    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
-        base.OnNavItemAction(actionObj, item, target, data);
-
         var action = (Actions)actionObj;
 
         switch (action)
@@ -24,8 +21,10 @@ public class SellComponentsMenu : GameMenuManager
             case Actions.SellComponents:
                 Inventory.SellAllComponents();
                 UpdateTitle();
-                break;
+                return true;
         }
+
+        return false;
     }
 
     private void UpdateTitle()

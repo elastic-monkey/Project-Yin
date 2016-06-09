@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class GameMenuManager : MenuManager
+public class GameMenuManager : MenuManager
 {
+    public static bool IsGameMenuOpen;
+
     public enum Actions
     {
         Pause,
         Resume,
         LoadLastCheckpoint,
         Settings,
-        Back,
+        Close,
         UpgradeHealth,
         UpgradeStamina,
         UpgradeSpeed,
         UpgradeShield,
         UpgradeStrength,
-		ConfirmSave,
-		RefuseSave,
+        ConfirmSave,
+        RefuseSave,
         OpenDialog,
         GoToUpgradeMenu,
         GoToInventoryMenu,
@@ -25,14 +27,12 @@ public abstract class GameMenuManager : MenuManager
         GoToShop,
         GoToSellComponents,
         SellComponents,
-        LeaveShop
+        LeaveShop,
+        GoToMainMenu
     }
 
-    public bool PauseGame = true;
-    [Tooltip("Only gets applied if PauseGame is set to false")]
+    public bool PausesGame = true;
     public bool BlockGameplayInput = true;
-    public Axes OpenKey;
-    public Actions OnBackAction = Actions.Back;
     public GameMenuTransition[] Transitions;
     private GameManager _gameManager;
 
@@ -47,32 +47,17 @@ public abstract class GameMenuManager : MenuManager
         }
     }
 
-    public override void HandleInput(bool active)
+    public override void Open()
     {
-        if (active)
-        {
-            if (PlayerInput.IsButtonUp(BackKey))
-            {
-                OnBackPressed();
-            }
-        }
-        else if (!GameManager.GamePaused)
-        {
-            if (PlayerInput.IsButtonUp(OpenKey))
-            {
-                OnOpen();
-            }            
-        }
+        base.Open();
+
+        Pause(true);
     }
 
-    protected virtual void OnOpen()
+    public override void Close()
     {
-        OnPause(true);
-    }
-
-    public void OnBackPressed()
-    {
-        OnNavItemSelected(null, OnBackAction, null);
+        base.Close();
+        Pause(false);
     }
 
     public override void SetActive(bool value)
@@ -82,61 +67,28 @@ public abstract class GameMenuManager : MenuManager
         if (NavMenu.IsSubMenu)
         {
             if (value)
-            {
-                OnPause(value);
-            }
+                Pause(value);
         }
         else
         {
-            OnPause(value);
+            Pause(value);
         }
     }
 
-    protected void OnPause(bool value)
+    protected void Pause(bool value)
     {
-        if (PauseGame)
-        {
+        if (PausesGame)
             GameManager.SetGamePaused(value);
-        }
-        else if(BlockGameplayInput)
-        {
+        else if (BlockGameplayInput)
             GameManager.BlockGameplayInput(value);
-        }
         NavMenu.SetActive(value);
-    }
-
-    public override void OnNavItemSelected(NavItem item, object actionObj, object dataObj)
-    {
-        var action = (Actions)actionObj;
-        var target = Transitions.Find(action);
-        var data = dataObj as string[];
-
-        OnNavItemAction(action, item, target, data);
-    }
-
-    protected override void OnNavItemAction(object actionObj, NavItem navItem, NavMenu targetNavMenu, string[] data)
-    {
-        base.OnNavItemAction(actionObj, navItem, targetNavMenu, data);
-
-        var action = (Actions)actionObj;
-
-        switch (action)
-        {
-            case Actions.Back:
-                SetActive(false);
-                break;
-        }
     }
 
     private void OnValidate()
     {
         if (Transitions.Length > 0)
-        {
             foreach (var t in Transitions)
-            {
                 t.Name = t.OnAction.ToString();
-            }
-        }
     }
 
     [System.Serializable]
@@ -154,12 +106,8 @@ public static class GameMenuTransitionHelper
     public static NavMenu Find(this GameMenuManager.GameMenuTransition[] transitions, GameMenuManager.Actions action)
     {
         foreach (var transition in transitions)
-        {
             if (transition.OnAction == action)
-            {
                 return transition.TargetMenu;
-            }
-        }
 
         return null;
     }

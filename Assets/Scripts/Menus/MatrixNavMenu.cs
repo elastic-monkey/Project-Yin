@@ -24,7 +24,7 @@ public class MatrixNavMenu : NavMenu
         FocusCurrent();
     }
 
-    protected override void OnUpdate()
+    protected override void HandleInput()
     {
         if (PlayerInput.IsButtonDown(Axes.Vertical) && Vertical)
         {

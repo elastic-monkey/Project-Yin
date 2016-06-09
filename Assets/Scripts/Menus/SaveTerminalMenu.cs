@@ -2,7 +2,7 @@
 
 public class SaveTerminalMenu : GameMenuManager
 {
-    protected override void OnNavItemAction(object actionObj, NavItem item, NavMenu target, string[] data)
+    protected override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {
         var action = (Actions)actionObj;
 
@@ -14,7 +14,7 @@ public class SaveTerminalMenu : GameMenuManager
                 break;
         }
 
-        SetActive(false);
-
+        Close();
+        return true;
     }
 }

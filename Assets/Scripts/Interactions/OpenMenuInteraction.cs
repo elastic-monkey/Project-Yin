@@ -9,7 +9,7 @@ public class OpenMenuInteraction : PlayerInteraction
     {
         base.StartInteraction();
 
-        Target.SetActive(true);
+        Target.Open();
     }
 
     public override bool ShouldStop()
