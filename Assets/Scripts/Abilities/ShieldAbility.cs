@@ -2,15 +2,14 @@
 
 public class ShieldAbility : Ability
 {
-    public bool IsActive;
-
     public override void SetActive(PlayerBehavior player)
     {
         if (!player.Defense.ShieldOn)
         {
-            IsActive = true;
+            Active = true;
             player.Defense.ShieldOn = true;
             player.Stamina.ConsumeStamina(90f);
+            UpdateHUDSlot();
         }
 
         Debug.Log("SHIELD LEVEL: " + CurrentLevel);
@@ -18,13 +17,14 @@ public class ShieldAbility : Ability
 
     public override void Deactivate(PlayerBehavior player)
     {
-        IsActive = false;
+        Active = false;
+        UpdateHUDSlot();
     }
 
     public override SerializableAbility Serialize()
     {
         var array = new string[1];
-        array[0] = IsActive.ToString();
+        array[0] = Active.ToString();
 
         return new SerializableAbility(InputAxis, Type(), CurrentLevel, array);
     }
@@ -34,7 +34,7 @@ public class ShieldAbility : Ability
         var obj = new GameObject().AddComponent<ShieldAbility>();
         obj.name = "Shield";
 
-        obj.IsActive = bool.Parse(sAbility.Data[0]);
+        obj.Active = bool.Parse(sAbility.Data[0]);
 
         return obj;
     }

@@ -9,13 +9,17 @@ public class SpeedAbility : Ability
 
     public override void SetActive(PlayerBehavior player)
     {
+        Active = true;
         player.PlayerMovement.SpeedMulti = BaseMultiplier + CurrentLevel * Increment;
         Debug.Log("SPEED LEVEL: " + CurrentLevel);
+        UpdateHUDSlot();
     }
 
     public override void Deactivate(PlayerBehavior player)
     {
+        Active = false;
         player.PlayerMovement.SpeedMulti = 1f;
+        UpdateHUDSlot();
     }
 
     public override SerializableAbility Serialize()

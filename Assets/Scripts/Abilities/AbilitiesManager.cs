@@ -31,7 +31,14 @@ public class AbilitiesManager : MonoBehaviour
                 var ability = Abilities[i];
                 if (i == selectedAbility)
                 {
-                    ability.SetActive(_player);
+                    if (!ability.Active)
+                    {
+                        ability.SetActive(_player);
+                    }
+                    else
+                    {
+                        ability.Deactivate(_player);
+                    }
                 }
                 else
                 {

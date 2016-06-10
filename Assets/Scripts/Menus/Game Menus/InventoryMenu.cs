@@ -65,6 +65,17 @@ public class InventoryMenu : GameMenu
         return null;
     }
 
+    public InventorySlotNavItem GetSlotItem(Item.ItemType type)
+    {
+        foreach (var slotItem in InventorySlots)
+        {
+            if (slotItem.Item.Type == type)
+                return slotItem;
+        }
+
+        return null;
+    }
+
     public int GetTotalComponentsValue()
     {
         for (var i = 0; i < InventorySlots.Count; i++)

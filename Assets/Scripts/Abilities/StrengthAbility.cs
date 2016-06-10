@@ -14,16 +14,21 @@ public class StrengthAbility : Ability
 
     public override void SetActive(PlayerBehavior player)
     {
+        Active = true;
         player.Attack.DamageMultiplier = BaseDamageMultiplier + DamageIncrement * CurrentLevel;
         player.Attack.StaminaMultiplier = BaseStaminaMultiplier + StaminaIncrement * CurrentLevel;
 
         Debug.Log("STRENGHT LEVEL: " + CurrentLevel);
+
+        UpdateHUDSlot();
     }
 
     public override void Deactivate(PlayerBehavior player)
     {
+        Active = false;
         player.Attack.DamageMultiplier = 1f;
         player.Attack.StaminaMultiplier = 1f;
+        UpdateHUDSlot();
     }
 
     public override SerializableAbility Serialize()

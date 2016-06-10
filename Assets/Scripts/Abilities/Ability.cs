@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Ability : Upgradable
 {
@@ -12,7 +13,13 @@ public abstract class Ability : Upgradable
         None
     }
 
+    public bool Active;
+
     public Axes InputAxis;
+
+    public Image ActiveIcon;
+    public Image DeactivatedIcon;
+    public Image HUDIcon;
 
     private void Awake()
     {
@@ -22,6 +29,18 @@ public abstract class Ability : Upgradable
     public abstract void SetActive(PlayerBehavior player);
 
     public abstract void Deactivate(PlayerBehavior player);
+
+    public void UpdateHUDSlot()
+    {
+        if (Active)
+        {
+            HUDIcon.sprite = ActiveIcon.sprite;
+        }
+        else
+        {
+            HUDIcon.sprite = DeactivatedIcon.sprite;
+        }
+    }
 
     public abstract SerializableAbility Serialize();
 
