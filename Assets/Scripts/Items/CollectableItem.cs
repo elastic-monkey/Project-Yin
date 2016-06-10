@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CollactableItem : MonoBehaviour
+public class CollectableItem : MonoBehaviour
 {
     public Item Item;
     public Tags PlayerTag;
@@ -16,8 +16,8 @@ public class CollactableItem : MonoBehaviour
     {
         if (collider.CompareTag(PlayerTag.ToString()))
         {
-            _inventory.AddItemToInventory(Item);
-            Destroy(this.gameObject);
+            _inventory.AddItemToInventory(Item, false);
+            Destroy(gameObject);
         }
     }
 }

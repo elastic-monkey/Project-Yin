@@ -26,9 +26,10 @@ public class ShopSellMenu : GameMenu
             case Actions.SellComponents:
                 Inventory.SellAllComponents();
                 UpdateTitle();
-                return true;
+				break;
         }
 
-        return false;
+		Close();
+		return false;
     }
 }

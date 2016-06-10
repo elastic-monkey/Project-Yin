@@ -9,10 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 481462}
   - 33: {fileID: 3388534}
-  - 65: {fileID: 6539570}
   - 23: {fileID: 2327398}
   - 114: {fileID: 11423946}
   - 114: {fileID: 11439582}
+  - 135: {fileID: 13589378}
   m_Layer: 0
   m_Name: EnemyCollectable
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.804479, y: 0.25, z: 17.888317}
+  m_LocalPosition: {x: 2.7816133, y: 0.25000286, z: -29.739744}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -66,18 +66,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112786}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6539570
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112786}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11423946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,7 +94,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Item: {fileID: 11479444, guid: 3d16343b013d83f429e0c8a8068aa3e9, type: 2}
   PlayerTag: 0
-  Inventory: {fileID: 0}
+  _inventory: {fileID: 0}
+--- !u!135 &13589378
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

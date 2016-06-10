@@ -136,6 +136,7 @@ public class GameMenu : MonoBehaviour, IMenu
 
 		if (!SubMenu)
 			target.Open();
+		target._willOpen = true;
 		target.NavMenu.FocusCurrent();
 		target.NavMenu.InputBlocked = false;
 

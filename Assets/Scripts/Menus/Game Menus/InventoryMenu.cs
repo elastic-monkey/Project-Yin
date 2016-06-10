@@ -13,7 +13,7 @@ public class InventoryMenu : GameMenu
         }
     }
 
-    public void AddItemToInventory(Item item)
+    public void AddItemToInventory(Item item, bool checkPrice = true)
     {
         if (Player.Currency.CurrentCredits < item.BuyPrice)
             return;
@@ -21,7 +21,13 @@ public class InventoryMenu : GameMenu
         var stock = GetStockInInventory(item.Type);
         if (stock == 0)
         {
-            // TODO: add new entry
+			var emptySlot = GetFirstEmptySlot();
+			if (emptySlot == null)
+				return;
+
+			emptySlot.Item = item;
+			emptySlot.Stock = 0;
+			emptySlot.IncreaseStock(1);
         }
         else if (stock < item.MaxStock)
         {
@@ -30,6 +36,17 @@ public class InventoryMenu : GameMenu
             Player.Currency.RemoveCredits(item.BuyPrice);
         }
     }
+
+	public InventorySlotNavItem GetFirstEmptySlot()
+	{
+		foreach (var slot in InventorySlots)
+		{
+			if (slot.Item == null || slot.Stock == 0)
+				return slot;
+		}
+
+		return null;
+	}
 
     public override void OnNavItemFocused(NavItem target)
     {

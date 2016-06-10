@@ -105,7 +105,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 191e5667ba86dc84b91d9f03a3b57293, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 204b2bf14785f2040bbff6e14e43fb1c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -160,6 +160,7 @@ MonoBehaviour:
   ItemName: Health Syringe
   Effect: Restores 20 Health Points
   FlavorText: A small syringe containing a red liquid
+  Player: {fileID: 0}
   RecoveryValue: 20
 --- !u!114 &11429190
 MonoBehaviour:
@@ -181,6 +182,7 @@ MonoBehaviour:
   ItemName: Energy Syringe
   Effect: Restores 10 Energy Points over 5 seconds
   FlavorText: A small syringe containing a blue liquid
+  Player: {fileID: 0}
   StaminaRegenMulti: 2
   Duration: 5
 --- !u!114 &11442562
@@ -214,7 +216,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 191e5667ba86dc84b91d9f03a3b57293, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea57e05aac5126048af3f62cb26b9329, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -242,6 +244,7 @@ MonoBehaviour:
   ItemName: Circuitry
   Effect: Can be sold for 100 Credits
   FlavorText: A bunch of circuitry dropped by automatons
+  Player: {fileID: 0}
   Value: 100
   Inventory: {fileID: 0}
 --- !u!222 &22245468
