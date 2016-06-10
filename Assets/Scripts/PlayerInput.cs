@@ -16,7 +16,7 @@ public abstract class PlayerInput
     {
         if (InvalidAxis(axis))
             return 0;
-        
+
         return Input.GetAxisRaw(axis.InputName());
     }
 
