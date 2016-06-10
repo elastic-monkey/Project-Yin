@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class ShopMenu : GameMenu
+﻿public class ShopMenu : GameMenu
 {
     public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {

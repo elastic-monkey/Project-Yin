@@ -1,0 +1,474 @@
+fileFormatVersion: 2
+guid: c4cc1e8056efa81458a35ca203a60bda
+timeCreated: 1464794487
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: ArmLowerLeft
+    100004: ArmLowerRight
+    100006: ArmUpperLeft
+    100008: ArmUpperRight
+    100010: BodyLower
+    100012: BodyMiddle
+    100014: BodyUpper
+    100016: Camera
+    100018: FingersLowerLeft
+    100020: FingersLowerRight
+    100022: FingersMiddleLeft
+    100024: FingersMiddleRight
+    100026: FingersUpperLeft
+    100028: FingersUpperLeft_end
+    100030: FingersUpperRight
+    100032: FingersUpperRight_end
+    100034: FootBackLeft
+    100036: FootBackLeft_end
+    100038: FootBackRight
+    100040: FootBackRight_end
+    100042: FootLowerLeft
+    100044: FootLowerLeft_end
+    100046: FootLowerRight
+    100048: FootLowerRight_end
+    100050: FootUpperLeft
+    100052: FootUpperRight
+    100054: HandLeft
+    100056: HandRight
+    100058: Head
+    100060: Head_end
+    100062: Hip
+    100064: IndexFingerLowerLeft
+    100066: IndexFingerLowerRight
+    100068: IndexFingerMiddleLeft
+    100070: IndexFingerMiddleRight
+    100072: IndexFingerUpperLeft
+    100074: IndexFingerUpperLeft_end
+    100076: IndexFingerUpperRight
+    100078: IndexFingerUpperRight_end
+    100080: Lamp
+    100082: Lamp.001
+    100084: LegLowerLeft
+    100086: LegLowerRight
+    100088: LegUpperLeft
+    100090: LegUpperRight
+    100092: //RootNode
+    100094: Neck
+    100096: ShoulderLeft
+    100098: ShoulderRight
+    100100: ThumbLowerLeft
+    100102: ThumbLowerRight
+    100104: ThumbUpperLeft
+    100106: ThumbUpperLeft_end
+    100108: ThumbUpperRight
+    100110: ThumbUpperRight_end
+    100112: Yin
+    400000: Armature
+    400002: ArmLowerLeft
+    400004: ArmLowerRight
+    400006: ArmUpperLeft
+    400008: ArmUpperRight
+    400010: BodyLower
+    400012: BodyMiddle
+    400014: BodyUpper
+    400016: Camera
+    400018: FingersLowerLeft
+    400020: FingersLowerRight
+    400022: FingersMiddleLeft
+    400024: FingersMiddleRight
+    400026: FingersUpperLeft
+    400028: FingersUpperLeft_end
+    400030: FingersUpperRight
+    400032: FingersUpperRight_end
+    400034: FootBackLeft
+    400036: FootBackLeft_end
+    400038: FootBackRight
+    400040: FootBackRight_end
+    400042: FootLowerLeft
+    400044: FootLowerLeft_end
+    400046: FootLowerRight
+    400048: FootLowerRight_end
+    400050: FootUpperLeft
+    400052: FootUpperRight
+    400054: HandLeft
+    400056: HandRight
+    400058: Head
+    400060: Head_end
+    400062: Hip
+    400064: IndexFingerLowerLeft
+    400066: IndexFingerLowerRight
+    400068: IndexFingerMiddleLeft
+    400070: IndexFingerMiddleRight
+    400072: IndexFingerUpperLeft
+    400074: IndexFingerUpperLeft_end
+    400076: IndexFingerUpperRight
+    400078: IndexFingerUpperRight_end
+    400080: Lamp
+    400082: Lamp.001
+    400084: LegLowerLeft
+    400086: LegLowerRight
+    400088: LegUpperLeft
+    400090: LegUpperRight
+    400092: //RootNode
+    400094: Neck
+    400096: ShoulderLeft
+    400098: ShoulderRight
+    400100: ThumbLowerLeft
+    400102: ThumbLowerRight
+    400104: ThumbUpperLeft
+    400106: ThumbUpperLeft_end
+    400108: ThumbUpperRight
+    400110: ThumbUpperRight_end
+    400112: Yin
+    4300000: Yin
+    7400000: NPC Male | Conversation
+    7400002: NPC Male | Idle 2
+    9500000: //RootNode
+    13700000: Yin
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: NPC Male | Conversation
+      takeName: Armature|Idle2
+      firstFrame: 0
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Hip
+        weight: 1
+      - path: Armature/Hip/BodyLower
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/Neck
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/Neck/Head
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft/FingersUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft/FingersUpperLeft/FingersUpperLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft/IndexFingerUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft/IndexFingerUpperLeft/IndexFingerUpperLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft/ThumbUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft/ThumbUpperLeft/ThumbUpperLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight/FingersUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight/FingersUpperRight/FingersUpperRight_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight/IndexFingerUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight/IndexFingerUpperRight/IndexFingerUpperRight_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight/ThumbUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight/ThumbUpperRight/ThumbUpperRight_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootBackLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootBackLeft/FootBackLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft/FootLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft/FootLowerLeft/FootLowerLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootBackRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootBackRight/FootBackRight_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight/FootLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight/FootLowerRight/FootLowerRight_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Yin
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: NPC Male | Idle 2
+      takeName: Armature|Idlev1
+      firstFrame: 0
+      lastFrame: 194
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Hip
+        weight: 1
+      - path: Armature/Hip/BodyLower
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/Neck
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/Neck/Head
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft/FingersUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft/FingersUpperLeft/FingersUpperLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft/IndexFingerUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft/IndexFingerUpperLeft/IndexFingerUpperLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft/ThumbUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft/ThumbUpperLeft/ThumbUpperLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight/FingersUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight/FingersUpperRight/FingersUpperRight_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight/IndexFingerUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight/IndexFingerUpperRight/IndexFingerUpperRight_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight/ThumbUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/BodyMiddle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight/ThumbUpperRight/ThumbUpperRight_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootBackLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootBackLeft/FootBackLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft/FootLowerLeft
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft/FootLowerLeft/FootLowerLeft_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootBackRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootBackRight/FootBackRight_end
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight/FootLowerRight
+        weight: 1
+      - path: Armature/Hip/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight/FootLowerRight/FootLowerRight_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Yin
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

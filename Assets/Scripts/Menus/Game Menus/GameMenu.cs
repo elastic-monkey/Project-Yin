@@ -69,7 +69,7 @@ public class GameMenu : MonoBehaviour, IMenu
 
         if (!IsOpen && PlayerInput.IsButtonUp(OpenKey))
         {
-            Open();
+			Open();
         }
         else if (IsOpen && PlayerInput.IsButtonUp(CloseKey))
         {
@@ -106,6 +106,7 @@ public class GameMenu : MonoBehaviour, IMenu
 
     public virtual void Open()
     {
+		Debug.Log("Open: " + name);
 		IsOpen = false;
 		_willOpen = true;
 		NavMenu.SetActive(true);
@@ -114,7 +115,8 @@ public class GameMenu : MonoBehaviour, IMenu
 
     public virtual void Close()
     {
-        IsOpen = false;
+		Debug.Log("Close: " + name);
+		IsOpen = false;
         NavMenu.SetActive(false);
 
 		if (SubMenu)
@@ -132,15 +134,17 @@ public class GameMenu : MonoBehaviour, IMenu
         if (target == null)
             return;
 
-        target.Open();
-        target.NavMenu.InputBlocked = false;
+		if (!SubMenu)
+			target.Open();
+		target.NavMenu.FocusCurrent();
+		target.NavMenu.InputBlocked = false;
 
-        if (target.SubMenu)
-        {
-            NavMenu.InputBlocked = true;
-            NavMenu.UnfocusAll();
-            IsOpen = false;
-        }
+		if (target.SubMenu)
+		{
+			NavMenu.InputBlocked = true;
+			NavMenu.UnfocusAll();
+			IsOpen = false;
+		}
     }
 
     protected void Pause(bool value)

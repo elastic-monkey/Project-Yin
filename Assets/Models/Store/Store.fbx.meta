@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7ae2f61e11ddeb84fb8e4262761e24ee
-timeCreated: 1465574520
+guid: 3d9e948338e3b3c4595ddbc98774b663
+timeCreated: 1465576786
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -8,34 +8,25 @@ ModelImporter:
     100000: Left Door
     100002: Left Door2
     100004: Left Door3
-    100006: Left Door_end
-    100008: Right Door
-    100010: Right Door2
-    100012: Right Door3
-    100014: Right Door_end
-    100016: Store
-    100018: Store 1
-    100020: Store_Armature
-    100022: Store_end
-    100024: //RootNode
+    100006: Right Door
+    100008: Right Door2
+    100010: Right Door3
+    100012: Store
+    100014: Store 1
+    100016: Store_Armature
+    100018: //RootNode
     400000: Left Door
     400002: Left Door2
     400004: Left Door3
-    400006: Left Door_end
-    400008: Right Door
-    400010: Right Door2
-    400012: Right Door3
-    400014: Right Door_end
-    400016: Store
-    400018: Store 1
-    400020: Store_Armature
-    400022: Store_end
-    400024: //RootNode
+    400006: Right Door
+    400008: Right Door2
+    400010: Right Door3
+    400012: Store
+    400014: Store 1
+    400016: Store_Armature
+    400018: //RootNode
     4300000: Store
-    7400000: Store_Armature|_Store.001|_Store|ArmatureAction|_Store|ArmatureAction
-    7400002: Store_Armature|_Store.001|_Store|Left_doorAction|_Store|Left_doorAction
-    7400004: Store_Armature|_Store.001|_Store|Right_doorAction|_Store|Right_doorAction
-    7400006: Store_Armature|ArmatureAction
+    7400000: Store | Open Doors
     9500000: //RootNode
     13700000: Store
   materials:
@@ -58,7 +49,55 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Store | Open Doors
+      takeName: Scene
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Store
+        weight: 1
+      - path: Store_Armature
+        weight: 1
+      - path: Store_Armature/Left Door3
+        weight: 1
+      - path: Store_Armature/Left Door3/Left Door2
+        weight: 1
+      - path: Store_Armature/Left Door3/Left Door2/Left Door
+        weight: 1
+      - path: Store_Armature/Right Door3
+        weight: 1
+      - path: Store_Armature/Right Door3/Right Door2
+        weight: 1
+      - path: Store_Armature/Right Door3/Right Door2/Right Door
+        weight: 1
+      - path: Store_Armature/Store 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

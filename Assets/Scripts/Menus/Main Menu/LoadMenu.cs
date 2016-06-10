@@ -9,6 +9,7 @@ public class LoadMenu : MainMenu
     public static List<GameState> SavedGames;
     private bool _newGameMode;
     public Text Title;
+	public string Level;
 
     public bool NewGameMode
     {
@@ -46,7 +47,7 @@ public class LoadMenu : MainMenu
                         {
                             Debug.Log("A Save exists in slot. Will be deleted");
                             SaveLoad.DeleteSaveGame(slot);
-                            LoadScene(slot, "TestArena");
+                            LoadScene(slot, Level);
                         }
                         else
                         {
@@ -58,7 +59,7 @@ public class LoadMenu : MainMenu
                         if (_newGameMode)
                         {
                             Debug.Log("Starting a New Game");
-                            LoadScene(slot, "TestArena");
+                            LoadScene(slot, Level);
                         }
                         else
                         {

@@ -33,6 +33,9 @@ public class InteractionPrompt : MonoBehaviour
         if (_currentInteraction == null || !WaitingInput)
             return;
 
+		if (PlayerInput.OnlyMenus)
+			return;
+
         if (!PlayerInput.IsButtonDown(InteractKey))
             return;
         
