@@ -2951,7 +2951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionRadius: 1
-  PromptText: Talk to...
+  PromptText: Talk to Nickela
   ActivateKey: 3
   CanBeTriggered: 0
   Ongoing: 0
@@ -47218,7 +47218,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 481428, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.89
+      value: -2.72
       objectReference: {fileID: 0}
     - target: {fileID: 481428, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
       propertyPath: m_LocalPosition.y
@@ -47226,7 +47226,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481428, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -44.63
+      value: -34.07
       objectReference: {fileID: 0}
     - target: {fileID: 481428, guid: 0516fc4845e3faf45a37af435f163e31, type: 2}
       propertyPath: m_LocalRotation.x
@@ -69170,7 +69170,7 @@ Transform:
   - {fileID: 492071976}
   - {fileID: 1051665100}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1570019205
 Prefab:
   m_ObjectHideFlags: 0
@@ -83045,7 +83045,7 @@ Transform:
   - {fileID: 391943088}
   - {fileID: 618320120}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1001 &1894062860
 Prefab:
   m_ObjectHideFlags: 0
@@ -85160,6 +85160,7 @@ GameObject:
   - 114: {fileID: 1957768289}
   - 114: {fileID: 1957768290}
   - 114: {fileID: 1957768291}
+  - 114: {fileID: 1957768292}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -85179,7 +85180,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
 --- !u!114 &1957768288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85240,6 +85241,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesContainer: {fileID: 1569273948}
   Enemies: []
+--- !u!114 &1957768292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1957768286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10145a972c159cb418352b18ef0fa971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1960586498
 Prefab:
   m_ObjectHideFlags: 0
@@ -93766,7 +93778,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1001 &2104573424
 Prefab:
   m_ObjectHideFlags: 0

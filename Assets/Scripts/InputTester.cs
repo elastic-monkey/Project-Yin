@@ -2,7 +2,7 @@
 
 public class InputTester : MonoBehaviour
 {
-	private float h, v;
+	private bool h, v;
 
 	private void Awake()
 	{
@@ -12,24 +12,27 @@ public class InputTester : MonoBehaviour
 		}
 	}
 
-    private void Update()
-    {
-		h = PlayerInput.GetAxis(Axes.Horizontal);
-		v = PlayerInput.GetAxis(Axes.Vertical);
-    }
+	private void Update()
+	{
+		if (PlayerInput.IsButtonDown(Axes.HorizontalDpad))
+			Debug.Log("H D-pad");
+
+		if (PlayerInput.IsButtonDown(Axes.VerticalDpad))
+			Debug.Log("V D-pad");
+	}
 
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;
-		Gizmos.DrawLine(Vector3.zero, Vector3.right * h * 2);
+		Gizmos.DrawLine(Vector3.zero, Vector3.right * (h ? 1 : 0) * 2);
 		Gizmos.color = Color.blue;
-		Gizmos.DrawLine(Vector3.zero, Vector3.forward * v * -2);
+		Gizmos.DrawLine(Vector3.zero, Vector3.forward * (v ? 1 : 0) * -2);
 	}
 
-    private void DebugAxis(Axes axis)
-    {
-        var value = PlayerInput.IsButtonDown(axis);
-        if (value)
-            Debug.Log(axis.InputName() + " --> " + value);
-    }
+	private void DebugAxis(Axes axis)
+	{
+		var value = PlayerInput.IsButtonDown(axis);
+		if (value)
+			Debug.Log(axis.InputName() + " --> " + value);
+	}
 }
