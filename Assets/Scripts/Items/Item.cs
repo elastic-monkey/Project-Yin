@@ -18,7 +18,7 @@ public abstract class Item : MonoBehaviour
     public int BuyPrice;
     public int SellPrice;
     public int MaxStock;
-    public Image Icon;
+    public Sprite Icon;
     public string ItemName;
     [TextArea(1, 4)]
     public string Effect;

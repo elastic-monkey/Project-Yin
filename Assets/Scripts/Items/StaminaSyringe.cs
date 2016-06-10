@@ -10,7 +10,6 @@ public class StaminaSyringe : Item
 
     public void Start()
     {
-        Icon = GetComponent<Image>();
         Type = ItemType.StaminaRegenRate;
         Effect = "Restores " + (StaminaRegenMulti*Duration).ToString() + " Energy Points over " + Duration.ToString() + " seconds";
         FlavorText = "A small syringe containing a blue liquid";

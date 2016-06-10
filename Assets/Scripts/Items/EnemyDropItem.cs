@@ -9,7 +9,6 @@ public class EnemyDropItem : Item
 
     void Start()
     {
-        Icon = GetComponent<Image>();
         Type = ItemType.Component;
         Effect = "Can be sold for " + Value.ToString() + " Credits";
         FlavorText = "A bunch of circuitry dropped by automatons";

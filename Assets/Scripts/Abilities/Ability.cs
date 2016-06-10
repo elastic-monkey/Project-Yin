@@ -17,8 +17,8 @@ public abstract class Ability : Upgradable
 
     public Axes InputAxis;
 
-    public Image ActiveIcon;
-    public Image DeactivatedIcon;
+    public Sprite ActiveIcon;
+    public Sprite DeactivatedIcon;
     public Image HUDIcon;
 
     private void Awake()
@@ -34,11 +34,11 @@ public abstract class Ability : Upgradable
     {
         if (Active)
         {
-            HUDIcon.sprite = ActiveIcon.sprite;
+            HUDIcon.sprite = ActiveIcon;
         }
         else
         {
-            HUDIcon.sprite = DeactivatedIcon.sprite;
+            HUDIcon.sprite = DeactivatedIcon;
         }
     }
 

@@ -71,7 +71,7 @@ public class AbilityItemHUD : MonoBehaviour
         else
         {
             ItemStock.text = "[" + ActiveSlot.Stock.ToString() + "]";
-            ItemIcon.sprite = ActiveSlot.Item.Icon.sprite;
+            ItemIcon.sprite = ActiveSlot.Item.Icon;
         }
 
         ItemIcon.color = temp;

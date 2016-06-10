@@ -94,7 +94,7 @@ public class InventorySlotNavItem : GameNavItem
         temp.a = 1.0f;
         if (Item != null && Stock > 0)
         {
-            ItemIcon.sprite = Item.Icon.sprite;
+            ItemIcon.sprite = Item.Icon;
             StockDisplay.text = "[" + Stock + "]";
         }
         else
