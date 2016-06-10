@@ -38,6 +38,7 @@ public class GameMenu : MonoBehaviour, IMenu
     public GameMenuTransition[] Transitions;
     private GameManager _gameManager;
     private NavMenu _navMenu;
+	private bool _willOpen; 
 
     public NavMenu NavMenu
     {
@@ -76,6 +77,15 @@ public class GameMenu : MonoBehaviour, IMenu
         }
     }
 
+	private void LateUpdate()
+	{
+		if (_willOpen)
+		{
+			_willOpen = false;
+			IsOpen = true;
+		}
+	}
+
     public virtual void OnNavItemFocused(NavItem target)
     {
         // Do stuff
@@ -96,9 +106,9 @@ public class GameMenu : MonoBehaviour, IMenu
 
     public virtual void Open()
     {
-        IsOpen = true;
-        NavMenu.SetActive(true);
-
+		IsOpen = false;
+		_willOpen = true;
+		NavMenu.SetActive(true);
         Pause(true);
     }
 
@@ -107,10 +117,14 @@ public class GameMenu : MonoBehaviour, IMenu
         IsOpen = false;
         NavMenu.SetActive(false);
 
-        if (SubMenu)
-            TransitionTo(Transitions.Find(Actions.Close));
-        else
-            Pause(false);
+		if (SubMenu)
+		{
+			TransitionTo(Transitions.Find(Actions.Close));
+		}
+		else
+		{
+			Pause(false);
+		}
     }
 
     protected void TransitionTo(GameMenu target)
@@ -139,8 +153,6 @@ public class GameMenu : MonoBehaviour, IMenu
         {
             GameManager.BlockGameplayInput(value);
         }
-        
-        NavMenu.SetActive(value);
     }
 
     private void OnValidate()

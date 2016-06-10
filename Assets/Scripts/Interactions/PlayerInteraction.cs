@@ -43,8 +43,8 @@ public abstract class PlayerInteraction : MonoBehaviour
         if (!Ongoing)
             return;
 
-        if (ShouldStop())
-            StopInteraction();
+		if (ShouldStop())
+			StopInteraction();
     }
 
     public virtual void StartInteraction()
