@@ -32,6 +32,9 @@ public abstract class Ability : Upgradable
 
     public void UpdateHUDSlot()
     {
+		if (HUDIcon == null)
+			return;
+
         if (Active)
         {
             HUDIcon.sprite = ActiveIcon;

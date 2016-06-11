@@ -35,9 +35,19 @@ public class PlayerInput : MonoBehaviour
 		if (InputHelper.IsJoystickConnected())
 		{
 			if (axis.Equals(Axes.HorizontalDpad) || axis.Equals(Axes.VerticalDpad))
-			{
 				return (Mathf.Abs(_keyDown[axis]) == 1);
-			}
+
+			if (axis.Equals(Axes.QuickInventoryChange))
+				return _keyDown[Axes.VerticalDpad] == 1;
+
+			if (axis.Equals(Axes.Speed))
+				return _keyDown[Axes.VerticalDpad] == -1;
+
+			if (axis.Equals(Axes.Shield))
+				return _keyDown[Axes.HorizontalDpad] == -1;
+
+			if (axis.Equals(Axes.Strength))
+				return _keyDown[Axes.HorizontalDpad] == 1;
 		}
 
 		return Input.GetButtonDown(axis.InputName());

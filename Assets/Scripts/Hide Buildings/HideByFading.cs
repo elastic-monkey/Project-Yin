@@ -4,130 +4,128 @@ using System.Collections.Generic;
 
 public class HideByFading : MonoBehaviour, IHideable
 {
-    public float Duration = 1.0f;
-    public Collider[] Colliders;
-    [HideInInspector]
-    public List<Renderer> Renderers;
+	public float Duration = 1.0f;
+	public Transform HideParent;
+	public Transform ShowParent;
+	public Collider[] Colliders;
+	[HideInInspector]
+	public List<Renderer> RenderersToHide, RenderersToShow;
 
-    private bool _hidden;
-    private SwapToFadeManager _swapManager;
-    private Coroutine _lastCoroutine;
+	private bool _hidden;
+	private SwapToFadeManager _swapManager;
+	private Coroutine _lastCoroutine;
+	private bool _hasFoundations;
 
-    public void Awake()
-    {
-        Renderers = new List<Renderer>(GetComponentsInChildren<Renderer>());
+	public void Awake()
+	{
+		RenderersToHide = new List<Renderer>(HideParent.GetComponentsInChildren<Renderer>());
+		if (ShowParent == null)
+		{
+			_hasFoundations = false;
+			RenderersToShow = new List<Renderer>();
+		}
+		else
+		{
+			RenderersToShow = new List<Renderer>(ShowParent.GetComponentsInChildren<Renderer>());
+			_hasFoundations = RenderersToShow.Count > 0;
+		}
+		_swapManager = GameManager.Instance.SwapFadeMaterials;
 
-        _swapManager = GameManager.Instance.SwapFadeMaterials;
+		foreach (var col in Colliders)
+			col.gameObject.layer = LayerMask.NameToLayer("Hideable Building");
 
-        foreach (var col in Colliders)
-        {
-            col.gameObject.layer = LayerMask.NameToLayer("Hideable Building");
-        }
-    }
+		foreach (var r in RenderersToShow)
+			r.enabled = false;
+	}
 
-    public void Hide()
-    {
-        if (_hidden)
-            return;
+	public void Hide()
+	{
+		if (_hidden)
+			return;
 
-        if (_lastCoroutine != null)
-            StopCoroutine(_lastCoroutine);
+		if (_lastCoroutine != null)
+		{
+			_swapManager.ReplaceByOpaqueMaterials(this); // Prevent lost materials
+			StopCoroutine(_lastCoroutine);
+		}
 
-        _lastCoroutine = StartCoroutine(HideCoroutine(true));
-    }
+		_lastCoroutine = StartCoroutine(HideCoroutine(true));
+	}
 
-    public void Show()
-    {
-        if (!_hidden)
-            return;
+	public void Show()
+	{
+		if (!_hidden)
+			return;
 
-        if (_lastCoroutine != null)
-            StopCoroutine(_lastCoroutine);
+		if (_lastCoroutine != null)
+			StopCoroutine(_lastCoroutine);
 
-        _lastCoroutine = StartCoroutine(HideCoroutine(false));
-    }
+		_lastCoroutine = StartCoroutine(HideCoroutine(false));
+	}
 
-    public bool IsHidden()
-    {
-        return _hidden;
-    }
+	public bool IsHidden()
+	{
+		return _hidden;
+	}
 
-    private IEnumerator HideCoroutine(bool hide)
-    {
-        _hidden = hide;
+	private IEnumerator HideCoroutine(bool hide)
+	{
+		_hidden = hide;
 
-        var targetAlpha = hide ? 0f : 1f;
-        var timePassed = 0f;
-        var invDuration = 1f / Duration;
+		var hideAlpha = hide ? 0f : 1f;
+		var timePassed = 0f;
+		var invDuration = 1f / Duration;
 
-        if (hide)
-        {
-            _swapManager.ReplaceByFadeMaterials(this);
+		if (hide)
+		{
+			_swapManager.ReplaceByFadeMaterials(this);
+			ToggleRenderersToShow(true);
+		}
 
-            while (timePassed <= Duration)
-            {
-                SetFade(targetAlpha, timePassed * invDuration);
+		ToggleRenderersToHide(true);
 
-                yield return null;
+		while (timePassed <= Duration)
+		{
+			var lerpFactor = timePassed * invDuration;
+			SetRenderersToHideFade(hideAlpha, lerpFactor);
 
-                timePassed += Time.deltaTime;
-            }
-        }
-        else
-        {
-            while (timePassed <= Duration)
-            {
-                SetFade(targetAlpha, timePassed * invDuration);
+			yield return null;
+			timePassed += Time.deltaTime;
+		}
 
-                yield return null;
+		if (hide)
+			ToggleRenderersToHide(false);
+		else
+		{
+			_swapManager.ReplaceByOpaqueMaterials(this);
+			ToggleRenderersToShow(false);
+		}
+	}
 
-                timePassed += Time.deltaTime;
-            }
+	private void SetRenderersToHideFade(float targetValue, float lerpFactor)
+	{
+		foreach (var r in RenderersToHide)
+		{
+			var mats = r.materials;
+			foreach (var mat in mats)
+			{
+				var c = mat.color;
+				c.a = Mathf.Lerp(targetValue == 0f ? 1f : 0f, targetValue, lerpFactor);
+				mat.color = c;
+			}
+			r.materials = mats;
+		}
+	}
 
-            _swapManager.ReplaceByOpaqueMaterials(this);
-        }
-    }
+	private void ToggleRenderersToShow(bool value)
+	{
+		foreach (var r in RenderersToShow)
+			r.enabled = value;
+	}
 
-    private void SetFade(float targetValue, float lerpFactor)
-    {
-        foreach (var r in Renderers)
-        {
-            var mats = r.materials;
-            foreach (var mat in mats)
-            {
-                var c = mat.color;
-                c.a = Mathf.Lerp(targetValue == 0f ? 1f : 0f, targetValue, lerpFactor);
-                mat.color = c;
-            }
-            r.materials = mats;
-        }
-    }
-//
-//    private void ReplaceToFadeMaterials()
-//    {
-//        foreach (var r in _renderers)
-//        {
-//            var mats = r.sharedMaterials;
-//            for(var i = 0; i < mats.Length; i++)
-//            {
-//                var swap = _swapManager.FindSubstitute(mats[i]);
-//                mats[i] = swap;
-//            }
-//            r.materials = mats;
-//        }
-//    }
-//
-//    private void ReplaceToOpaqueMaterials()
-//    {
-//        foreach (var r in _renderers)
-//        {
-//            var mats = r.sharedMaterials;
-//            for (var i = 0; i < mats.Length; i++)
-//            {
-//                var swap = _swapManager.FindOriginal(mats[i]);
-//                mats[i] = swap;
-//            }
-//            r.materials = mats;
-//        }
-//    }
+	private void ToggleRenderersToHide(bool value)
+	{
+		foreach (var r in RenderersToHide)
+			r.enabled = value;
+	}
 }

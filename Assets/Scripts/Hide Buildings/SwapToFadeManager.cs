@@ -24,6 +24,8 @@ public class SwapToFadeManager : MonoBehaviour
             newMaterial.CopyPropertiesFromMaterial(DefaultFade);
             newMaterial.name = mat.name + "_Fade";
             newMaterial.SetColor("_Color", mat.GetColor("_Color"));
+			if (mat.mainTexture != null)
+				newMaterial.mainTexture = mat.mainTexture;
 
             _swapReferences.Add(mat, newMaterial);
             _swapBackReferences.Add(newMaterial, mat);
@@ -48,7 +50,7 @@ public class SwapToFadeManager : MonoBehaviour
             _swapBackPool.Add(obj, new Dictionary<Renderer, List<Material>>());
         }
 
-        foreach (var r in obj.Renderers)
+        foreach (var r in obj.RenderersToHide)
         {
             _swapBackPool[obj].Add(r, new List<Material>());
 
@@ -67,7 +69,7 @@ public class SwapToFadeManager : MonoBehaviour
 
     public void ReplaceByOpaqueMaterials(HideByFading obj)
     {
-        foreach (var r in obj.Renderers)
+        foreach (var r in obj.RenderersToHide)
         {
             r.sharedMaterials = _swapBackPool[obj][r].ToArray();
         }
@@ -77,13 +79,9 @@ public class SwapToFadeManager : MonoBehaviour
     {
         Material sub = original;
         if (!_swapReferences.TryGetValue(original, out sub))
-        {
             return original;
-        }
         else
-        {
             return sub;
-        }
     }
 
     public Material FindOriginal(Material susbtitute)
