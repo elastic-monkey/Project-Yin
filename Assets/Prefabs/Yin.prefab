@@ -2287,7 +2287,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 0, z: -37.9}
+  m_LocalPosition: {x: 24.1, y: 0, z: -9.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2609,14 +2609,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377938be936fc384394229f9a23327aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 1.5
+  Range: 2
   Attacks:
   - Damage: 15
-    Radius: 1.5
+    Radius: 2
     Angle: 10
     StaminaCost: 20
     Duration: 0.633
-    HitTime: 0.3
+    HitTime: 0.5
     AnimClipDuration: 0.633
   CanAttack: 1
   Attacking: 0
