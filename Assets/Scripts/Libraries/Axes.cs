@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Utilities;
 
 public enum Axes
 {
@@ -120,7 +121,7 @@ public static class AxesHelper
 		if (axis == Axes.None)
 			return s;
 
-		if (IsJoystickConnected())
+		if (InputHelper.IsJoystickConnected())
 		{
 			_joystickKeyToScreenName.TryGetValue(axis, out s);
 		}
@@ -138,7 +139,7 @@ public static class AxesHelper
 		if (axis == Axes.None)
 			return s;
 
-		if (IsJoystickConnected())
+		if (InputHelper.IsJoystickConnected())
 		{
 			_joystickKeyBindings.TryGetValue(axis, out s);
 			return s;
@@ -147,21 +148,6 @@ public static class AxesHelper
 		{
 			_keyboardKeyBindings.TryGetValue(axis, out s);
 			return s;
-		}
-	}
-
-	private static bool IsJoystickConnected()
-	{
-		if (Input.GetJoystickNames().Length == 0)
-			return false;
-		else
-		{
-			foreach (var js in Input.GetJoystickNames())
-			{
-				if (js.Length != 0)
-					return true;
-			}
-			return false;
 		}
 	}
 

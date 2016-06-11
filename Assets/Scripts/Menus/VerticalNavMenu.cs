@@ -13,6 +13,7 @@ public class VerticalNavMenu : NavMenu
     {
         if (PlayerInput.IsButtonDown(Axes.VerticalDpad))
         {
+			Debug.Log("LHOL");
             var v = -PlayerInput.GetAxisRaw(Axes.VerticalDpad);
 
             if (v > 0)

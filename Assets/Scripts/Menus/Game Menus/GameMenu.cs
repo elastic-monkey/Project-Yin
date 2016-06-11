@@ -106,7 +106,6 @@ public class GameMenu : MonoBehaviour, IMenu
 
     public virtual void Open()
     {
-		Debug.Log("Open: " + name);
 		IsOpen = false;
 		_willOpen = true;
 		NavMenu.SetActive(true);
@@ -115,7 +114,6 @@ public class GameMenu : MonoBehaviour, IMenu
 
     public virtual void Close()
     {
-		Debug.Log("Close: " + name);
 		IsOpen = false;
         NavMenu.SetActive(false);
 

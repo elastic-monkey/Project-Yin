@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -31,9 +32,12 @@ public class PlayerInput : MonoBehaviour
 		if (InvalidAxis(axis))
 			return false;
 
-		if (axis.Equals(Axes.HorizontalDpad) || axis.Equals(Axes.VerticalDpad))
+		if (InputHelper.IsJoystickConnected())
 		{
-			return (Mathf.Abs(_keyDown[axis]) == 1);
+			if (axis.Equals(Axes.HorizontalDpad) || axis.Equals(Axes.VerticalDpad))
+			{
+				return (Mathf.Abs(_keyDown[axis]) == 1);
+			}
 		}
 
 		return Input.GetButtonDown(axis.InputName());

@@ -287,4 +287,22 @@
             }
         }
     }
+
+	public static class InputHelper
+	{
+		public static bool IsJoystickConnected()
+		{
+			if (Input.GetJoystickNames().Length == 0)
+				return false;
+			else
+			{
+				foreach (var js in Input.GetJoystickNames())
+				{
+					if (js.Length != 0)
+						return true;
+				}
+				return false;
+			}
+		}
+	}
 }
