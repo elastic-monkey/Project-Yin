@@ -31,7 +31,15 @@ public class StoreInteraction : OpenMenuInteraction
     {
         base.StopInteraction();
 
-        Animator.ResetTrigger(AnimatorHashIDs.StoreOpenTrigger);
-        Animator.SetTrigger(AnimatorHashIDs.StoreCloseTrigger);
+		if (CanBeTriggered)
+		{
+			Animator.SetTrigger(AnimatorHashIDs.StoreOpenTrigger);
+			Animator.ResetTrigger(AnimatorHashIDs.StoreCloseTrigger);
+		}
+		else
+		{
+			Animator.ResetTrigger(AnimatorHashIDs.StoreOpenTrigger);
+			Animator.SetTrigger(AnimatorHashIDs.StoreCloseTrigger);
+		}
     }
 }
