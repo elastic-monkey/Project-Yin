@@ -2,7 +2,7 @@
 
 public class InputTester : MonoBehaviour
 {
-	private bool h, v;
+	private bool h = false, v = false;
 
 	private void Awake()
 	{
