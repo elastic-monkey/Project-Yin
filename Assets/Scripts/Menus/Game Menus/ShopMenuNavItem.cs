@@ -27,7 +27,7 @@ public class ShopMenuNavItem : GameNavItem
     {
         if (Item != null)
         {
-            ItemIcon.sprite = Item.Icon.sprite;
+            ItemIcon.sprite = Item.Icon;
         }
         else
         {

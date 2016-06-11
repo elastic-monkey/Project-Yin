@@ -9,7 +9,6 @@ public class HealthSyringe : Item
 
     public void Start()
     {
-        Icon = GetComponent<Image>();
         Type = ItemType.HealthRecovery;
         Effect = "Restores " + RecoveryValue.ToString() + " Health Points";
         FlavorText = "A small syringe containing a red liquid";

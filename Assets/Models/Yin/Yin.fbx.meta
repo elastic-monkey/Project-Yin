@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 240634a9eefebf641a3535f5d815b785
-timeCreated: 1465584474
+guid: 53877a984c46b1d4db02dec358f4c74c
+timeCreated: 1465652465
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -158,9 +158,10 @@ ModelImporter:
     400148: Yin
     400150: //RootNode
     4300000: Yin
-    7400000: Yin | Idle
-    7400002: Yin | Run Cycle
-    7400004: Yin | Sword Attack
+    7400000: Yin | Defense
+    7400002: Yin | Idle
+    7400004: Yin | Run Cycle
+    7400006: Yin | Sword Attack
     9500000: //RootNode
     13700000: Yin
   materials:
@@ -184,6 +185,186 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations:
+    - serializedVersion: 16
+      name: Yin | Defense
+      takeName: Armature|Defense
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/FootIKLeft
+        weight: 1
+      - path: Armature/FootIKLeft/FootIKLeft_end
+        weight: 1
+      - path: Armature/FootIKRight
+        weight: 1
+      - path: Armature/FootIKRight/FootIKRight_end
+        weight: 1
+      - path: Armature/Hips
+        weight: 1
+      - path: Armature/Hips/BodyLower
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.042
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.042/Bone.043
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.044_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.046
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.046/Bone.048
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.046/Bone.048/Bone.050
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.046/Bone.048/Bone.050/Bone.050_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.047
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.047/Bone.049
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.047/Bone.049/Bone.051
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/Neck/Head/Bone.039/Bone.040/Bone.041/Bone.047/Bone.049/Bone.051/Bone.051_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft/FingersUpperLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/FingersLowerLeft/FingersMiddleLeft/FingersUpperLeft/FingersUpperLeft_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft/IndexFingerUpperLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/IndexFingerLowerLeft/IndexFingerMiddleLeft/IndexFingerUpperLeft/IndexFingerUpperLeft_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft/ThumbUpperLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderLeft/ArmUpperLeft/ArmLowerLeft/HandLeft/ThumbLowerLeft/ThumbUpperLeft/ThumbUpperLeft_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight/FingersUpperRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/FingersLowerRight/FingersMiddleRight/FingersUpperRight/FingersUpperRight_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight/IndexFingerUpperRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/IndexFingerLowerRight/IndexFingerMiddleRight/IndexFingerUpperRight/IndexFingerUpperRight_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight/ThumbUpperRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/Body Middle/BodyUpper/ShoulderRight/ArmUpperRight/ArmLowerRight/HandRight/ThumbLowerRight/ThumbUpperRight/ThumbUpperRight_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperLeft/LegLowerLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperLeft/LegLowerLeft/FootBackLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperLeft/LegLowerLeft/FootBackLeft/FootBackLeft_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft/FootLowerLeft
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperLeft/LegLowerLeft/FootUpperLeft/FootLowerLeft/FootLowerLeft_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperRight/LegLowerRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperRight/LegLowerRight/FootBackRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperRight/LegLowerRight/FootBackRight/FootBackRight_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight/FootLowerRight
+        weight: 1
+      - path: Armature/Hips/BodyLower/LegUpperRight/LegLowerRight/FootUpperRight/FootLowerRight/FootLowerRight_end
+        weight: 1
+      - path: Armature/Hips/BodyLower/Sheath
+        weight: 1
+      - path: Armature/Hips/BodyLower/Sheath/Sheath_end
+        weight: 1
+      - path: Armature/Sword
+        weight: 1
+      - path: Armature/Sword/Sword_end
+        weight: 1
+      - path: Yin
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Yin | Idle
       takeName: Armature|Idle
@@ -548,7 +729,7 @@ ModelImporter:
       name: Yin | Sword Attack
       takeName: Armature|SwordAttack1
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 26
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

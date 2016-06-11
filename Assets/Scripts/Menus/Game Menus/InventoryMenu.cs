@@ -86,8 +86,11 @@ public class InventoryMenu : GameMenu
     {
         foreach (var slotItem in InventorySlots)
         {
-            if (slotItem.Item.Type == type)
-                return slotItem;
+            if (slotItem.Item != null)
+            {
+                if (slotItem.Item.Type == type)
+                    return slotItem;
+            }
         }
 
         return null;
