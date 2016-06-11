@@ -38,7 +38,7 @@ public class PlayerInfo : MonoBehaviour
         Health.maxValue = _player.Health.MaxHealth;
 
         Stamina.value = _player.Stamina.CurrentStamina;
-        Stamina.value = _player.Stamina.MaxStamina;
+        Stamina.maxValue = _player.Stamina.MaxStamina;
 
         Experience.value = _player.Experience.CurrentExperience;
         Experience.maxValue = _player.Experience.MaxExperience;
