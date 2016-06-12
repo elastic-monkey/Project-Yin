@@ -28,7 +28,13 @@ public class AbilityItemHUD : MonoBehaviour
             }
             else if (PlayerInput.IsButtonDown(Axes.QuickInventoryUse))
             {
-                ItemQuickUse();
+                if (ActiveSlot != null)
+                {
+                    if (ActiveSlot.Item != null)
+                    {
+                        ItemQuickUse();
+                    }
+                }
             }
         }
     }
