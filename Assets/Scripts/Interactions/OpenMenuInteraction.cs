@@ -13,10 +13,6 @@ public class OpenMenuInteraction : PlayerInteraction
 
     public override bool ShouldStop()
     {
-		if (!(Target.NavMenu.IsActive))
-		{
-			Debug.Log("Should Stop: " + name);
-		}
         return !(Target.NavMenu.IsActive);
     }
 }

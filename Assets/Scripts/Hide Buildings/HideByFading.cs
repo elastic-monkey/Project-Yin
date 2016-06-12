@@ -14,21 +14,11 @@ public class HideByFading : MonoBehaviour, IHideable
 	private bool _hidden;
 	private SwapToFadeManager _swapManager;
 	private Coroutine _lastCoroutine;
-	private bool _hasFoundations;
 
 	public void Awake()
 	{
 		RenderersToHide = new List<Renderer>(HideParent.GetComponentsInChildren<Renderer>());
-		if (ShowParent == null)
-		{
-			_hasFoundations = false;
-			RenderersToShow = new List<Renderer>();
-		}
-		else
-		{
-			RenderersToShow = new List<Renderer>(ShowParent.GetComponentsInChildren<Renderer>());
-			_hasFoundations = RenderersToShow.Count > 0;
-		}
+		RenderersToShow = (ShowParent == null) ? new List<Renderer>() : new List<Renderer>(ShowParent.GetComponentsInChildren<Renderer>());
 		_swapManager = GameManager.Instance.SwapFadeMaterials;
 
 		foreach (var col in Colliders)
