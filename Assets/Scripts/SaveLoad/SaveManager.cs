@@ -62,6 +62,7 @@ public class SaveManager : MonoBehaviour
     {
         LoadPlayerState(state.PlayerState);
         LoadCameraState(state.CameraState);
+        Time.timeScale = 1.0f;
     }
 
 	public static void LoadPlayerState(PlayerState state)
@@ -109,6 +110,7 @@ public class SaveManager : MonoBehaviour
                 slot.UpdateSlot();
             }
         }
+
     }
 
 	public static void LoadCameraState(CameraState state)
