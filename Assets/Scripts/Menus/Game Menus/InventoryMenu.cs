@@ -28,6 +28,7 @@ public class InventoryMenu : GameMenu
 			emptySlot.Item = item;
 			emptySlot.Stock = 0;
 			emptySlot.IncreaseStock(1);
+            Player.Currency.RemoveCredits(item.BuyPrice);
         }
         else if (stock < item.MaxStock)
         {
