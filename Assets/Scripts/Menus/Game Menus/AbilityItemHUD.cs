@@ -10,6 +10,8 @@ public class AbilityItemHUD : MonoBehaviour
     public Image ItemIcon;
     public InventoryMenu Inventory;
 
+    private Item.ItemType _lastType;
+
     public void Start()
     {
         ActiveSlot = null;
@@ -22,9 +24,20 @@ public class AbilityItemHUD : MonoBehaviour
         {
             GetNextItem();
         }
-        else if (PlayerInput.IsButtonPressed(Axes.QuickInventoryUse))
+        else if (PlayerInput.IsButtonDown(Axes.QuickInventoryUse))
         {
-            ActiveSlot.Item.UseItem();
+            ItemQuickUse();
+        }
+    }
+
+    private void ItemQuickUse()
+    {
+        _lastType = ActiveSlot.Item.Type;
+        ActiveSlot.UseItem();
+        UpdateItemSlot();
+        if (ActiveSlot.Item == null) // This was the last use
+        {
+            GetNextItem();
         }
     }
 
@@ -36,8 +49,14 @@ public class AbilityItemHUD : MonoBehaviour
         }
         else
         {
-            ActiveSlot = Inventory.GetSlotItem(GetNextItemType(ActiveSlot.Item.Type));
+            ActiveSlot = Inventory.GetSlotItem(GetNextItemType(_lastType));
         }
+
+        if (ActiveSlot != null)
+        {
+            _lastType = ActiveSlot.Item.Type;
+        }
+
         UpdateItemSlot();
     }
 
@@ -63,7 +82,7 @@ public class AbilityItemHUD : MonoBehaviour
     {
         Color temp = Color.white;
         temp.a = 1.0f;
-        if (ActiveSlot == null)
+        if (ActiveSlot == null || ActiveSlot.Item == null)
         {
             ItemStock.text = "";
             temp.a = 0f;
