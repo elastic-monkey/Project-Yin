@@ -63,6 +63,7 @@ public class SaveManager : MonoBehaviour
         LoadPlayerState(state.PlayerState);
         LoadCameraState(state.CameraState);
         Time.timeScale = 1.0f;
+        PlayerInput.OnlyMenus = false;
     }
 
 	public static void LoadPlayerState(PlayerState state)
