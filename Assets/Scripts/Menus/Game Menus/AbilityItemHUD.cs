@@ -20,13 +20,16 @@ public class AbilityItemHUD : MonoBehaviour
 
     public void Update()
     {
-        if (PlayerInput.IsButtonDown(Axes.QuickInventoryChange))
+        if (!PlayerInput.OnlyMenus)
         {
-            GetNextItem();
-        }
-        else if (PlayerInput.IsButtonDown(Axes.QuickInventoryUse))
-        {
-            ItemQuickUse();
+            if (PlayerInput.IsButtonDown(Axes.QuickInventoryChange))
+            {
+                GetNextItem();
+            }
+            else if (PlayerInput.IsButtonDown(Axes.QuickInventoryUse))
+            {
+                ItemQuickUse();
+            }
         }
     }
 
