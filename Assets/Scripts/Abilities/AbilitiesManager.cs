@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(PlayerBehavior))]
@@ -6,6 +7,9 @@ public class AbilitiesManager : MonoBehaviour
 {
     public Transform AbilitesTransform;
     public List<Ability> Abilities;
+    public List<Image> AbilityHUDIcons;
+    public List<Sprite> AbilityActiveSprite;
+    public List<Sprite> AbilityInactiveSprite;
 
     private PlayerBehavior _player;
 
@@ -52,6 +56,9 @@ public class AbilitiesManager : MonoBehaviour
     {
         ability.transform.SetParent(AbilitesTransform);
         Abilities.Add(ability);
+        ability.HUDIcon = AbilityHUDIcons[GetAbilityIndex(ability.Type())];
+        ability.ActiveIcon = AbilityActiveSprite[GetAbilityIndex(ability.Type())];
+        ability.DeactivatedIcon = AbilityInactiveSprite[GetAbilityIndex(ability.Type())];
     }
 
     public void RemoveAbilities()
@@ -85,5 +92,23 @@ public class AbilitiesManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    private int GetAbilityIndex(Ability.AbilityType type)
+    {
+        if (type == Ability.AbilityType.Speed)
+        {
+            return 0;
+        }
+        else if (type == Ability.AbilityType.Shield)
+        {
+            return 1;
+        }
+        else if (type == Ability.AbilityType.Strength)
+        {
+            return 2;
+        }
+
+        return 0;
     }
 }

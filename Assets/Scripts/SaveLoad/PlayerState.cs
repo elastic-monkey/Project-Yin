@@ -19,7 +19,7 @@ public class PlayerState
 
     public PlayerState()
     {
-        var player = GameObject.Find("Player");
+        var player = GameObject.Find("Yin");
         var playerBehaviour = player.GetComponent<PlayerBehavior>();
         var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenu>();
         position = player.transform.position;
