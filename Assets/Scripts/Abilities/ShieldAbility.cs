@@ -9,6 +9,7 @@ public class ShieldAbility : Ability
             Active = true;
             player.Defense.ShieldOn = true;
             player.Stamina.ConsumeStamina(90f);
+            player.Stamina.Regenerating = true;
             UpdateHUDSlot();
         }
 
