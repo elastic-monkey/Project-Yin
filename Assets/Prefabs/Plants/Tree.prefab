@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 493104}
   m_Layer: 0
-  m_Name: Mesh Container
+  m_Name: Hide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,9 +197,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 0.2
+  HideParent: {fileID: 493104}
+  ShowParent: {fileID: 0}
   Colliders:
   - {fileID: 13578836}
-  Renderers: []
+  RenderersToHide: []
+  RenderersToShow: []
 --- !u!135 &13578836
 SphereCollider:
   m_ObjectHideFlags: 1

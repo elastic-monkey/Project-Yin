@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Utilities;
 
 public class SquareEnemyArea : EnemyArea

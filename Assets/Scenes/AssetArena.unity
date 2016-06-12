@@ -87850,6 +87850,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1858712229}
   - 114: {fileID: 1858712230}
+  - 114: {fileID: 1858712232}
+  - 114: {fileID: 1858712231}
   m_Layer: 0
   m_Name: Sound Manager
   m_TagString: Untagged
@@ -87881,7 +87883,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1989e7e39787e4a4aa75be1a1cde5842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxAudioSources: 20
+  MaxAudioSources: 0
+  Sources: []
+--- !u!114 &1858712231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1858712228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3fec94ee5be8d40b90ea597a66a752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Explore: []
+  Fight: []
+  ExploreToFight: {fileID: 0}
+  FightToExplore: {fileID: 0}
+  FightToFight: {fileID: 0}
+  ExploreToExplore: {fileID: 0}
+  FadeOutTime: 1
+  FadeInTime: 1
+--- !u!114 &1858712232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1858712228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1989e7e39787e4a4aa75be1a1cde5842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxAudioSources: 8
   Sources: []
 --- !u!1001 &1859979199
 Prefab:
@@ -96361,7 +96395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22453322, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -153
+      value: -155.79999
       objectReference: {fileID: 0}
     - target: {fileID: 22453322, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.x
@@ -96369,11 +96403,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22453322, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 306
+      value: 311.59998
       objectReference: {fileID: 0}
     - target: {fileID: 22416994, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -153
+      value: -155.79999
       objectReference: {fileID: 0}
     - target: {fileID: 22416994, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.x
@@ -96381,11 +96415,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22416994, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 306
+      value: 311.59998
       objectReference: {fileID: 0}
     - target: {fileID: 22461126, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -153
+      value: -155.79999
       objectReference: {fileID: 0}
     - target: {fileID: 22461126, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.x
@@ -96393,11 +96427,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22461126, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 306
+      value: 311.59998
       objectReference: {fileID: 0}
     - target: {fileID: 22495612, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -153
+      value: -155.79999
       objectReference: {fileID: 0}
     - target: {fileID: 22495612, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.x
@@ -96405,11 +96439,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22495612, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 306
+      value: 311.59998
       objectReference: {fileID: 0}
     - target: {fileID: 22425254, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -153
+      value: -155.79999
       objectReference: {fileID: 0}
     - target: {fileID: 22425254, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.x
@@ -96417,7 +96451,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22425254, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 306
+      value: 311.59998
       objectReference: {fileID: 0}
     - target: {fileID: 11416138, guid: 4e77616374f009a4bbb811f3be4cab91, type: 2}
       propertyPath: m_Color.a

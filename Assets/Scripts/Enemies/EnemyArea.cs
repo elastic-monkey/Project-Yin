@@ -15,11 +15,12 @@ public abstract class EnemyArea : MonoBehaviour
     protected List<EnemyBehavior> _enemiesAssigned;
     [SerializeField]
     protected PlayerBehavior _player;
+	protected GameManager _gameManager;
 
     protected virtual void Awake()
     {
-        // Do nothing
-    }
+		_gameManager = GameManager.Instance;
+	}
 
     private void Start()
     {
@@ -42,8 +43,20 @@ public abstract class EnemyArea : MonoBehaviour
         PlayerInWarningZone = ContainsInZone(_player.transform);
         PlayerInDangerZone = ContainsInDangerZone(_player.transform);
 
-        if (!PlayerInWarningZone || !PlayerInDangerZone)
-            return;
+		if (!PlayerInWarningZone)
+		{
+			if (_player.FightArea == this)
+			{
+				_player.FightArea = null;
+				_gameManager.SoundtrackManager.TransitionToExplore();
+			}
+			return;
+		}
+
+		if (!PlayerInDangerZone)
+			return;
+
+		_player.FightArea = this;
 
         AssignEnemiesToFight();
     }
@@ -138,7 +151,9 @@ public abstract class EnemyArea : MonoBehaviour
 
     public void NotifyEnemies(WarriorBehavior target)
     {
-        foreach (var enemy in _enemiesAssigned)
+		_gameManager.SoundtrackManager.TransitionToFight();
+
+		foreach (var enemy in _enemiesAssigned)
         {
             enemy.SetTarget(target);
         }

@@ -5,6 +5,7 @@
 public class PlayerBehavior : WarriorBehavior
 {
     public Transform RaycastSpot;
+	public EnemyArea FightArea;
 
     private PlayerMovement _playerMovement;
     private AbilitiesManager _abilities;

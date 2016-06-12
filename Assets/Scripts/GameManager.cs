@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
     public SwapToFadeManager SwapFadeMaterials;
 	public GameOverMenu GameOverMenu;
     public InteractionPrompt InteractionPrompt;
+	public SoundtrackManager SoundtrackManager;
 
     [SerializeField]
-    private bool _gamePaused, _gameNotPausedNextFrame;
-    private List<WarriorBehavior> _players, _enemies;
+    private bool _gamePaused;
+	private bool _gameNotPausedNextFrame;
+	private List<WarriorBehavior> _players, _enemies;
 
     public bool GamePaused
     {

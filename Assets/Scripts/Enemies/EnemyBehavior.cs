@@ -149,7 +149,7 @@ public class EnemyBehavior : WarriorBehavior
 
     private void OnDrawGizmos()
     {
-        GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * Eye.Range, Eye.Angle, 20, Color.yellow);
+        GizmosHelper.DrawAngleOfSight(transform.position, transform.forward * Eye.Range, Eye.Angle, 20, Color.green);
     }
 }
 
