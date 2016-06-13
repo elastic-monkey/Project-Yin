@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public GameOverMenu GameOverMenu;
     public InteractionPrompt InteractionPrompt;
 	public SoundtrackManager SoundtrackManager;
+	public MenuSoundManager MenuSoundManager;
 
     [SerializeField]
     private bool _gamePaused;

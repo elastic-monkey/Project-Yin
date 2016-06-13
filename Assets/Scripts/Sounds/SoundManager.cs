@@ -50,7 +50,7 @@ public class SoundManager : MonoBehaviour
 		var source = FindAvailableSource();
 		if (source == null)
 		{
-			Debug.Log("Not able to play sound clip: " + clip.name + ". Consider increasing MaxAudioSources.");
+			Debug.LogWarning("Not able to play sound clip: " + clip.name + ". Consider increasing MaxAudioSources.");
 			return null;
 		}
 
@@ -97,7 +97,7 @@ public class SoundManager : MonoBehaviour
 		var source = FindSourceByClip(clip);
 		if (source != null)
 		{
-			Debug.Log("Fade in: clip already has a source.");
+			Debug.LogWarning("Fade in: clip already has a source.");
 			return;
 		}
 

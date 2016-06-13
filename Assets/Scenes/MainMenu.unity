@@ -741,6 +741,9 @@ GameObject:
   - 114: {fileID: 194990342}
   - 114: {fileID: 194990341}
   - 114: {fileID: 194990344}
+  - 114: {fileID: 194990346}
+  - 114: {fileID: 194990345}
+  - 114: {fileID: 194990347}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -836,6 +839,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10145a972c159cb418352b18ef0fa971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &194990345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194990339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901469a8d22ee3f438c43a1ce433c7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenVolume: 0.5
+  OpenSounds:
+  - {fileID: 8300000, guid: 69d173f2ef4d9cd41a43b40a294a225c, type: 3}
+  CloseVolume: 0.3
+  CloseSounds:
+  - {fileID: 8300000, guid: 69d173f2ef4d9cd41a43b40a294a225c, type: 3}
+  FocusVolume: 0.5
+  FocusSounds:
+  - {fileID: 8300000, guid: 69d173f2ef4d9cd41a43b40a294a225c, type: 3}
+  InGame: 1
+--- !u!114 &194990346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194990339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1989e7e39787e4a4aa75be1a1cde5842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxAudioSources: 4
+  Sources: []
+--- !u!114 &194990347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194990339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6675c0af449d74fb0aaefde11657ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundManager: {fileID: 194990345}
 --- !u!1 &216691604
 GameObject:
   m_ObjectHideFlags: 0

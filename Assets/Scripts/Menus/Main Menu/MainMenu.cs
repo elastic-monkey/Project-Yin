@@ -15,7 +15,20 @@ public class MainMenu : MonoBehaviour, IMenu
     public bool SubMenu = false;
     public bool Current = false;
     public MainMenuTransition[] Transitions;
+
+	private MenuSoundManager _soundManager;
     private NavMenu _navMenu;
+
+	public MenuSoundManager SoundManager
+	{
+		get
+		{
+			if (_soundManager == null)
+				_soundManager = MainMenuManager.Instance.SoundManager;
+
+			return _soundManager;
+		}
+	}
 
     public NavMenu NavMenu
     {
@@ -41,8 +54,11 @@ public class MainMenu : MonoBehaviour, IMenu
 
     public virtual void OnNavItemFocused(NavItem target)
     {
-        // Do stuff
-    }
+		if (!NavMenu.IsActive)
+			return;
+
+		SoundManager.PlayFocusItemSound();
+	}
 
     public virtual void OnNavItemSelected(NavItem item, object actionObj, string[] dataObj)
     {
@@ -61,6 +77,8 @@ public class MainMenu : MonoBehaviour, IMenu
     {
         if (other == null)
             return;
+
+		SoundManager.PlayOpenSound();
 
         other.NavMenu.SetActive(true);
         other.Current = true;

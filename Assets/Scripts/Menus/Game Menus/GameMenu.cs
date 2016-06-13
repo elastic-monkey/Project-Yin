@@ -36,9 +36,11 @@ public class GameMenu : MonoBehaviour, IMenu
     public bool PausesGame = true;
     public bool BlockGameplayInput = true;
     public GameMenuTransition[] Transitions;
+
     private GameManager _gameManager;
-    private NavMenu _navMenu;
-	private bool _willOpen; 
+	private MenuSoundManager _soundManager;
+	private NavMenu _navMenu;
+	private bool _willOpen;
 
     public NavMenu NavMenu
     {
@@ -61,6 +63,17 @@ public class GameMenu : MonoBehaviour, IMenu
             return _gameManager;
         }
     }
+
+	protected MenuSoundManager SoundManager
+	{
+		get
+		{
+			if (_soundManager == null)
+				_soundManager = GameManager.MenuSoundManager;
+
+			return _soundManager;
+		}
+	}
 
     private void Update()
     {
@@ -88,8 +101,11 @@ public class GameMenu : MonoBehaviour, IMenu
 
     public virtual void OnNavItemFocused(NavItem target)
     {
-        // Do stuff
-    }
+		if (!NavMenu.IsActive)
+			return;
+
+		SoundManager.PlayFocusItemSound();
+	}
 
     public virtual void OnNavItemSelected(NavItem item, object actionObj, string[] dataObj)
     {
@@ -106,6 +122,8 @@ public class GameMenu : MonoBehaviour, IMenu
 
     public virtual void Open()
     {
+		SoundManager.PlayOpenSound();
+
 		IsOpen = false;
 		_willOpen = true;
 		NavMenu.SetActive(true);
@@ -123,6 +141,7 @@ public class GameMenu : MonoBehaviour, IMenu
 		}
 		else
 		{
+			SoundManager.PlayCloseSound();
 			Pause(false);
 		}
     }
@@ -134,6 +153,7 @@ public class GameMenu : MonoBehaviour, IMenu
 
 		if (!SubMenu)
 			target.Open();
+
 		target._willOpen = true;
 		target.NavMenu.FocusCurrent();
 		target.NavMenu.InputBlocked = false;
