@@ -55,6 +55,7 @@ GameObject:
   - 4: {fileID: 409422}
   - 95: {fileID: 9559472}
   - 114: {fileID: 11495762}
+  - 136: {fileID: 13634752}
   m_Layer: 0
   m_Name: NPC Female 1
   m_TagString: Untagged
@@ -1340,10 +1341,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.68, y: 0, z: -20}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -31.206194, y: 0, z: -18.731377}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_Children:
   - {fileID: 431994}
   - {fileID: 411922}
@@ -2210,10 +2211,23 @@ MonoBehaviour:
   Engaged: 0
   Talking: 0
   MaxBeginDelay: 5
-  TalkProbability: 0.5
+  TalkProbability: 0.1
   TalkDuration: 5
   EngagedProbability: 0.5
   EngagedDuration: 5
+--- !u!136 &13634752
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &13737934
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2224,11 +2238,11 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 995b2e3c309202f46b59281710e1bb24, type: 2}
+  - {fileID: 2100000, guid: dee02f7549a37114b95871e9c1c5ae74, type: 2}
+  - {fileID: 2100000, guid: 84191df4c43c15f43b66fafeb2b4fc5b, type: 2}
+  - {fileID: 2100000, guid: 7ca6d8f9e823feb4e892f229af0d6835, type: 2}
+  - {fileID: 2100000, guid: 6dea0c57fa42b2448afe85eb8e4104c3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

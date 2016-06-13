@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &110860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450716}
+  m_Layer: 0
+  m_Name: Hide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &115102
 GameObject:
   m_ObjectHideFlags: 0
@@ -8,6 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 411546}
+  - 114: {fileID: 11420770}
   m_Layer: 0
   m_Name: House Large 1
   m_TagString: Untagged
@@ -49,7 +65,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &178250
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -105,7 +121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
-  - {fileID: 459178}
+  - {fileID: 450716}
   - {fileID: 442032}
   - {fileID: 409762}
   - {fileID: 434494}
@@ -137,18 +153,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 411546}
   m_RootOrder: 1
+--- !u!4 &450716
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110860}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 459178}
+  m_Father: {fileID: 411546}
+  m_RootOrder: 0
 --- !u!4 &459178
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178250}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalRotation: {x: -0.7071069, y: 0.000000029802322, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 1.5, z: -0}
   m_LocalScale: {x: 20, y: 10, z: 5}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 411546}
+  m_Father: {fileID: 450716}
   m_RootOrder: 0
 --- !u!23 &2331780
 MeshRenderer:
@@ -161,11 +191,11 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
-  - {fileID: 2100000, guid: 7cab4638021bd5e4a9155a1ad030f264, type: 2}
-  - {fileID: 2100000, guid: 93e6258985bc3d3438aa2560a90fa2f6, type: 2}
-  - {fileID: 2100000, guid: 3bf4fbd8f5c9e9249b17b82752337997, type: 2}
   - {fileID: 2100000, guid: b1e9febfa4661be45a010759c2e14556, type: 2}
-  - {fileID: 2100000, guid: 90134f7a55c6c6c4680d3b5bb16ec141, type: 2}
+  - {fileID: 2100000, guid: efed0a06a43451d429083e52969f0c71, type: 2}
+  - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
+  - {fileID: 2100000, guid: b1e9febfa4661be45a010759c2e14556, type: 2}
+  - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -241,6 +271,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11420770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5ce1c929ff3ef4fb26876551103ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 1
+  HideParent: {fileID: 450716}
+  ShowParent: {fileID: 0}
+  Colliders:
+  - {fileID: 6580704}
+  - {fileID: 6506118}
+  - {fileID: 6516604}
+  RenderersToHide: []
+  RenderersToShow: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -40,6 +40,7 @@ GameObject:
   - 4: {fileID: 493840}
   - 95: {fileID: 9538904}
   - 114: {fileID: 11447496}
+  - 136: {fileID: 13677252}
   m_Layer: 0
   m_Name: NPC Female 2
   m_TagString: Untagged
@@ -1690,10 +1691,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103382}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.68, y: 0, z: -20}
+  m_LocalRotation: {x: 0, y: 0.60876137, z: 0, w: 0.7933534}
+  m_LocalPosition: {x: -31.812998, y: 0, z: -19.585999}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}
   m_Children:
   - {fileID: 441502}
   - {fileID: 475906}
@@ -1804,10 +1805,23 @@ MonoBehaviour:
   Engaged: 0
   Talking: 0
   MaxBeginDelay: 5
-  TalkProbability: 0.5
+  TalkProbability: 0.25
   TalkDuration: 5
-  EngagedProbability: 0.5
+  EngagedProbability: 0.75
   EngagedDuration: 5
+--- !u!136 &13677252
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &13788974
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1818,11 +1832,11 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6dea0c57fa42b2448afe85eb8e4104c3, type: 2}
+  - {fileID: 2100000, guid: 64e4a84624144974f983e216b3fcbf18, type: 2}
+  - {fileID: 2100000, guid: dee02f7549a37114b95871e9c1c5ae74, type: 2}
+  - {fileID: 2100000, guid: 84191df4c43c15f43b66fafeb2b4fc5b, type: 2}
+  - {fileID: 2100000, guid: 7ca6d8f9e823feb4e892f229af0d6835, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

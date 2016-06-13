@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 439874}
   m_Layer: 0
-  m_Name: Fade
+  m_Name: Hide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,9 +23,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438034}
-  - 95: {fileID: 9599836}
   m_Layer: 0
-  m_Name: StoreHigh_Foundations_10_06_2016
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1023,23 +1022,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9599836
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104786}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ed25ce9c5e0c65e4db865f36df3b814e, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11407622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1095,19 +1077,19 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9513773637410b049b78d2c12f89ce0c, type: 2}
-  - {fileID: 2100000, guid: 7c4c18db99873064b9a0125f3237e802, type: 2}
-  - {fileID: 2100000, guid: da560ff017e2dcf4f815a60db20b4894, type: 2}
-  - {fileID: 2100000, guid: 715fc47c8c554fa41acba8f7e4f3f44f, type: 2}
-  - {fileID: 2100000, guid: f9486cb2af6f37f48b72afed955cbd55, type: 2}
-  - {fileID: 2100000, guid: 3de6f39d75614d54d96a459e8a1a2df6, type: 2}
-  - {fileID: 2100000, guid: 20752ff30e4df1e4c856aabac9846f32, type: 2}
-  - {fileID: 2100000, guid: dbf689894b91baf4195988d489113742, type: 2}
-  - {fileID: 2100000, guid: 566cfe0920baed942945b20eccd1b219, type: 2}
+  - {fileID: 2100000, guid: b58d035b19f18f140bf343ce90383456, type: 2}
+  - {fileID: 2100000, guid: b1e9febfa4661be45a010759c2e14556, type: 2}
+  - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
+  - {fileID: 2100000, guid: 13d7dbc61f2940d4ba6ea0bc1c65238c, type: 2}
+  - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
+  - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
+  - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
+  - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
+  - {fileID: 2100000, guid: b1e9febfa4661be45a010759c2e14556, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1151,13 +1133,13 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: da560ff017e2dcf4f815a60db20b4894, type: 2}
-  - {fileID: 2100000, guid: 715fc47c8c554fa41acba8f7e4f3f44f, type: 2}
-  - {fileID: 2100000, guid: 7c4c18db99873064b9a0125f3237e802, type: 2}
+  - {fileID: 2100000, guid: 72518b50ad2dc2b48988510f8605f032, type: 2}
+  - {fileID: 2100000, guid: 13d7dbc61f2940d4ba6ea0bc1c65238c, type: 2}
+  - {fileID: 2100000, guid: b1e9febfa4661be45a010759c2e14556, type: 2}
   - {fileID: 2100000, guid: f9486cb2af6f37f48b72afed955cbd55, type: 2}
-  - {fileID: 2100000, guid: 09c351cbd595f434cb5028fc92a0a51c, type: 2}
-  - {fileID: 2100000, guid: dbf689894b91baf4195988d489113742, type: 2}
-  - {fileID: 2100000, guid: 9513773637410b049b78d2c12f89ce0c, type: 2}
+  - {fileID: 2100000, guid: efed0a06a43451d429083e52969f0c71, type: 2}
+  - {fileID: 2100000, guid: 7227331b43752624ca9d094692c98abd, type: 2}
+  - {fileID: 2100000, guid: 72518b50ad2dc2b48988510f8605f032, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
