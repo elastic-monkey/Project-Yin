@@ -17,6 +17,8 @@ public class SoundtrackManager : MonoBehaviour
 	public AudioClip FightToExplore;
 	public float FadeOutDuration = 1f;
 	public float FadeInDuration = 1f;
+	[Range(0, 1)]
+	public float Volume = 0.4f;
 	public AudioState CurrentState;
 
 	private AudioClip CurrentClip
@@ -43,7 +45,7 @@ public class SoundtrackManager : MonoBehaviour
 
 	private void Start()
 	{
-		SoundManager.FadeIn(CurrentClip, FadeInDuration);
+		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 		CurrentState.DeltaTime = 0f;
 	}
 
@@ -71,8 +73,8 @@ public class SoundtrackManager : MonoBehaviour
 				CurrentState.ClipIndex += 1;
 
 			CurrentState.ResetDeltaTime();
-			SoundManager.Play(FightToFight, false);
-			SoundManager.FadeIn(CurrentClip);
+			SoundManager.Play(FightToFight, false, Volume);
+			SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 		}
 		else if (CurrentState.Moment.Equals(Moments.Explore))
 		{
@@ -87,8 +89,8 @@ public class SoundtrackManager : MonoBehaviour
 				CurrentState.ClipIndex += 1;
 
 			CurrentState.ResetDeltaTime();
-			SoundManager.Play(ExploreToExplore, false);
-			SoundManager.FadeIn(CurrentClip);
+			SoundManager.Play(ExploreToExplore, false, Volume);
+			SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 		}
 	}
 
@@ -106,8 +108,8 @@ public class SoundtrackManager : MonoBehaviour
 		CurrentState.ClipIndex = Random.Range(0, Fight.Length);
 		CurrentState.ResetDeltaTime();
 
-		SoundManager.Play(ExploreToFight, false);
-		SoundManager.FadeIn(CurrentClip);
+		SoundManager.Play(ExploreToFight, false, Volume);
+		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 	}
 
 	public void TransitionToExplore()
@@ -123,8 +125,8 @@ public class SoundtrackManager : MonoBehaviour
 		CurrentState.Moment = Moments.Explore;
 		CurrentState.ClipIndex = Random.Range(0, Explore.Length);
 
-		SoundManager.Play(FightToExplore, false);
-		SoundManager.FadeIn(CurrentClip);
+		SoundManager.Play(FightToExplore, false, Volume);
+		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 	}
 
 	[System.Serializable]

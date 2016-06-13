@@ -102,13 +102,13 @@ public class EnemyMovement : Movement
                 DistanceToInitial = Vector3Helper.DistanceXZ(_initialPosition, transform.position);
                 if (Mathf.Approximately(DistanceToInitial, 0))
                 {
-                    _navAgent.Stop();
-                    Moving = false;
-                }
+					Stop();
+
+				}
                 else
                 {
                     _navAgent.Resume();
-                }
+				}
             }
             else if (Quaternion.Angle(transform.rotation, _initialRotation) > 5)
             {
@@ -126,13 +126,13 @@ public class EnemyMovement : Movement
     {
         _navAgent.Stop();
         Moving = false;
-    }
+	}
 
     private void StopAndLookAtTarget()
     {
         _navAgent.Stop();
         LookAtTarget();
-    }
+	}
 
     private void LookAtTarget()
     {
@@ -169,7 +169,7 @@ public class EnemyMovement : Movement
         if (StandingGuard)
             return;
 
-        StandingGuard = true;
+		StandingGuard = true;
         Moving = false;
         ChasingTarget = true;
         GoingBack = false;
@@ -180,8 +180,8 @@ public class EnemyMovement : Movement
     {
         if (GoingBack)
             return;
-        
-        Moving = true;
+
+		Moving = true;
         GoingBack = true;
         ChasingTarget = false;
         StandingGuard = false;

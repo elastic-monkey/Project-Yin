@@ -18,6 +18,7 @@ public abstract class WarriorBehavior : MonoBehaviour
     private Animator _animator;
     private Movement _movement;
     protected GameManager _gameManager;
+	protected WarriorSoundManager _soundManager;
     protected bool _dying = false;
 
     public DefenseBehavior Defense
@@ -97,10 +98,21 @@ public abstract class WarriorBehavior : MonoBehaviour
         }
     }
 
+	public WarriorSoundManager SoundManager
+	{
+		get
+		{
+			if (_soundManager == null)
+				_soundManager = GetComponent<WarriorSoundManager>();
+
+			return _soundManager;
+		}
+	}
+
     protected virtual void Awake()
     {
         Live();
-    }
+	}
 
     protected virtual void Start()
     {

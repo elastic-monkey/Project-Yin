@@ -45,7 +45,7 @@ public class SoundManager : MonoBehaviour
 		return null;
 	}
 
-	public AudioSource Play(AudioClip clip, bool loop)
+	public AudioSource Play(AudioClip clip, bool loop, float volume = 1f)
 	{
 		var source = FindAvailableSource();
 		if (source == null)
@@ -54,7 +54,7 @@ public class SoundManager : MonoBehaviour
 			return null;
 		}
 
-		source.volume = 1f;
+		source.volume = volume;
 		source.clip = clip;
 		source.loop = loop;
 		source.Play();
@@ -92,7 +92,7 @@ public class SoundManager : MonoBehaviour
 		StartCoroutine(FadeVolume(source, 0f, duration));
 	}
 
-	public void FadeIn(AudioClip clip, float duration = 1f, bool loop = false)
+	public void FadeIn(AudioClip clip, float duration = 1f, float maxVolume = 1f, bool loop = false)
 	{
 		var source = FindSourceByClip(clip);
 		if (source != null)
@@ -107,7 +107,7 @@ public class SoundManager : MonoBehaviour
 
 		source.volume = 0f;
 
-		StartCoroutine(FadeVolume(source, 1f, duration));
+		StartCoroutine(FadeVolume(source, Mathf.Min(1f, maxVolume), duration));
 	}
 
 	private IEnumerator FadeVolume(AudioSource source, float targetVolume, float duration)

@@ -11,7 +11,6 @@ public class WarriorSoundManager : MonoBehaviour
     }
 
     public SoundManager SoundManager;
-    public bool PlayVariations;
     public List<AudioClipItem> Items;
 
     public void PlayClip(ClipActions action)

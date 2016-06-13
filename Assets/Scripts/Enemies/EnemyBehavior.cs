@@ -45,7 +45,7 @@ public class EnemyBehavior : WarriorBehavior
         base.Awake();
 
         _myMovement = Movement as EnemyMovement;
-    }
+	}
 
     protected override void Update()
     {
