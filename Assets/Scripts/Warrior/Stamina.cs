@@ -42,7 +42,7 @@ public class Stamina : Upgradable
     public void ConsumeStamina(float stamina)
     {
         CurrentStamina -= stamina;
-        //Regenerating = true;
+        Regenerating = true;
     }
 
     public bool CanConsume(float value)

@@ -52,8 +52,9 @@ public class DefenseBehavior : MonoBehaviour
 		{
 			if (Defending)
 			{
-				var actualDamage = damage - Defenses[CurrentDefense].Armour;
+                var actualDamage = Mathf.Max(damage - Defenses[CurrentDefense].Armour, 0f);
 				_health.CurrentHealth -= actualDamage;
+                _stamina.ConsumeStamina(Defenses[CurrentDefense].StaminaCost);
 			}
 			else
 			{
@@ -125,6 +126,7 @@ public class DefenseBehavior : MonoBehaviour
 	public void CancelDefense()
 	{
 		_cancelDefense = true;
+        _stamina.RegenerateIsOn = true;
 	}
 
 	private IEnumerator DefenseCoroutine(Defense defense)
@@ -137,15 +139,15 @@ public class DefenseBehavior : MonoBehaviour
 			var defenseDec = defense.StaminaCost * Time.deltaTime;
 			while (_stamina.CanConsume(defenseDec) && !_cancelDefense)
 			{
-				_stamina.ConsumeStamina(defenseDec);
-				defenseDec = defense.StaminaCost * Time.deltaTime;
+				//_stamina.ConsumeStamina(defenseDec);
+				//defenseDec = defense.StaminaCost * Time.deltaTime;
 				yield return null;
 			}
 			_stamina.RegenerateIsOn = true;
 		}
 		else
 		{
-			_stamina.ConsumeStamina(defense.StaminaCost);
+			//_stamina.ConsumeStamina(defense.StaminaCost);
 
 			yield return new WaitForSeconds(defense.Duration);
 		}

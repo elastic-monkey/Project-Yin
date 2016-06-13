@@ -2566,7 +2566,7 @@ MonoBehaviour:
   - Armour: 50
     StaminaCost: 25
     OneTime: 0
-    Duration: 1
+    Duration: 0.5
   CanDefend: 1
   Defending: 0
   ShieldOn: 0
@@ -2582,7 +2582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundManager: {fileID: 0}
-  PlayVariations: 1
   Items:
   - Name: Step
     Action: 0
@@ -2747,7 +2746,7 @@ MonoBehaviour:
   StaminaLevelIncrement: 20
   BaseMaxStamina: 100
   MaxStamina: 100
-  RegenerationRate: 10
+  RegenerationRate: 20
   RegenerateIsOn: 1
   Regenerating: 0
 --- !u!136 &13683878

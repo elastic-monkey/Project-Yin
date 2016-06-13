@@ -122,7 +122,7 @@ public class AttackBehavior : MonoBehaviour
         _currentAttack = attack;
 
         _stamina.ConsumeStamina(attack.StaminaCost * StaminaMultiplier);
-        _stamina.Regenerating = false;
+        _stamina.RegenerateIsOn = false;
 
         yield return new WaitForSeconds(attack.HitTime);
 
@@ -150,7 +150,7 @@ public class AttackBehavior : MonoBehaviour
 
         Attacking = false;
         _currentAttack = null;
-        _stamina.Regenerating = true;
+        _stamina.RegenerateIsOn = true;
     }
 }
 
