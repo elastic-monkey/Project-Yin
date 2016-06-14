@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 475820}
   - 33: {fileID: 3376482}
-  - 64: {fileID: 6416164}
   - 23: {fileID: 2320786}
   m_Layer: 0
   m_Name: Bank Up
@@ -24,9 +23,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187602}
-  m_LocalRotation: {x: -0.000000014901161, y: 0.7071066, z: 0.000000014901161, w: 0.707107}
-  m_LocalPosition: {x: -40, y: -38.749992, z: -1.7500002}
-  m_LocalScale: {x: 2.5000002, y: 2.4999971, z: 1}
+  m_LocalRotation: {x: 0.00000005960465, y: 0.7071066, z: 0.000000014901163, w: 0.70710695}
+  m_LocalPosition: {x: 0, y: -38.75, z: -1.7500007}
+  m_LocalScale: {x: 2.5000002, y: 2.4999967, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,18 +62,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187602}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &6416164
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187602}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &100100000
 Prefab:
