@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public abstract class NavItem : MonoBehaviour
@@ -11,7 +10,7 @@ public abstract class NavItem : MonoBehaviour
 
 	protected Color _initialColor;
 
-	protected void Awake()
+	protected virtual void Awake()
 	{
 		_initialColor = TargetGraphic.color;
 	}

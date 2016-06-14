@@ -38,4 +38,9 @@ public class MenuSoundManager : MonoBehaviour
 	{
 		_soundManager.Play(CloseSounds[Random.Range(0, CloseSounds.Length)], false, CloseVolume);
 	}
+
+	public void PlaySampleSound(float volume)
+	{
+		_soundManager.Play(CloseSounds[0], false, volume);
+	}
 }
