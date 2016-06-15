@@ -19,6 +19,7 @@ public class SaveManager : MonoBehaviour
 			else
 			{
 				Debug.Log ("There is a SSS, but not a state. A New Game was started");
+				SetDefaultStaticValues();
 			}
         }
     }
@@ -58,12 +59,17 @@ public class SaveManager : MonoBehaviour
 		}
 	}
 
+	public static void SetDefaultStaticValues()
+	{
+		Time.timeScale = 1.0f;
+		PlayerInput.OnlyMenus = false;
+	}
+
 	public static void LoadAllStates(GameState state)
     {
-        LoadPlayerState(state.PlayerState);
+		SetDefaultStaticValues();
+		LoadPlayerState(state.PlayerState);
         LoadCameraState(state.CameraState);
-        Time.timeScale = 1.0f;
-        PlayerInput.OnlyMenus = false;
     }
 
 	public static void LoadPlayerState(PlayerState state)
