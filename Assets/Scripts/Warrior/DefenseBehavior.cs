@@ -9,6 +9,7 @@ public class DefenseBehavior : MonoBehaviour
 	public bool Defending = false;
 	public bool ShieldOn = false;
 
+	private WarriorBehavior _warrior;
 	private Health _health;
 	private Stamina _stamina;
 	private int _currentDefense;
@@ -39,6 +40,7 @@ public class DefenseBehavior : MonoBehaviour
 	{
 		_health = GetComponent<Health>();
 		_stamina = GetComponent<Stamina>();
+		_warrior = GetComponent<WarriorBehavior>();
 	}
 
 	void Start()
@@ -58,6 +60,9 @@ public class DefenseBehavior : MonoBehaviour
 			}
 			else
 			{
+				if (tag == Tags.Enemy.TagToString() && _warrior.Attack.Attacking)
+					_warrior.Attack.StopAttack();
+
 				_health.CurrentHealth -= damage;
 			}
 		}
@@ -131,6 +136,7 @@ public class DefenseBehavior : MonoBehaviour
 
 	private IEnumerator DefenseCoroutine(Defense defense)
 	{
+		_warrior.Attack.CanAttack = false;
 		Defending = true;
 
 		if (!defense.OneTime)
@@ -153,6 +159,7 @@ public class DefenseBehavior : MonoBehaviour
 		}
 
 		Defending = false;
+		_warrior.Attack.CanAttack = true;
 	}
 }
 

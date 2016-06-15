@@ -18,6 +18,7 @@ public class EnemyBehavior : WarriorBehavior
     public float Courage = 50;
     public Eyesight Eye;
     public EnemyArea Area;
+	public GameObject HUD;
 	public GameObject CollectablePrefab;
 
     private EnemyMovement _myMovement;
@@ -153,6 +154,7 @@ public class EnemyBehavior : WarriorBehavior
     {
         Area.RemoveEnemy(this);
 
+		HUD.SetActive(false);
 		HideByFading.Duration = DeathDuration * 0.5f;
 		HideByFading.Hide();
 

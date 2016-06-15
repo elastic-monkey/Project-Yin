@@ -6,171 +6,192 @@ using Utilities;
 [RequireComponent(typeof(WarriorBehavior), typeof(Animator), typeof(Stamina))]
 public class AttackBehavior : MonoBehaviour
 {
-    public float Range = 2f;
-    public Attack[] Attacks;
-    public bool CanAttack = true;
-    public bool Attacking = false;
-    public List<WarriorBehavior> Targets;
-    public float DamageMultiplier = 1.0f;
-    public float StaminaMultiplier = 1.0f;
+	public float StunDuration = 0.5f;
+	public float Range = 2f;
+	public Attack[] Attacks;
+	public bool CanAttack = true;
+	public bool Stunned = false;
+	public bool Attacking = false;
+	public List<WarriorBehavior> Targets;
+	public float DamageMultiplier = 1.0f;
+	public float StaminaMultiplier = 1.0f;
 
-    private Stamina _stamina;
-    private WarriorBehavior _warrior;
-    private GameManager _gameManager;
-    private float _sqrRange;
-    private Attack _currentAttack;
+	private Stamina _stamina;
+	private WarriorBehavior _warrior;
+	private GameManager _gameManager;
+	private float _sqrRange;
+	private Attack _currentAttack;
+	private Coroutine _lastAttack;
 
-    public Attack CurrentAttack
-    {
-        get
-        {
-            return _currentAttack;
-        }
-    }
+	public Attack CurrentAttack
+	{
+		get
+		{
+			return _currentAttack;
+		}
+	}
 
-    private bool CanPerformNewAttack
-    {
-        get
-        {
-            return CanAttack && !Attacking;
-        }
-    }
+	private bool CanPerformNewAttack
+	{
+		get
+		{
+			return CanAttack && !Attacking && !Stunned;
+		}
+	}
 
-    private void Awake()
-    {
-        _stamina = GetComponent<Stamina>();
-        _warrior = GetComponent<WarriorBehavior>();
-        _sqrRange = Range * Range;
-    }
+	private void Awake()
+	{
+		_stamina = GetComponent<Stamina>();
+		_warrior = GetComponent<WarriorBehavior>();
+		_sqrRange = Range * Range;
+	}
 
-    private void Start()
-    {
-        _gameManager = GameManager.Instance;
-    }
+	private void Start()
+	{
+		_gameManager = GameManager.Instance;
+	}
 
-    private void Update()
-    {
-        Targets.Clear();
-        var enemies = _gameManager.GetWarriors(_warrior.EnemyTag);
-        foreach (var enemy in enemies)
-        {
-            if (_sqrRange >= Vector3Helper.SqrDistanceXZ(_warrior.transform.position, enemy.transform.position))
-            {
-                Targets.Add(enemy);
-            }
-        }
-    }
+	private void Update()
+	{
+		Targets.Clear();
+		var enemies = _gameManager.GetWarriors(_warrior.EnemyTag);
+		foreach (var enemy in enemies)
+		{
+			if (_sqrRange >= Vector3Helper.SqrDistanceXZ(_warrior.transform.position, enemy.transform.position))
+			{
+				Targets.Add(enemy);
+			}
+		}
+	}
 
-    private void OnDrawGizmos()
-    {
-        GizmosHelper.DrawAngleOfSight(transform.position + Vector3.up, transform.forward * Range, 360, 20, Color.red);
-    }
+	private void OnDrawGizmos()
+	{
+		GizmosHelper.DrawAngleOfSight(transform.position + Vector3.up, transform.forward * Range, 360, 20, Color.red);
+	}
 
-    public void ChooseAndApplyAttack()
-    {
-        var bestDamage = float.MinValue;
-        var best = -1;
+	public void ChooseAndApplyAttack()
+	{
+		var bestDamage = float.MinValue;
+		var best = -1;
 
-        for (int i = 0; i < Attacks.Length; i++)
-        {
-            var attack = Attacks[i];
-            if (_stamina.CanConsume(attack.StaminaCost))
-            {
-                if (attack.Damage > bestDamage)
-                {
-                    bestDamage = attack.Damage;
-                    best = i;
-                }
-            }
-        }
+		for (int i = 0; i < Attacks.Length; i++)
+		{
+			var attack = Attacks[i];
+			if (_stamina.CanConsume(attack.StaminaCost))
+			{
+				if (attack.Damage > bestDamage)
+				{
+					bestDamage = attack.Damage;
+					best = i;
+				}
+			}
+		}
 
-        if (best < 0)
-            return;
+		if (best < 0)
+			return;
 
-        ApplyAttack(best);
-    }
+		ApplyAttack(best);
+	}
 
-    public void ApplyAttack()
-    {
-        var chosenAttackIndex = -1;
+	public void ApplyAttack()
+	{
+		var chosenAttackIndex = -1;
 
-        if (PlayerInput.IsButtonPressed(Axes.Attack))
-            chosenAttackIndex = 0;
+		if (PlayerInput.IsButtonPressed(Axes.Attack))
+			chosenAttackIndex = 0;
 
-        ApplyAttack(chosenAttackIndex);
-    }
+		ApplyAttack(chosenAttackIndex);
+	}
 
-    public void ApplyAttack(int attackIndex)
-    {
-        if (!CanPerformNewAttack)
-            return;
+	public void ApplyAttack(int attackIndex)
+	{
+		if (!CanPerformNewAttack)
+			return;
 
-        if (attackIndex < 0 || attackIndex >= Attacks.Length)
-            return;
+		if (attackIndex < 0 || attackIndex >= Attacks.Length)
+			return;
 
-        var chosenAttack = Attacks[attackIndex];
+		var chosenAttack = Attacks[attackIndex];
 
-        if (!_stamina.CanConsume(chosenAttack.StaminaCost))
-            return;
+		if (!_stamina.CanConsume(chosenAttack.StaminaCost))
+			return;
 
-        StartCoroutine(AttackCoroutine(chosenAttack));
-    }
+		_lastAttack = StartCoroutine(AttackCoroutine(chosenAttack));
+	}
 
-    private IEnumerator AttackCoroutine(Attack attack)
-    {
-        Attacking = true;
-        _currentAttack = attack;
+	public void StopAttack()
+	{
+		StopCoroutine(_lastAttack);
+		Attacking = false;
 
-        _stamina.ConsumeStamina(attack.StaminaCost * StaminaMultiplier);
-        _stamina.RegenerateIsOn = false;
+		if (!Stunned)
+			StartCoroutine(Stun(StunDuration));
+	}
 
-        yield return new WaitForSeconds(attack.HitTime);
+	private IEnumerator AttackCoroutine(Attack attack)
+	{
+		Attacking = true;
+		_currentAttack = attack;
 
-        foreach (var target in Targets)
-        {
-            var warrior = target.GetComponentInParent<WarriorBehavior>();
-            if (warrior == null)
-            {
-                Debug.LogWarning("Attack: target does not have WarriorBehaviour.");
-                continue;
-            }
+		_stamina.ConsumeStamina(attack.StaminaCost * StaminaMultiplier);
+		_stamina.RegenerateIsOn = false;
 
-            var defense = target.GetComponentInParent<WarriorBehavior>().Defense;
-            if (defense == null)
-            {
-                Debug.LogWarning("Attack: target defense is NULL.");
-                continue;
-            }
+		yield return new WaitForSeconds(attack.HitTime);
 
-            warrior.OnAttacked(_warrior);
-            defense.TakeDamage(attack.Damage * DamageMultiplier);
-        }
+		foreach (var target in Targets)
+		{
+			var warrior = target.GetComponentInParent<WarriorBehavior>();
+			if (warrior == null)
+			{
+				Debug.LogWarning("Attack: target does not have WarriorBehaviour.");
+				continue;
+			}
 
-        yield return new WaitForSeconds(Mathf.Max(0, attack.Duration - attack.HitTime));
+			var defense = target.GetComponentInParent<WarriorBehavior>().Defense;
+			if (defense == null)
+			{
+				Debug.LogWarning("Attack: target defense is NULL.");
+				continue;
+			}
 
-        Attacking = false;
-        _currentAttack = null;
-        _stamina.RegenerateIsOn = true;
-    }
+			warrior.OnAttacked(_warrior);
+			defense.TakeDamage(attack.Damage * DamageMultiplier);
+		}
+
+		yield return new WaitForSeconds(Mathf.Max(0, attack.Duration - attack.HitTime));
+
+		Attacking = false;
+		_currentAttack = null;
+		_stamina.RegenerateIsOn = true;
+	}
+
+	private IEnumerator Stun(float duration)
+	{
+		Stunned = true;
+
+		yield return new WaitForSeconds(duration);
+
+		Stunned = false;
+	}
 }
 
 [System.Serializable]
 public class Attack
 {
-    public int Damage = 10;
-    [Range(1, 10)]
-    public float Radius = 1;
-    [Tooltip("This is the full opening angle between the object's forward direction and the enemies.")]
-    [Range(10, 360)]
-    public float Angle = 10f;
-    public int StaminaCost = 10;
-    public float Duration = 0f, HitTime = 0f;
-    public float AnimClipDuration = 1.0f;
-    public float AnimDurationMulti
-    {
-        get
-        {
-            return (AnimClipDuration / Duration);
-        }
-    }
+	public int Damage = 10;
+	[Range(1, 10)]
+	public float Radius = 1;
+	[Tooltip("This is the full opening angle between the object's forward direction and the enemies.")]
+	[Range(10, 360)]
+	public float Angle = 10f;
+	public int StaminaCost = 10;
+	public float Duration = 0f, HitTime = 0f;
+	public float AnimClipDuration = 1.0f;
+	public float AnimDurationMulti
+	{
+		get
+		{
+			return (AnimClipDuration / Duration);
+		}
+	}
 }
