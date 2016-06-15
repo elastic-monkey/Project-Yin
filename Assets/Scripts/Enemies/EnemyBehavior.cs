@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Utilities;
 
-[RequireComponent(typeof(AttackBehavior), typeof(DefenseBehavior))]
+[RequireComponent(typeof(AttackBehavior), typeof(DefenseBehavior), typeof(HideByFading))]
 public class EnemyBehavior : WarriorBehavior
 {
     public const int AttackDefenseSliderStep = 5;
@@ -19,10 +18,23 @@ public class EnemyBehavior : WarriorBehavior
     public float Courage = 50;
     public Eyesight Eye;
     public EnemyArea Area;
+	public GameObject CollectablePrefab;
 
     private EnemyMovement _myMovement;
     [SerializeField]
     private WarriorBehavior _target;
+	private HideByFading _hide;
+
+	public HideByFading HideByFading
+	{
+		get
+		{
+			if (_hide == null)
+				_hide = GetComponent<HideByFading>();
+
+			return _hide;
+		}
+	}
 
     public bool HasEnemiesInRange
     {
@@ -140,7 +152,16 @@ public class EnemyBehavior : WarriorBehavior
     protected override void OnDeath()
     {
         Area.RemoveEnemy(this);
-    }
+
+		HideByFading.Duration = DeathDuration * 0.5f;
+		HideByFading.Hide();
+
+		if (CollectablePrefab != null)
+		{
+			var obj = Instantiate(CollectablePrefab);
+			obj.transform.position = transform.position + Vector3.up;
+		}
+	}
 
     public void SetTarget(WarriorBehavior target)
     {

@@ -2012,10 +2012,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147272}
-  m_LocalRotation: {x: 0, y: -0.9914448, z: 0, w: -0.1305266}
-  m_LocalPosition: {x: 14.320296, y: 0, z: -17.37009}
+  m_LocalRotation: {x: 0, y: -0.991445, z: 0, w: 0.13052541}
+  m_LocalPosition: {x: 15.76, y: 0, z: 10.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -195.00009, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -165.00009, z: 0}
   m_Children:
   - {fileID: 483636}
   - {fileID: 22447764}
@@ -2838,8 +2838,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundManager: {fileID: 0}
-  PlayVariations: 1
-  Items: []
+  Items:
+  - Name: Step
+    Action: 0
+    UseVariations: 1
+    DefaultClip: 0
+    Clips:
+    - {fileID: 8300000, guid: 881aeb30ad4f1934b97f611f8e0aff5a, type: 3}
 --- !u!114 &11479342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2910,6 +2915,7 @@ MonoBehaviour:
     Range: 10
     Angle: 140
   Area: {fileID: 0}
+  CollectablePrefab: {fileID: 198438, guid: 2e1d5afb266ba7c4986c94d546ba95a9, type: 2}
   _target: {fileID: 0}
 --- !u!136 &13681900
 CapsuleCollider:
