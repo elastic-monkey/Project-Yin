@@ -1,20 +1,143 @@
 <Document>
-	<Capsule>
+	<!-- Q3 - Starting Quadrant -->
+	<!-- Warning player of enemies -->
+	<Nie>
 		<Dialogue id="0">
-			<Line id="0" owner="Capsule">
-				Hello, my name is Capsule. This is a interaction test. How much text actually fits in one of these things? How do I even make a newline?
+			<Line id="0" owner="Nie Siyu">
+				Dangerous thing you're carrying there. Careful with the tin heads.
 			</Line>
-			<Line id="1" owner="MC">
-				Hello, I am the MC.
-			</Line>
-		</Dialogue>
-		<Dialogue id="1">
-			<Line id="0" owner="Capsule">
-				Could you just not?
-			</Line>
-			<Line id="1" owner="MC">
-				...Sorry.
+			<Line id="1" owner="Nie Siyu">
+				They usually don't bother people unless they're causing trouble.
 			</Line>
 		</Dialogue>
-	</Capsule>
+	</Nie>
+	<!-- Shop related dialogue -->
+	<Shen>
+		<Dialogue id="0">
+			<Line id="0" owner="Shen Xiaodan">
+				Rumour is that the owner of these stores has some sort of deal with the City, and with that comes stuff you can't get anywhere else. 
+			</Line>
+			<Line id="1" owner="Yin">
+				(Then maybe I can find something useful in there. I don't have access to the usual gear, so I'll just have to make do.)
+			</Line> 
+		</Dialogue>
+	</Shen>
+	<!-- Expository Dialogue -->
+	<Joe>
+		<Dialogue id="0">
+			<Line id="0" owner="Joe Qi">
+				So... Just what the hell happened here?
+			</Line>
+			<Line id="1" owner="Gau Minzhe">
+				Dai Lanfen was killed last night. Gruesome stuff. Cops took her body a while ago. At least I think they were cops, I didn't recognize the uniform.
+			</Line>
+			<Line id="2" owner="Yin">
+				(Dai Lanfen... I'm sorry. I'm so sorry.)
+			</Line>
+			<Line id="3" owner="Yin">
+				(The only thing I can promise you is that I won't give up until I make them pay for what they've done.)
+			</Line>
+		</Dialogue>
+	</Joe>
+	<!-- Other -->
+	<Kwong>
+		<Dialogue id="0">
+			<Line id="0" owner="Kwong Jiang">
+				Why exactly is there a shack in the middle of the street?
+			</Line>
+			<Line id="1" owner="Jow Tengfei">
+				Story is that the old man that lives here was so stubborn he refused to sell the land, so they just had to build around it.
+			</Line>
+		</Dialogue>
+	</Kwong>
+	<OldManLau>
+		<Dialogue id="0">
+			<Line id="0" owner="Old Man Lau">
+				What do you want? Another suit trying to kick me out of my home? I've been living here since before you were born. Now git!
+			</Line>
+		</Dialogue>
+	</OldManLau>
+	<Chuang>
+		<Dialogue id="0">
+			<Line id="0" owner="Chuang Yongzheng">
+				Have you spoken with Zhou already?
+			</Line>
+			<Line id="1" owner="Yi Yaochuan">
+				I've tried to, but the guy doesn't budge. Got a stick so far up his ass he can't even wear a hat.
+			</Line>
+		</Dialogue>
+	</Chuang>
+	<Lim>
+		<Dialogue id="0">
+			<Line id="0" owner="Lim Jianguo">
+				What are you looking at? Keep moving.
+			</Line>
+		</Dialogue>
+	</Lim>
+	<Sun>
+		<Dialogue id="0">
+			<Line id="0" owner="Sun Yingjie">
+				Keep moving. I'm not your friend, buddy.
+			</Line>
+			<Line id="1" owner="Yin">
+				And I'm not buddy, pal.
+			</Line>
+		</Dialogue>
+	</Sun>
+	<Peng>
+		<Dialogue id="0">
+			<Line id="0" owner="Peng Yuet">
+				Did you hear about Shiau Heng?
+			</Line>
+			<Line id="1" owner="Diao Xiaoqing">
+				Qiao Huifang must be heartbroken... To leave like that, in the middle of the night.
+			</Line>
+		</Dialogue>
+	</Peng>
+	<Feng>
+		<Dialogue id="0">
+			<Line id="0" owner="Feng Siyu">
+				It's already been almost 30 years since the quake, but the capital never really recovered.
+			</Line>
+		</Dialogue>
+	</Feng>
+	<GateInteraction1>
+		<Dialogue id="0">
+			<Line id="0" owner="Yin">
+				(No matter how many times I see them, the Gates are never not massive.)
+			</Line>
+		</Dialogue>
+	</GateInteraction1>
+	<GateInteraction2>
+		<Dialogue id="0">
+			<Line id="0" owner="Yin">
+				(No good. Even if it could open, going through here would be a bad idea.)
+			</Line>
+			<Line id="1" owner="Yin">
+				(If I recall, there was a flaw in one of the old gates. I should try there.)
+			</Line>
+		</Dialogue>
+	</GateInteraction2>
+	<OldGateInteraction>
+		<Dialogue id="0">
+			<Line id="0" owner="Yin">
+				(There we go, a way into the Old City.)
+			</Line>
+		</Dialogue>
+	</OldGateInteraction>
+	<!-- Quadrant 2 -->
+	<!-- Expository Dialogue -->
+	<Yan>
+		<Dialogue id="0">
+			<Line id="0" owner="Hou Liwei">
+				You know, I go through here everyday, but never quite managed to figure out what this thing is.
+			</Line>
+			<Line id="1" owner="Yan Renshu">
+				It's an old water filter. They started building the Red City from the outside going in, and used this to provide workers with clean water.
+			</Line>
+			<Line id="2" owner="Yan Renshu">
+				They just left this here because it would be cheaper than dismantling it and just fell in disuse.
+			</Line>
+		</Dialogue>
+	</Yan>
 </Document>
