@@ -30,5 +30,6 @@ public class MainMenuManager : MonoBehaviour
 		_instance = this;
 
 		SoundManager.InGame = false;
+		Time.timeScale = 1f;
 	}
 }
