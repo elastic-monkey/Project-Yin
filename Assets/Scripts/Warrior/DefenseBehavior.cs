@@ -48,27 +48,24 @@ public class DefenseBehavior : MonoBehaviour
 		CurrentDefense = 0;
 	}
 
-	public void TakeDamage(float damage)
+	public float TakeDamage(float damage)
 	{
 		if (!ShieldOn)
 		{
-			if (Defending)
-			{
-                var actualDamage = Mathf.Max(damage - Defenses[CurrentDefense].Armour, 0f);
-				_health.CurrentHealth -= actualDamage;
-                _stamina.ConsumeStamina(Defenses[CurrentDefense].StaminaCost);
-			}
-			else
-			{
-				if (tag == Tags.Enemy.TagToString() && _warrior.Attack.Attacking)
-					_warrior.Attack.StopAttack();
+			var realDamage = Defending ? Mathf.Max(damage - Defenses[CurrentDefense].Armour, 0f) : damage;
 
-				_health.CurrentHealth -= damage;
-			}
+			_health.CurrentHealth -= realDamage;
+			_stamina.ConsumeStamina(Defending ? Defenses[CurrentDefense].StaminaCost : 0);
+
+			if (tag == Tags.Enemy.TagToString() && _warrior.Attack.Attacking) // Enemy
+				_warrior.Attack.StopAttack();
+
+			return (realDamage / damage);
 		}
 		else
 		{
 			ShieldOn = false;
+			return 0f;
 		}
 	}
 
@@ -100,14 +97,14 @@ public class DefenseBehavior : MonoBehaviour
 	{
 		var chosenDefenseIndex = -1;
 
-        if (PlayerInput.IsButtonDown(Axes.Defend))
-        {
-            chosenDefenseIndex = 0;
-        }
-        else if (PlayerInput.IsButtonUp(Axes.Defend))
-        {
-            CancelDefense();
-        }
+		if (PlayerInput.IsButtonDown(Axes.Defend))
+		{
+			chosenDefenseIndex = 0;
+		}
+		else if (PlayerInput.IsButtonUp(Axes.Defend))
+		{
+			CancelDefense();
+		}
 
 		ApplyDefense(chosenDefenseIndex);
 	}
@@ -131,7 +128,7 @@ public class DefenseBehavior : MonoBehaviour
 	public void CancelDefense()
 	{
 		_cancelDefense = true;
-        _stamina.RegenerateIsOn = true;
+		_stamina.RegenerateIsOn = true;
 	}
 
 	private IEnumerator DefenseCoroutine(Defense defense)

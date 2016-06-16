@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public InteractionPrompt InteractionPrompt;
 	public SoundtrackManager SoundtrackManager;
 	public MenuSoundManager MenuSoundManager;
+	public SoundManager EnemiesSoundManager;
+	public PlayerHit SplashHit;
 
     [SerializeField]
     private bool _gamePaused;
@@ -98,26 +100,16 @@ public class GameManager : MonoBehaviour
 
     public void OnWarriorDeath(WarriorBehavior warrior)
     {
-        Debug.Log("On Warrior Death: " + warrior.tag);
+        //Debug.Log("On Warrior Death: " + warrior.tag);
         Destroy(warrior.gameObject);
-
-        //switch (warrior.tag)
-        //{
-        //    case Tags.Player:
-        //        OnPlayerDeath(warrior.GetComponent<PlayerBehavior>());
-        //        break;
-
-        //    case Tags.Enemy:
-        //        OnEnemyDeath(warrior.GetComponent<EnemyBehavior>());
-        //        break;
-        //}
     }
 
     public void OnPlayerDeath(PlayerBehavior player)
     {
-        // TODO: Activate Game Over Menu
-		GameOverMenu.OnGameOver(true);
-    }
+		SetGamePaused(true);
+		BlockGameplayInput(true);
+		GameOverMenu.Open();
+	}
 
     public void OnEnemyDeath(EnemyBehavior enemy)
     {

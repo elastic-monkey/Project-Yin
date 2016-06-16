@@ -17,7 +17,7 @@ public abstract class WarriorBehavior : MonoBehaviour
     private Stamina _stamina;
     private Animator _animator;
     private Movement _movement;
-    protected GameManager _gameManager;
+    private GameManager _gameManager;
 	protected WarriorSoundManager _soundManager;
     protected bool _dying = false;
 
@@ -109,6 +109,17 @@ public abstract class WarriorBehavior : MonoBehaviour
 		}
 	}
 
+	public GameManager GameManager
+	{
+		get
+		{
+			if (_gameManager == null)
+				_gameManager = GameManager.Instance;
+
+			return _gameManager;
+		}
+	}
+
     protected virtual void Awake()
     {
         Live();
@@ -116,8 +127,8 @@ public abstract class WarriorBehavior : MonoBehaviour
 
     protected virtual void Start()
     {
-        _gameManager = GameManager.Instance;
-    }
+		SoundManager.SoundManager = GameManager.EnemiesSoundManager;
+	}
 
     protected virtual void Update()
     {
@@ -137,16 +148,9 @@ public abstract class WarriorBehavior : MonoBehaviour
             Animator.SetFloat(AnimatorHashIDs.AttackMultiplierFloat, Attack.CurrentAttack.AnimDurationMulti);
     }
 
-    public virtual void OnAttacked(WarriorBehavior attacker)
+    public virtual void OnAttacked(WarriorBehavior attacker, float normalizedDamage)
     {
-        if (Defense.ShieldOn)
-        {
-            // Shield defense
-        }
-        else
-        {
-            // No defense. Hit
-        }
+		// Do stuff
     }
 
     public void Live()

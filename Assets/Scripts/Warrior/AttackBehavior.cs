@@ -133,6 +133,8 @@ public class AttackBehavior : MonoBehaviour
 		Attacking = true;
 		_currentAttack = attack;
 
+		//_warrior.SoundManager.PlayClip(WarriorSoundManager.ClipActions.Swing);
+
 		_stamina.ConsumeStamina(attack.StaminaCost * StaminaMultiplier);
 		_stamina.RegenerateIsOn = false;
 
@@ -154,8 +156,8 @@ public class AttackBehavior : MonoBehaviour
 				continue;
 			}
 
-			warrior.OnAttacked(_warrior);
-			defense.TakeDamage(attack.Damage * DamageMultiplier);
+			warrior.OnAttacked(_warrior, defense.TakeDamage(attack.Damage * DamageMultiplier));
+			
 		}
 
 		if (Targets != null && Targets.Count > 0)

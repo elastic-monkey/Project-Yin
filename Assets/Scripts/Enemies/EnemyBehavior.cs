@@ -37,7 +37,7 @@ public class EnemyBehavior : WarriorBehavior
 		}
 	}
 
-    public bool HasEnemiesInRange
+    public bool HasPlayerInRange
     {
         get
         {
@@ -69,7 +69,7 @@ public class EnemyBehavior : WarriorBehavior
 
         if (Health.CurrentHealth <= 0)
         {
-            _gameManager.OnEnemyDeath(this);
+            GameManager.OnEnemyDeath(this);
 
             Die();
 
@@ -80,9 +80,9 @@ public class EnemyBehavior : WarriorBehavior
 
         if (Target == null)
         {
-            if (Eye.CanSee(transform, _gameManager.Player.transform))
+            if (Eye.CanSee(transform, GameManager.Player.transform))
             {
-                SetTarget(_gameManager.Player);
+                SetTarget(GameManager.Player);
             }
         }
         else
@@ -106,7 +106,10 @@ public class EnemyBehavior : WarriorBehavior
                 SetTarget(null);
             }
 
-            if (HasEnemiesInRange)
+			if (!GameManager.Player.Health.Alive)
+				return;
+
+            if (HasPlayerInRange)
             {
                 if (AutomaticAttack)
                 {
@@ -142,9 +145,9 @@ public class EnemyBehavior : WarriorBehavior
         }
     }
 
-    public override void OnAttacked(WarriorBehavior attacker)
+    public override void OnAttacked(WarriorBehavior attacker, float normalizedDamage)
     {
-        base.OnAttacked(attacker);
+        base.OnAttacked(attacker, normalizedDamage);
 
         SetTarget(attacker);
         Area.NotifyEnemies(attacker);

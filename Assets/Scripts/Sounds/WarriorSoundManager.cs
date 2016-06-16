@@ -8,6 +8,7 @@ public class WarriorSoundManager : MonoBehaviour
         StepLeft,
 		StepRight,
         WeaponStrike,
+		Swing,
         NULL
     }
 

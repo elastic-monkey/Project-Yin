@@ -11,6 +11,7 @@ public class PlayerBehavior : WarriorBehavior
     private AbilitiesManager _abilities;
     private Experience _experience;
     private Currency _currency;
+	private PlayerHit _splashHit;
 
     public Experience Experience
     {
@@ -56,12 +57,14 @@ public class PlayerBehavior : WarriorBehavior
         }
     }
 
-    protected override void Awake()
-    {
-        base.Awake();
-    }
+	protected override void Start()
+	{
+		base.Start();
 
-    protected override void Update()
+		_splashHit = GameManager.SplashHit;
+	}
+
+	protected override void Update()
     {
         base.Update();
 
@@ -70,7 +73,7 @@ public class PlayerBehavior : WarriorBehavior
 
         if (Health.CurrentHealth <= 0)
         {
-            _gameManager.OnPlayerDeath(this);
+            GameManager.OnPlayerDeath(this);
 
             PlayerDeath();
 
@@ -90,10 +93,14 @@ public class PlayerBehavior : WarriorBehavior
         }
     }
 
-    public override void OnAttacked(WarriorBehavior attacker)
+    public override void OnAttacked(WarriorBehavior attacker, float normalizedDamage)
     {
-        base.OnAttacked(attacker);
+        base.OnAttacked(attacker, normalizedDamage);
 
+		if (normalizedDamage > 0)
+		{
+			_splashHit.Show(normalizedDamage);
+		}
         // TODO: sound or reaction
     }
 
