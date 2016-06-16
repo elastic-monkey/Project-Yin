@@ -5,12 +5,15 @@ public class WarriorSoundManager : MonoBehaviour
 {
     public enum ClipActions
     {
-        Step,
+        StepLeft,
+		StepRight,
         WeaponStrike,
         NULL
     }
 
     public SoundManager SoundManager;
+	[Range(0, 2)]
+	public float VolumeMultiplier = 1f;
     public List<AudioClipItem> Items;
 
     public void PlayClip(ClipActions action)
@@ -24,7 +27,7 @@ public class WarriorSoundManager : MonoBehaviour
         if (clip == null)
             return;
 
-        SoundManager.Play(clip, loop);
+        SoundManager.PlaySpatial(transform, clip, loop);
     }
 
     public void Stop(ClipActions action)

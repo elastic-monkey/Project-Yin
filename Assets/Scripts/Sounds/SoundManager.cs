@@ -47,12 +47,44 @@ public class SoundManager : MonoBehaviour
 
 	public AudioSource Play(AudioClip clip, bool loop, float volume = 1f)
 	{
+		if (volume == 0f)
+			return null;
+
 		var source = FindAvailableSource();
 		if (source == null)
 		{
 			Debug.LogWarning("Not able to play sound clip: " + clip.name + ". Consider increasing MaxAudioSources.");
 			return null;
 		}
+
+		source.spatialBlend = 0;
+		source.dopplerLevel = 0;
+		source.volume = volume;
+		source.clip = clip;
+		source.loop = loop;
+		source.Play();
+
+		if (!loop)
+			StartCoroutine(CleanAfterPlaying(source, clip.length));
+
+		return source;
+	}
+
+	public AudioSource PlaySpatial(Transform transform, AudioClip clip, bool loop, float volume = 1f)
+	{
+		if (volume == 0f)
+			return null;
+
+		var source = FindAvailableSource();
+		if (source == null)
+		{
+			Debug.LogWarning("Not able to play sound clip: " + clip.name + ". Consider increasing MaxAudioSources.");
+			return null;
+		}
+
+		source.transform.position = transform.position;
+		source.spatialBlend = 1f;
+		source.dopplerLevel = 0.2f;
 
 		source.volume = volume;
 		source.clip = clip;
@@ -92,8 +124,11 @@ public class SoundManager : MonoBehaviour
 		StartCoroutine(FadeVolume(source, 0f, duration));
 	}
 
-	public void FadeIn(AudioClip clip, float duration = 1f, float maxVolume = 1f, bool loop = false)
+	public void FadeIn(AudioClip clip, float duration = 1f, float volume = 1f, bool loop = false)
 	{
+		if (volume == 0f)
+			return;
+
 		var source = FindSourceByClip(clip);
 		if (source != null)
 		{
@@ -107,7 +142,7 @@ public class SoundManager : MonoBehaviour
 
 		source.volume = 0f;
 
-		StartCoroutine(FadeVolume(source, Mathf.Min(1f, maxVolume), duration));
+		StartCoroutine(FadeVolume(source, Mathf.Min(1f, volume), duration));
 	}
 
 	private IEnumerator FadeVolume(AudioSource source, float targetVolume, float duration)

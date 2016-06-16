@@ -108,7 +108,7 @@ public class SoundtrackManager : MonoBehaviour
 		CurrentState.ClipIndex = Random.Range(0, Fight.Length);
 		CurrentState.ResetDeltaTime();
 
-		SoundManager.Play(ExploreToFight, false, Volume);
+		SoundManager.Play(ExploreToFight, false, Volume * 0.5f);
 		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 	}
 
