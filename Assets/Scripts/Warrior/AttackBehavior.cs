@@ -158,6 +158,9 @@ public class AttackBehavior : MonoBehaviour
 			defense.TakeDamage(attack.Damage * DamageMultiplier);
 		}
 
+		if (Targets != null && Targets.Count > 0)
+			_warrior.SoundManager.PlayClip(WarriorSoundManager.ClipActions.WeaponStrike);
+
 		yield return new WaitForSeconds(Mathf.Max(0, attack.Duration - attack.HitTime));
 
 		Attacking = false;

@@ -185,6 +185,7 @@ GameObject:
   - 114: {fileID: 11487488}
   - 114: {fileID: 11476292}
   - 114: {fileID: 11440786}
+  - 81: {fileID: 8195490}
   m_Layer: 9
   m_Name: Yin
   m_TagString: Player
@@ -2140,7 +2141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
   m_LocalRotation: {x: 0, y: 0.79335344, z: 0, w: 0.6087614}
-  m_LocalPosition: {x: 0.2, y: 0, z: -152.8}
+  m_LocalPosition: {x: 4.63, y: 0, z: -25.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 105, z: 0}
   m_Children:
@@ -2468,6 +2469,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!81 &8195490
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123740}
+  m_Enabled: 1
 --- !u!95 &9586910
 Animator:
   serializedVersion: 3
@@ -2582,12 +2590,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundManager: {fileID: 0}
+  VolumeMultiplier: 1
   Items:
-  - Name: Step
+  - Name: StepLeft
     Action: 0
     UseVariations: 0
     DefaultClip: 0
     Clips: []
+  - Name: StepRight
+    Action: 1
+    UseVariations: 0
+    DefaultClip: 0
+    Clips: []
+  - Name: WeaponStrike
+    Action: 2
+    UseVariations: 1
+    DefaultClip: 0
+    Clips:
+    - {fileID: 8300000, guid: 46789d0d5f0ac104dafac19b8a908e0a, type: 3}
+    - {fileID: 8300000, guid: abbc41b09a95afa4abe6cc9263211ee1, type: 3}
+    - {fileID: 8300000, guid: 1ef3ad3c524ffb549a0dfa44f6db787e, type: 3}
+    - {fileID: 8300000, guid: 4620d3d7ce6a52f4f9d0c0cbf6840035, type: 3}
 --- !u!114 &11443228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2621,16 +2644,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377938be936fc384394229f9a23327aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StunDuration: 0.5
   Range: 2.3
   Attacks:
   - Damage: 15
     Radius: 2.3
     Angle: 10
     StaminaCost: 20
-    Duration: 0.633
+    Duration: 0.8
     HitTime: 0.5
-    AnimClipDuration: 0.633
+    AnimClipDuration: 0.8
   CanAttack: 1
+  Stunned: 0
   Attacking: 0
   Targets: []
   DamageMultiplier: 1
