@@ -103,7 +103,6 @@ public class DialogueManager
     {
         get
         {
-            Debug.Log("Current Line: " + CurrentLine);
             return Dialogues[CurrentDialog].Lines[CurrentLine];
         }
     }

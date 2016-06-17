@@ -25,7 +25,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 22495610}
   - 114: {fileID: 11429190}
-  - 222: {fileID: 22245468}
   m_Layer: 0
   m_Name: StaminaSyringe
   m_TagString: Untagged
@@ -42,7 +41,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 22439804}
   - 114: {fileID: 11479444}
-  - 222: {fileID: 22277268}
   m_Layer: 0
   m_Name: EnemyDrop
   m_TagString: Untagged
@@ -59,7 +57,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 22491892}
   - 114: {fileID: 11424888}
-  - 222: {fileID: 22281784}
   m_Layer: 0
   m_Name: HealthSyringe
   m_TagString: Untagged
@@ -76,7 +73,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 22432886}
   - 114: {fileID: 11445186}
-  - 222: {fileID: 22222134}
   m_Layer: 0
   m_Name: BossDrop
   m_TagString: Untagged
@@ -117,7 +113,7 @@ MonoBehaviour:
   BuyPrice: 100
   SellPrice: 0
   MaxStock: 15
-  Icon: {fileID: 21300000, guid: ea57e05aac5126048af3f62cb26b9329, type: 3}
+  Icon: {fileID: 21300000, guid: 9ab83387eed4569438792f3864f9f98f, type: 3}
   ItemName: Health Syringe
   Effect: Restores 20 Health Points
   FlavorText: A small syringe containing a red liquid
@@ -139,7 +135,7 @@ MonoBehaviour:
   BuyPrice: 100
   SellPrice: 0
   MaxStock: 15
-  Icon: {fileID: 21300000, guid: 204b2bf14785f2040bbff6e14e43fb1c, type: 3}
+  Icon: {fileID: 21300000, guid: 5946c2d00df861747b8d1cf173b13989, type: 3}
   ItemName: Energy Syringe
   Effect: Restores 10 Energy Points over 5 seconds
   FlavorText: A small syringe containing a blue liquid
@@ -204,30 +200,6 @@ MonoBehaviour:
   Player: {fileID: 0}
   Value: 100
   Inventory: {fileID: 0}
---- !u!222 &22222134
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196468}
---- !u!222 &22245468
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145624}
---- !u!222 &22277268
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177352}
---- !u!222 &22281784
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187534}
 --- !u!224 &22432886
 RectTransform:
   m_ObjectHideFlags: 1
