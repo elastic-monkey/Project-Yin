@@ -103,6 +103,7 @@ public class DialogueManager
     {
         get
         {
+            Debug.Log("Current Line: " + CurrentLine);
             return Dialogues[CurrentDialog].Lines[CurrentLine];
         }
     }
@@ -113,15 +114,6 @@ public class DialogueManager
         {
             CurrentLine = 0;
             FinishedDialogue = true;
-
-            if ((CurrentDialog + 1) < Dialogues.Count)
-            {
-                CurrentDialog++;
-            }
-            else
-            {
-                CurrentDialog = 0;
-            }
         }
         else
         {
