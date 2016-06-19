@@ -80,11 +80,14 @@ public class InventoryMenu : GameMenu
 
 	public InventorySlotNavItem GetSlotItem(Item item)
 	{
-		foreach (var slotItem in InventorySlots)
-		{
-			if (slotItem.Item.Type == item.Type)
-				return slotItem;
-		}
+        foreach (var slotItem in InventorySlots)
+        {
+            if (slotItem.Item != null)
+            {
+                if (slotItem.Item.Type == item.Type)
+                    return slotItem;
+            }
+        }
 
 		return null;
 	}
