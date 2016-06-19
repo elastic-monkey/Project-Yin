@@ -47,9 +47,9 @@ public class InventorySlotNavItem : GameNavItem
 
     public void IncreaseStock(int number)
     {
-        if (Stock + number <= Item.MaxStock)
+        if (_stock + number <= Item.MaxStock)
         {
-            Stock += number;
+            _stock += number;
             UpdateSlot();
         }
     }
