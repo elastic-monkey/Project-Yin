@@ -52,11 +52,26 @@ public class Stamina : Upgradable
 
     protected override void OnUpgradeTo(int level)
     {
-        MaxStamina = BaseMaxStamina + level * StaminaLevelIncrement;
+        MaxStamina = GetMaxStamina(level);
+    }
+
+    private float GetMaxStamina(int level)
+    {
+        return BaseMaxStamina + level * StaminaLevelIncrement;
     }
 
     protected override bool OnCanBeUpgradedTo(int level)
     {
         return true;
+    }
+
+    public override string GetFlavorText()
+    {
+        return "Combat experience allows Yin to better measure her blows, better managing her stamina.";
+    }
+
+    public override string GetEffectText(int level)
+    {
+        return "Increases Energy to " + GetMaxStamina(level).ToString();
     }
 }

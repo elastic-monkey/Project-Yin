@@ -3,15 +3,14 @@
 public class SpeedAbility : Ability
 {
     [Range(1, 2)]
-    public float BaseMultiplier = 1.5f;
+    public float BaseMultiplier = 1.0f;
     [Range(0, 1)]
-    public float Increment = 0.25f;
+    public float Increment = 0.05f;
 
     public override void SetActive(PlayerBehavior player)
     {
         Active = true;
-        player.PlayerMovement.SpeedMulti = BaseMultiplier + CurrentLevel * Increment;
-        Debug.Log("SPEED LEVEL: " + CurrentLevel);
+        player.PlayerMovement.SpeedMulti = GetSpeed(CurrentLevel);
         UpdateHUDSlot();
     }
 
@@ -20,6 +19,11 @@ public class SpeedAbility : Ability
         Active = false;
         player.PlayerMovement.SpeedMulti = 1f;
         UpdateHUDSlot();
+    }
+
+    private float GetSpeed(int level)
+    {
+        return BaseMultiplier + (level * Increment);
     }
 
     public override SerializableAbility Serialize()
@@ -45,5 +49,15 @@ public class SpeedAbility : Ability
     public override AbilityType Type()
     {
         return AbilityType.Speed;
+    }
+
+    public override string GetFlavorText()
+    {
+        return "Control over artificial muscles allows Yin to move at greater speed";
+    }
+
+    public override string GetEffectText(int level)
+    {
+        return "Increases movement speed by " + GetSpeed(level).ToString();
     }
 }

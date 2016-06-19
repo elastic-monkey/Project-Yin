@@ -43,4 +43,8 @@ public abstract class Upgradable : MonoBehaviour
     protected abstract void OnUpgradeTo(int level);
 
     protected abstract bool OnCanBeUpgradedTo(int level);
+
+    public abstract string GetFlavorText();
+
+    public abstract string GetEffectText(int level);
 }

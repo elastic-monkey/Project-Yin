@@ -62,12 +62,27 @@ public class Health : Upgradable
 
     protected override void OnUpgradeTo(int level)
     {
-        MaxHealth = BaseMaxHealth + level * HealthLevelIncrement;
+        MaxHealth = GetMaxHealth(level);
         RegenerateFull();
+    }
+
+    private float GetMaxHealth(int level)
+    {
+        return BaseMaxHealth + level * HealthLevelIncrement;
     }
 
     protected override bool OnCanBeUpgradedTo(int level)
     {
         return true;
+    }
+
+    public override string GetFlavorText()
+    {
+        return "Combat experience allows Yin to better tank blows, increasing her survivability.";
+    }
+
+    public override string GetEffectText(int level)
+    {
+        return "Increases Health to " + GetMaxHealth(level).ToString();
     }
 }

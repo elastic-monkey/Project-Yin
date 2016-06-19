@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class UpgradeMenu : GameMenu
 {
-    public Text AvailableSP, UpgradeCost, EffectText;
+    public Text Level, AvailableSP, UpgradeCost, EffectText, FlavorText;
 
     private UpgradeMenuNavItem[] _items;
 
@@ -64,8 +64,7 @@ public class UpgradeMenu : GameMenu
         if (upgradable == null)
             return;
 
-        UpgradeCost.text = upgradable.UpgradeCost(navItem.UpgradeLevel).ToString();
-        UpdateAvailableSP();
+        UpdateDescription(navItem, upgradable);
     }
 
     private void UpdateAllItems()
@@ -115,10 +114,15 @@ public class UpgradeMenu : GameMenu
         }
     }
 
-    private void UpdateAvailableSP()
+    private void UpdateDescription(UpgradeMenuNavItem navItem, Upgradable upgradable)
     {
+        Debug.Log("UPDATING DESCRIPTION");
+        Level.text = "LEVEL " + navItem.UpgradeLevel.ToString();
+        UpgradeCost.text = upgradable.UpgradeCost(navItem.UpgradeLevel).ToString();
         AvailableSP.text = Player.Experience.SkillPoints.ToString();
-    }
+        FlavorText.text = upgradable.GetFlavorText();
+        EffectText.text = upgradable.GetEffectText(navItem.UpgradeLevel);
+    } 
 
     public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {

@@ -4,21 +4,19 @@ using System.Collections;
 public class StrengthAbility : Ability
 {
     [Range(1, 2)]
-    public float BaseDamageMultiplier = 2;
+    public float BaseDamageMultiplier = 1.0f;
     [Range(0, 1)]
     public float DamageIncrement = 0.25f;
     [Range(1, 2)]
-    public float BaseStaminaMultiplier = 2;
+    public float BaseStaminaMultiplier = 1.0f;
     [Range(0, 1)]
     public float StaminaIncrement = 0.25f;
 
     public override void SetActive(PlayerBehavior player)
     {
         Active = true;
-        player.Attack.DamageMultiplier = BaseDamageMultiplier + DamageIncrement * CurrentLevel;
-        player.Attack.StaminaMultiplier = BaseStaminaMultiplier + StaminaIncrement * CurrentLevel;
-
-        Debug.Log("STRENGHT LEVEL: " + CurrentLevel);
+        player.Attack.DamageMultiplier = GetDamageMultiplier(CurrentLevel);
+        player.Attack.StaminaMultiplier = GetStaminaMultiplier(CurrentLevel);
 
         UpdateHUDSlot();
     }
@@ -29,6 +27,16 @@ public class StrengthAbility : Ability
         player.Attack.DamageMultiplier = 1f;
         player.Attack.StaminaMultiplier = 1f;
         UpdateHUDSlot();
+    }
+
+    private float GetDamageMultiplier(int level)
+    {
+        return BaseDamageMultiplier + (DamageIncrement * level);
+    }
+
+    private float GetStaminaMultiplier(int level)
+    {
+        return BaseStaminaMultiplier + (StaminaIncrement * level);
     }
 
     public override SerializableAbility Serialize()
@@ -58,5 +66,16 @@ public class StrengthAbility : Ability
     public override AbilityType Type()
     {
         return AbilityType.Strength;
+    }
+
+    public override string GetFlavorText()
+    {
+        return "Control over artificial muscles turns Yin's blade deadlier";
+    }
+
+    public override string GetEffectText(int level)
+    {
+        return "Increases attack power by " + GetDamageMultiplier(level).ToString() + "\n"
+             + "Increases energy consumption by " + GetStaminaMultiplier(level).ToString();
     }
 }

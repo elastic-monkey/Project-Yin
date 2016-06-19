@@ -31,4 +31,14 @@ public class VisionAbility : Ability
     {
         return AbilityType.Vision;
     }
+
+    public override string GetFlavorText()
+    {
+        return "";
+    }
+
+    public override string GetEffectText(int level)
+    {
+        return "";
+    }
 }
