@@ -22,6 +22,7 @@ public class AttackBehavior : MonoBehaviour
 	private float _sqrRange;
 	private Attack _currentAttack;
 	private Coroutine _lastAttack;
+	private float _timeSinceAttackBegin;
 
 	public Attack CurrentAttack
 	{
@@ -121,6 +122,9 @@ public class AttackBehavior : MonoBehaviour
 
 	public void StopAttack()
 	{
+		if (_timeSinceAttackBegin > CurrentAttack.Duration * 0.33f)
+			return;
+
 		StopCoroutine(_lastAttack);
 		Attacking = false;
 
@@ -132,13 +136,15 @@ public class AttackBehavior : MonoBehaviour
 	{
 		Attacking = true;
 		_currentAttack = attack;
-
-		//_warrior.SoundManager.PlayClip(WarriorSoundManager.ClipActions.Swing);
-
 		_stamina.ConsumeStamina(attack.StaminaCost * StaminaMultiplier);
 		_stamina.RegenerateIsOn = false;
+		_timeSinceAttackBegin = 0f;
 
-		yield return new WaitForSeconds(attack.HitTime);
+		while (_timeSinceAttackBegin < attack.HitTime)
+		{
+			_timeSinceAttackBegin += Time.deltaTime;
+			yield return null;
+		}
 
 		foreach (var target in Targets)
 		{
@@ -157,7 +163,6 @@ public class AttackBehavior : MonoBehaviour
 			}
 
 			warrior.OnAttacked(_warrior, defense.TakeDamage(attack.Damage * DamageMultiplier));
-			
 		}
 
 		if (Targets != null && Targets.Count > 0)
@@ -168,6 +173,7 @@ public class AttackBehavior : MonoBehaviour
 		Attacking = false;
 		_currentAttack = null;
 		_stamina.RegenerateIsOn = true;
+		_timeSinceAttackBegin = 0f;
 	}
 
 	private IEnumerator Stun(float duration)
