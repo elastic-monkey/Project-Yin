@@ -16,11 +16,7 @@ public class Experience : MonoBehaviour
         }
         set
         {
-            if (_currentExp + value > MaxExperience)
-            { // LEVEL UP
-                SkillPoints++;
-                _currentExp = _currentExp + value - MaxExperience;
-            }
+            _currentExp = value;
         }
     }
 
@@ -34,12 +30,20 @@ public class Experience : MonoBehaviour
 
     private void Awake()
     {
-        CurrentExperience = 0f;
+        _currentExp = 0f;
     }
 
     public void GiveExp(float exp)
     {
-        CurrentExperience += exp;
+        if (_currentExp + exp > MaxExperience)
+        { // LEVEL UP
+            SkillPoints++;
+            _currentExp = _currentExp + (exp - MaxExperience);
+        }
+        else
+        {
+            _currentExp += exp;
+        }
     }
 
 	public void ConsumeSkillPoints(int sp)

@@ -180,11 +180,20 @@ public abstract class WarriorBehavior : MonoBehaviour
         Debug.Log("Warrior is dying...");
         Animator.SetBool(AnimatorHashIDs.DeadBool, true);
 
+        if (!playerDeath)
+        {
+            _gameManager.Player.Experience.GiveExp(30.0f);
+        }
+
         yield return new WaitForSeconds(DeathDuration);
 
         Debug.Log("Warrior is dead.");
         if (!playerDeath)
+        {
             gameObject.SetActive(false);
+        }
+
+
     }
 
     protected abstract void OnDeath();
