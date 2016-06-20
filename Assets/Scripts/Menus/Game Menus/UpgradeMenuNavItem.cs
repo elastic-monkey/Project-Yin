@@ -3,40 +3,46 @@ using UnityEngine.UI;
 
 public class UpgradeMenuNavItem : GameNavItem
 {
-    public bool Purchased;
-    public Sprite InitialSprite;
-    public Sprite PurchasedSprite;
-    public Sprite DisabledSprite;
-    public int UpgradeLevel;
+	public bool Purchased;
+	public Sprite InitialSprite;
+	public Sprite PurchasedSprite;
+	public Sprite DisabledSprite;
+	public int UpgradeLevel;
 
-    private Image _upgradeIcon;
+	private Image _upgradeIcon;
 
-    public void Start()
-    {
-        _upgradeIcon = GetComponent<Image>();
-    }
+	public Image UpgradeIcon
+	{
+		get
+		{
+			if (_upgradeIcon == null)
+				_upgradeIcon = GetComponent<Image>();
 
-    public override void OnSelect(IMenu manager)
-    {
-        Data = new string[1];
-        Data[0] = UpgradeLevel.ToString();
+			return _upgradeIcon;
+		}
+	}
 
-        manager.OnNavItemSelected(this, Action, Data);
-    }
+	public override void OnSelect(IMenu manager)
+	{
+		Data = new string[1];
+		Data[0] = UpgradeLevel.ToString();
 
-    protected override void OnFocus(bool value)
-    {
-        //base.OnFocus(value);
-    }
+		manager.OnNavItemSelected(this, Action, Data);
+	}
 
-    public void Purchase(bool value)
-    {
-        Purchased = true;
-        UpdateColor();
-    }
+	protected override void OnFocus(bool value)
+	{
+		//base.OnFocus(value);
+	}
 
-    public override void UpdateColor()
-    {
-        _upgradeIcon.sprite = Disabled ? DisabledSprite : Purchased ? PurchasedSprite : InitialSprite;
-    }
+	public void Purchase(bool value)
+	{
+		Purchased = true;
+		UpdateColor();
+	}
+
+	public override void UpdateColor()
+	{
+		UpgradeIcon.sprite = Disabled ? DisabledSprite : Purchased ? PurchasedSprite : InitialSprite;
+	}
 }

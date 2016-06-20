@@ -504,6 +504,7 @@ GameObject:
   - 114: {fileID: 11463590}
   - 95: {fileID: 9501182}
   - 114: {fileID: 11479158}
+  - 114: {fileID: 11461802}
   m_Layer: 10
   m_Name: Boss
   m_TagString: Enemy
@@ -2012,10 +2013,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147272}
-  m_LocalRotation: {x: 0, y: -0.991445, z: 0, w: 0.13052541}
-  m_LocalPosition: {x: 15.76, y: 0, z: 10.79}
+  m_LocalRotation: {x: 0, y: -0.92388004, z: 0, w: 0.38268232}
+  m_LocalPosition: {x: 15.856224, y: 0, z: 10.598884}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -165.00009, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -135.00009, z: 0}
   m_Children:
   - {fileID: 483636}
   - {fileID: 22447764}
@@ -2653,6 +2654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377938be936fc384394229f9a23327aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StunDuration: 0.5
   Range: 2
   Attacks:
   - Damage: 20
@@ -2663,6 +2665,7 @@ MonoBehaviour:
     HitTime: 0.75
     AnimClipDuration: 1.667
   CanAttack: 1
+  Stunned: 0
   Attacking: 0
   Targets: []
   DamageMultiplier: 1
@@ -2768,6 +2771,23 @@ MonoBehaviour:
   CanDefend: 1
   Defending: 0
   ShieldOn: 0
+--- !u!114 &11461802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5ce1c929ff3ef4fb26876551103ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 0.2
+  HideParent: {fileID: 491934}
+  ShowParent: {fileID: 0}
+  Colliders: []
+  RenderersToHide: []
+  RenderersToShow: []
 --- !u!114 &11463590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2781,7 +2801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanMove: 1
   Moving: 0
-  AnimSpeedMulti: 1
+  AnimSpeedMulti: 2
   Speed: 6
   SpeedMulti: 1
   SpeedThreshold: 1
@@ -2838,13 +2858,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundManager: {fileID: 0}
+  VolumeMultiplier: 1
   Items:
-  - Name: Step
+  - Name: StepLeft
     Action: 0
     UseVariations: 1
     DefaultClip: 0
     Clips:
-    - {fileID: 8300000, guid: 881aeb30ad4f1934b97f611f8e0aff5a, type: 3}
+    - {fileID: 0}
 --- !u!114 &11479342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2913,8 +2934,9 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 1536
     Range: 10
-    Angle: 140
+    Angle: 200
   Area: {fileID: 0}
+  HUD: {fileID: 123306}
   CollectablePrefab: {fileID: 198438, guid: 2e1d5afb266ba7c4986c94d546ba95a9, type: 2}
   _target: {fileID: 0}
 --- !u!136 &13681900

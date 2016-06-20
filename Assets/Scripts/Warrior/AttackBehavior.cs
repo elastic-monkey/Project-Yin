@@ -140,6 +140,16 @@ public class AttackBehavior : MonoBehaviour
 		_stamina.RegenerateIsOn = false;
 		_timeSinceAttackBegin = 0f;
 
+		var swingTime = 0.6f * attack.HitTime;
+
+		while (_timeSinceAttackBegin < swingTime)
+		{
+			_timeSinceAttackBegin += Time.deltaTime;
+			yield return null;
+		}
+
+		_warrior.SoundManager.PlayClip(WarriorSoundManager.ClipActions.Swing);
+
 		while (_timeSinceAttackBegin < attack.HitTime)
 		{
 			_timeSinceAttackBegin += Time.deltaTime;
