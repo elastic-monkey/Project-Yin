@@ -147,7 +147,34 @@
             Gizmos.DrawLine(p3, p4);
             Gizmos.DrawLine(p4, p1);
         }
-    }
+
+		public static void DrawSquareArena(Vector3 origin, Quaternion rotation, float width, float depth, int divisions, Color color = default(Color))
+		{
+			Gizmos.color = color;
+
+			var pivot = origin;
+			var angles = rotation.eulerAngles;
+			var offsetX = new Vector3(width / divisions, 0, 0);
+			var offsetZ = new Vector3(0, 0, depth / divisions);
+
+			for (int x = 0; x < divisions; x++)
+			{
+				for (int z = 0; z < divisions; z++)
+				{
+					var p0 = origin + (offsetX * x + offsetZ * z);
+					var p1 = Vector3Helper.RotateAroundPivot(p0, pivot, angles);
+					var p2 = Vector3Helper.RotateAroundPivot(p0 + offsetX, pivot, angles);
+					var p3 = Vector3Helper.RotateAroundPivot(p0 + offsetZ + offsetX, pivot, angles);
+					var p4 = Vector3Helper.RotateAroundPivot(p0 + offsetZ, pivot, angles);
+
+					Gizmos.DrawLine(p1, p2);
+					Gizmos.DrawLine(p2, p3);
+					Gizmos.DrawLine(p3, p4);
+					Gizmos.DrawLine(p4, p1);
+				}
+			}
+		}
+	}
 
     public static class IOHelper
     {
