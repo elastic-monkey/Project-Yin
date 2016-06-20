@@ -1,10 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeMenuNavItem : GameNavItem
 {
     public bool Purchased;
-    public Color PurchasedColor;
+    public Sprite InitialSprite;
+    public Sprite PurchasedSprite;
+    public Sprite DisabledSprite;
     public int UpgradeLevel;
+
+    private Image _upgradeIcon;
+
+    public void Start()
+    {
+        _upgradeIcon = GetComponent<Image>();
+    }
 
     public override void OnSelect(IMenu manager)
     {
@@ -27,6 +37,6 @@ public class UpgradeMenuNavItem : GameNavItem
 
     public override void UpdateColor()
     {
-        TargetGraphic.color = Disabled ? DisabledColor : Purchased ? PurchasedColor : _initialColor;
+        _upgradeIcon.sprite = Disabled ? DisabledSprite : Purchased ? PurchasedSprite : InitialSprite;
     }
 }
