@@ -17,7 +17,6 @@ public class EnemyArea : MonoBehaviour
 
 	private GameManager _gameManager;
 	protected List<EnemyBehavior> _enemiesAssigned;
-	[SerializeField]
 	private float _halfDangerWidth, _halfWarningWidth;
 	private float _halfDangerDepth, _halfWarningDepth;
 

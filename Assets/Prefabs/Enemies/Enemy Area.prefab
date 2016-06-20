@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414262}
-  - 114: {fileID: 11437822}
+  - 114: {fileID: 11435634}
   m_Layer: 14
   m_Name: Enemy Area
   m_TagString: Danger Area
@@ -23,13 +23,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.5, y: 0, z: -1.25}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11437822
+--- !u!114 &11435634
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -37,7 +37,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 181306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 485619540d17fee468c00d1164855521, type: 3}
+  m_Script: {fileID: 11500000, guid: 760e88c2b91ef394f89adab1a7f97c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Height: 15
@@ -48,13 +48,9 @@ MonoBehaviour:
   WarningWidth: 32
   WarningDepth: 45
   FightDistance: 5
-  MaxEnemiesPerFight: 3
+  MaxEnemiesPerFight: 2
   PlayerInWarningZone: 0
   PlayerInDangerZone: 0
-  _halfDangerWidth: 0
-  _halfWarningWidth: 0
-  Barriers: []
-  TrapEnabled: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

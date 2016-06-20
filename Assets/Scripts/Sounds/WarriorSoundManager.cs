@@ -13,8 +13,6 @@ public class WarriorSoundManager : MonoBehaviour
     }
 
     public SoundManager SoundManager;
-	[Range(0, 2)]
-	public float VolumeMultiplier = 1f;
     public List<AudioClipItem> Items;
 
     public void PlayClip(ClipActions action)
@@ -24,25 +22,32 @@ public class WarriorSoundManager : MonoBehaviour
 
     public void Play(ClipActions action, bool loop)
     {
-        var clip = FindClip(action);
+		AudioClipItem item;
+        var clip = FindClip(action, out item);
         if (clip == null)
             return;
 
-        SoundManager.PlaySpatial(transform, clip, loop);
+        SoundManager.PlaySpatial(transform, clip, loop, item.VolumeMultiplier);
     }
 
     public void Stop(ClipActions action)
     {
-        var clip = FindClip(action);
+		var clip = FindClip(action);
         if (clip == null)
             return;
 
         SoundManager.Stop(clip);
     }
 
-    private AudioClip FindClip(ClipActions action)
+	private AudioClip FindClip(ClipActions action)
+	{
+		AudioClipItem item;
+		return FindClip(action, out item);
+	}
+
+	private AudioClip FindClip(ClipActions action, out AudioClipItem item)
     {
-        var item = FindItem(action);
+		item = FindItem(action);
         if (item == null)
         {
             Debug.LogWarning(string.Concat(name, ": Sound item not found for [", action.ToString(), "]"));
@@ -94,6 +99,8 @@ public class WarriorSoundManager : MonoBehaviour
         [HideInInspector]
         public string Name;
         public ClipActions Action;
+		[Range(0, 2)]
+		public float VolumeMultiplier = 1f;
         public bool UseVariations;
         public int DefaultClip = 0;
         public List<AudioClip> Clips;
