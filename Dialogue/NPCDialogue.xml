@@ -107,30 +107,6 @@
 			</Line>
 		</Dialogue>
 	</Feng>
-	<GateInteraction1>
-		<Dialogue id="0">
-			<Line id="0" owner="Yin">
-				(No matter how many times I see them, the Gates are never not massive.)
-			</Line>
-		</Dialogue>
-	</GateInteraction1>
-	<GateInteraction2>
-		<Dialogue id="0">
-			<Line id="0" owner="Yin">
-				(No good. Even if it could open, going through here would be a bad idea.)
-			</Line>
-			<Line id="1" owner="Yin">
-				(If I recall, there was a flaw in one of the old gates. I should try there.)
-			</Line>
-		</Dialogue>
-	</GateInteraction2>
-	<OldGateInteraction>
-		<Dialogue id="0">
-			<Line id="0" owner="Yin">
-				(There we go, a way into the Old City.)
-			</Line>
-		</Dialogue>
-	</OldGateInteraction>
 	<!-- Quadrant 2 -->
 	<!-- Expository Dialogue -->
 	<Yan>
@@ -174,6 +150,37 @@
 		</Dialogue>	
 	</Yim>
 	<!-- Q1 -->
+	<GateInteraction1>
+		<Dialogue id="0">
+			<Line id="0" owner="Yin">
+				(No matter how many times I see them, the Gates are never not massive.)
+			</Line>
+		</Dialogue>
+	</GateInteraction1>
+	<GateInteraction2>
+		<Dialogue id="0">
+			<Line id="0" owner="Yin">
+				(No good. Even if it could open, going through here would be a bad idea.)
+			</Line>
+			<Line id="1" owner="Yin">
+				(If I recall, there was a flaw in one of the old gates. I should try there.)
+			</Line>
+		</Dialogue>
+	</GateInteraction2>
+	<OldGateInteraction>
+		<Dialogue id="0">
+			<Line id="0" owner="The Team">
+				Congratulations on completing the Demo version of Project Yin!
+			</Line>
+			<Line id="1" owner="The Team">
+				Since this is a Demo, progress forward is barred, but you can still explore the level and fight enemies at will.
+			</Line>
+			<Line id="2" owner="The Team">
+				Have fun!
+			</Line>
+		</Dialogue>
+	</OldGateInteraction>
+	<!-- Other -->
 	<Un>
 		<Dialogue id="0">
 			<Line id="0" owner="Un Ling">
@@ -190,4 +197,24 @@
 			</Line>
 		</Dialogue>	
 	</Un>
+	<Ji>
+		<Dialogue id="0">
+			<Line id="0" owner="Ji Yong">
+				Argh! Damn thing just refuses to work!
+			</Line>
+			<Line id="1" owner="Luo You">
+				Have you tried reconnecting the tri-pump to the zero outflow valve?
+			</Line>
+			<Line id="2" owner="Ji Yong">
+				...What the hell are you on about?
+			</Line>
+		</Dialogue>	
+	</Ji>
+	<Hy>
+		<Dialogue id="0">
+			<Line id="0" owner="Hy Sying">
+				And... there we go! Good as new. On to the next one. I wonder how Ji is handling it? Guy never had a feel for this.
+			</Line>
+		</Dialogue>	
+	</Hy>
 </Document>
