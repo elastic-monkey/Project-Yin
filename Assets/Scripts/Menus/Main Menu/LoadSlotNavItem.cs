@@ -17,7 +17,7 @@ public class LoadSlotNavItem : MenuNavItem
 			GameState save = LoadMenu.GetSaveInSlot (Slot);
 			if (save != null)
 			{
-				text.text = save.CurrentScene;
+                text.text = save.CurrentScene + " " + save.SaveDate;
 			}
 			else
 			{

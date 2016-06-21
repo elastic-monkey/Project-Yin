@@ -9,6 +9,7 @@ public class GameState
     public string CurrentScene;
     public PlayerState PlayerState;
     public CameraState CameraState;
+    public string SaveDate;
 
     public GameState()
     {
@@ -16,5 +17,6 @@ public class GameState
         CurrentScene = SceneManager.GetActiveScene().name;
         PlayerState = new PlayerState();
         CameraState = new CameraState();
+        SaveDate = System.DateTime.UtcNow.ToString("HH:mm dd MMMM, yyyy");
     }
 }
