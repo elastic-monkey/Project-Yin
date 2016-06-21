@@ -16,7 +16,8 @@ public class PauseMenu : GameMenu
                 return true;
 
             case Actions.LoadLastCheckpoint:
-                SaveManager.LoadLastCheckpoint();
+                SaveManager.LoadLastSave();
+                //SaveManager.LoadLastCheckpoint();
                 Close();
                 return true;
 
