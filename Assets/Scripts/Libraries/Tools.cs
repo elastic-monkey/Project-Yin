@@ -82,7 +82,46 @@
 
             return point;
         }
-    }
+
+		public static Vector3 RotateAroundPivot(Vector3 point, Vector3 pivot, Quaternion rotation)
+		{
+			var dir = point - pivot;
+
+			dir = rotation * dir;
+
+			point = dir + pivot;
+
+			return point;
+		}
+	}
+
+	public static class BoxHelper
+	{
+		public static bool InsideXZ(Vector3 pos, Vector3[] corners)
+		{
+			// 0 < AM⋅AB < AB⋅AB)∧(0 < AM⋅AD < AD⋅AD)
+			var AP = pos.SubractXZ(corners[0]);
+			var AB = corners[1].SubractXZ(corners[0]);
+			var AD = corners[3].SubractXZ(corners[0]);
+
+			var dotAPAB = Vector3.Dot(AP, AB);
+			var dotAPAD = Vector3.Dot(AP, AD);
+
+			return (dotAPAB > 0 && Vector3.Dot(AB, AB) > dotAPAB) && (dotAPAD > 0 && Vector3.Dot(AD, AD) > dotAPAD);
+		}
+
+		private static bool Between(float value, float a, float b)
+		{
+			if (a > b)
+			{
+				return (b <= value) && (value <= a);
+			}
+			else
+			{
+				return (b >= value) && (value >= a);
+			}
+		}
+	}
 
     public static class GizmosHelper
     {
