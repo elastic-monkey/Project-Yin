@@ -352,6 +352,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b477c3e56602ab2488b6eb590af0b2b9, type: 3}
   ExploreToExplore: {fileID: 0}
   ExploreToFight: {fileID: 0}
+  ExploreToFightModifier: 0.5
   Fight: []
   FightToFight: {fileID: 0}
   FightToExplore: {fileID: 0}
@@ -2578,7 +2579,7 @@ MonoBehaviour:
   Transitions:
   - Name: Back
     OnAction: 4
-    TargetMenu: {fileID: 0}
+    TargetMenu: {fileID: 216691607}
   Title: {fileID: 185576510}
   Level: Final_Level
 --- !u!114 &993818361
