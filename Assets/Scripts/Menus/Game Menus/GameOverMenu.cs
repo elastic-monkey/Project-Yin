@@ -17,7 +17,7 @@ public class GameOverMenu : GameMenu
         {
             case Actions.LoadLastCheckpoint:
                 Debug.Log("Loading last checkpoint...");
-                SaveManager.LoadLastCheckpoint();
+                SaveManager.LoadLastSave();
                 OnGameOver(false);
                 return true;
 

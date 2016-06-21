@@ -67,7 +67,7 @@ public class UpgradeMenu : GameMenu
         UpdateDescription(navItem, upgradable);
     }
 
-    private void UpdateAllItems()
+    public void UpdateAllItems()
     {
         foreach (var item in _items)
         {
@@ -82,7 +82,6 @@ public class UpgradeMenu : GameMenu
                     break;
 
                 case Actions.UpgradeSpeed:
-                    
                     PurchaseOrDisable(item, Player.Abilities.Find(Ability.AbilityType.Speed));
                     break;
 
@@ -116,13 +115,12 @@ public class UpgradeMenu : GameMenu
 
     private void UpdateDescription(UpgradeMenuNavItem navItem, Upgradable upgradable)
     {
-        Debug.Log("UPDATING DESCRIPTION");
         Level.text = "LEVEL " + navItem.UpgradeLevel.ToString();
         UpgradeCost.text = upgradable.UpgradeCost(navItem.UpgradeLevel).ToString();
         AvailableSP.text = Player.Experience.SkillPoints.ToString();
         FlavorText.text = upgradable.GetFlavorText();
         EffectText.text = upgradable.GetEffectText(navItem.UpgradeLevel);
-    } 
+    }
 
     public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
     {

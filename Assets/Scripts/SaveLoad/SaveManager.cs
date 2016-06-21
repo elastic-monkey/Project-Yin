@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -44,6 +45,11 @@ public class SaveManager : MonoBehaviour
             LoadCheckpoint = false;
             LoadAllStates(SaveLoad.Load(true));
         }
+    }
+
+    public static void LoadLastSave()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 	public static void LoadLastCheckpoint()
