@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &118658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428774}
+  - 114: {fileID: 11468874}
+  m_Layer: 0
+  m_Name: River Dark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &169008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 427184}
+  - 114: {fileID: 11417852}
+  - 114: {fileID: 11444250}
+  - 114: {fileID: 11498244}
+  m_Layer: 0
+  m_Name: River
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &427184
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169008}
+  m_LocalRotation: {x: -0, y: 0.00000020861626, z: 0, w: -1}
+  m_LocalPosition: {x: -150.18944, y: -3.25, z: -153.01796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 428774}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &428774
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.000015258796, y: -0.75, z: -0.000015258783}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 427184}
+  m_RootOrder: 0
+--- !u!114 &11417852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46a30f4c7fb5ed46acbbb3cd6cee62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RiverMaterial: {fileID: 2100000, guid: ec7a6bad4f331a748869ae22ada1aa48, type: 2}
+  Width: 200
+  Depth: 200
+  Resolution: 60
+  Speed: 2
+  Scale: 0.17
+  ShowGizmos: 0
+--- !u!114 &11444250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6670e6b1f064be64ba665b5fe153a55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundManager: {fileID: 11498244}
+  MinDistanceToPlay: 5
+  VolumeMultiplier: 0.2
+  RiverSections:
+  - Active: 1
+    Center: {x: 100, y: 0, z: 20}
+    Width: 200
+    Depth: 26
+    WorldPosition: {x: 0, y: 0, z: 0}
+    WorldRotation: {x: 0, y: 0, z: 0, w: 0}
+    Corners: []
+  - Active: 1
+    Center: {x: 15.2, y: 0, z: 100}
+    Width: 30
+    Depth: 200
+    WorldPosition: {x: 0, y: 0, z: 0}
+    WorldRotation: {x: 0, y: 0, z: 0, w: 0}
+    Corners: []
+  - Active: 1
+    Center: {x: 105.2, y: 0, z: 148}
+    Width: 10
+    Depth: 90
+    WorldPosition: {x: 0, y: 0, z: 0}
+    WorldRotation: {x: 0, y: 0, z: 0, w: 0}
+    Corners: []
+  - Active: 1
+    Center: {x: 150, y: 0, z: 108}
+    Width: 100
+    Depth: 10
+    WorldPosition: {x: 0, y: 0, z: 0}
+    WorldRotation: {x: 0, y: 0, z: 0, w: 0}
+    Corners: []
+  RiverSounds: {fileID: 8300000, guid: 1d29d2d0942885b4e9ddff486d6ed52d, type: 3}
+  NearOrInside: 0
+--- !u!114 &11468874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46a30f4c7fb5ed46acbbb3cd6cee62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RiverMaterial: {fileID: 2100000, guid: 62ad0881b268eab4695d9356ac0493e7, type: 2}
+  Width: 200
+  Depth: 200
+  Resolution: 60
+  Speed: 2
+  Scale: 0.17
+  ShowGizmos: 0
+--- !u!114 &11498244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1989e7e39787e4a4aa75be1a1cde5842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxAudioSources: 1
+  Sources: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 169008}
+  m_IsPrefabParent: 1

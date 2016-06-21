@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 464624}
   - 33: {fileID: 3337248}
   - 23: {fileID: 2310660}
+  - 65: {fileID: 6562018}
   m_Layer: 0
   m_Name: BushPot
   m_TagString: Untagged
@@ -23,9 +24,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134488}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -90.75, y: -0, z: -107}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0.000000014901161, w: 0.70710677}
+  m_LocalPosition: {x: -90.75, y: 0, z: -105.05}
+  m_LocalScale: {x: 75, y: 74.999985, z: 75}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -69,6 +70,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134488}
   m_Mesh: {fileID: 4300000, guid: bc3d8f616b47a2348a67f6a1044ed9df, type: 3}
+--- !u!65 &6562018
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.012678738, y: 0.034678563, z: 0.024993034}
+  m_Center: {x: 3.7318594e-12, y: -0.00006261096, z: 0.012483033}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
