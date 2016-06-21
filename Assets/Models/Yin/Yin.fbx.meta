@@ -158,10 +158,10 @@ ModelImporter:
     400148: Yin
     400150: //RootNode
     4300000: Yin
-    7400000: Yin | Defense
-    7400002: Yin | Idle
-    7400004: Yin | Run Cycle
-    7400006: Yin | Sword Attack
+    7400000: Yin - Defense
+    7400002: Yin - Idle
+    7400004: Yin - Run Cycle
+    7400006: Yin - Sword Attack
     9500000: //RootNode
     13700000: Yin
   materials:
@@ -186,7 +186,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Yin | Defense
+      name: Yin - Defense
       takeName: Armature|Defense
       firstFrame: 0
       lastFrame: 15
@@ -366,7 +366,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Yin | Idle
+      name: Yin - Idle
       takeName: Armature|Idle
       firstFrame: 0
       lastFrame: 599
@@ -546,7 +546,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Yin | Run Cycle
+      name: Yin - Run Cycle
       takeName: Armature|Run
       firstFrame: 0
       lastFrame: 30
@@ -726,7 +726,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Yin | Sword Attack
+      name: Yin - Sword Attack
       takeName: Armature|SwordAttack1
       firstFrame: 0
       lastFrame: 24
@@ -927,7 +927,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

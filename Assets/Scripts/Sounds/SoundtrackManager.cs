@@ -12,6 +12,8 @@ public class SoundtrackManager : MonoBehaviour
 	public AudioClip[] Explore;
 	public AudioClip ExploreToExplore;
 	public AudioClip ExploreToFight;
+	[Range(0, 1)]
+	public float ExploreToFightModifier = 0.5f;
 	public AudioClip[] Fight;
 	public AudioClip FightToFight;
 	public AudioClip FightToExplore;
@@ -108,7 +110,7 @@ public class SoundtrackManager : MonoBehaviour
 		CurrentState.ClipIndex = Random.Range(0, Fight.Length);
 		CurrentState.ResetDeltaTime();
 
-		SoundManager.Play(ExploreToFight, false, Volume * 0.5f);
+		SoundManager.Play(ExploreToFight, false, Volume * ExploreToFightModifier);
 		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 	}
 

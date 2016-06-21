@@ -174,15 +174,15 @@ ModelImporter:
     400164: Wrist_R
     400166: Wrist_R_end
     4300000: Boss
-    7400000: Boss | Idle
+    7400000: Boss - Idle
     7400002: Start Walking
-    7400004: Boss | Walk Cycle
+    7400004: Boss - Walk Cycle
     7400006: End Walking
     7400008: Run Cycle.Start
-    7400010: Boss | Run Cycle
+    7400010: Boss - Run Cycle
     7400012: Run Cycle.End
-    7400014: Boss | Attack 1
-    7400016: Boss | Attack 2
+    7400014: Boss - Attack 1
+    7400016: Boss - Attack 2
     7400018: Armature_Boss|Attack1
     7400020: Armature_Boss|Attack2
     7400022: Armature_Boss|End Walking
@@ -216,7 +216,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Boss | Idle
+      name: Boss - Idle
       takeName: Idle
       firstFrame: 0
       lastFrame: 40
@@ -412,7 +412,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Boss | Walk Cycle
+      name: Boss - Walk Cycle
       takeName: Walk Cycle
       firstFrame: 0
       lastFrame: 60
@@ -608,7 +608,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Boss | Run Cycle
+      name: Boss - Run Cycle
       takeName: Run Cycle
       firstFrame: 0
       lastFrame: 80
@@ -804,7 +804,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Boss | Attack 1
+      name: Boss - Attack 1
       takeName: Attack1
       firstFrame: 0
       lastFrame: 50
@@ -1000,7 +1000,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Boss | Attack 2
+      name: Boss - Attack 2
       takeName: Attack2
       firstFrame: 0
       lastFrame: 50
@@ -1217,7 +1217,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
