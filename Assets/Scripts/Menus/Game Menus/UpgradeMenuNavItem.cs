@@ -37,7 +37,9 @@ public class UpgradeMenuNavItem : GameNavItem
 
 	public void Purchase(bool value)
 	{
-		Purchased = true;
+		Purchased = value;
+		if (Purchased)
+			Disabled = false;
 		UpdateColor();
 	}
 

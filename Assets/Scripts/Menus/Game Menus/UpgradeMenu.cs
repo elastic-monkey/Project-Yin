@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
 public class UpgradeMenu : GameMenu
 {
@@ -15,13 +14,24 @@ public class UpgradeMenu : GameMenu
         }
     }
 
-    public void Start()
+	public void Awake()
+	{
+		_items = NavMenu.GetComponentsInChildren<UpgradeMenuNavItem>();
+	}
+
+	public void Start()
     {
-        _items = NavMenu.GetComponentsInChildren<UpgradeMenuNavItem>();
         UpdateAllItems();
     }
 
-    public override void OnNavItemFocused(NavItem target)
+	public override void Open()
+	{
+		base.Open();
+
+		UpdateAllItems();
+	}
+
+	public override void OnNavItemFocused(NavItem target)
     {
         base.OnNavItemFocused(target);
 
