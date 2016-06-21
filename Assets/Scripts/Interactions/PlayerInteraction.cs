@@ -3,7 +3,7 @@
 [RequireComponent(typeof(SphereCollider))]
 public abstract class PlayerInteraction : MonoBehaviour
 {
-    [Range(1, 4)]
+    [Range(1, 8)]
     public float InteractionRadius = 2f;
     public string PromptText;
     public Axes ActivateKey;
