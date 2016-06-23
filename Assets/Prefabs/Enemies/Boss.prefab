@@ -520,6 +520,7 @@ GameObject:
   - 95: {fileID: 9501182}
   - 114: {fileID: 11479158}
   - 114: {fileID: 11461802}
+  - 114: {fileID: 11432502}
   m_Layer: 10
   m_Name: Boss
   m_TagString: Enemy
@@ -2736,6 +2737,23 @@ MonoBehaviour:
   RegenerationRate: 10
   RegenerateIsOn: 1
   Regenerating: 0
+--- !u!114 &11432502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a398fbceccd0c49a27424c2a6950a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanDodge: 0
+  Dodging: 0
+  StaminaComsumption: 10
+  DodgeDistance: 2
+  DodgeDuration: 1
+  _cycleTime: 0.1
 --- !u!114 &11436470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2783,7 +2801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 0.2
-  HideParent: {fileID: 0}
+  HideParent: {fileID: 452260}
   ShowParent: {fileID: 0}
   Colliders: []
   RenderersToHide: []

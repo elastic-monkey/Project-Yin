@@ -35,8 +35,8 @@ public class Stamina : Upgradable
         if (RegenerateIsOn && Regenerating)
         {
             CurrentStamina += RegenerationRate * Time.deltaTime;
-            Regenerating = Regenerating && CurrentStamina < MaxStamina;
         }
+        Regenerating = CurrentStamina < MaxStamina;
     }
 
     public void ConsumeStamina(float stamina)

@@ -5,13 +5,13 @@
 public class PlayerBehavior : WarriorBehavior
 {
     public Transform RaycastSpot;
-	public EnemyArea FightArea;
+    public EnemyArea FightArea;
 
     private PlayerMovement _playerMovement;
     private AbilitiesManager _abilities;
     private Experience _experience;
     private Currency _currency;
-	private PlayerHit _splashHit;
+    private PlayerHit _splashHit;
 
     public Experience Experience
     {
@@ -57,14 +57,14 @@ public class PlayerBehavior : WarriorBehavior
         }
     }
 
-	protected override void Start()
-	{
-		base.Start();
+    protected override void Start()
+    {
+        base.Start();
 
-		_splashHit = GameManager.SplashHit;
-	}
+        _splashHit = GameManager.SplashHit;
+    }
 
-	protected override void Update()
+    protected override void Update()
     {
         base.Update();
 
@@ -84,12 +84,16 @@ public class PlayerBehavior : WarriorBehavior
         {
             Abilities.ApplyAbilities();
 
-            Attack.ApplyAttack();
+            if (!Defense.Defending && !Dodge.Dodging)
+                Attack.ApplyAttack();
 
-            if (!Attack.Attacking)
+            if (!Attack.Attacking && !Dodge.Dodging)
                 Defense.ApplyDefense();
 
-            PlayerMovement.CanMove = !Attack.Attacking && !Defense.Defending;
+            if (!Attack.Attacking && !Defense.Defending)
+                Dodge.ApplyDodge();
+
+            PlayerMovement.CanMove = !Attack.Attacking && !Defense.Defending && !Dodge.Dodging;
         }
     }
 
@@ -97,10 +101,10 @@ public class PlayerBehavior : WarriorBehavior
     {
         base.OnAttacked(attacker, normalizedDamage);
 
-		if (normalizedDamage > 0)
-		{
-			_splashHit.Show(normalizedDamage);
-		}
+        if (normalizedDamage > 0)
+        {
+            _splashHit.Show(normalizedDamage);
+        }
         // TODO: sound or reaction
     }
 

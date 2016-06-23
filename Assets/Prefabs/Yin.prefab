@@ -165,6 +165,7 @@ GameObject:
   - 114: {fileID: 11451588}
   - 114: {fileID: 11499592}
   - 114: {fileID: 11421462}
+  - 114: {fileID: 11413376}
   - 114: {fileID: 11490536}
   - 114: {fileID: 11410396}
   - 114: {fileID: 11487488}
@@ -2125,10 +2126,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
-  m_LocalRotation: {x: 0, y: 0.79335344, z: 0, w: 0.6087614}
-  m_LocalPosition: {x: 24.1, y: 0, z: 4.9}
+  m_LocalRotation: {x: 0, y: -0.000000044703484, z: 0, w: 1}
+  m_LocalPosition: {x: 4.75, y: 0, z: -108}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 105, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 462208}
   - {fileID: 463048}
@@ -2509,6 +2510,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef682f370fd7eac4ab3c76374249e20e, type: 3}
   - {fileID: 21300000, guid: 9e1d2b8903a87604fade8f46c5f17aa9, type: 3}
   - {fileID: 21300000, guid: 467f75cf0d7b6e14ab586576493906bb, type: 3}
+--- !u!114 &11413376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a398fbceccd0c49a27424c2a6950a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanDodge: 0
+  Dodging: 0
+  StaminaComsumption: 10
+  DodgeDistance: 3
+  DodgeDuration: 0.5
 --- !u!114 &11419948
 MonoBehaviour:
   m_ObjectHideFlags: 1
