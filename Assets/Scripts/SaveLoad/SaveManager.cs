@@ -96,6 +96,7 @@ public class SaveManager : MonoBehaviour
         playerBehavior.Health.CurrentHealth = state.Health;
         playerBehavior.Health.CurrentLevel = state.HealthCurrentLevel;
         playerBehavior.Stamina.MaxStamina = state.MaxStamina;
+        playerBehavior.Stamina.CurrentStamina = state.MaxStamina;
         playerBehavior.Stamina.CurrentLevel = state.StaminaCurrentLevel;
 
         playerBehavior.Experience.CurrentExperience = state.Experience;
