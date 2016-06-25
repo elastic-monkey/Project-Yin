@@ -92,8 +92,6 @@ public abstract class PlayerInteraction : MonoBehaviour
         GameManager.InteractionPrompt.SetVisible(false);
     }
 
-    protected abstract bool ShouldStop();
-
     #region Editor Only
 
     private void OnDrawGizmos()

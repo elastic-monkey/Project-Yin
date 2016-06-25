@@ -5,12 +5,12 @@ public class VisionAbility : Ability
 {
     public override void SetActive(PlayerBehavior player)
     {
-        Debug.LogWarning("Vision is not yet conceived");
+        //Debug.LogWarning("Vision is not yet conceived");
     }
 
     public override void Deactivate(PlayerBehavior player)
     {
-        Debug.LogWarning("Vision is not yet conceived");
+        //Debug.LogWarning("Vision is not yet conceived");
     }
 
     public override SerializableAbility Serialize()

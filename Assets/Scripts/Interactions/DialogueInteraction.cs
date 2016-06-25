@@ -67,11 +67,6 @@ public class DialogueInteraction : PlayerInteraction
         }
     }
 
-    protected override bool ShouldStop()
-    {
-        return HasFinished;
-    }
-
     public override void StartInteraction()
     {
         base.StartInteraction();

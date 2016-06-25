@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public GameOverMenu GameOverMenu;
     public InteractionPrompt InteractionPrompt;
     public DialogueWindow DialogueWindow;
+    public SaveTerminalMenu SaveTerminal;
 	public SoundtrackManager SoundtrackManager;
 	public MenuSoundManager MenuSoundManager;
 	public SoundManager EnemiesSoundManager;
