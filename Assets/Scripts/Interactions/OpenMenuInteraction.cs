@@ -11,7 +11,7 @@ public class OpenMenuInteraction : PlayerInteraction
         Target.Open();
     }
 
-    public override bool ShouldStop()
+    protected override bool ShouldStop()
     {
         return !(Target.NavMenu.IsActive);
     }

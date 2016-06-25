@@ -3,24 +3,8 @@ using UnityEngine.UI;
 
 public class InteractionPrompt : MonoBehaviour
 {
-    public Axes InteractKey;
-    public bool WaitingInput;
-
-    private Text _myText;
+    public Text TitleText;
     private IAnimatedPanel _animatedPanel;
-    private PlayerInteraction _currentInteraction;
-    private bool _waitForInputNextFrame;
-
-    public Text Title
-    {
-        get
-        {
-            if (_myText == null)
-                _myText = GetComponentInChildren<Text>();
-
-            return _myText;
-        }
-    }
 
     private void Awake()
     {
@@ -28,51 +12,16 @@ public class InteractionPrompt : MonoBehaviour
         _animatedPanel.SetVisible(false);
     }
 
-    private void Update()
-    {
-        if (_currentInteraction == null || !WaitingInput)
-            return;
-
-		if (PlayerInput.OnlyMenus)
-			return;
-
-        if (!PlayerInput.IsButtonDown(InteractKey))
-            return;
-        
-        _currentInteraction.StartInteraction();
-    }
-
-    private void LateUpdate()
-    {
-        if (_waitForInputNextFrame)
-        {
-            _waitForInputNextFrame = false;
-            WaitingInput = true;
-        }
-    }
-
-    public void Show(bool value, PlayerInteraction interaction)
+    public void SetVisible(bool value, Axes key = Axes.Confirm, string title = null)
     {
         if (value)
         {
-            if (interaction == _currentInteraction)
-                return;
-            
-            Title.text = interaction.PromptText + " (" + InteractKey.ScreenName() + ")";
-            _currentInteraction = interaction;
-            _waitForInputNextFrame = true;
-            WaitingInput = false;
+            TitleText.text = string.Concat(title, " (", key.ScreenName(), ")");
             _animatedPanel.SetVisible(value);
         }
         else
         {
-            if (interaction != _currentInteraction)
-                return;
-            
-            Title.text = string.Empty;
-            _currentInteraction = null;
-            _waitForInputNextFrame = false;
-            WaitingInput = false;
+            TitleText.text = string.Empty;
             _animatedPanel.SetVisible(value);
         }
     }

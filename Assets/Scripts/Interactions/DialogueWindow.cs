@@ -5,100 +5,60 @@ using System.Collections.Generic;
 
 public class DialogueWindow : MonoBehaviour
 {
-    public Axes ForwardKey;
-    public float LetterTime = 0.02f;
-    public bool WritingLine;
-    public bool Active;
     public Text Speaker, Line;
-    public NPCLine CurrentLine;
+    [Range(0, 1)]
+    public float LetterTime = 0.02f;
+    public bool Active, FinishedLine, FastForward;
 
     private IAnimatedPanel _animatedPanel;
-    private Coroutine _runningCoroutine;
-    private bool _fastForward;
-    public bool CurrentLineOver;
-    private bool _hasFinished;
-   
-    public bool HasFinished
-    {
-        get
-        {
-            if (CurrentLine != null)
-            {
-                return _hasFinished;
-            }
-
-            return false;
-        }
-    }
 
     private void Awake()
     {
         _animatedPanel = GetComponent<IAnimatedPanel>();
     }
 
-    private void Update()
+    public void WriteLine(NPCLine line)
     {
-        if (!Active)
-            return;
-        
-        if (CurrentLine == null)
-        {
-            return;
-        }
-
-        if (WritingLine && PlayerInput.IsButtonDown(ForwardKey))
-        {
-            _fastForward = true;
-        }
-        else if (!WritingLine && CurrentLine != null)
-        {
-            _runningCoroutine = StartCoroutine(WriteDialogLine());
-        }
+        FinishedLine = false;
+        StartCoroutine(WriteDialogLine(line));
     }
 
-    private IEnumerator WriteDialogLine()
+    private IEnumerator WriteDialogLine(NPCLine line)
     {
-        _hasFinished = false;
-        WritingLine = true;
-        CurrentLineOver = false;
+        FinishedLine = false;
+        FastForward = false;
 
         Line.text = "";
-        Speaker.text = CurrentLine.owner;
+        Speaker.text = line.owner;
 
-        foreach (var letter in CurrentLine.text)
+        foreach (var letter in line.text)
         {
             Line.text += letter;
+
             yield return new WaitForSeconds(LetterTime);
 
-            if (_fastForward)
+            if (FastForward)
+            {
                 break;
+            }
         }
 
-        Line.text = CurrentLine.text;
-
-        _fastForward = false;
-        WritingLine = false;
-        CurrentLineOver = true;
-        CurrentLine = null;
-    }
-
-    private void StopCoroutineIfExists()
-    {
-        if (_runningCoroutine != null)
-            StopCoroutine(_runningCoroutine);
+        Line.text = line.text;
+        FastForward = false;
+        FinishedLine = true;
     }
 
     public void SetActive(bool value)
     {
-        Active = value;
         if (_animatedPanel != null)
-            _animatedPanel.SetVisible(value);
-
-        if (!value)
         {
-            CurrentLine = null;
+            _animatedPanel.SetVisible(value);
         }
-    }
 
-   
+        StopAllCoroutines();
+
+        Active = value;
+        FinishedLine = false;
+        FastForward = false;
+    }
 }

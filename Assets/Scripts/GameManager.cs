@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public SwapToFadeManager SwapFadeMaterials;
 	public GameOverMenu GameOverMenu;
     public InteractionPrompt InteractionPrompt;
+    public DialogueWindow DialogueWindow;
 	public SoundtrackManager SoundtrackManager;
 	public MenuSoundManager MenuSoundManager;
 	public SoundManager EnemiesSoundManager;
