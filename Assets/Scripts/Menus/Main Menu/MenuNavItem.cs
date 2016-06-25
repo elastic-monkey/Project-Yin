@@ -6,8 +6,8 @@ public class MenuNavItem : NavItem
     public MainMenu.Actions Action;
     public string[] Data;
 
-    public override void OnSelect(IMenu manager)
+    public override void OnSelect()
     {
-        manager.OnNavItemSelected(this, Action, Data);
+        throw new System.NotImplementedException();
     }
 }

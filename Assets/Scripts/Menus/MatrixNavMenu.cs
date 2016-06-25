@@ -195,7 +195,7 @@ public class MatrixNavMenu : NavMenu
             return;
         }
 
-        Items[index.First].Items[index.Second].OnSelect(Menu);
+        Items[index.First].Items[index.Second].OnSelect();
     }
 }
 

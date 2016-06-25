@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public abstract class Ability : Upgradable
 {
-
     public enum AbilityType
     {
         Vision,

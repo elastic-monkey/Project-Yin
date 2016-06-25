@@ -16,13 +16,14 @@ public class HealthSyringe : Item
 
     public override void UseItem()
     {
-        Player.Health.RecoverHealth(RecoveryValue);
+        _player.Health.RecoverHealth(RecoveryValue);
     }
 
     public override bool CanUse()
     {
-        if (Player.Health.CurrentHealth == Player.Health.MaxHealth)
+        if (_player.Health.CurrentHealth == _player.Health.MaxHealth)
             return false;
+        
         return true;
     }
 

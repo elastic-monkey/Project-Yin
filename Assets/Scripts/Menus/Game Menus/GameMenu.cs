@@ -1,55 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class GameMenu : MonoBehaviour, IMenu
+public class GameMenu : MonoBehaviour
 {
-    public enum Actions
-    {
-        Pause,
-        Resume,
-        LoadLastCheckpoint,
-        Settings,
-        Close,
-        UpgradeHealth,
-        UpgradeStamina,
-        UpgradeSpeed,
-        UpgradeShield,
-        UpgradeStrength,
-        ConfirmSave,
-        RefuseSave,
-        OpenDialog,
-        GoToUpgradeMenu,
-        GoToInventoryMenu,
-        UseItem,
-        BuyItem,
-        GoToBuy,
-        GoToSell,
-        SellComponents,
-        LeaveShop,
-        GoToMainMenu
-    }
-
-    public Axes OpenKey;
-    public Axes CloseKey;
+    public int DefaultNavMenu;
+    public List<NavMenu> NavMenus;
+    public Axes OpenKey = Axes.None;
+    public Axes CloseKey = Axes.None;
     public bool IsOpen = false;
-    public bool SubMenu = false;
-    public bool PausesGame = true;
-    public bool BlockGameplayInput = true;
-    public GameMenuTransition[] Transitions;
+    public int MenuStackCount = 0;
 
-    private GameManager _gameManager;
-	private MenuSoundManager _soundManager;
-	private NavMenu _navMenu;
-	private bool _willOpen;
+    private Stack<NavMenu> _navMenusHistory;
+    private bool _openNextFrame = false, _closeNextFrame = false;
 
-    public NavMenu NavMenu
+    protected NavMenu CurrentNavMenu
     {
         get
         {
-            if (_navMenu == null)
-                _navMenu = GetComponent<NavMenu>();
+            if (_navMenusHistory == null || _navMenusHistory.Count == 0)
+                return null;
 
-            return _navMenu;
+            return _navMenusHistory.Peek();
         }
     }
 
@@ -57,10 +29,7 @@ public class GameMenu : MonoBehaviour, IMenu
     {
         get
         {
-            if (_gameManager == null)
-                _gameManager = GameManager.Instance;
-
-            return _gameManager;
+            return GameManager.Instance;
         }
     }
 
@@ -68,141 +37,90 @@ public class GameMenu : MonoBehaviour, IMenu
 	{
 		get
 		{
-			if (_soundManager == null)
-				_soundManager = GameManager.MenuSoundManager;
-
-			return _soundManager;
+            return GameManager.MenuSoundManager;
 		}
 	}
 
+    protected virtual void Awake()
+    {
+        _navMenusHistory = new Stack<NavMenu>();
+    }
+
     private void Update()
     {
-        if (PlayerInput.OnlyMenus && !IsOpen)
-            return;
+        MenuStackCount = _navMenusHistory.Count;
 
-        if (!IsOpen && PlayerInput.IsButtonUp(OpenKey))
+        if (IsOpen)
         {
-			Open();
+            if (CloseKey != Axes.None && PlayerInput.IsButtonDown(CloseKey))
+            {
+                Close();
+            }
         }
-        else if (IsOpen && PlayerInput.IsButtonUp(CloseKey))
+        else
         {
-            Close();
+            if (OpenKey != Axes.None && PlayerInput.IsButtonDown(OpenKey))
+            {
+                Open();
+            }
         }
     }
 
 	private void LateUpdate()
 	{
-		if (_willOpen)
+        if (_openNextFrame)
 		{
-			_willOpen = false;
+            _openNextFrame = false;
 			IsOpen = true;
 		}
+
+        if (_closeNextFrame)
+        {
+            _closeNextFrame = false;
+            IsOpen = false;
+            GameManager.SetGamePaused(false);
+        }
 	}
-
-    public virtual void OnNavItemFocused(NavItem target)
-    {
-		if (!NavMenu.IsActive)
-			return;
-
-		SoundManager.PlayFocusItemSound();
-	}
-
-    public virtual void OnNavItemSelected(NavItem item, object actionObj, string[] dataObj)
-    {
-        if (OnNavItemAction(item, actionObj, dataObj))
-            return;
-
-        TransitionTo(Transitions.Find((Actions)actionObj));
-    }
-
-    public virtual bool OnNavItemAction(NavItem navItem, object actionObj, string[] data)
-    {
-        return false;
-    }
 
     public virtual void Open()
     {
-		SoundManager.PlayOpenSound();
-
-		IsOpen = false;
-		_willOpen = true;
-		NavMenu.SetActive(true);
-        Pause(true);
+        _openNextFrame = true;
+        SoundManager.PlayOpenSound();
+        GameManager.SetGamePaused(true);
+        _navMenusHistory.Push(NavMenus[DefaultNavMenu]);
+        NavMenus[DefaultNavMenu].SetActive(true);
     }
 
     public virtual void Close()
     {
-		IsOpen = false;
-        NavMenu.SetActive(false);
+        _navMenusHistory.Pop().SetActive(false);
+        SoundManager.PlayCloseSound();
 
-		if (SubMenu)
-		{
-			TransitionTo(Transitions.Find(Actions.Close));
-		}
-		else
-		{
-			SoundManager.PlayCloseSound();
-			Pause(false);
-		}
+        if (_navMenusHistory.Count == 0)
+        {
+            _closeNextFrame = true;
+        }
+        else
+        {
+            _navMenusHistory.Peek().SetActive(true);
+        }
     }
 
-    protected void TransitionTo(GameMenu target)
+    public void ChangeTo(NavMenu target)
     {
-        if (target == null)
+        if (!NavMenus.Contains(target))
             return;
 
-		if (!SubMenu)
-			target.Open();
-
-		target._willOpen = true;
-		target.NavMenu.FocusCurrent();
-		target.NavMenu.InputBlocked = false;
-
-		if (target.SubMenu)
-		{
-			NavMenu.InputBlocked = true;
-			NavMenu.UnfocusAll();
-			IsOpen = false;
-		}
+        _navMenusHistory.Peek().SetActive(false);
+        _navMenusHistory.Push(target);
+        target.SetActive(true);
     }
 
-    protected void Pause(bool value)
+    public virtual void OnNavItemFocused(NavItem target)
     {
-        if (PausesGame)
-        {
-            GameManager.SetGamePaused(value);
-        }
-        else if (BlockGameplayInput)
-        {
-            GameManager.BlockGameplayInput(value);
-        }
-    }
-
-    private void OnValidate()
-    {
-        if (Transitions.Length > 0)
-            foreach (var t in Transitions)
-                t.Name = t.OnAction.ToString();
-    }
-
-    [System.Serializable]
-    public class GameMenuTransition
-    {
-        [HideInInspector]
-        public string Name;
-        public Actions OnAction;
-        public GameMenu TargetMenu;
-    }
-}
-
-public static class GameMenuTransitionHelper
-{
-    public static GameMenu Find(this GameMenu.GameMenuTransition[] transitions, GameMenu.Actions action)
-    {
-        foreach (var transition in transitions)
-            if (transition.OnAction == action)
-                return transition.TargetMenu;
-
-        return null;
-    }
+        if (!IsOpen)
+            return;
+        
+		SoundManager.PlayFocusItemSound();
+	}
 }

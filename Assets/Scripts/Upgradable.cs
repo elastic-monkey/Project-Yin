@@ -3,6 +3,15 @@ using System.Collections;
 
 public abstract class Upgradable : MonoBehaviour
 {
+    public enum UpgradableTypes
+    {
+        Health,
+        Stamina,
+        Speed,
+        Shield,
+        Strength
+    }
+
     public const int MaxLevel = 4;
 
     public int CurrentLevel;

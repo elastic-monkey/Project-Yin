@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MainMenu : MonoBehaviour, IMenu
+public class MainMenu : MonoBehaviour
 {
     public enum Actions
     {
@@ -60,7 +60,7 @@ public class MainMenu : MonoBehaviour, IMenu
 		SoundManager.PlayFocusItemSound();
 	}
 
-    public virtual void OnNavItemSelected(NavItem item, object actionObj, string[] dataObj)
+    public virtual void OnNavItemSelected(NavItem item, object actionObj, object dataObj)
     {
         if (OnNavItemAction(item, actionObj, dataObj))
             return;
@@ -68,7 +68,7 @@ public class MainMenu : MonoBehaviour, IMenu
         TransitionTo(Transitions.Find((Actions)actionObj));
     }
 
-    public virtual bool OnNavItemAction(NavItem navItem, object actionObj, string[] data)
+    public virtual bool OnNavItemAction(NavItem navItem, object actionObj, object dataObj)
     {
         return false;
     }

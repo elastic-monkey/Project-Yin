@@ -18,12 +18,12 @@ public class SettingsSliderNavItem : MenuNavItem
 		}
 	}
 
-	public override void OnSelect(IMenu manager)
+	public override void OnSelect()
     {
         Data = new string[1];
         Data[0] = Slider.value.ToString();
 
-        manager.OnNavItemSelected(this, Action, Data);
+        throw new System.NotImplementedException();
     }
 
     public override void OnHorizontalInput(float value)

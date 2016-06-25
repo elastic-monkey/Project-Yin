@@ -172,6 +172,7 @@ GameObject:
   - 114: {fileID: 11476292}
   - 114: {fileID: 11440786}
   - 81: {fileID: 8195490}
+  - 114: {fileID: 11455318}
   m_Layer: 9
   m_Name: Yin
   m_TagString: Player
@@ -2127,7 +2128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
   m_LocalRotation: {x: 0, y: -0.000000044703484, z: 0, w: 1}
-  m_LocalPosition: {x: 4.75, y: 0, z: -108}
+  m_LocalPosition: {x: 7.4, y: 0, z: -105.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2689,6 +2690,19 @@ MonoBehaviour:
   Targets: []
   DamageMultiplier: 1
   StaminaMultiplier: 1
+--- !u!114 &11455318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1f6e4a04fed4c4aa41ad99ad9501ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxSlots: 9
+  Slots: []
 --- !u!114 &11462300
 MonoBehaviour:
   m_ObjectHideFlags: 1

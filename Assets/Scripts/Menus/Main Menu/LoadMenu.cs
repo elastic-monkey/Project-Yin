@@ -30,7 +30,7 @@ public class LoadMenu : MainMenu
         Debug.Log("Got " + SavedGames.Count + " saved games.");
     }
 
-    public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
+    public override bool OnNavItemAction(NavItem item, object actionObj, object dataObj)
     {
         var action = (Actions)actionObj;
 
@@ -38,6 +38,7 @@ public class LoadMenu : MainMenu
         {
             case Actions.Load:
                 var slot = -1;
+                var data = (string[])dataObj;
                 if (int.TryParse(data[0], out slot))
                 {
                     var save = GetSaveInSlot(slot);

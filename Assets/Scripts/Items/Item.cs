@@ -26,11 +26,11 @@ public abstract class Item : MonoBehaviour
     public string FlavorText;
 
     [SerializeField]
-    protected PlayerBehavior Player;
+    protected PlayerBehavior _player;
 
     private void Awake()
     {
-        Player = GameManager.Instance.Player;
+        _player = GameManager.Instance.Player;
     }
 
     public abstract void UseItem();

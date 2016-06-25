@@ -15,13 +15,13 @@ public class PlayerState
     public int SkillPoints;
     public float Credits;
     public List<SerializableAbility> Abilities;
-    public List<InventorySlotSave> Inventory;
+    public List<PlayerInventory.ItemSlot> InventorySlots;
 
     public PlayerState()
     {
         var player = GameObject.Find("Yin");
         var playerBehaviour = player.GetComponent<PlayerBehavior>();
-        var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenu>();
+        var inventory = playerBehaviour.Inventory;
         position = player.transform.position;
         rotation = player.transform.rotation;
 
@@ -42,17 +42,6 @@ public class PlayerState
             Abilities.Add(ability.Serialize());
         }
 
-        Inventory = new List<InventorySlotSave>();
-        foreach (var slot in inventory.InventorySlots)
-        {
-            if (slot.Item != null)
-            {
-                Inventory.Add(new InventorySlotSave(slot.Item.Type, slot.Stock));
-            }
-            else
-            {
-                Inventory.Add(new InventorySlotSave(Item.ItemType.Null, 0));
-            }
-        }
+        InventorySlots = inventory.Slots;
     }
 }

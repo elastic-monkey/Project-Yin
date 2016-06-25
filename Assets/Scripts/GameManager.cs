@@ -6,14 +6,15 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     public PlayerBehavior Player;
+    public ItemRepo ItemRepo;
     public EnemiesManager EnemiesManager;
     public HideBuidings HideBuildings;
     public SwapToFadeManager SwapFadeMaterials;
-	public GameOverMenu GameOverMenu;
     public InteractionPrompt InteractionPrompt;
     public DialogueWindow DialogueWindow;
-    public SaveTerminalMenu SaveTerminal;
-    public ShopMenu StoreMenu;
+    public GameMenu SaveTerminal;
+    public GameMenu GameOverMenu;
+    public StoreMenu StoreMenu;
 	public SoundtrackManager SoundtrackManager;
 	public MenuSoundManager MenuSoundManager;
 	public SoundManager EnemiesSoundManager;

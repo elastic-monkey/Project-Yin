@@ -2,7 +2,7 @@
 
 public class QuitMenu : MainMenu
 {
-    public override bool OnNavItemAction(NavItem item, object actionObj, string[] data)
+    public override bool OnNavItemAction(NavItem item, object actionObj, object dataObj)
     {
         var action = (Actions)actionObj;
 

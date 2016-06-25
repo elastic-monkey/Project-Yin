@@ -22,11 +22,11 @@ public class StaminaSyringe : Item
 
     private IEnumerator UseStaminaSyringe()
     {
-        Player.Stamina.RegenerationRate *= StaminaRegenMulti;
+        _player.Stamina.RegenerationRate *= StaminaRegenMulti;
 
         yield return new WaitForSeconds(Duration);
 
-        Player.Stamina.RegenerationRate /= StaminaRegenMulti;
+        _player.Stamina.RegenerationRate /= StaminaRegenMulti;
     }
 
     public override bool CanUse()
@@ -37,7 +37,7 @@ public class StaminaSyringe : Item
     private void OnValidate()
     {
         Type = ItemType.StaminaRegenRate;
-        Effect = "Restores " + (StaminaRegenMulti*Duration).ToString() + " Energy Points over " + Duration.ToString() + " seconds";
+        Effect = "Restores " + (StaminaRegenMulti * Duration).ToString() + " Energy Points over " + Duration.ToString() + " seconds";
         FlavorText = "A small syringe containing a blue liquid";
     }
 }
