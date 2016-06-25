@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public InteractionPrompt InteractionPrompt;
     public DialogueWindow DialogueWindow;
     public SaveTerminalMenu SaveTerminal;
+    public ShopMenu StoreMenu;
 	public SoundtrackManager SoundtrackManager;
 	public MenuSoundManager MenuSoundManager;
 	public SoundManager EnemiesSoundManager;
