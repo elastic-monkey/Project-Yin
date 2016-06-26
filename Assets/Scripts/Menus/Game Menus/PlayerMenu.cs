@@ -10,8 +10,10 @@ public class PlayerMenu : GameMenu
     private PlayerInventory _inventory;
     private ItemRepo _itemRepo;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _itemRepo = GameManager.ItemRepo;
         _inventory = GameManager.Player.Inventory;
     }

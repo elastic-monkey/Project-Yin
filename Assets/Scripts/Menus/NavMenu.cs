@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class NavMenu : MonoBehaviour
 {
     public RectTransform HoverIcon;
     public bool UseHoverNavigation;
     public bool Cyclic, Reset;
+    public bool IsActive;
 
-    [SerializeField]
-    private bool _active;
     private bool _activeNextFrame;
     [SerializeField]
     private bool _inputBlocked;
@@ -50,14 +50,6 @@ public abstract class NavMenu : MonoBehaviour
         }
     }
 
-    public bool IsActive
-    {
-        get
-        {
-            return _active;
-        }
-    }
-
     private void Awake()
     {
         _animatedPanel = GetComponent<IAnimatedPanel>();
@@ -81,7 +73,7 @@ public abstract class NavMenu : MonoBehaviour
         if (_activeNextFrame)
         {
             _activeNextFrame = false;
-            _active = true;
+            IsActive = true;
             _inputBlocked = false;
         }
 
@@ -94,8 +86,13 @@ public abstract class NavMenu : MonoBehaviour
 
     public virtual void SetActive(bool value)
     {
+        if (value == IsActive)
+            return;
+        
         _activeNextFrame = value;
-        _active = false;
+        IsActive = false;
+        if (value)
+            InputBlocked = false;
 
         if (_animatedPanel != null)
             _animatedPanel.SetVisible(value);
@@ -129,4 +126,8 @@ public abstract class NavMenu : MonoBehaviour
     public abstract void FocusCurrent();
 
     protected abstract void HandleInput();
+
+    public abstract List<NavItem> GetNavItems();
+
+    public abstract NavItem GetCurrentNavItem();
 }

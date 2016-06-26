@@ -4,6 +4,7 @@ using System.Collections;
 public class ChangeNavMenuNavItem : NavItem
 {
     public NavMenu TargetNavMenu;
+    public bool IsSubmenu = true;
 
     private GameMenu _parentMenu;
 
@@ -16,7 +17,7 @@ public class ChangeNavMenuNavItem : NavItem
 
     public override void OnSelect()
     {
-        _parentMenu.ChangeTo(TargetNavMenu);
+        _parentMenu.ChangeTo(TargetNavMenu, IsSubmenu);
     }
 
 }

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class VerticalNavMenu : NavMenu
 {
@@ -141,5 +141,15 @@ public class VerticalNavMenu : NavMenu
         }
 
         return Items[index];
+    }
+
+    public override List<NavItem> GetNavItems()
+    {
+        return new List<NavItem>(Items);
+    }
+
+    public override NavItem GetCurrentNavItem()
+    {
+        return GetItem(_currentIndex);
     }
 }

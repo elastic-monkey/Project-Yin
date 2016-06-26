@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class MatrixNavMenu : NavMenu
 {
@@ -196,6 +197,26 @@ public class MatrixNavMenu : NavMenu
         }
 
         Items[index.First].Items[index.Second].OnSelect();
+    }
+
+    public override List<NavItem> GetNavItems()
+    {
+        var list = new List<NavItem>();
+
+        foreach (var line in Items)
+        {
+            foreach (var item in line.Items)
+            {
+                list.Add(item);
+            }
+        }
+
+        return list;
+    }
+
+    public override NavItem GetCurrentNavItem()
+    {
+        return GetItem(_currentIndex);
     }
 }
 

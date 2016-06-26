@@ -46,6 +46,11 @@ public class GameMenu : MonoBehaviour
         _navMenusHistory = new Stack<NavMenu>();
     }
 
+    protected virtual void Start()
+    {
+        // Do stuff
+    }
+
     private void Update()
     {
         MenuStackCount = _navMenusHistory.Count;
@@ -102,16 +107,28 @@ public class GameMenu : MonoBehaviour
         }
         else
         {
-            _navMenusHistory.Peek().SetActive(true);
+            CurrentNavMenu.InputBlocked = false;
+            CurrentNavMenu.SetActive(true);
         }
     }
 
-    public void ChangeTo(NavMenu target)
+    public virtual void ChangeTo(NavMenu target, bool submenu = true)
     {
         if (!NavMenus.Contains(target))
             return;
 
-        _navMenusHistory.Peek().SetActive(false);
+        if (target == CurrentNavMenu)
+            return;
+
+        if (!submenu)
+        {
+            CurrentNavMenu.SetActive(false);
+        }
+        else
+        {
+            CurrentNavMenu.InputBlocked = true;
+        }
+
         _navMenusHistory.Push(target);
         target.SetActive(true);
     }

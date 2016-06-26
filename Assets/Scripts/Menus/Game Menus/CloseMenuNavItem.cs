@@ -3,17 +3,17 @@ using System.Collections;
 
 public class CloseMenuNavItem : NavItem
 {
-    private GameMenu _target; 
+    private GameMenu _parentMenu; 
 
     protected override void Awake()
     {
         base.Awake();
 
-        _target = GetComponentInParent<GameMenu>();
+        _parentMenu = GetComponentInParent<GameMenu>();
     }
 
     public override void OnSelect()
     {
-        _target.Close();
+        _parentMenu.Close();
     }
 }

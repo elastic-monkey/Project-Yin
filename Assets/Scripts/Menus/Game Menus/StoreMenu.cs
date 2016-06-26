@@ -4,6 +4,7 @@ using System.Collections;
 
 public class StoreMenu : GameMenu
 {
+    public Text CurrencyText;
     public BuySubMenu Buy;
     public SellSubMenu Sell;
 
@@ -24,15 +25,20 @@ public class StoreMenu : GameMenu
         if (item == null)
             return;
 
-        var playerCurrency = GameManager.Player.Currency;
+        var player = GameManager.Player;
+        var playerCurrency = player.Currency;
 
-        if (item.SellPrice > playerCurrency.CurrentCredits)
+        if (item.BuyPrice > playerCurrency.CurrentCredits)
             return;
 
-        playerCurrency.RemoveCredits(item.SellPrice);
-        _inventory.IncreaseStock(type);
+        if (item.MaxStock <= player.Inventory.GetStock(type))
+            return;
 
-        Buy.UpdateInfo(item, _inventory);
+        playerCurrency.RemoveCredits(item.BuyPrice);
+        _inventory.IncreaseStock(type);
+        CurrencyText.text = playerCurrency.CurrentCredits.ToString();
+
+        Buy.UpdateInfo(type, _itemRepo, _inventory);
     }
 
     public void SellComponents()
@@ -48,12 +54,31 @@ public class StoreMenu : GameMenu
         if (CurrentNavMenu == Buy.NavMenu)
         {
             var buyItem = target as BuyItemNavItem;
-
-            var item = _itemRepo.Find(buyItem.Type);
-            if (item == null)
+            if (buyItem == null)
                 return;
 
-            Buy.UpdateInfo(item, _inventory);
+            Buy.UpdateInfo(buyItem, _itemRepo, _inventory);
+        }
+    }
+
+    public override void Open()
+    {
+        base.Open();
+
+        CurrencyText.text = GameManager.Player.Currency.CurrentCredits.ToString();
+    }
+
+    public override void ChangeTo(NavMenu target, bool submenu = true)
+    {
+        base.ChangeTo(target, submenu);
+    
+        if (CurrentNavMenu == Buy.NavMenu)
+        {
+            Buy.UpdateAll(_itemRepo, _inventory);
+        }
+        else if (CurrentNavMenu == Sell.NavMenu)
+        {
+            Sell.UpdateInfo(_inventory);
         }
     }
 
@@ -67,14 +92,67 @@ public class StoreMenu : GameMenu
         public Text StockText;
         public Text Price;
 
-        public void UpdateInfo(Item item, PlayerInventory inventory = null)
+        public void UpdateInfo(Item.ItemType type, ItemRepo itemRepo, PlayerInventory inventory)
         {
-            var nullItem = (item == null);
-            Effect.text = nullItem ? string.Empty : item.Effect;
-            FlavorText.text = nullItem ? string.Empty : item.FlavorText;
-            Name.text = nullItem ? "No Item"  : item.ItemName;
-            StockText.text = nullItem ? string.Empty : string.Concat("Inventory: ", inventory.GetStock(item.Type), "/", item.MaxStock.ToString());
-            Price.text = nullItem ? string.Empty : string.Concat("Cost: ", item.BuyPrice.ToString(), " Credits");
+            foreach (var item in NavMenu.GetNavItems())
+            {
+                var buyItem = item as BuyItemNavItem;
+                if (buyItem == null)
+                    continue;
+
+                if (buyItem.Type == type)
+                {
+                    UpdateInfo(buyItem, itemRepo, inventory);
+                }
+            }
+        }
+
+        public void UpdateInfo(BuyItemNavItem buyNavItem, ItemRepo itemRepo, PlayerInventory inventory)
+        {
+            var item = itemRepo.Find(buyNavItem.Type);
+            if (item == null)
+            {
+                
+                Effect.text = string.Empty;
+                FlavorText.text = string.Empty;
+                Name.text = "No Item";
+                StockText.text = string.Empty;
+                Price.text = string.Empty;
+                buyNavItem.SetSprite(null);
+            }
+            else
+            {
+                Effect.text = item.Effect;
+                FlavorText.text = item.FlavorText;
+                Name.text = item.ItemName;
+                var playerStock = inventory.GetStock(item.Type);
+                var maxStock = item.MaxStock;
+                var stockText = (maxStock == playerStock) ? string.Concat("<color=#f28f8aff>", playerStock, "/", maxStock, "</color>") :
+                    string.Concat(playerStock, "/", maxStock);
+                var cost = item.BuyPrice;
+                var costText = GameManager.Instance.Player.Currency.CurrentCredits >= cost ? cost.ToString() : string.Concat("<color=#f28f8aff>",cost,"</color>"); 
+                StockText.text = string.Concat("Inventory: ", stockText);
+                Price.text = string.Concat("Cost: ", costText, " Credits");
+                buyNavItem.SetSprite(item.Icon);
+            }
+        }
+
+        public void UpdateAll(ItemRepo itemRepo, PlayerInventory inventory)
+        {
+            foreach (var item in NavMenu.GetNavItems())
+            {
+                var buyItem = item as BuyItemNavItem;
+                if (buyItem == null)
+                    continue;
+
+                UpdateInfo(buyItem, itemRepo, inventory);
+            }
+
+            var currentItem = NavMenu.GetCurrentNavItem() as BuyItemNavItem;
+            if (currentItem == null)
+                return;
+
+            UpdateInfo(currentItem, itemRepo, inventory);
         }
     }
 
