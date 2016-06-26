@@ -86,11 +86,7 @@ public class StoreMenu : GameMenu
     public class BuySubMenu
     {
         public NavMenu NavMenu;
-        public Text Effect;
-        public Text Name;
-        public Text FlavorText;
-        public Text StockText;
-        public Text Price;
+        public Text Effect, Name, FlavorText, StockText, Price;
 
         public void UpdateInfo(Item.ItemType type, ItemRepo itemRepo, PlayerInventory inventory)
         {

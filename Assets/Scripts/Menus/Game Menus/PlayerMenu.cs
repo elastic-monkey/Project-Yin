@@ -125,6 +125,28 @@ public class PlayerMenu : GameMenu
     public class InventorySubMenu
     {
         public MatrixNavMenu NavMenu;
+        public Text Name, Effect, FlavorText;
+
+        public void UpdateInfo(NavItem navItem, ItemRepo itemRepo, PlayerInventory inventory)
+        {
+            var inventoryNavItem = navItem as InventoryItemNavItem;
+            if (inventoryNavItem == null)
+                return;
+
+            var item = itemRepo.Find(inventoryNavItem.Type);
+            if (item == null)
+            {
+                Name.text = "No item selected";
+                Effect.text = string.Empty;
+                FlavorText.text = string.Empty;
+            }
+            else
+            {
+                Name.text = item.ItemName;
+                Effect.text = item.Effect;
+                FlavorText.text = item.FlavorText;
+            }
+        }
 
         public void UpdateInfo(ItemRepo itemRepo, PlayerInventory inventory)
         {
@@ -156,6 +178,8 @@ public class PlayerMenu : GameMenu
                     inventoryNavItem.Stock.text = "-";
                 }
             }
+
+            UpdateInfo(NavMenu.GetCurrentNavItem(), itemRepo, inventory);
         }
     }
 }
