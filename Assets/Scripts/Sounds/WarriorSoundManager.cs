@@ -50,13 +50,13 @@ public class WarriorSoundManager : MonoBehaviour
 		item = FindItem(action);
         if (item == null)
         {
-            Debug.LogWarning(string.Concat(name, ": Sound item not found for [", action.ToString(), "]"));
+            //Debug.LogWarning(string.Concat(name, ": Sound item not found for [", action.ToString(), "]"));
             return null;
         }
 
         if (item.Clips.Count == 0)
         {
-            Debug.LogWarning(string.Concat(name, ": Found sound item not found for [", action.ToString(), "], but has no clips."));
+            //Debug.LogWarning(string.Concat(name, ": Found sound item not found for [", action.ToString(), "], but has no clips."));
             return null;
         }
 

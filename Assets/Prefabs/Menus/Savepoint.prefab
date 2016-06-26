@@ -23,25 +23,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479052}
+  - 114: {fileID: 11499566}
   m_Layer: 0
   m_Name: Savepoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &139552
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 428190}
-  - 135: {fileID: 13587892}
-  - 114: {fileID: 11470360}
-  m_Layer: 0
-  m_Name: Interaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,19 +136,6 @@ Transform:
   - {fileID: 402470}
   m_Father: {fileID: 474368}
   m_RootOrder: 0
---- !u!4 &428190
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139552}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 479052}
-  m_RootOrder: 1
 --- !u!4 &449842
 Transform:
   m_ObjectHideFlags: 1
@@ -219,7 +190,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 476414}
-  - {fileID: 428190}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &497250
@@ -265,35 +235,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11470360
+--- !u!114 &11499566
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139552}
+  m_GameObject: {fileID: 120604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f24f39cf978f6fd47bc422bf475eaa7b, type: 3}
+  m_Script: {fileID: 11500000, guid: b0cf65e79fbdca34e90f8ef2b4678c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionRadius: 2
+  InteractionRadius: 2.5
   PromptText: Save Game
   ActivateKey: 3
-  CanBeTriggered: 0
+  IsInsideRadius: 0
   Ongoing: 0
   Target: {fileID: 0}
---- !u!135 &13587892
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139552}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &13749350
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

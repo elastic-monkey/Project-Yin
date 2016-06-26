@@ -2,27 +2,28 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class LoadSlotNavItem : MenuNavItem
+public class LoadSlotNavItem : NavItem
 {
+    [Range(1, 4)]
     public int Slot;
+
+    private LoadMenu _loadMenu;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _loadMenu = GetComponentInParent<LoadMenu>();
+    }
 
     public void Start()
     {
-        Data = new string[1];
-        Data[0] = Slot.ToString();
-
         var text = TargetGraphic as Text;
-        if (text != null)
-        {
-			GameState save = LoadMenu.GetSaveInSlot (Slot);
-			if (save != null)
-			{
-                text.text = save.CurrentScene + " " + save.SaveDate;
-			}
-			else
-			{
-				text.text = "Empty Save Slot";
-			}
-        }
+        text.text = _loadMenu.GetSlotName(Slot);
+    }
+
+    public override void OnSelect()
+    {
+        _loadMenu.Load(Slot);
     }
 }

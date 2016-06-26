@@ -20,6 +20,7 @@ public class Dialogue : IComparable<Dialogue>
     }
 }
 
+[System.Serializable]
 public class NPCLine : IComparable<NPCLine>
 {
     public int Id;

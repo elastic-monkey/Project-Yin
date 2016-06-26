@@ -4,68 +4,122 @@ using System.Collections.Generic;
 
 public class AbilityItemHUD : MonoBehaviour
 {
-
-    public InventorySlotNavItem ActiveSlot;
     public Text ItemStock;
     public Image ItemIcon;
-    public InventoryMenu Inventory;
+    public Item.ItemType CurrentType;
 
-    private Item.ItemType _lastType;
+    private PlayerInventory _inventory;
+    private ItemRepo _itemRepo;
 
-    public void Start()
+    public GameManager GameManager
     {
-        ActiveSlot = null;
+        get
+        {
+            return GameManager.Instance;
+        }
+    }
+
+    private void Start()
+    {
+        _inventory = GameManager.Player.Inventory;
+        _itemRepo = GameManager.ItemRepo;
+
+        FindFirstValidType();
+
         UpdateItemSlot();
     }
 
-    public void Update()
+    private void FindFirstValidType()
     {
-        if (!PlayerInput.OnlyMenus)
+        CurrentType = Item.ItemType.Null;
+        foreach (var slot in _inventory.Slots)
         {
-            if (PlayerInput.IsButtonDown(Axes.QuickInventoryChange))
+            if (IsValidQuickItemType(slot.Type))
             {
-                GetNextItem();
-            }
-            else if (PlayerInput.IsButtonDown(Axes.QuickInventoryUse))
-            {
-                if (ActiveSlot != null)
-                {
-                    if (ActiveSlot.Item != null)
-                    {
-                        ItemQuickUse();
-                    }
-                }
+                CurrentType = slot.Type;
+                return;
             }
         }
     }
 
-    private void ItemQuickUse()
+    private void FindNextValidType()
     {
-        _lastType = ActiveSlot.Item.Type;
-        ActiveSlot.UseItem();
+        var currentIndex = 0;
+
+        // Find current type index
+        for (int i = 0; i < _inventory.Slots.Count; i++)
+        {
+            var slot = _inventory.Slots[i];
+            if (slot.Type == CurrentType)
+            {
+                currentIndex = i;
+                break;
+            }
+        }
+
+        // Then try items after current
+        for (int i = currentIndex + 1; i < _inventory.Slots.Count; i++)
+        {
+            var slot = _inventory.Slots[i];
+            if (IsValidQuickItemType(slot.Type))
+            {
+                CurrentType = slot.Type;
+                return;
+            }
+        }
+
+        // If not found, cycle
+        for (int i = 0; i < currentIndex; i++)
+        {
+            var slot = _inventory.Slots[i];
+            if (IsValidQuickItemType(slot.Type))
+            {
+                CurrentType = slot.Type;
+                return;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (GameManager.IsGamePaused)
+            return;
+
+        if (PlayerInput.OnlyMenus)
+            return;
+
+        if (!IsValidQuickItemType(CurrentType))
+        {
+            FindFirstValidType();
+        }
+
         UpdateItemSlot();
-        if (ActiveSlot.Item == null) // This was the last use
+
+        if (PlayerInput.IsButtonDown(Axes.QuickInventoryChange))
         {
-            GetNextItem();
+            FindNextValidType();
+            UpdateItemSlot();
+        }
+        else if (PlayerInput.IsButtonDown(Axes.QuickInventoryUse))
+        {
+            UseCurrentItem();
         }
     }
 
-    private void GetNextItem()
+    private void UseCurrentItem()
     {
-        if (ActiveSlot == null)
-        {
-            ActiveSlot = Inventory.GetSlotItem(GetNextItemType(Item.ItemType.Null));
-        }
-        else
-        {
-            ActiveSlot = Inventory.GetSlotItem(GetNextItemType(_lastType));
-        }
+        _inventory.UseItem(CurrentType);
 
-        if (ActiveSlot != null)
+        var stock = _inventory.GetStock(CurrentType);
+        if (stock == 0)
         {
-            _lastType = ActiveSlot.Item.Type;
+            var last = CurrentType;
+            FindNextValidType();
+            if (last == CurrentType)
+            {
+                CurrentType = Item.ItemType.Null;
+            }
         }
-
         UpdateItemSlot();
     }
 
@@ -87,21 +141,23 @@ public class AbilityItemHUD : MonoBehaviour
         return Item.ItemType.Null;
     }
 
+    private bool IsValidQuickItemType(Item.ItemType type)
+    {
+        return (type != Item.ItemType.Component && type != Item.ItemType.Null);
+    }
+
     private void UpdateItemSlot()
     {
-        Color temp = Color.white;
-        temp.a = 1.0f;
-        if (ActiveSlot == null || ActiveSlot.Item == null)
+        if (IsValidQuickItemType(CurrentType))
         {
-            ItemStock.text = "";
-            temp.a = 0f;
+            ItemStock.text = string.Concat("[", _inventory.GetStock(CurrentType), "]");
+            ItemIcon.sprite = _itemRepo.Find(CurrentType).Icon;
+            ItemIcon.color = Color.white;
         }
         else
         {
-            ItemStock.text = "[" + ActiveSlot.Stock.ToString() + "]";
-            ItemIcon.sprite = ActiveSlot.Item.Icon;
+            ItemStock.text = "";
+            ItemIcon.color = Color.clear;
         }
-
-        ItemIcon.color = temp;
     }
 }

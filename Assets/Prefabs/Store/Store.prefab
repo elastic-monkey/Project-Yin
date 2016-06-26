@@ -510,8 +510,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 445898}
   - 95: {fileID: 9569716}
-  - 135: {fileID: 13545566}
-  - 114: {fileID: 11407622}
   - 114: {fileID: 11428502}
   m_Layer: 0
   m_Name: Store
@@ -519,6 +517,22 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!1 &166292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 429230}
+  - 114: {fileID: 11485758}
+  m_Layer: 0
+  m_Name: Interaction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &168560
 GameObject:
@@ -838,6 +852,19 @@ Transform:
   - {fileID: 446294}
   m_Father: {fileID: 461452}
   m_RootOrder: 0
+--- !u!4 &429230
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.13, y: 0, z: -2.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 445898}
+  m_RootOrder: 7
 --- !u!4 &429912
 Transform:
   m_ObjectHideFlags: 1
@@ -963,6 +990,7 @@ Transform:
   - {fileID: 432806}
   - {fileID: 439874}
   - {fileID: 456516}
+  - {fileID: 429230}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &446164
@@ -1371,24 +1399,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11407622
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a72fd5bee56a0a847b49adb4d8fc1f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractionRadius: 3
-  PromptText: Enter Store
-  ActivateKey: 3
-  CanBeTriggered: 0
-  Ongoing: 0
-  Target: {fileID: 0}
-  Animator: {fileID: 9569716}
 --- !u!114 &11428502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1408,18 +1418,24 @@ MonoBehaviour:
   - {fileID: 6557330}
   RenderersToHide: []
   RenderersToShow: []
---- !u!135 &13545566
-SphereCollider:
+--- !u!114 &11485758
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165264}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 166292}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: -2, y: 1, z: -2}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72fd5bee56a0a847b49adb4d8fc1f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionRadius: 3
+  PromptText: Enter Store
+  ActivateKey: 3
+  IsInsideRadius: 0
+  Ongoing: 0
+  Target: {fileID: 0}
+  Animator: {fileID: 9569716}
 --- !u!137 &13758258
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

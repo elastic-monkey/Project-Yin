@@ -4,90 +4,89 @@ using System.Collections.Generic;
 
 public class DialogueInteraction : PlayerInteraction
 {
-    public DialogueWindow Target;
+    public Axes ForwardKey = Axes.Confirm;
     public DialogueType Type;
     public string DialogueID;
-    private DialogueManager _myDialogues;
-    private bool _feedLines;
-    private bool _hasFinished;
+
+    private DialogueWindow _dialogueWindow;
+    private DialogueManager _dialogue;
 
     public bool HasFinished
     {
         get
         {
-            if (_myDialogues != null)
+            if (_dialogue != null)
             {
-                return _hasFinished;
+                return _dialogue.FinishedDialogue;
             }
 
-            return false;
+            return true;
         }
     }
 
     protected override void Awake()
     {
         base.Awake();
-        _myDialogues = new DialogueManager();
+
+        _dialogueWindow = GameManager.DialogueWindow;
+
+        _dialogue = new DialogueManager();
         LoadDialogue(DialogueID, Type);
     }
 
-    public void Update()
+    protected override void Update()
     {
-        if (_feedLines)
+        base.Update();
+
+        if (!Ongoing)
+            return;
+
+        if (HasFinished)
         {
-            if (!_myDialogues.FinishedDialogue)
+            StopInteraction();
+            return;
+        }
+
+        if (PlayerInput.IsButtonDown(ForwardKey))
+        {
+            if (_dialogueWindow.FinishedLine)
             {
-                if (Target.CurrentLineOver && PlayerInput.IsButtonDown(Target.ForwardKey))
+                _dialogue.GoToNext();
+                if (HasFinished)
                 {
-                    _myDialogues.GoToNext();
-                    if (_myDialogues.FinishedDialogue)
-                    {
-                        StopInteraction();
-                        _feedLines = false;
-                        return;
-                    }
-                    Target.CurrentLine = _myDialogues.CurrentDialogueLine;
+                    StopInteraction();
+                    return;
                 }
+
+                _dialogueWindow.WriteLine(_dialogue.CurrentDialogueLine);
             }
             else
             {
-                StopInteraction();
-                _feedLines = false;
+                _dialogueWindow.FastForward = true;
             }
         }
-    }
-
-    public override bool ShouldStop()
-    {
-        return _hasFinished;
     }
 
     public override void StartInteraction()
     {
         base.StartInteraction();
 
-        _hasFinished = false;
-
-        Target.SetActive(true);
-
-        Target.CurrentLine = _myDialogues.CurrentDialogueLine;
-
-        _feedLines = true;
+        _dialogueWindow.SetActive(true);
+        _dialogueWindow.WriteLine(_dialogue.CurrentDialogueLine);
     }
 
     public override void StopInteraction()
     {
         base.StopInteraction();
 
-        Target.SetActive(false);
-        _myDialogues.FinishedDialogue = false;
-        _hasFinished = true;
+        _dialogueWindow.SetActive(false);
+        _dialogue.Reset();
     }
 
-    public void LoadDialogue(string id, DialogueType type)
+    private void LoadDialogue(string id, DialogueType type)
     {
-        _myDialogues.Dialogues = DialogueLoader.LoadNPCDialogue(id, type);
-        _myDialogues.Reset();
+        _dialogue.Dialogues = DialogueLoader.LoadNPCDialogue(id, type);
+        _dialogue.Reset();
     }
 }
 

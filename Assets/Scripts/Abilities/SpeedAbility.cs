@@ -35,15 +35,14 @@ public class SpeedAbility : Ability
         return new SerializableAbility(InputAxis, Type(), CurrentLevel, array);
     }
 
-    public static Ability Deserialize(SerializableAbility sAbility)
+    public static void Deserialize(SpeedAbility recipient, SerializableAbility sAbility)
     {
-        var obj = new GameObject().AddComponent<SpeedAbility>();
-        obj.name = "Speed";
-
-        obj.BaseMultiplier = float.Parse(sAbility.Data[0]);
-        obj.Increment = float.Parse(sAbility.Data[1]);
-
-        return obj;
+        if (recipient == null)
+            return;
+        
+        recipient.name = "Speed";
+        recipient.BaseMultiplier = float.Parse(sAbility.Data[0]);
+        recipient.Increment = float.Parse(sAbility.Data[1]);
     }
 
     public override AbilityType Type()

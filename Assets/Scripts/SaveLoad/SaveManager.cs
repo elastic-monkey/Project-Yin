@@ -80,56 +80,64 @@ public class SaveManager : MonoBehaviour
 
 	public static void LoadPlayerState(PlayerState state)
     {
-        var player = GameObject.Find("Yin");
-        var playerBehavior = player.GetComponent<PlayerBehavior>();
+        var player = GameManager.Instance.Player;
 		var playerAnimator = player.GetComponent<Animator> ();
-        var inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenu>();
-        var itemRepo = GameObject.Find("ItemRepo").GetComponent<ItemRepo>();
+        var inventory = player.Inventory;
+        var itemRepo = GameManager.Instance.ItemRepo;
 
 		playerAnimator.SetBool (AnimatorHashIDs.DeadBool, false);
 
         player.transform.position = state.position;
         player.transform.rotation = state.rotation;
 
-		playerBehavior.Health.Alive = true;
-        playerBehavior.Health.MaxHealth = state.MaxHealth;
-        playerBehavior.Health.CurrentHealth = state.Health;
-        playerBehavior.Health.CurrentLevel = state.HealthCurrentLevel;
-        playerBehavior.Stamina.MaxStamina = state.MaxStamina;
-        playerBehavior.Stamina.CurrentStamina = state.MaxStamina;
-        playerBehavior.Stamina.CurrentLevel = state.StaminaCurrentLevel;
+        player.Health.Alive = true;
+        player.Health.MaxHealth = state.MaxHealth;
+        player.Health.CurrentHealth = state.Health;
+        player.Health.CurrentLevel = state.HealthCurrentLevel;
+        player.Stamina.MaxStamina = state.MaxStamina;
+        player.Stamina.CurrentStamina = state.MaxStamina;
+        player.Stamina.CurrentLevel = state.StaminaCurrentLevel;
 
-        playerBehavior.Experience.CurrentExperience = state.Experience;
-        playerBehavior.Experience.SkillPoints = state.SkillPoints;
+        player.Experience.CurrentExperience = state.Experience;
+        player.Experience.SkillPoints = state.SkillPoints;
 
-        playerBehavior.Currency.CurrentCredits = state.Credits;
+        player.Currency.CurrentCredits = state.Credits;
 
         var playerAbilities = player.GetComponent<AbilitiesManager>();
-        playerAbilities.RemoveAbilities();
-
         foreach (var sAbility in state.Abilities)
         {
-            playerAbilities.Add(Ability.DeserializeAbility(sAbility));
+            playerAbilities.Set(sAbility);
         }
 
-        for (var i = 0; i < inventory.InventorySlots.Count; i++)
+        inventory.Slots.Clear();
+        foreach (var sSlot in state.InventorySlots)
         {
-            var loadSlot = state.Inventory[i];
-            var slot = inventory.InventorySlots[i];
-            if (loadSlot.Type != Item.ItemType.Null && loadSlot.Stock != 0)
-            {
-                var item = itemRepo.Find(loadSlot.Type);
-                slot.Item = item;
-                slot.Stock = loadSlot.Stock;
-                slot.UpdateSlot();
-            }
-        }
+            var item = itemRepo.Find(sSlot.Type);
+            var exists = false;
 
+            foreach (var slot in inventory.Slots)
+            {
+                if (slot.Type == item.Type)
+                {
+                    exists = true;
+                    break;
+                }
+            }
+
+            if (exists)
+                continue;
+
+            var itemSlot = new PlayerInventory.ItemSlot();
+            itemSlot.Type = sSlot.Type;
+            itemSlot.Stock = sSlot.Stock;
+
+            inventory.Slots.Add(itemSlot);
+        }
     }
 
 	public static void LoadCameraState(CameraState state)
     {
-        GameObject camera = GameObject.Find("Camera Pivot");
+        var camera = GameObject.Find("Camera Pivot");
         camera.transform.position = state.position;
     }
 }

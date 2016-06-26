@@ -1,91 +1,105 @@
 ﻿using UnityEngine;
+using Utilities;
 
-[RequireComponent(typeof(SphereCollider))]
 public abstract class PlayerInteraction : MonoBehaviour
 {
     [Range(1, 8)]
     public float InteractionRadius = 2f;
     public string PromptText;
     public Axes ActivateKey;
-    public bool CanBeTriggered;
-    public bool Ongoing;
+    public bool IsInsideRadius, Ongoing;
 
-    protected GameManager _gameManager;
-    protected InteractionPrompt _interactionPrompt;
-
-    private SphereCollider _collider;
-    private bool _activeNextFrame;
-
-    public SphereCollider Collider
+    public GameManager GameManager
     {
         get
         {
-            if (_collider == null)
-                _collider = GetComponent<SphereCollider>();
-
-            return _collider;
+            return GameManager.Instance;
         }
     }
 
+    private bool _startNextFrame = false, _stopNextFrame = false;
+
     protected virtual void Awake()
     {
-        Collider.isTrigger = true;
+        Ongoing = false;
+        IsInsideRadius = false;
     }
 
-    private void Start()
+    protected virtual void Update()
     {
-        _gameManager = GameManager.Instance;
-        _interactionPrompt = _gameManager.InteractionPrompt;
-    }
-
-    private void Update()
-    {
-        if (!Ongoing)
+        if (GameManager.IsGamePaused)
             return;
 
-		if (ShouldStop())
-			StopInteraction();
+        var inside = Vector3Helper.SqrDistanceXZ(transform.position, GameManager.Player.transform.position) <= (InteractionRadius * InteractionRadius);
+
+        if (inside != IsInsideRadius)
+        {
+            IsInsideRadius = inside;
+            if (inside)
+            {
+                OnRadiusEnter();
+            }
+            else
+            {
+                OnRadiusExit();
+            }
+        }
+
+        if (!IsInsideRadius)
+            return;
+
+        if (!Ongoing && PlayerInput.IsButtonDown(ActivateKey))
+        {
+            StartInteraction();
+        }
+    }
+
+    protected virtual void LateUpdate()
+    {
+        // The methods below are to avoid pressing and key and
+        //  triggering new response in the same frame.
+        if (_startNextFrame)
+        {
+            _startNextFrame = false;
+            Ongoing = true;
+        }
+
+        if (_stopNextFrame)
+        {
+            _stopNextFrame = false;
+            Ongoing = false;
+            PlayerInput.OnlyMenus = false;
+        }
     }
 
     public virtual void StartInteraction()
     {
-        _interactionPrompt.Show(false, this);
-        Ongoing = true;
+        GameManager.InteractionPrompt.SetVisible(false);
+        _startNextFrame = true;
         PlayerInput.OnlyMenus = true;
     }
 
     public virtual void StopInteraction()
     {
-        _interactionPrompt.Show(CanBeTriggered, this);
-        Ongoing = false;
-        PlayerInput.OnlyMenus = false;
+        GameManager.InteractionPrompt.SetVisible(IsInsideRadius, ActivateKey, PromptText);
+        _stopNextFrame = true;
     }
 
-    public abstract bool ShouldStop();
-
-    protected virtual void OnTriggerEnter(Collider collider)
+    protected virtual void OnRadiusEnter()
     {
-        if (collider == _gameManager.Player.MainCollider)
-        {
-            CanBeTriggered = true;
-            _interactionPrompt.Show(true, this);
-        }
+        GameManager.InteractionPrompt.SetVisible(true, ActivateKey, PromptText);
     }
 
-    protected virtual void OnTriggerExit(Collider collider)
+    protected virtual void OnRadiusExit()
     {
-        if (collider == _gameManager.Player.MainCollider)
-        {
-            CanBeTriggered = false;
-            _interactionPrompt.Show(false, this);
-        }
+        GameManager.InteractionPrompt.SetVisible(false);
     }
 
     #region Editor Only
 
-    private void OnValidate()
+    private void OnDrawGizmos()
     {
-        Collider.radius = InteractionRadius;
+        GizmosHelper.DrawCircleArena(transform.position + Vector3.up, InteractionRadius, 16, Color.cyan);
     }
 
     #endregion

@@ -6,11 +6,15 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     public PlayerBehavior Player;
+    public ItemRepo ItemRepo;
     public EnemiesManager EnemiesManager;
     public HideBuidings HideBuildings;
     public SwapToFadeManager SwapFadeMaterials;
-	public GameOverMenu GameOverMenu;
     public InteractionPrompt InteractionPrompt;
+    public DialogueWindow DialogueWindow;
+    public GameMenu SaveTerminal;
+    public GameMenu GameOverMenu;
+    public StoreMenu StoreMenu;
 	public SoundtrackManager SoundtrackManager;
 	public MenuSoundManager MenuSoundManager;
 	public SoundManager EnemiesSoundManager;
@@ -21,7 +25,7 @@ public class GameManager : MonoBehaviour
 	private bool _gameNotPausedNextFrame;
 	private List<WarriorBehavior> _players, _enemies;
 
-    public bool GamePaused
+    public bool IsGamePaused
     {
         get
         {
@@ -80,7 +84,7 @@ public class GameManager : MonoBehaviour
         if (_gameNotPausedNextFrame)
         {
             _gameNotPausedNextFrame = false;
-            GamePaused = false;
+            IsGamePaused = false;
         }
     }
 
@@ -120,7 +124,7 @@ public class GameManager : MonoBehaviour
     {
         if (value)
         {
-            GamePaused = true;
+            IsGamePaused = true;
         }
         else
         {

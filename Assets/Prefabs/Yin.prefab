@@ -172,6 +172,7 @@ GameObject:
   - 114: {fileID: 11476292}
   - 114: {fileID: 11440786}
   - 81: {fileID: 8195490}
+  - 114: {fileID: 11455318}
   m_Layer: 9
   m_Name: Yin
   m_TagString: Player
@@ -1084,22 +1085,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &189062
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 429638}
-  - 114: {fileID: 11462704}
-  m_Layer: 9
-  m_Name: Vision
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &189192
 GameObject:
   m_ObjectHideFlags: 1
@@ -1473,7 +1458,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 429638}
   - {fileID: 477120}
   - {fileID: 444268}
   - {fileID: 459376}
@@ -1533,19 +1517,6 @@ Transform:
   m_Children:
   - {fileID: 420136}
   m_Father: {fileID: 452390}
-  m_RootOrder: 0
---- !u!4 &429638
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189062}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 426258}
   m_RootOrder: 0
 --- !u!4 &430612
 Transform:
@@ -1717,7 +1688,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 426258}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &445198
 Transform:
   m_ObjectHideFlags: 1
@@ -1856,7 +1827,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 426258}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &461102
 Transform:
   m_ObjectHideFlags: 1
@@ -2119,7 +2090,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 426258}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &481428
 Transform:
   m_ObjectHideFlags: 1
@@ -2127,7 +2098,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123740}
   m_LocalRotation: {x: 0, y: -0.000000044703484, z: 0, w: 1}
-  m_LocalPosition: {x: 4.75, y: 0, z: -108}
+  m_LocalPosition: {x: 7.4, y: 0, z: -105.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2494,22 +2465,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilitesTransform: {fileID: 426258}
   Abilities:
-  - {fileID: 11462704}
   - {fileID: 11462300}
   - {fileID: 11486992}
   - {fileID: 11419948}
-  AbilityHUDIcons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  AbilityActiveSprite:
-  - {fileID: 21300000, guid: b9a4d3a5987cbf54392bf6a48687c22f, type: 3}
-  - {fileID: 21300000, guid: d7defa6b6d13e96458b05794259c3694, type: 3}
-  - {fileID: 21300000, guid: f7873a68ee2d49e45b8c8b5b4f4c6a8e, type: 3}
-  AbilityInactiveSprite:
-  - {fileID: 21300000, guid: ef682f370fd7eac4ab3c76374249e20e, type: 3}
-  - {fileID: 21300000, guid: 9e1d2b8903a87604fade8f46c5f17aa9, type: 3}
-  - {fileID: 21300000, guid: 467f75cf0d7b6e14ab586576493906bb, type: 3}
 --- !u!114 &11413376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2537,6 +2495,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbbcbb43fcddfe42817794adf1bc0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.827451, g: 0.1254902, b: 0.16078432, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   Active: 0
   InputAxis: 9
@@ -2689,6 +2651,19 @@ MonoBehaviour:
   Targets: []
   DamageMultiplier: 1
   StaminaMultiplier: 1
+--- !u!114 &11455318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1f6e4a04fed4c4aa41ad99ad9501ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxSlots: 9
+  Slots: []
 --- !u!114 &11462300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2700,6 +2675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7802dfda2d811b248b3af9485dd55dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.9607843, g: 0.92941177, b: 0.5019608, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   Active: 0
   InputAxis: 10
@@ -2708,23 +2687,6 @@ MonoBehaviour:
   HUDIcon: {fileID: 0}
   BaseMultiplier: 1
   Increment: 0.25
---- !u!114 &11462704
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ca0eaff0ce614144919936bdee4c8ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentLevel: 0
-  Active: 0
-  InputAxis: 0
-  ActiveIcon: {fileID: 0}
-  DeactivatedIcon: {fileID: 0}
-  HUDIcon: {fileID: 0}
 --- !u!114 &11476292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2749,6 +2711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d196483610f2e84c9683a8f83da265a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.7176471, g: 0.6862745, b: 0.8392157, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   Active: 0
   InputAxis: 8
@@ -2781,6 +2747,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c8fad0edfb7ce44b6ea80353fc729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.9098039, g: 0.34509805, b: 0.3764706, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   HealthLevelIncrement: 20
   BaseMaxHealth: 100
@@ -2798,6 +2768,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c599bd6127982354fabd47a384295dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.5921569, g: 0.81960785, b: 0.8352941, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   StaminaLevelIncrement: 20
   BaseMaxStamina: 100

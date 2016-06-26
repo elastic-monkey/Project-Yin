@@ -7,9 +7,6 @@ public class AbilitiesManager : MonoBehaviour
 {
     public Transform AbilitesTransform;
     public List<Ability> Abilities;
-    public List<Image> AbilityHUDIcons;
-    public List<Sprite> AbilityActiveSprite;
-    public List<Sprite> AbilityInactiveSprite;
 
     private PlayerBehavior _player;
 
@@ -52,13 +49,10 @@ public class AbilitiesManager : MonoBehaviour
         }
     }
 
-    public void Add(Ability ability)
+    public void Set(SerializableAbility sAbility)
     {
-        ability.transform.SetParent(AbilitesTransform);
-        Abilities.Add(ability);
-        ability.HUDIcon = AbilityHUDIcons[GetAbilityIndex(ability.Type())];
-        ability.ActiveIcon = AbilityActiveSprite[GetAbilityIndex(ability.Type())];
-        ability.DeactivatedIcon = AbilityInactiveSprite[GetAbilityIndex(ability.Type())];
+        var ability = Find(sAbility.Type);
+        Ability.Deserialize(ability, sAbility);
     }
 
     public void RemoveAbilities()

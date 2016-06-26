@@ -5,7 +5,6 @@ using System.Collections;
 public class EnemyDropItem : Item
 {
     public int Value;
-    public InventoryMenu Inventory;
 
     void Start()
     {

@@ -2,21 +2,21 @@
 
 public class CollectableItem : MonoBehaviour
 {
-	public Item Item;
+    public Item.ItemType Type;
 	public Tags PlayerTag;
-	[SerializeField]
-	private InventoryMenu _inventory;
+
+    private PlayerInventory _inventory;
 
 	public void Start()
 	{
-		_inventory = GameObject.Find("InventorySubMenu").GetComponent<InventoryMenu>();
+        _inventory = GameManager.Instance.Player.Inventory;
 	}
 
 	public void OnTriggerEnter(Collider collider)
 	{
 		if (collider.CompareTag(PlayerTag.ToString()))
 		{
-			_inventory.AddItemToInventory(Item, false);
+            _inventory.IncreaseStock(Type);
 			Destroy(gameObject);
 		}
 	}

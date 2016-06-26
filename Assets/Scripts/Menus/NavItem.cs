@@ -37,7 +37,7 @@ public abstract class NavItem : MonoBehaviour
 		TargetGraphic.color = Disabled ? DisabledColor : Focused ? FocusedColor : _initialColor;
 	}
 
-    public abstract void OnSelect(IMenu manager);
+    public abstract void OnSelect();
 
 	public virtual void OnHorizontalInput(float value)
 	{
