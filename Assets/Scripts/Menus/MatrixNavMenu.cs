@@ -80,16 +80,21 @@ public class MatrixNavMenu : NavMenu
     {
         base.SetActive(value);
 
-        if (!value && Reset)
+        if (value)
+        {
+            UnfocusAll();
+            FocusCurrent(true);
+        }
+        else if (Reset)
         {
             _currentIndex = new IndexPair(0, 0);
-            FocusCurrent();
+            FocusCurrent(true);
         }
     }
 
-    protected override void FocusItem(NavItem item)
+    protected override void FocusItem(NavItem item, bool silent = false)
     {
-        base.FocusItem(item);
+        base.FocusItem(item, silent);
 
         if (item != null)
         {
@@ -178,14 +183,14 @@ public class MatrixNavMenu : NavMenu
         {
             foreach (var item in collection.Items)
             {
-                item.Focus(false);
+                FocusItem(item, true);
             }
         }
     }
 
-    public override void FocusCurrent()
+    public override void FocusCurrent(bool silent = false)
     {
-        FocusItem(GetItem(_currentIndex));
+        FocusItem(GetItem(_currentIndex), silent);
     }
 
     private void SelectItem(IndexPair index)

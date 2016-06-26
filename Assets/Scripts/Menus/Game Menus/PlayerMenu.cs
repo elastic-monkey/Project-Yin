@@ -30,8 +30,10 @@ public class PlayerMenu : GameMenu
         Inventory.UpdateInfo(_itemRepo, _inventory);
     }
 
-    public override void OnNavItemFocused(NavItem target)
+    public override void OnNavItemFocused(NavItem target, bool silent = false)
     {
+        base.OnNavItemFocused(target, silent);
+
         if (CurrentNavMenu == Upgrades.NavMenu)
         {
             Upgrades.UpdateInfo(target, _player);

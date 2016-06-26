@@ -40,15 +40,13 @@ public class VerticalNavMenu : NavMenu
 
         if (value)
         {
-            if (Reset)
-            {
-                _currentIndex = 0;
-            }
-            FocusCurrent();
-        }
-        else
-        {
             UnfocusAll();
+            FocusCurrent(true);
+        }
+        else if (Reset)
+        {
+            _currentIndex = 0;
+            FocusCurrent(true);
         }
     }
 
@@ -60,9 +58,9 @@ public class VerticalNavMenu : NavMenu
             item.OnHorizontalInput(value);
     }
 
-    protected override void FocusItem(NavItem item)
+    protected override void FocusItem(NavItem item, bool silent = false)
     {
-        base.FocusItem(item);
+        base.FocusItem(item, silent);
 
         if (item != null)
         {
@@ -75,6 +73,11 @@ public class VerticalNavMenu : NavMenu
             {
                 Debug.LogWarning("Tried to focus null object. Check your object assignment.");
                 continue;
+            }
+
+            if (other == item)
+            {
+                
             }
 
             other.Focus(other == item);
@@ -113,13 +116,13 @@ public class VerticalNavMenu : NavMenu
     {
         foreach (var item in Items)
         {
-            item.Focus(false);
+            FocusItem(item, true);
         }
     }
 
-    public override void FocusCurrent()
+    public override void FocusCurrent(bool silent = false)
     {
-        FocusItem(GetItem(_currentIndex));
+        FocusItem(GetItem(_currentIndex), silent);
     }
 
     private void OnItemSelected(int index)

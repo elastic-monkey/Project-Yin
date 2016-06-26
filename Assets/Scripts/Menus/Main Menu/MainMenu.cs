@@ -42,9 +42,12 @@ public class MainMenu : Menu
         }
     }
 
-    public override void OnNavItemFocused(NavItem target)
+    public override void OnNavItemFocused(NavItem target, bool silent = false)
     {
-        if (IsOpen)
+        if (!IsOpen)
+            return;
+        
+        if (!silent)
             SoundManager.PlayFocusItemSound();
     }
 }

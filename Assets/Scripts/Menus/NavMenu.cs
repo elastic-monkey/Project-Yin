@@ -103,9 +103,9 @@ public abstract class NavMenu : MonoBehaviour
         FocusCurrent();
     }
 
-    protected virtual void FocusItem(NavItem item)
+    protected virtual void FocusItem(NavItem item, bool silent = false)
     {
-        Menu.OnNavItemFocused(item);
+        Menu.OnNavItemFocused(item, silent);
 
         if (HoverIcon != null)
         {
@@ -123,7 +123,7 @@ public abstract class NavMenu : MonoBehaviour
 
     public abstract void UnfocusAll();
 
-    public abstract void FocusCurrent();
+    public abstract void FocusCurrent(bool silent = false);
 
     protected abstract void HandleInput();
 

@@ -66,11 +66,12 @@ public class GameMenu : Menu
         SoundManager.PlayCloseSound();
     }
 
-    public override void OnNavItemFocused(NavItem target)
+    public override void OnNavItemFocused(NavItem target, bool silent = false)
     {
         if (!IsOpen)
             return;
-        
-        SoundManager.PlayFocusItemSound();
+
+        if (!silent)
+            SoundManager.PlayFocusItemSound();
     }
 }

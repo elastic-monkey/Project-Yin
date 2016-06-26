@@ -47,9 +47,9 @@ public class StoreMenu : GameMenu
         Sell.UpdateInfo(_inventory);
     }
 
-    public override void OnNavItemFocused(NavItem target)
+    public override void OnNavItemFocused(NavItem target, bool silent = false)
     {
-        base.OnNavItemFocused(target);
+        base.OnNavItemFocused(target, silent);
 
         if (CurrentNavMenu == Buy.NavMenu)
         {

@@ -122,7 +122,7 @@ public abstract class Menu : MonoBehaviour
         }
     }
 
-    public abstract void OnNavItemFocused(NavItem target);
+    public abstract void OnNavItemFocused(NavItem target, bool silent = false);
 
     public virtual void QuitGame()
     {
