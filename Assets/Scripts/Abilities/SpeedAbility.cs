@@ -39,7 +39,8 @@ public class SpeedAbility : Ability
     {
         if (recipient == null)
             return;
-        
+
+        recipient.CurrentLevel = sAbility.CurrentLevel;
         recipient.name = "Speed";
         recipient.BaseMultiplier = float.Parse(sAbility.Data[0]);
         recipient.Increment = float.Parse(sAbility.Data[1]);

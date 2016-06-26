@@ -66,7 +66,8 @@ public class ShieldAbility : Ability
     {
         if (recipient == null)
             return;
-        
+
+        recipient.CurrentLevel = sAbility.CurrentLevel;
         recipient.name = "Shield";
         recipient.Active = bool.Parse(sAbility.Data[0]);
     }

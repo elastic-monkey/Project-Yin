@@ -54,7 +54,8 @@ public class StrengthAbility : Ability
     {
         if (recipient == null)
             return;
-        
+
+        recipient.CurrentLevel = sAbility.CurrentLevel;
         recipient.name = "Strength";
         recipient.BaseDamageMultiplier = float.Parse(sAbility.Data[0]);
         recipient.DamageIncrement = float.Parse(sAbility.Data[1]);
