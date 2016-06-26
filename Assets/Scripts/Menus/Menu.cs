@@ -80,10 +80,15 @@ public abstract class Menu : MonoBehaviour
         }
     }
 
-    public void CloseIfSubmenu()
+    public bool CloseIfSubmenu()
     {
         if (_navMenusHistory.Count > 1)
+        {
             Close();
+            return true;
+        }
+
+        return false;
     }
 
     public virtual void ChangeTo(NavMenu target, bool submenu = true)

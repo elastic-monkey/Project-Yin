@@ -2,6 +2,7 @@
 
 public class MainMenu : Menu
 {
+    public MainMenu PreviousMenu;
     public Axes CloseSubmenus = Axes.Back;
     public bool OpenOnStart;
 
@@ -26,15 +27,24 @@ public class MainMenu : Menu
     protected override void Update()
     {
         base.Update();
+
+        if (!IsOpen)
+            return;
     
         if (CloseSubmenus != Axes.None && PlayerInput.IsButtonDown(CloseSubmenus))
         {
-            CloseIfSubmenu();
+            var submenu = CloseIfSubmenu();
+            if (!submenu && PreviousMenu != null)
+            {
+                Close();
+                PreviousMenu.Open();
+            }
         }
     }
 
     public override void OnNavItemFocused(NavItem target)
     {
-        SoundManager.PlayFocusItemSound();
+        if (IsOpen)
+            SoundManager.PlayFocusItemSound();
     }
 }
