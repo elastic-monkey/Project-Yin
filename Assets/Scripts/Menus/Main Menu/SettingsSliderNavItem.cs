@@ -1,7 +1,8 @@
 ﻿using UnityEngine.UI;
 
-public class SettingsSliderNavItem : MenuNavItem
+public class SettingsSliderNavItem : NavItem
 {
+    public GameAudio.AudioFacets Facet;
     public Slider Slider;
     public float Increment;
 
@@ -18,12 +19,9 @@ public class SettingsSliderNavItem : MenuNavItem
 		}
 	}
 
-	public override void OnSelect()
+    public override void OnSelect()
     {
-        Data = new string[1];
-        Data[0] = Slider.value.ToString();
-
-        throw new System.NotImplementedException();
+        // Do stuff
     }
 
     public override void OnHorizontalInput(float value)
@@ -35,11 +33,13 @@ public class SettingsSliderNavItem : MenuNavItem
         {
 			Slider.value += value > 0 ? Increment : -Increment;
 			SoundManager.PlaySampleSound(Slider.value);
+            GameAudio.Change(Facet, Slider.value);
 		}
 		else if (Slider.direction == Slider.Direction.RightToLeft)
         {
             Slider.value += value > 0 ? -Increment : Increment;
 			SoundManager.PlaySampleSound(Slider.value);
+            GameAudio.Change(Facet, Slider.value);
 		}
     }
 
@@ -52,11 +52,13 @@ public class SettingsSliderNavItem : MenuNavItem
         {
             Slider.value += value > 0 ? Increment : -Increment;
 			SoundManager.PlaySampleSound(Slider.value);
+            GameAudio.Change(Facet, Slider.value);
 		}
         else if (Slider.direction == Slider.Direction.TopToBottom)
         {
             Slider.value += value > 0 ? -Increment : Increment;
 			SoundManager.PlaySampleSound(Slider.value);
+            GameAudio.Change(Facet, Slider.value);
 		}
     }
 }

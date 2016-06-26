@@ -1,130 +1,40 @@
 ﻿using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : Menu
 {
-    public enum Actions
-    {
-        New,
-        Load,
-        Settings,
-        Quit,
-        Back,
-        Audio
-    }
+    public Axes CloseSubmenus = Axes.Back;
+    public bool OpenOnStart;
 
-    public bool SubMenu = false;
-    public bool Current = false;
-    public MainMenuTransition[] Transitions;
-
-	private MenuSoundManager _soundManager;
-    private NavMenu _navMenu;
-
-	public MenuSoundManager SoundManager
-	{
-		get
-		{
-			if (_soundManager == null)
-				_soundManager = MainMenuManager.Instance.SoundManager;
-
-			return _soundManager;
-		}
-	}
-
-    public NavMenu NavMenu
+    protected MenuSoundManager SoundManager
     {
         get
         {
-            if (_navMenu == null)
-                _navMenu = GetComponent<NavMenu>();
-
-            return _navMenu;
+            return MainMenuManager.Instance.SoundManager;
         }
     }
 
-    private void Update()
+    protected override void Start()
     {
-        if (!Current)
-            return;
-
-        if (PlayerInput.IsButtonUp(Axes.Back))
+        base.Start();
+    
+        if (OpenOnStart)
         {
-            TransitionTo(Transitions.Find(Actions.Back));
+            Open();
         }
     }
 
-    public virtual void OnNavItemFocused(NavItem target)
+    protected override void Update()
     {
-		if (!NavMenu.IsActive)
-			return;
-
-		SoundManager.PlayFocusItemSound();
-	}
-
-    public virtual void OnNavItemSelected(NavItem item, object actionObj, object dataObj)
-    {
-        if (OnNavItemAction(item, actionObj, dataObj))
-            return;
-
-        TransitionTo(Transitions.Find((Actions)actionObj));
-    }
-
-    public virtual bool OnNavItemAction(NavItem navItem, object actionObj, object dataObj)
-    {
-        return false;
-    }
-
-    protected void TransitionTo(MainMenu other)
-    {
-        if (other == null)
-            return;
-
-		SoundManager.PlayOpenSound();
-
-        other.NavMenu.SetActive(true);
-        other.Current = true;
-
-        if (other.SubMenu)
+        base.Update();
+    
+        if (CloseSubmenus != Axes.None && PlayerInput.IsButtonDown(CloseSubmenus))
         {
-            NavMenu.InputBlocked = true;
-            NavMenu.UnfocusAll();
-            Current = false;
-        }
-        else
-        {
-            NavMenu.SetActive(false);
-            Current = false;
+            CloseIfSubmenu();
         }
     }
 
-    private void OnValidate()
+    public override void OnNavItemFocused(NavItem target)
     {
-        if (Transitions.Length > 0)
-            foreach (var t in Transitions)
-                t.Name = t.OnAction.ToString();
-    }
-}
-
-[System.Serializable]
-public class MainMenuTransition
-{
-    [HideInInspector]
-    public string Name;
-    public MainMenu.Actions OnAction;
-    public MainMenu TargetMenu;
-}
-
-public static class MainMenuTransitionHelper
-{
-    public static MainMenu Find(this MainMenuTransition[] transitions, MainMenu.Actions action)
-    {
-        foreach (var transition in transitions)
-        {
-            if (transition.OnAction == action)
-            {
-                return transition.TargetMenu;
-            }
-        }
-
-        return null;
+        SoundManager.PlayFocusItemSound();
     }
 }

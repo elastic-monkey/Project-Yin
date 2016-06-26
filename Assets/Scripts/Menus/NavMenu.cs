@@ -13,17 +13,17 @@ public abstract class NavMenu : MonoBehaviour
     private bool _inputBlocked;
     private bool _inputUnlockedNextFrame;
     private IAnimatedPanel _animatedPanel;
-    private GameMenu _menu;
+    private Menu _menu;
 
-    public GameMenu Menu
+    public Menu Menu
     {
         get
         {
             if (_menu == null)
-                _menu = GetComponent<GameMenu>();
+                _menu = GetComponent<Menu>();
 
             if (_menu == null)
-                _menu = GetComponentInParent<GameMenu>();
+                _menu = GetComponentInParent<Menu>();
 
             return _menu;
         }

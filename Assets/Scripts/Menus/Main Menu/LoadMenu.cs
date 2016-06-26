@@ -6,84 +6,64 @@ using UnityEngine.UI;
 
 public class LoadMenu : MainMenu
 {
-    public static List<GameState> SavedGames;
-    private bool _newGameMode;
     public Text Title;
-	public string Level;
+    //Title.text = value ? "New Game" : "Load Game";
+    public bool IsNewGame;
+    public List<GameState> SavedGames;
 
-    public bool NewGameMode
+    protected override void Awake()
     {
-        get
-        {
-            return _newGameMode;
-        }
-        set
-        {
-            _newGameMode = value;
-            Title.text = value ? "New Game" : "Load Game";
-        }
-    }
+        base.Awake();
 
-    private void Awake()
-    {
         SavedGames = SaveLoad.GetAllSavedGames();
-        Debug.Log("Got " + SavedGames.Count + " saved games.");
     }
 
-    public override bool OnNavItemAction(NavItem item, object actionObj, object dataObj)
+    public override void Open()
     {
-        var action = (Actions)actionObj;
-
-        switch (action)
-        {
-            case Actions.Load:
-                var slot = -1;
-                var data = (string[])dataObj;
-                if (int.TryParse(data[0], out slot))
-                {
-                    var save = GetSaveInSlot(slot);
-                    if (save != null)
-                    {
-                        if (_newGameMode)
-                        {
-                            Debug.Log("A Save exists in slot. Will be deleted");
-                            SaveLoad.DeleteSaveGame(slot);
-                            LoadScene(slot, Level);
-                        }
-                        else
-                        {
-                            LoadScene(slot, save.CurrentScene);
-                        }
-                    }
-                    else
-                    {
-                        if (_newGameMode)
-                        {
-                            Debug.Log("Starting a New Game");
-                            LoadScene(slot, Level);
-                        }
-                        else
-                        {
-                            Debug.Log("Empty Slot. Nothing to Load");
-                        }
-                    }
-                }
-                return true;
-        }
-
-        return false;
+        base.Open();
+    
+        Title.text = IsNewGame ? "New Game" : "Load Game";
     }
 
-    public static GameState GetSaveInSlot(int slot)
+    public void Load(int slot)
+    {
+        var save = GetSaveInSlot(slot);
+        if (save == null)
+        {
+            if (IsNewGame)
+            {
+                LoadScene(slot, Scenes.DemoLevel.GetSceneName());
+            }
+        }
+        else
+        {
+            if (IsNewGame)
+            {
+                SaveLoad.DeleteSaveGame(slot);
+                LoadScene(slot, Scenes.DemoLevel.GetSceneName());
+            }
+            else
+            {
+                LoadScene(slot, save.CurrentScene);
+            }
+        }
+    }
+
+    private GameState GetSaveInSlot(int slot)
     {
         for (var i = 0; i < SavedGames.Count; i++)
         {
             if (SavedGames[i].CurrentSlot == slot)
-            {
                 return SavedGames[i];
-            }
         }
+
         return null;
+    }
+
+    public string GetSlotName(int slot)
+    {
+        var save = GetSaveInSlot(slot);
+        return (save == null) ? "Empty Slot" : string.Concat(save.CurrentScene, " (", save.SaveDate, ")");
     }
 
     private void LoadScene(int slot, string scene)
