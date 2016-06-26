@@ -27,6 +27,9 @@ public abstract class PlayerInteraction : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (GameManager.IsGamePaused)
+            return;
+
         var inside = Vector3Helper.SqrDistanceXZ(transform.position, GameManager.Player.transform.position) <= (InteractionRadius * InteractionRadius);
 
         if (inside != IsInsideRadius)

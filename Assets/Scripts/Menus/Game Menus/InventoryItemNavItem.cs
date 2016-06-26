@@ -5,7 +5,6 @@ using System.Collections;
 public class InventoryItemNavItem : NavItem
 {
     public Item.ItemType Type;
-    public Image IconImage;
     public Text Stock;
 
     private PlayerMenu _playerMenu;
@@ -17,8 +16,16 @@ public class InventoryItemNavItem : NavItem
         _playerMenu = GetComponentInParent<PlayerMenu>();
     }
 
+    protected override void OnFocus(bool value)
+    {
+        // Do stuff
+    }
+
     public override void OnSelect()
     {
-        _playerMenu.UseItem(Type);
+        if (Type != Item.ItemType.Component && Type != Item.ItemType.Null)
+        {
+            _playerMenu.UseItem(Type);
+        }
     }
 }

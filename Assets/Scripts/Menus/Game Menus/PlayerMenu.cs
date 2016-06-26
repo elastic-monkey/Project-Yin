@@ -4,9 +4,11 @@ using System.Collections;
 
 public class PlayerMenu : GameMenu
 {
+    public Text CurrencyText;
     public UpgradeSubMenu Upgrades;
     public InventorySubMenu Inventory;
 
+    private PlayerBehavior _player;
     private PlayerInventory _inventory;
     private ItemRepo _itemRepo;
 
@@ -14,6 +16,7 @@ public class PlayerMenu : GameMenu
     {
         base.Awake();
 
+        _player = GameManager.Player;
         _itemRepo = GameManager.ItemRepo;
         _inventory = GameManager.Player.Inventory;
     }
@@ -22,6 +25,7 @@ public class PlayerMenu : GameMenu
     {
         base.Open();
     
+        CurrencyText.text = _player.Currency.CurrentCredits.ToString();
         Upgrades.UpdateInfo(_itemRepo, _inventory);
         Inventory.UpdateInfo(_itemRepo, _inventory);
     }
@@ -43,8 +47,8 @@ public class PlayerMenu : GameMenu
         var item = _itemRepo.Find(type);
         if (item.CanUse() && _inventory.GetStock(type) > 0)
         {
-            _inventory.DecreaseStock(type);
             item.UseItem();
+            _inventory.DecreaseStock(type);
 
             Inventory.UpdateInfo(_itemRepo, _inventory);
         }
@@ -91,7 +95,6 @@ public class PlayerMenu : GameMenu
     public class UpgradeSubMenu
     {
         public MatrixNavMenu NavMenu;
-        public Sprite DefaultSprite;
 
         public void UpdateInfo(ItemRepo itemRepo, PlayerInventory inventory)
         {
@@ -122,28 +125,30 @@ public class PlayerMenu : GameMenu
         {
             var slotIndex = 0;
 
-            foreach (var navItems in NavMenu.Items)
+            foreach (var navItem in NavMenu.GetNavItems())
             {
-                foreach (var navItem in navItems.Items)
+                var inventoryNavItem = navItem as InventoryItemNavItem;
+                if (inventoryNavItem == null)
+                    continue;
+
+                if (slotIndex < inventory.Slots.Count)
                 {
-                    var inventoryNavItem = navItem as InventoryItemNavItem;
-                    if (inventoryNavItem == null)
-                        continue;
+                    var slot = inventory.Slots[slotIndex];
+                    var item = itemRepo.Find(slot.Type);
+                    var img = inventoryNavItem.TargetGraphic as Image;
+                    img.sprite = item.Icon;
+                    img.color = Color.white;
+                    inventoryNavItem.Type = slot.Type;
+                    inventoryNavItem.Stock.text = slot.Stock.ToString();
 
-                    if (slotIndex < inventory.Slots.Count)
-                    {
-                        var slot = inventory.Slots[slotIndex];
-                        var item = itemRepo.Find(slot.Type);
-                        inventoryNavItem.IconImage.sprite = item.Icon;
-
-                        slotIndex++;
-                    }
-                    else
-                    {
-                        inventoryNavItem.Type = Item.ItemType.Null;
-                        inventoryNavItem.IconImage.color = Color.clear;
-                        inventoryNavItem.Stock.text = 0.ToString();
-                    }
+                    slotIndex++;
+                }
+                else
+                {
+                    inventoryNavItem.Type = Item.ItemType.Null;
+                    var img = inventoryNavItem.TargetGraphic as Image;
+                    img.color = Color.clear;
+                    inventoryNavItem.Stock.text = "-";
                 }
             }
         }

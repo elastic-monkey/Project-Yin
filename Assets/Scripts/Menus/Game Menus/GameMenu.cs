@@ -9,7 +9,6 @@ public class GameMenu : MonoBehaviour
     public Axes OpenKey = Axes.None;
     public Axes CloseKey = Axes.None;
     public bool IsOpen = false;
-    public int MenuStackCount = 0;
 
     private Stack<NavMenu> _navMenusHistory;
     private bool _openNextFrame = false, _closeNextFrame = false;
@@ -53,8 +52,6 @@ public class GameMenu : MonoBehaviour
 
     private void Update()
     {
-        MenuStackCount = _navMenusHistory.Count;
-
         if (IsOpen)
         {
             if (CloseKey != Axes.None && PlayerInput.IsButtonDown(CloseKey))
@@ -62,7 +59,7 @@ public class GameMenu : MonoBehaviour
                 Close();
             }
         }
-        else
+        else if(!GameManager.IsGamePaused)
         {
             if (OpenKey != Axes.None && PlayerInput.IsButtonDown(OpenKey))
             {
@@ -75,12 +72,14 @@ public class GameMenu : MonoBehaviour
 	{
         if (_openNextFrame)
 		{
+            Debug.Log("Opened --> " + name);
             _openNextFrame = false;
 			IsOpen = true;
 		}
 
         if (_closeNextFrame)
         {
+            Debug.Log("Closed --> " + name);
             _closeNextFrame = false;
             IsOpen = false;
             GameManager.SetGamePaused(false);
@@ -89,6 +88,7 @@ public class GameMenu : MonoBehaviour
 
     public virtual void Open()
     {
+        Debug.Log("Open: " + name);
         _openNextFrame = true;
         SoundManager.PlayOpenSound();
         GameManager.SetGamePaused(true);
@@ -98,6 +98,7 @@ public class GameMenu : MonoBehaviour
 
     public virtual void Close()
     {
+        Debug.Log("Close: " + name);
         _navMenusHistory.Pop().SetActive(false);
         SoundManager.PlayCloseSound();
 
@@ -114,23 +115,33 @@ public class GameMenu : MonoBehaviour
 
     public virtual void ChangeTo(NavMenu target, bool submenu = true)
     {
-        if (!NavMenus.Contains(target))
-            return;
-
-        if (target == CurrentNavMenu)
-            return;
-
-        if (!submenu)
+        if (NavMenus.Contains(target))
         {
-            CurrentNavMenu.SetActive(false);
-        }
-        else
-        {
-            CurrentNavMenu.InputBlocked = true;
-        }
+            if (target == CurrentNavMenu)
+                return;
 
-        _navMenusHistory.Push(target);
-        target.SetActive(true);
+            if (!submenu)
+            {
+                CurrentNavMenu.SetActive(false);
+            }
+            else
+            {
+                CurrentNavMenu.InputBlocked = true;
+            }
+
+            _navMenusHistory.Push(target);
+            target.SetActive(true);
+        }
+        else // Change to outer menu
+        {
+            while (_navMenusHistory.Count > 0)
+            {
+                _navMenusHistory.Pop().SetActive(false);
+            }
+            Close();
+
+            target.Menu.Open();
+        }
     }
 
     public virtual void OnNavItemFocused(NavItem target)
