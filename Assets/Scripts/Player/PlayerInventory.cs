@@ -47,6 +47,16 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void UseItem(Item.ItemType type)
+    {
+        var item = _itemRepo.Find(type);
+        if (item.CanUse())
+        {
+            item.UseItem();
+            DecreaseStock(type);
+        }
+    }
+
     public int GetStock(Item.ItemType type)
     {
         foreach (var slot in Slots)

@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 	private bool _gameNotPausedNextFrame;
 	private List<WarriorBehavior> _players, _enemies;
 
-    public bool GamePaused
+    public bool IsGamePaused
     {
         get
         {
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         if (_gameNotPausedNextFrame)
         {
             _gameNotPausedNextFrame = false;
-            GamePaused = false;
+            IsGamePaused = false;
         }
     }
 
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
     {
         if (value)
         {
-            GamePaused = true;
+            IsGamePaused = true;
         }
         else
         {
