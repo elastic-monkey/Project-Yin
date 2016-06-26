@@ -26,7 +26,7 @@ public class PlayerMenu : GameMenu
         base.Open();
     
         CurrencyText.text = _player.Currency.CurrentCredits.ToString();
-        Upgrades.UpdateInfo(_itemRepo, _inventory);
+        Upgrades.UpdateInfo(_player);
         Inventory.UpdateInfo(_itemRepo, _inventory);
     }
 
@@ -34,7 +34,7 @@ public class PlayerMenu : GameMenu
     {
         if (CurrentNavMenu == Upgrades.NavMenu)
         {
-            Upgrades.UpdateInfo(_itemRepo, _inventory);
+            Upgrades.UpdateInfo(target, _player);
         }
         else if (CurrentNavMenu == Inventory.NavMenu)
         {
@@ -56,34 +56,15 @@ public class PlayerMenu : GameMenu
 
     public void Upgrade(Upgradable.UpgradableTypes type)
     {
-        switch (type)
-        {
-            case Upgradable.UpgradableTypes.Health:
-                Upgrade(GameManager.Player.Health);
-                break;
-
-            case Upgradable.UpgradableTypes.Shield:
-                Upgrade(GameManager.Player.Abilities.Find(Ability.AbilityType.Shield));
-                break;
-
-            case Upgradable.UpgradableTypes.Speed:
-                Upgrade(GameManager.Player.Abilities.Find(Ability.AbilityType.Speed));
-                break;
-
-            case Upgradable.UpgradableTypes.Stamina:
-                Upgrade(GameManager.Player.Stamina);
-                break;
-
-            case Upgradable.UpgradableTypes.Strength:
-                Upgrade(GameManager.Player.Abilities.Find(Ability.AbilityType.Strength));
-                break;
-        }
-
-        Upgrades.UpdateInfo(_itemRepo, _inventory);
+        Upgrade(_player.FindUpgradable(type));
+        Upgrades.UpdateInfo(_player);
     }
 
     private void Upgrade(Upgradable upgradable)
     {
+        if (upgradable == null)
+            return;
+        
         var currentLevel = upgradable.CurrentLevel;
         if (upgradable.CanBeUpgradedTo(currentLevel + 1, GameManager.Player))
         {
@@ -95,24 +76,48 @@ public class PlayerMenu : GameMenu
     public class UpgradeSubMenu
     {
         public MatrixNavMenu NavMenu;
+        public Text SkillPoints, Cost, Effect, FlavorText;
 
-        public void UpdateInfo(ItemRepo itemRepo, PlayerInventory inventory)
+        public void UpdateInfo(NavItem navItem, PlayerBehavior player)
         {
-//            var slotIndex = 0;
-//
-//            foreach (var navItems in NavMenu.Items)
-//            {
-//                foreach (var navItem in navItems.Items)
-//                {
-//                    var upgradableNavItem = navItem as UpgradableNavItem;
-//                    if (upgradableNavItem == null)
-//                        continue;
-//
-//                    upgradableNavItem.IconImage.sprite = DefaultSprite;
-//
-//                    slotIndex++;
-//                }
-//            }
+            var upgradableNavItem = navItem as UpgradableNavItem;
+            if (upgradableNavItem == null)
+                return;
+
+            var upgradable = player.FindUpgradable(upgradableNavItem.Type);
+            if (upgradable == null)
+                return;
+
+            var currentLevel = upgradable.CurrentLevel;
+            var maxLevel = (currentLevel == Upgradable.MaxLevel);
+            var upgradeCost = upgradable.UpgradeCost(currentLevel + 1);
+            var canPurchase = maxLevel ? false : player.Experience.SkillPoints >= upgradeCost;
+            Cost.text = maxLevel ? "-" : canPurchase ? upgradeCost.ToString() : string.Concat("<color=#f28f8aff>",upgradeCost,"</color>");
+            Effect.text = upgradable.GetEffectText(currentLevel + 1);
+            FlavorText.text = upgradable.GetFlavorText();
+        }
+
+        public void UpdateInfo(PlayerBehavior player)
+        {
+            foreach (var navItem in NavMenu.GetNavItems())
+            {
+                var upgradableNavItem = navItem as UpgradableNavItem;
+                if (upgradableNavItem == null)
+                    continue;
+
+                var type = upgradableNavItem.Type;
+                var upgradable = player.FindUpgradable(type);
+                var currentLevel = upgradable.CurrentLevel;
+                var level = upgradableNavItem.Level;
+
+                var active = (level <= currentLevel) || (level == currentLevel + 1 && upgradable.UpgradeCost(level) <= player.Experience.SkillPoints);
+                var purchased = (level <= currentLevel);
+
+                upgradableNavItem.SetActive(active, upgradable, purchased);
+            }
+
+            SkillPoints.text = player.Experience.SkillPoints.ToString();
+            UpdateInfo(NavMenu.GetCurrentNavItem(), player);
         }
     }
 

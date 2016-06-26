@@ -14,6 +14,8 @@ public abstract class Upgradable : MonoBehaviour
 
     public const int MaxLevel = 4;
 
+    public Color DefaultColor, ActiveColor;
+    public Sprite DefaultSprite, ActiveSprite;
     public int CurrentLevel;
 
     public int UpgradeCost(int level)
@@ -43,7 +45,6 @@ public abstract class Upgradable : MonoBehaviour
         player.Experience.ConsumeSkillPoints(UpgradeCost(level));
         CurrentLevel = level;
 
-        Debug.Log(string.Concat("Upgrading to Level: ", level));
         OnUpgradeTo(level);
 
         return true;

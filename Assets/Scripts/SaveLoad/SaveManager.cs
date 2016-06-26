@@ -104,11 +104,9 @@ public class SaveManager : MonoBehaviour
         player.Currency.CurrentCredits = state.Credits;
 
         var playerAbilities = player.GetComponent<AbilitiesManager>();
-        playerAbilities.RemoveAbilities();
-
         foreach (var sAbility in state.Abilities)
         {
-            playerAbilities.Add(Ability.DeserializeAbility(sAbility));
+            playerAbilities.Set(sAbility);
         }
 
         inventory.Slots.Clear();

@@ -120,6 +120,29 @@ public class PlayerBehavior : WarriorBehavior
         // TODO: sound or reaction
     }
 
+    public Upgradable FindUpgradable(Upgradable.UpgradableTypes type)
+    {
+        switch (type)
+        {
+            case Upgradable.UpgradableTypes.Health:
+                return Health;
+
+            case Upgradable.UpgradableTypes.Stamina:
+                return Stamina;
+                    
+            case Upgradable.UpgradableTypes.Shield:
+                return Abilities.Find(Ability.AbilityType.Shield);
+
+            case Upgradable.UpgradableTypes.Speed:
+                return Abilities.Find(Ability.AbilityType.Speed);
+
+            case Upgradable.UpgradableTypes.Strength:
+                return Abilities.Find(Ability.AbilityType.Strength);
+        }
+
+        return null;
+    }
+
     protected override void OnDeath()
     {
         throw new System.NotImplementedException();

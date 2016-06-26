@@ -50,17 +50,16 @@ public class StrengthAbility : Ability
         return new SerializableAbility(InputAxis, Type(), CurrentLevel, array);
     }
 
-    public static Ability Deserialize(SerializableAbility sAbility)
+    public static void Deserialize(StrengthAbility recipient, SerializableAbility sAbility)
     {
-        var obj = new GameObject().AddComponent<StrengthAbility>();
-        obj.name = "Strength";
-
-        obj.BaseDamageMultiplier = float.Parse(sAbility.Data[0]);
-        obj.DamageIncrement = float.Parse(sAbility.Data[1]);
-        obj.BaseStaminaMultiplier = float.Parse(sAbility.Data[2]);
-        obj.StaminaIncrement = float.Parse(sAbility.Data[3]);
-
-        return obj;
+        if (recipient == null)
+            return;
+        
+        recipient.name = "Strength";
+        recipient.BaseDamageMultiplier = float.Parse(sAbility.Data[0]);
+        recipient.DamageIncrement = float.Parse(sAbility.Data[1]);
+        recipient.BaseStaminaMultiplier = float.Parse(sAbility.Data[2]);
+        recipient.StaminaIncrement = float.Parse(sAbility.Data[3]);
     }
 
     public override AbilityType Type()

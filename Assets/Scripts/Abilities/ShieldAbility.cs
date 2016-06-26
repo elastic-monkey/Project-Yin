@@ -62,14 +62,13 @@ public class ShieldAbility : Ability
         return new SerializableAbility(InputAxis, Type(), CurrentLevel, array);
     }
 
-    public static Ability Deserialize(SerializableAbility sAbility)
+    public static void Deserialize(ShieldAbility recipient, SerializableAbility sAbility)
     {
-        var obj = new GameObject().AddComponent<ShieldAbility>();
-        obj.name = "Shield";
-
-        obj.Active = bool.Parse(sAbility.Data[0]);
-
-        return obj;
+        if (recipient == null)
+            return;
+        
+        recipient.name = "Shield";
+        recipient.Active = bool.Parse(sAbility.Data[0]);
     }
 
     public override AbilityType Type()

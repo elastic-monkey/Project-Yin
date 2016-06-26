@@ -5,7 +5,6 @@ public abstract class Ability : Upgradable
 {
     public enum AbilityType
     {
-        Vision,
         Speed,
         Shield,
         Strength,
@@ -46,36 +45,28 @@ public abstract class Ability : Upgradable
 
     public abstract SerializableAbility Serialize();
 
-    public static Ability DeserializeAbility(SerializableAbility sAbility)
+    public static void Deserialize(Ability recipient, SerializableAbility sAbility)
     {
-        Ability obj = null;
-
+        if (recipient == null)
+            return;
+        
         switch (sAbility.Type)
         {
-            case AbilityType.Shield:
-                obj = ShieldAbility.Deserialize(sAbility);
+            case Ability.AbilityType.None:
+                return;
+
+            case Ability.AbilityType.Shield:
+                ShieldAbility.Deserialize(recipient as ShieldAbility, sAbility);
+                break;
+        
+            case Ability.AbilityType.Speed:
+                SpeedAbility.Deserialize(recipient as SpeedAbility, sAbility);
                 break;
 
-            case AbilityType.Speed:
-                obj = SpeedAbility.Deserialize(sAbility);
-                break;
-
-            case AbilityType.Strength:
-                obj = StrengthAbility.Deserialize(sAbility);
-                break;
-
-            case AbilityType.Vision:
-                obj = VisionAbility.Deserialize(sAbility);
+            case Ability.AbilityType.Strength:
+                StrengthAbility.Deserialize(recipient as StrengthAbility, sAbility);
                 break;
         }
-
-        if (obj != null)
-        {
-            obj.InputAxis = sAbility.InputAxis;
-            obj.CurrentLevel = sAbility.CurrentLevel;
-        }
-
-        return obj;
     }
 
     protected override void OnUpgradeTo(int level)

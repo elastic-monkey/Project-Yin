@@ -72,14 +72,12 @@ public class GameMenu : MonoBehaviour
 	{
         if (_openNextFrame)
 		{
-            Debug.Log("Opened --> " + name);
             _openNextFrame = false;
 			IsOpen = true;
 		}
 
         if (_closeNextFrame)
         {
-            Debug.Log("Closed --> " + name);
             _closeNextFrame = false;
             IsOpen = false;
             GameManager.SetGamePaused(false);
@@ -88,7 +86,6 @@ public class GameMenu : MonoBehaviour
 
     public virtual void Open()
     {
-        Debug.Log("Open: " + name);
         _openNextFrame = true;
         SoundManager.PlayOpenSound();
         GameManager.SetGamePaused(true);
@@ -98,7 +95,6 @@ public class GameMenu : MonoBehaviour
 
     public virtual void Close()
     {
-        Debug.Log("Close: " + name);
         _navMenusHistory.Pop().SetActive(false);
         SoundManager.PlayCloseSound();
 

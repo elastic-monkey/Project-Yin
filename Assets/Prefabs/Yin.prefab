@@ -2465,22 +2465,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilitesTransform: {fileID: 426258}
   Abilities:
-  - {fileID: 0}
   - {fileID: 11462300}
   - {fileID: 11486992}
   - {fileID: 11419948}
-  AbilityHUDIcons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  AbilityActiveSprite:
-  - {fileID: 21300000, guid: b9a4d3a5987cbf54392bf6a48687c22f, type: 3}
-  - {fileID: 21300000, guid: d7defa6b6d13e96458b05794259c3694, type: 3}
-  - {fileID: 21300000, guid: f7873a68ee2d49e45b8c8b5b4f4c6a8e, type: 3}
-  AbilityInactiveSprite:
-  - {fileID: 21300000, guid: ef682f370fd7eac4ab3c76374249e20e, type: 3}
-  - {fileID: 21300000, guid: 9e1d2b8903a87604fade8f46c5f17aa9, type: 3}
-  - {fileID: 21300000, guid: 467f75cf0d7b6e14ab586576493906bb, type: 3}
 --- !u!114 &11413376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2508,6 +2495,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbbcbb43fcddfe42817794adf1bc0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.827451, g: 0.1254902, b: 0.16078432, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   Active: 0
   InputAxis: 9
@@ -2684,6 +2675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7802dfda2d811b248b3af9485dd55dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.9607843, g: 0.92941177, b: 0.5019608, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   Active: 0
   InputAxis: 10
@@ -2716,6 +2711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d196483610f2e84c9683a8f83da265a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.7176471, g: 0.6862745, b: 0.8392157, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   Active: 0
   InputAxis: 8
@@ -2748,6 +2747,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c8fad0edfb7ce44b6ea80353fc729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.9098039, g: 0.34509805, b: 0.3764706, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   HealthLevelIncrement: 20
   BaseMaxHealth: 100
@@ -2765,6 +2768,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c599bd6127982354fabd47a384295dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+  ActiveColor: {r: 0.5921569, g: 0.81960785, b: 0.8352941, a: 1}
+  DefaultSprite: {fileID: 21300000, guid: b67190b2c5d7e5e45b07b882139e01bb, type: 3}
+  ActiveSprite: {fileID: 21300000, guid: 6f5cb08df729a3040b25ccd94c5ce5db, type: 3}
   CurrentLevel: 0
   StaminaLevelIncrement: 20
   BaseMaxStamina: 100
