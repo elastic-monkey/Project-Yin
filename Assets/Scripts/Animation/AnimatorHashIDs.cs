@@ -8,7 +8,6 @@ public static class AnimatorHashIDs
     public static int SpeedMultiplierFloat = Animator.StringToHash("Speed Multiplier");
     public static int AttackingBool = Animator.StringToHash("Attacking");
     public static int DefendingBool = Animator.StringToHash("Defending");
-    public static int DodgingBool = Animator.StringToHash("Dodging");
     public static int CanMoveBool = Animator.StringToHash("CanMove");
     public static int MovingBool = Animator.StringToHash("Moving");
     public static int AttackMultiplierFloat = Animator.StringToHash("Attack Multiplier");

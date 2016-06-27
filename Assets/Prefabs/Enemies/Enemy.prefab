@@ -1242,7 +1242,6 @@ GameObject:
   - 114: {fileID: 11406946}
   - 114: {fileID: 11411534}
   - 114: {fileID: 11429630}
-  - 114: {fileID: 11480876}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -1937,7 +1936,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164624}
-  m_LocalRotation: {x: 0.6998227, y: 0.7048327, z: 0.07882881, w: -0.085118055}
+  m_LocalRotation: {x: 0.6998228, y: 0.70483273, z: 0.07882882, w: -0.08511806}
   m_LocalPosition: {x: -0.016449776, y: 0.009488263, z: -0.0026318817}
   m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 1}
   m_LocalEulerAnglesHint: {x: -13.3123, y: -179.43149, z: 89.524895}
@@ -2530,7 +2529,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136654}
-  m_LocalRotation: {x: 0.70070994, y: 0.087868236, z: -0.7030851, w: 0.08340288}
+  m_LocalRotation: {x: 0.70071, y: 0.08786824, z: -0.7030852, w: 0.08340289}
   m_LocalPosition: {x: 0.0043069287, y: 0.010911374, z: 0.014405656}
   m_LocalScale: {x: 0.9999984, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 13.912499, y: -89.8483, z: -180.346}
@@ -2586,10 +2585,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188496}
-  m_LocalRotation: {x: 0, y: 0.9914449, z: 0, w: 0.130526}
-  m_LocalPosition: {x: 4.3663235, y: 0, z: -10.157502}
+  m_LocalRotation: {x: 0, y: 0.9238796, z: 0, w: 0.38268337}
+  m_LocalPosition: {x: -13.1, y: 0, z: -8.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
   m_Children:
   - {fileID: 499550}
   - {fileID: 22415104}
@@ -2750,6 +2749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c599bd6127982354fabd47a384295dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
+  ActiveColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultSprite: {fileID: 0}
+  ActiveSprite: {fileID: 0}
   CurrentLevel: 0
   StaminaLevelIncrement: 20
   BaseMaxStamina: 100
@@ -2842,6 +2845,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c8fad0edfb7ce44b6ea80353fc729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
+  ActiveColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultSprite: {fileID: 0}
+  ActiveSprite: {fileID: 0}
   CurrentLevel: 0
   HealthLevelIncrement: 20
   BaseMaxHealth: 50
@@ -3052,23 +3059,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11480876
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a398fbceccd0c49a27424c2a6950a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanDodge: 0
-  Dodging: 0
-  StaminaComsumption: 10
-  DodgeDistance: 2
-  DodgeDuration: 1
-  _cycleTime: 0.1
 --- !u!114 &11486942
 MonoBehaviour:
   m_ObjectHideFlags: 1

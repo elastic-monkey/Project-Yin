@@ -520,7 +520,6 @@ GameObject:
   - 95: {fileID: 9501182}
   - 114: {fileID: 11479158}
   - 114: {fileID: 11461802}
-  - 114: {fileID: 11432502}
   m_Layer: 10
   m_Name: Boss
   m_TagString: Enemy
@@ -2730,6 +2729,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c599bd6127982354fabd47a384295dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
+  ActiveColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultSprite: {fileID: 0}
+  ActiveSprite: {fileID: 0}
   CurrentLevel: 0
   StaminaLevelIncrement: 20
   BaseMaxStamina: 100
@@ -2737,23 +2740,6 @@ MonoBehaviour:
   RegenerationRate: 10
   RegenerateIsOn: 1
   Regenerating: 0
---- !u!114 &11432502
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a398fbceccd0c49a27424c2a6950a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanDodge: 0
-  Dodging: 0
-  StaminaComsumption: 10
-  DodgeDistance: 2
-  DodgeDuration: 1
-  _cycleTime: 0.1
 --- !u!114 &11436470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2946,6 +2932,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c8fad0edfb7ce44b6ea80353fc729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
+  ActiveColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultSprite: {fileID: 0}
+  ActiveSprite: {fileID: 0}
   CurrentLevel: 0
   HealthLevelIncrement: 20
   BaseMaxHealth: 100

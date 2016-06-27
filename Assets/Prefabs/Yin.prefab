@@ -165,7 +165,6 @@ GameObject:
   - 114: {fileID: 11451588}
   - 114: {fileID: 11499592}
   - 114: {fileID: 11421462}
-  - 114: {fileID: 11413376}
   - 114: {fileID: 11490536}
   - 114: {fileID: 11410396}
   - 114: {fileID: 11487488}
@@ -2468,22 +2467,6 @@ MonoBehaviour:
   - {fileID: 11462300}
   - {fileID: 11486992}
   - {fileID: 11419948}
---- !u!114 &11413376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a398fbceccd0c49a27424c2a6950a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanDodge: 0
-  Dodging: 0
-  StaminaComsumption: 10
-  DodgeDistance: 3
-  DodgeDuration: 0.5
 --- !u!114 &11419948
 MonoBehaviour:
   m_ObjectHideFlags: 1

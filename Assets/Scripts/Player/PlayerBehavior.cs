@@ -96,16 +96,13 @@ public class PlayerBehavior : WarriorBehavior
         {
             Abilities.ApplyAbilities();
 
-            if (!Defense.Defending && !Dodge.Dodging)
+            if (!Defense.Defending)
                 Attack.ApplyAttack();
 
-            if (!Attack.Attacking && !Dodge.Dodging)
+            if (!Attack.Attacking)
                 Defense.ApplyDefense();
 
-            if (!Attack.Attacking && !Defense.Defending)
-                Dodge.ApplyDodge();
-
-            PlayerMovement.CanMove = !Attack.Attacking && !Defense.Defending && !Dodge.Dodging;
+            PlayerMovement.CanMove = !Attack.Attacking && !Defense.Defending;
         }
     }
 

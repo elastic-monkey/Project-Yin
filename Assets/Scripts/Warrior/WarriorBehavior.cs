@@ -13,7 +13,6 @@ public abstract class WarriorBehavior : MonoBehaviour
     private Collider[] _colliders;
     private DefenseBehavior _defenseBehavior;
     private AttackBehavior _attackBehavior;
-    private DodgeBehaviour _dodgeBehaviour;
     private Health _health;
     private Stamina _stamina;
     private Animator _animator;
@@ -41,17 +40,6 @@ public abstract class WarriorBehavior : MonoBehaviour
                 _attackBehavior = GetComponent<AttackBehavior>();
 
             return _attackBehavior;
-        }
-    }
-
-    public DodgeBehaviour Dodge
-    {
-        get
-        {
-            if (_dodgeBehaviour == null)
-                _dodgeBehaviour = GetComponent<DodgeBehaviour>();
-
-            return _dodgeBehaviour;
         }
     }
 
@@ -149,7 +137,6 @@ public abstract class WarriorBehavior : MonoBehaviour
         Animator.SetFloat(AnimatorHashIDs.SpeedMultiplierFloat, Movement.AnimSpeedMulti);
         Animator.SetBool(AnimatorHashIDs.AttackingBool, Attack.Attacking);
         Animator.SetBool(AnimatorHashIDs.DefendingBool, Defense.Defending);
-        Animator.SetBool(AnimatorHashIDs.DodgingBool, Dodge.Dodging);
         Animator.SetBool(AnimatorHashIDs.DeadBool, !Health.Alive);
 
         if (Movement.Moving && !PlayerInput.OnlyMenus)
