@@ -30,6 +30,22 @@ public class PlayerMenu : GameMenu
         Inventory.UpdateInfo(_itemRepo, _inventory);
     }
 
+    protected override void Update()
+    {
+        base.Update();
+    
+        if (CurrentNavMenu == Upgrades.NavMenu)
+        {
+            SetConfirmText("Upgrade", Axes.Confirm);
+            SetBackText("Go Back", Axes.Back);
+        }
+        else if (CurrentNavMenu == Inventory.NavMenu)
+        {
+            SetConfirmText("Use", Axes.Confirm);
+            SetBackText("Go Back", Axes.Back);
+        }
+    }
+
     public override void OnNavItemFocused(NavItem target, bool silent = false)
     {
         base.OnNavItemFocused(target, silent);

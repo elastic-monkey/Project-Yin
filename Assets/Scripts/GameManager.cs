@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
         Random.seed = System.DateTime.Now.Millisecond;
 
         _instance = this;
+
+        SaveLoad.LoadAudioSettings();
     }
 
     private void Start()

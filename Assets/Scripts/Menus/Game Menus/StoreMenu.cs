@@ -19,6 +19,22 @@ public class StoreMenu : GameMenu
         _inventory = GameManager.Player.Inventory;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+    
+        if (CurrentNavMenu == Buy.NavMenu)
+        {
+            SetConfirmText("Buy", Axes.Confirm);
+            SetBackText("Go Back", Axes.Back);
+        }
+        else if (CurrentNavMenu == Sell.NavMenu)
+        {
+            SetConfirmText("Select", Axes.Confirm);
+            SetBackText("Go Back", Axes.Back);
+        }
+    }
+
     public void BuyItem(Item.ItemType type)
     {
         var item = _itemRepo.Find(type);

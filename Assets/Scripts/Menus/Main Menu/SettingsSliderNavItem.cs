@@ -19,6 +19,11 @@ public class SettingsSliderNavItem : NavItem
 		}
 	}
 
+    protected void Start()
+    {
+        Slider.value = GameAudio.GetVolume(Facet);
+    }
+
     public override void OnSelect()
     {
         // Do stuff

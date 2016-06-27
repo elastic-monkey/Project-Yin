@@ -31,5 +31,7 @@ public class MainMenuManager : MonoBehaviour
 
 		SoundManager.InGame = false;
 		Time.timeScale = 1f;
+
+        SaveLoad.LoadAudioSettings();
 	}
 }

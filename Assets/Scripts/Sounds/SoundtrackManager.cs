@@ -47,7 +47,7 @@ public class SoundtrackManager : MonoBehaviour
 
 	private void Start()
 	{
-		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
+        SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 		CurrentState.DeltaTime = 0f;
 	}
 
@@ -75,8 +75,8 @@ public class SoundtrackManager : MonoBehaviour
 				CurrentState.ClipIndex += 1;
 
 			CurrentState.ResetDeltaTime();
-			SoundManager.Play(FightToFight, false, Volume);
-			SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
+            SoundManager.Play(FightToFight, false, Volume);
+            SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 		}
 		else if (CurrentState.Moment.Equals(Moments.Explore))
 		{
@@ -91,8 +91,8 @@ public class SoundtrackManager : MonoBehaviour
 				CurrentState.ClipIndex += 1;
 
 			CurrentState.ResetDeltaTime();
-			SoundManager.Play(ExploreToExplore, false, Volume);
-			SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
+            SoundManager.Play(ExploreToExplore, false, Volume);
+            SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 		}
 	}
 
@@ -110,8 +110,8 @@ public class SoundtrackManager : MonoBehaviour
 		CurrentState.ClipIndex = Random.Range(0, Fight.Length);
 		CurrentState.ResetDeltaTime();
 
-		SoundManager.Play(ExploreToFight, false, Volume * ExploreToFightModifier);
-		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
+        SoundManager.Play(ExploreToFight, false, Volume * ExploreToFightModifier);
+        SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 	}
 
 	public void TransitionToExplore()
@@ -128,8 +128,8 @@ public class SoundtrackManager : MonoBehaviour
 		CurrentState.ClipIndex = Random.Range(0, Explore.Length);
         CurrentState.ResetDeltaTime();
 
-		SoundManager.Play(FightToExplore, false, Volume);
-		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
+        SoundManager.Play(FightToExplore, false, Volume);
+        SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
 	}
 
 	[System.Serializable]

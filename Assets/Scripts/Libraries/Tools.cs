@@ -281,9 +281,9 @@
                     append ? FileMode.Append : FileMode.Create, FileAccess.Write);
         }
 
-        public static void SerializeToFile(string path, object serializableObject, bool persistentDataPath = false)
+        public static void SerializeToFile(string path, object serializableObject, bool append = false, bool persistentDataPath = false)
         {
-            var stream = OpenFileToWrite(path, false, persistentDataPath);
+            var stream = OpenFileToWrite(path, append, persistentDataPath);
 
             try
             {
@@ -291,7 +291,7 @@
             }
             catch(Exception e)
             {
-                Debug.LogError(string.Concat("SerializeToFile(", path,", ", serializableObject.ToString(), ", ",
+                Debug.LogWarning(string.Concat("SerializeToFile(", path,", ", serializableObject.ToString(), ", ",
                     persistentDataPath.ToString(),"): Exception Caught!\n", e.Message));
             }
             finally
@@ -300,18 +300,20 @@
             }
         }
 
-        public static T DeserializeFromFile<T>(string path, bool persistentDataPath = false)
+        public static bool DeserializeFromFile<T>(string path, out T serializedObject, bool persistentDataPath = false)
         {
             var stream = OpenFileToRead(path, persistentDataPath);
+            var success = false;
+            serializedObject = default(T);
 
             try
             {
-                var obj = (T)(new BinaryFormatter().Deserialize(stream));
-                return obj;
+                serializedObject = (T)(new BinaryFormatter().Deserialize(stream));
+                success = true;
             }
             catch(Exception e)
             {
-                Debug.LogError(string.Concat("SerializeToFile(", path,", ", persistentDataPath.ToString(),
+                Debug.LogWarning(string.Concat("SerializeToFile(", path,", ", persistentDataPath.ToString(),
                     "): Exception Caught!\n", e.Message));
             }
             finally
@@ -319,7 +321,7 @@
                 stream.Close();
             }
 
-            return default(T);
+            return success;
         }
 
         private static string CreateFileIfNotExists(string pathToFile, string fileName, bool persistentDataPath = false)

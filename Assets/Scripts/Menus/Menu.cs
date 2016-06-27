@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ public abstract class Menu : MonoBehaviour
     public int DefaultNavMenu;
     public List<NavMenu> NavMenus;
     public bool IsOpen = false;
+    public Text CommandConfirm, CommandBack;
 
     private Stack<NavMenu> _navMenusHistory;
     private bool _openNextFrame = false, _closeNextFrame = false;
@@ -34,7 +36,20 @@ public abstract class Menu : MonoBehaviour
 
     protected virtual void Update()
     {
-        // Do stuff
+        SetConfirmText("Select", Axes.Confirm);
+        SetBackText("Close", Axes.Back);
+    }
+
+    protected void SetConfirmText(string name, Axes key)
+    {
+        if (CommandConfirm != null)
+            CommandConfirm.text = string.Concat(name, " (", key.ScreenName(), ")");
+    }
+
+    protected void SetBackText(string name, Axes key)
+    {
+        if (CommandBack != null)
+            CommandBack.text = string.Concat(name, " (", key.ScreenName(), ")");
     }
 
     protected virtual void LateUpdate()

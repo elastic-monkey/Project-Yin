@@ -27,6 +27,8 @@ public class GameMenu : Menu
     {
         base.Update();
 
+        SetBackText("Close", CloseKey);
+
         if (IsOpen)
         {
             if (CloseKey != Axes.None && PlayerInput.IsButtonDown(CloseKey))

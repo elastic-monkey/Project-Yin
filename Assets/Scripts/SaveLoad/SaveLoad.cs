@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Utilities;
 
 public static class SaveLoad
 {
     private static string _savePath = "Savegame";
+    private static string _audioSettingsSavePath = "audio_settings.sav";
 
     public static void Save(bool isCheckpoint)
     {
@@ -24,6 +26,26 @@ public static class SaveLoad
         var bf = new BinaryFormatter();
         bf.Serialize(file, savedGame);
         file.Close();
+    }
+
+    public static void SaveAudioSettings()
+    {
+        Debug.Log("Save audio settings");
+        IOHelper.SerializeToFile(_audioSettingsSavePath, GameAudio.Serialize());
+    }
+
+    public static void LoadAudioSettings()
+    {
+        Debug.Log("Load audio settings");
+        SerializableAudioSettings loadSettings;
+        if (IOHelper.DeserializeFromFile<SerializableAudioSettings>(_audioSettingsSavePath, out loadSettings))
+        {
+            GameAudio.LoadFromSerialized(loadSettings);
+        }
+        else
+        {
+            SaveAudioSettings();
+        }
     }
 
     public static GameState Load(bool isCheckpoint)

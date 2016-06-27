@@ -28,9 +28,9 @@ public static class GameAudio
         SFXVolume = 0f;
     }
 
-    public static void Change(AudioFacets type, float value)
+    public static void Change(AudioFacets facet, float value)
     {
-        switch (type)
+        switch (facet)
         {
             case AudioFacets.Menus:
                 MenusVolume = Mathf.Clamp01(value);
@@ -45,4 +45,44 @@ public static class GameAudio
                 break;
         }
     }
+
+    public static float GetVolume(AudioFacets facet)
+    {
+        switch (facet)
+        {
+            case AudioFacets.Menus:
+                return MenusVolume;
+
+            case AudioFacets.Soundtrack:
+                return SoundtrackVolume;
+
+            case AudioFacets.SFX:
+                return SFXVolume;
+        }
+
+        return 0;
+    }
+
+    public static SerializableAudioSettings Serialize()
+    {
+        var obj = new SerializableAudioSettings();
+        obj.SFX = SFXVolume;
+        obj.Menus = MenusVolume;
+        obj.Soundtrack = SoundtrackVolume;
+
+        return obj;
+    }
+
+    public static void LoadFromSerialized(SerializableAudioSettings settings)
+    {
+        MenusVolume = settings.Menus;
+        SFXVolume = settings.SFX;
+        SoundtrackVolume = settings.Soundtrack;
+    }
+}
+
+[System.Serializable]
+public class SerializableAudioSettings
+{
+    public float SFX, Soundtrack, Menus;
 }

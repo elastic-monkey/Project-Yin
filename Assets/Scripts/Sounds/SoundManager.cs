@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class SoundManager : MonoBehaviour
 {
 	public int MaxAudioSources;
+    public GameAudio.AudioFacets Facet;
 	public List<AudioSource> Sources;
 
 	private void Awake()
@@ -59,7 +60,7 @@ public class SoundManager : MonoBehaviour
 
 		source.spatialBlend = 0;
 		source.dopplerLevel = 0;
-		source.volume = volume;
+        source.volume = GetRealVolume(volume);
 		source.clip = clip;
 		source.loop = loop;
 		source.Play();
@@ -86,7 +87,7 @@ public class SoundManager : MonoBehaviour
 		source.spatialBlend = 1f;
 		source.dopplerLevel = 0.2f;
 
-		source.volume = volume;
+        source.volume = GetRealVolume(volume);
 		source.clip = clip;
 		source.loop = loop;
 		source.Play();
@@ -142,7 +143,7 @@ public class SoundManager : MonoBehaviour
 
 		source.volume = 0f;
 
-		StartCoroutine(FadeVolume(source, Mathf.Min(1f, volume), duration));
+        StartCoroutine(FadeVolume(source, Mathf.Min(1f, GetRealVolume(volume)), duration));
 	}
 
 	private IEnumerator FadeVolume(AudioSource source, float targetVolume, float duration)
@@ -178,6 +179,11 @@ public class SoundManager : MonoBehaviour
 
 		Stop(source);
 	}
+
+    private float GetRealVolume(float volume)
+    {
+        return volume * GameAudio.GetVolume(Facet);
+    }
 }
 
 
