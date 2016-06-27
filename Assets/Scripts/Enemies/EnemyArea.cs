@@ -153,6 +153,10 @@ public class EnemyArea : MonoBehaviour
 	public void RemoveEnemy(EnemyBehavior enemy)
 	{
 		_enemiesAssigned.Remove(enemy);
+        if (_enemiesAssigned.Count == 0)
+        {
+            GameManager.SoundtrackManager.TransitionToExplore();
+        }
 	}
 
 	public void NotifyEnemies(WarriorBehavior target)

@@ -126,6 +126,7 @@ public class SoundtrackManager : MonoBehaviour
 
 		CurrentState.Moment = Moments.Explore;
 		CurrentState.ClipIndex = Random.Range(0, Explore.Length);
+        CurrentState.ResetDeltaTime();
 
 		SoundManager.Play(FightToExplore, false, Volume);
 		SoundManager.FadeIn(CurrentClip, FadeInDuration, Volume);
