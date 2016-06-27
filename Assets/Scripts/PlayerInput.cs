@@ -7,8 +7,8 @@ public class PlayerInput : MonoBehaviour
 	public static bool OnlyMenus = false;
 	private static Dictionary<Axes, int> _keyDown = new Dictionary<Axes, int>()
 	{
-		{ Axes.HorizontalDpad, 0 },
-		{ Axes.VerticalDpad, 0 }
+		{ Axes.MenusHorizontal, 0 },
+		{ Axes.MenusVertical, 0 }
 	};
 
 	public static float GetAxis(Axes axis)
@@ -16,7 +16,10 @@ public class PlayerInput : MonoBehaviour
 		if (InvalidAxis(axis))
 			return 0;
 
-		return Input.GetAxis(axis.InputName());
+        var kbdValue = Input.GetAxis(axis.GetKeyboardInputName());
+        var jstValue = Input.GetAxis(axis.GetJoystickInputName());
+
+        return Mathf.Clamp(kbdValue + jstValue, -1, 1);
 	}
 
 	public static float GetAxisRaw(Axes axis)
@@ -24,7 +27,10 @@ public class PlayerInput : MonoBehaviour
 		if (InvalidAxis(axis))
 			return 0;
 
-		return Input.GetAxisRaw(axis.InputName());
+        var kbdValue = Input.GetAxisRaw(axis.GetKeyboardInputName());
+        var jstValue = Input.GetAxisRaw(axis.GetJoystickInputName());
+
+        return Mathf.Clamp(kbdValue + jstValue, -1, 1);
 	}
 
 	public static bool IsButtonDown(Axes axis)
@@ -32,25 +38,35 @@ public class PlayerInput : MonoBehaviour
 		if (InvalidAxis(axis))
 			return false;
 
-		if (InputHelper.IsJoystickConnected())
-		{
-			if (axis.Equals(Axes.HorizontalDpad) || axis.Equals(Axes.VerticalDpad))
-				return (Mathf.Abs(_keyDown[axis]) == 1);
+        if (axis == Axes.MenusHorizontal)
+        {
+            return (Mathf.Abs(_keyDown[Axes.MenusHorizontal]) == 1 || Input.GetButtonDown(Axes.MenusHorizontal.GetKeyboardInputName()));
+        }
+        else if (axis == Axes.MenusVertical)
+        {
+            return (Mathf.Abs(_keyDown[Axes.MenusVertical]) == 1 || Input.GetButtonDown(Axes.MenusVertical.GetKeyboardInputName()));
+        }
+        else if (axis == Axes.QuickInventoryChange)
+        {
+            return (_keyDown[Axes.MenusVertical] == 1 || Input.GetButtonDown(Axes.QuickInventoryChange.GetKeyboardInputName()));
+        }
+        else if (axis == Axes.Speed)
+        {
+            return (_keyDown[Axes.MenusVertical] == -1 || Input.GetButtonDown(Axes.Speed.GetKeyboardInputName()));
+        }
+        else if (axis.Equals(Axes.Shield))
+        {
+            return (_keyDown[Axes.MenusHorizontal] == -1 || Input.GetButtonDown(Axes.Shield.GetKeyboardInputName()));
+        }
+        else if (axis == Axes.Strength)
+        {
+            return (_keyDown[Axes.MenusHorizontal] == 1 || Input.GetButtonDown(Axes.Strength.GetKeyboardInputName()));
+        }
 
-			if (axis.Equals(Axes.QuickInventoryChange))
-				return _keyDown[Axes.VerticalDpad] == 1;
+        var kbdValue = Input.GetButtonDown(axis.GetKeyboardInputName());
+        var jstValue = Input.GetButtonDown(axis.GetJoystickInputName());
 
-			if (axis.Equals(Axes.Speed))
-				return _keyDown[Axes.VerticalDpad] == -1;
-
-			if (axis.Equals(Axes.Shield))
-				return _keyDown[Axes.HorizontalDpad] == -1;
-
-			if (axis.Equals(Axes.Strength))
-				return _keyDown[Axes.HorizontalDpad] == 1;
-		}
-
-		return Input.GetButtonDown(axis.InputName());
+        return (kbdValue || jstValue);
 	}
 
 	public static bool IsButtonPressed(Axes axis)
@@ -58,7 +74,10 @@ public class PlayerInput : MonoBehaviour
 		if (InvalidAxis(axis))
 			return false;
 
-		return Input.GetButton(axis.InputName());
+        var kbdValue = Input.GetButton(axis.GetKeyboardInputName());
+        var jstValue = Input.GetButton(axis.GetJoystickInputName());
+
+        return (kbdValue || jstValue);
 	}
 
 	public static bool IsButtonUp(Axes axis)
@@ -66,7 +85,10 @@ public class PlayerInput : MonoBehaviour
 		if (InvalidAxis(axis))
 			return false;
 
-		return Input.GetButtonUp(axis.InputName());
+        var kbdValue = Input.GetButtonUp(axis.GetKeyboardInputName());
+        var jstValue = Input.GetButtonUp(axis.GetJoystickInputName());
+
+        return (kbdValue || jstValue);
 	}
 
 	public static bool InvalidAxis(Axes axis)
@@ -76,14 +98,14 @@ public class PlayerInput : MonoBehaviour
 
 	private void Update()
 	{
-		UpdateAxisBtnDown(Axes.HorizontalDpad);
-		UpdateAxisBtnDown(Axes.VerticalDpad);
+		UpdateAxisBtnDown(Axes.MenusHorizontal);
+		UpdateAxisBtnDown(Axes.MenusVertical);
 	}
 
 	private void UpdateAxisBtnDown(Axes axis)
 	{
 		var currentValue = _keyDown[axis];
-		var value = GetAxis(axis);
+        var value = Input.GetAxis(axis.GetJoystickInputName());
 
 		if (value == 0f)
 		{

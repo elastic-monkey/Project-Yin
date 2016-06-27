@@ -40,8 +40,8 @@ public class DodgeBehaviour : MonoBehaviour
             Dodging = true;
             BlockOtherActions(true);
 
-            Vector3 position = _rigidBody.transform.position;
-            Vector3 destination = position - _rigidBody.transform.forward.normalized * DodgeDistance;
+            var position = _rigidBody.transform.position;
+            var destination = position - _rigidBody.transform.forward.normalized * DodgeDistance;
 
             while (_elapsedTime < DodgeDuration)
             {

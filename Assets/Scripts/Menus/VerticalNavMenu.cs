@@ -11,9 +11,9 @@ public class VerticalNavMenu : NavMenu
 
     protected override void HandleInput()
     {
-        if (PlayerInput.IsButtonDown(Axes.VerticalDpad))
+        if (PlayerInput.IsButtonDown(Axes.MenusVertical))
         {
-            var v = -PlayerInput.GetAxisRaw(Axes.VerticalDpad);
+            var v = -PlayerInput.GetAxisRaw(Axes.MenusVertical);
 
             if (v > 0)
             {
@@ -24,9 +24,9 @@ public class VerticalNavMenu : NavMenu
                 FocusPrevious();
             }
         }
-        else if (PlayerInput.IsButtonDown(Axes.HorizontalDpad) && SendHorizontalInput)
+        else if (PlayerInput.IsButtonDown(Axes.MenusHorizontal) && SendHorizontalInput)
         {
-            OnHorizontalInput(_currentIndex, PlayerInput.GetAxisRaw(Axes.HorizontalDpad));
+            OnHorizontalInput(_currentIndex, PlayerInput.GetAxisRaw(Axes.MenusHorizontal));
         }
         else if (PlayerInput.IsButtonDown(Axes.Confirm))
         {

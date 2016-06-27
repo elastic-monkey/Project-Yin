@@ -5,8 +5,8 @@ using Utilities;
 public enum Axes
 {
 	None,
-	Horizontal,
-	Vertical,
+	MovementHorizontal,
+	MovementVertical,
 	Confirm,
 	Back,
 	Attack,
@@ -19,22 +19,18 @@ public enum Axes
 	QuickInventoryUse,
 	PlayerMenu,
 	PauseMenu,
-	HorizontalJoystick,
-	VerticalJoystick,
-	HorizontalDpad,
-	VerticalDpad
+	MenusHorizontal,
+	MenusVertical
 }
 
 public static class AxesHelper
 {
 	private static readonly Dictionary<Axes, string> _keyboardKeyBindings = new Dictionary<Axes, string>()
 	{
-		{ Axes.Horizontal, "Horizontal"},
-		{ Axes.Vertical, "Vertical"},
-		{ Axes.HorizontalJoystick, "Horizontal"},
-		{ Axes.VerticalJoystick, "Vertical"},
-		{ Axes.HorizontalDpad, "Horizontal"},
-		{ Axes.VerticalDpad, "Vertical"},
+		{ Axes.MovementHorizontal, "Horizontal"},
+		{ Axes.MovementVertical, "Vertical"},
+		{ Axes.MenusHorizontal, "Horizontal"},
+		{ Axes.MenusVertical, "Vertical"},
 		{ Axes.Confirm, "Confirm"},
 		{ Axes.Back, "Back"},
 		{ Axes.Attack, "Attack"},
@@ -51,12 +47,10 @@ public static class AxesHelper
 
 	private static readonly Dictionary<Axes, string> _joystickKeyBindings = new Dictionary<Axes, string>()
 	{
-		{ Axes.Horizontal, "Horizontal Joystick"},
-		{ Axes.Vertical, "Vertical Joystick"},
-		{ Axes.HorizontalJoystick, "Horizontal Joystick"},
-		{ Axes.VerticalJoystick, "Vertical Joystick"},
-		{ Axes.HorizontalDpad, "Horizontal D-pad"},
-		{ Axes.VerticalDpad, "Vertical D-pad"},
+		{ Axes.MovementHorizontal, "Horizontal Joystick"},
+		{ Axes.MovementVertical, "Vertical Joystick"},
+		{ Axes.MenusHorizontal, "Horizontal D-pad"},
+		{ Axes.MenusVertical, "Vertical D-pad"},
 		{ Axes.Confirm, "Confirm"},
 		{ Axes.Back, "Back"},
 		{ Axes.Attack, "Attack"},
@@ -73,12 +67,10 @@ public static class AxesHelper
 
 	private static readonly Dictionary<Axes, string> _joystickKeyToScreenName = new Dictionary<Axes, string>()
 	{
-		{ Axes.Horizontal, "X Axes"},
-		{ Axes.Vertical, "Y Axes"},
-		{ Axes.HorizontalJoystick, "X Axes"},
-		{ Axes.VerticalJoystick, "Y Axes"},
-		{ Axes.HorizontalDpad, "D-pad Horizontal"},
-		{ Axes.VerticalDpad, "D-pad Vertical"},
+		{ Axes.MovementHorizontal, "X Axes"},
+		{ Axes.MovementVertical, "Y Axes"},
+		{ Axes.MenusHorizontal, "D-pad Horizontal"},
+		{ Axes.MenusVertical, "D-pad Vertical"},
 		{ Axes.Confirm, "A"},
 		{ Axes.Back, "B"},
 		{ Axes.Attack, "X"},
@@ -95,12 +87,10 @@ public static class AxesHelper
 
 	private static readonly Dictionary<Axes, string> _keyboardKeyToScreenName = new Dictionary<Axes, string>()
 	{
-		{ Axes.Horizontal, "Arrow Keys"},
-		{ Axes.Vertical, "Arrow Keys"},
-		{ Axes.HorizontalJoystick, "Arrow Keys"},
-		{ Axes.VerticalJoystick, "Arrow Keys"},
-		{ Axes.HorizontalDpad, "Arrow Keys"},
-		{ Axes.VerticalDpad, "Arrow Keys"},
+		{ Axes.MovementHorizontal, "Arrow Keys"},
+		{ Axes.MovementVertical, "Arrow Keys"},
+		{ Axes.MenusHorizontal, "Arrow Keys"},
+		{ Axes.MenusVertical, "Arrow Keys"},
 		{ Axes.Confirm, "E"},
 		{ Axes.Back, "Esc"},
 		{ Axes.Attack, "Left Click"},
@@ -133,23 +123,27 @@ public static class AxesHelper
 		return s;
 	}
 
-	public static string InputName(this Axes axis)
-	{
-		var s = string.Empty;
-		if (axis == Axes.None)
-			return s;
+    public static string GetKeyboardInputName(this Axes axis)
+    {
+        var s = string.Empty;
+        if (axis == Axes.None)
+            return s;
 
-		if (InputHelper.IsJoystickConnected())
-		{
-			_joystickKeyBindings.TryGetValue(axis, out s);
-			return s;
-		}
-		else
-		{
-			_keyboardKeyBindings.TryGetValue(axis, out s);
-			return s;
-		}
-	}
+        _keyboardKeyBindings.TryGetValue(axis, out s);
+
+        return s;
+    }
+
+    public static string GetJoystickInputName(this Axes axis)
+    {
+        var s = string.Empty;
+        if (axis == Axes.None)
+            return s;
+
+        _joystickKeyBindings.TryGetValue(axis, out s);
+
+        return s;
+    }
 
 	public static Axes[] ToArray()
 	{
