@@ -2655,11 +2655,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StunDuration: 0.5
-  Range: 2
+  Range: 3
   Attacks:
-  - Damage: 20
-    Radius: 1
-    Angle: 10
+  - Damage: 40
+    Radius: 3
+    Angle: 80
     StaminaCost: 15
     Duration: 1
     HitTime: 0.76
@@ -2894,6 +2894,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b10311ec498e01f43a2a0bbf58600085, type: 3}
     - {fileID: 8300000, guid: 35444560cea2a034897011afdd4bf8be, type: 3}
     - {fileID: 8300000, guid: 6c9b0849635e21d43815f5aeffb70ab6, type: 3}
+  - Name: Idle
+    Action: 4
+    VolumeMultiplier: 1.5
+    UseVariations: 1
+    DefaultClip: 0
+    Clips:
+    - {fileID: 8300000, guid: 8492089e1b66a274ba98f1091886dddf, type: 3}
+    - {fileID: 8300000, guid: 4048c3b076dda594baf180eb48a5c4a0, type: 3}
+    - {fileID: 8300000, guid: 9cc9d91c5bfb73745bb922b9fc7f0449, type: 3}
 --- !u!114 &11479342
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2392,7 +2392,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137376}
-  m_LocalRotation: {x: -0.7063112, y: 0.033533245, z: 0.70631117, w: 0.033533253}
+  m_LocalRotation: {x: 0.7068507, y: -0.019014318, z: -0.7068513, w: 0.019019496}
   m_LocalPosition: {x: -0.019528514, y: -0.004511838, z: -0.014405639}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -5.4363, y: -4410, z: -5940}
@@ -2529,7 +2529,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136654}
-  m_LocalRotation: {x: 0.70071, y: 0.08786824, z: -0.7030852, w: 0.08340289}
+  m_LocalRotation: {x: 0.70070994, y: 0.087868236, z: -0.7030851, w: 0.08340288}
   m_LocalPosition: {x: 0.0043069287, y: 0.010911374, z: 0.014405656}
   m_LocalScale: {x: 0.9999984, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 13.912499, y: -89.8483, z: -180.346}
@@ -2585,8 +2585,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188496}
-  m_LocalRotation: {x: 0, y: 0.9238796, z: 0, w: 0.38268337}
-  m_LocalPosition: {x: -13.1, y: 0, z: -8.28}
+  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
+  m_LocalPosition: {x: -98.48, y: 0, z: -43.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
   m_Children:
@@ -2834,6 +2834,20 @@ MonoBehaviour:
     Clips:
     - {fileID: 8300000, guid: b6ba0714be57308459deaa14b082edb1, type: 3}
     - {fileID: 8300000, guid: ac86516c293b0ce41a4096e09343b624, type: 3}
+  - Name: Idle
+    Action: 4
+    VolumeMultiplier: 1
+    UseVariations: 1
+    DefaultClip: 0
+    Clips:
+    - {fileID: 8300000, guid: a6b5186ca80f7094bb10396656b9dbe9, type: 3}
+    - {fileID: 8300000, guid: 10278f8ff25a79349a0f0b32b9b89740, type: 3}
+    - {fileID: 8300000, guid: dd30689c7b36bf8418a01ede8753987e, type: 3}
+    - {fileID: 8300000, guid: c4b4350824a8dbc4c8c0481beaa5f00f, type: 3}
+    - {fileID: 8300000, guid: 097b7d5bf8aff0c4aa1bbd957af83701, type: 3}
+    - {fileID: 8300000, guid: 40e0c95362e498142a29dc255737d96a, type: 3}
+    - {fileID: 8300000, guid: b70754f6e65208c4c99c3777d307ba76, type: 3}
+    - {fileID: 8300000, guid: e201f97c0c7dcd5459d0ba586c9793da, type: 3}
 --- !u!114 &11412614
 MonoBehaviour:
   m_ObjectHideFlags: 1

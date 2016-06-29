@@ -4,6 +4,7 @@ using System.Collections;
 public class StoreInteraction : OpenMenuInteraction
 {
     public Animator Animator;
+    public StoreSoundManager SoundManager;
 
     protected override void Awake()
     {
@@ -16,6 +17,8 @@ public class StoreInteraction : OpenMenuInteraction
     {
         base.OnRadiusEnter();
 
+        SoundManager.PlayOpen();
+
         Animator.ResetTrigger(AnimatorHashIDs.StoreCloseTrigger);
         Animator.SetTrigger(AnimatorHashIDs.StoreOpenTrigger);
     }
@@ -26,6 +29,8 @@ public class StoreInteraction : OpenMenuInteraction
 
         Animator.ResetTrigger(AnimatorHashIDs.StoreOpenTrigger);
         Animator.SetTrigger(AnimatorHashIDs.StoreCloseTrigger);
+
+        SoundManager.PlayClose();
     }
 
     public override void StopInteraction()
